@@ -38,6 +38,8 @@
   padding: 0 5px 0 23px;
   line-height: 21px;
   background: transparent url('repostat.png') no-repeat 0 0;
+  /* don't display */
+  visibility: hidden;
 }
 
 .gw-watchers {
@@ -50,7 +52,7 @@
 
 .gw-lang {
   font-size: 0.8em;
-  color: #777;
+  color: #26BFB5;
 }
 
 .gw-clearer {
