@@ -102,39 +102,61 @@
                         <p><i class="fas fa-link"></i> <a
                                 href="https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html">https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html</a>
                         </p>
-                        <strong>Summary:</strong>
+                        <strong>Summary</strong>
                         <br>
                         <p>
                             In this paper, the authors propose decoupling representation learning and
                             classifier learning for long-tail data distributions. The author show that
-                            representation learning is not affected by tail distribution and therefore can
-                            leverage all data points. The classifier can then be adapted to the imbalance
-                            of the data through few method that the author compared.
+                            representation learning is not affected by tail distribution but rather takes advantage
+                            of the instance-balanced distribution. The classifier can then be adapted to the imbalance
+                            of the data through few method that the author compared. The authors concluded that 
+                            data imbalance might be an issue learning high-quality representations.
                         </p>
                         <p>
-                            Problem: Long-tail data distributions are common in real-world applications.
+                            <strong>Problem</strong> Long-tail data distributions are common in real-world applications.
                             When models are trained on such data, they tend to perform poorly on the tail
                             of the distribution.
                         </p>
                         <p>
-                            Solution and the "WHY":
+                            <strong>Solution and the "WHY"</strong> 
                         <ul>
                             <li>
                                 Network(s) Architecture:
+                                This paper focuses on convolutional neural networks (CNNs) for image
+                                classification. The authors propose a decoupling of the representation
+                                learning and classifier learning. The representation learning is done
+                                through the backbone network. The classifier learning is done through a
+                                linear model or a multi-layer perceptron (MLP).
+                                ResNet-{10, 50, 101, 152}, ResNeXt-{50, 101, 152}, 
                             </li>
                             <li>
                                 Loss Metric(s):
+                                The loss metric used is the cross-entropy loss.
+                                SGD,  Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
                             </li>
                             <li>
                                 Data Distribution for training/testing:
+                                Datasets used are ImageNet-LT, iNaturalist 2018, Places-LT, iNaturalist 2017,
+
                             </li>
                             <li>
                                 Reasoning for the approach:
+                                The authors main approach is to decouple the representation learning and
+                                classifier learning. That way, a different sampling technique can be applied to 
+                                the representation learning and the classifier learning. The authors show that
+                                representation learning is not affected by tail distribution and therefore can
+                                leverage all data points. It's actually best for the representation learning to
+                                use instance-balanced sampling. The classifier can then be adapted to the imbalance
+                                of the data through few method that the author compared. The ones that work the best 
+                                are cRT (classifier retraining where the classifier is retrained on a class-balanced
+                                sampling), thau-normalized (where the classifier's weights are normalized inversely
+                                proportional to the class frequency), and LWS (learnable weight scaling where the 
+                                thau normalized factor is learned).
                             </li>
                         </ul>
                         </p>
                         <p>
-                            Analysis and Evaluation
+                            <strong>Analysis and Evaluation</strong> 
                         <ul>
                             <li>
                                 Comparison with existing methods:
