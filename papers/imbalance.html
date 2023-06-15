@@ -1,0 +1,201 @@
+<!-- 
+    imbalance.html
+    Webpage for papers within the imbalance data category
+    It has a Classification and Regression section
+
+    Author: Josias Moukpe
+    Advisor: Dr. Chan
+    Date: 6/14/2023
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Imbalancen Papers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom right, #8B0000, #FF4500);
+            color: #333;
+        }
+
+        .root-container {
+            margin: 2em auto;
+            max-width: 90%;
+            padding: 1em 2em;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 8px;
+            /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+        }
+
+        h2 {
+            color: #444;
+            margin-bottom: 1em;
+        }
+
+        .paper-container {
+            margin-bottom: 2em;
+        }
+
+        .paper-title {
+            color: #8B0000;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/imbalance.css"> -->
+
+</head>
+
+<body>
+    <div class="root-container">
+        <a href="https://cs.fit.edu/~pkc/r/readingList.html">https://cs.fit.edu/~pkc/r/readingList.html</a>
+        <h2>Classification Group</h2>
+        <div class="papers-group">
+            <ol>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title"> Decoupling Representation and Classifier for Long-Tailed
+                            Recognition</h3>
+                        <p><i class="fas fa-user"></i> Bingyi Kang, Saining Xie, Marcus Rohrbach, Zhicheng Yan, Albert
+                            Gordo, Jiashi Feng,
+                            Yannis Kalantidis</p>
+                        <p><i class="fas fa-calendar"></i> 2020</p>
+                        <p><i class="fas fa-book"></i> ICLR</p>
+                        <p><i class="fas fa-file-alt"></i> 16</p>
+                        <p><i class="fas fa-link"></i> <a
+                                href="https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html">https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html</a>
+                        </p>
+                        <strong>Summary:</strong>
+                        <br>
+                        <p>
+                            In this paper, the authors propose decoupling representation learning and
+                            classifier learning for long-tail data distributions. The author show that
+                            representation learning is not affected by tail distribution and therefore can
+                            leverage all data points. The classifier can then be adapted to the imbalance
+                            of the data through few method that the author compared.
+                        </p>
+                        <p>
+                            Problem: Long-tail data distributions are common in real-world applications.
+                            When models are trained on such data, they tend to perform poorly on the tail
+                            of the distribution.
+                        </p>
+                        <p>
+                            Solution and the "WHY":
+                        <ul>
+                            <li>
+                                Network(s) Architecture:
+                            </li>
+                            <li>
+                                Loss Metric(s):
+                            </li>
+                            <li>
+                                Data Distribution for training/testing:
+                            </li>
+                            <li>
+                                Reasoning for the approach:
+                            </li>
+                        </ul>
+                        </p>
+                        <p>
+                            Analysis and Evaluation
+                        <ul>
+                            <li>
+                                Comparison with existing methods:
+                            </li>
+                            <li>
+                                Ablation study:
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title"> BBN: Bilateral-Branch Network with Cumulative Learning
+                            for Long-Tailed Visual Recognition</h3>
+                        <p><i class="fas fa-user"></i> Boyan Zhou, Quan Cui, Xiu-Shen Wei, Zhao-Min Chen
+                        </p>
+                        <p><i class="fas fa-calendar"></i> 2020</p>
+                        <p><i class="fas fa-book"></i> CVPR</p>
+                        <p><i class="fas fa-file-alt"></i> 10</p>
+                        <p><i class="fas fa-link"></i> <a
+                                href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_BBN_Bilateral-Branch_Network_With_Cumulative_Learning_for_Long-Tailed_Visual_Recognition_CVPR_2020_paper.pdf">https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_BBN_Bilateral-Branch_Network_With_Cumulative_Learning_for_Long-Tailed_Visual_Recognition_CVPR_2020_paper.pdf</a>
+                        </p>
+                        <strong>Summary:</strong>
+                        <br>
+                        <p>
+                            To solve data imbalance, the authors propose a bilateral branch network
+                            architecture with one branch focusing on learning from uniformly sampled
+                            distribution to the benefit of representation learning of universal patterns, and the
+                            other branch focusing learning from reversed sampled distrubtion to benefit the
+                            classification of minority classes
+                        </p>
+                        <p>
+                            Problem: Long-tail data distributions are common in real-world applications.
+                            When models are trained on such data, they tend to perform poorly on the tail
+                            of the distribution.
+                        </p>
+                        <p>
+                            Solution and the "WHY":
+                        <ul>
+                            <li>
+                                Network(s) Architecture:
+                            </li>
+                            <li>
+                                Loss Metric(s):
+                            </li>
+                            <li>
+                                Data Distribution for training/testing:
+                            </li>
+                            <li>
+                                Reasoning for the approach:
+                            </li>
+                        </ul>
+                        </p>
+                        <p>
+                            Analysis and Evaluation
+                        <ul>
+                            <li>
+                                Comparison with existing methods:
+                            </li>
+                            <li>
+                                Ablation study:
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+
+        <h2>Regression Group</h2>
+    </div>
+
+
+</body>
+
+<footer>
+    <script src="js/imbalance.js"></script>
+</footer>
+
+</html>
