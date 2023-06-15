@@ -25,8 +25,24 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to bottom right, #8B0000, #FF4500);
+            background: linear-gradient(45deg, #8B0000, #FF4500);
+            background-size: 200% 200%;
+            animation: Gradient 3s ease infinite;
             color: #333;
+        }
+
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
         }
 
         .root-container {
@@ -70,7 +86,7 @@
 <body>
     <div class="root-container">
         <a href="https://cs.fit.edu/~pkc/r/readingList.html">https://cs.fit.edu/~pkc/r/readingList.html</a>
-        <h2>Classification Group</h2>
+        <h2>Classification </h2>
         <div class="papers-group">
             <ol>
                 <li>
@@ -188,7 +204,7 @@
         </div>
 
 
-        <h2>Regression Group</h2>
+        <h2>Regression </h2>
     </div>
 
 
