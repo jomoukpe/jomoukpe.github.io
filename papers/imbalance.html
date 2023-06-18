@@ -93,19 +93,19 @@
                     <div class="paper-container">
                         <h3 class="paper-title"> Decoupling Representation and Classifier for Long-Tailed
                             Recognition</h3>
-                            <p>
-                                <strong>BibTex</strong>
-                                <br>
-                                @inproceedings{kangdecoupling, <br>
-                                    title={Decoupling Representation and Classifier for Long-Tailed Recognition}, <br>
-                                    author={Kang, Bingyi and Xie, Saining and Rohrbach, Marcus and Yan, Zhicheng and Gordo, Albert and Feng, Jiashi and Kalantidis, Yannis}, <br>
-                                    booktitle={International Conference on Learning Representations}, <br>
-                                    year={2020}, <br>
-                                    url={<a
-                                        href="https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html">https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html</a>} <br>
-                                }
-                            </p>
                         <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{
+                            kangdecoupling, <br>
+                            title={Decoupling Representation and Classifier for Long-Tailed Recognition}, <br>
+                            author={Kang, Bingyi and Xie, Saining and Rohrbach, Marcus and Yan, Zhicheng and Gordo,
+                            Albert and Feng, Jiashi and Kalantidis, Yannis}, <br>
+                            booktitle={International Conference on Learning Representations}, <br>
+                            year={2020}, <br>
+                            url={<a
+                                href="https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html">https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html</a>}
+                            }
                         </p>
                         <strong>Summary</strong>
                         <br>
@@ -114,9 +114,9 @@
                             classifier learning for long-tail data distributions. The author show that
                             representation learning is not affected by tail distribution but rather takes advantage
                             of the instance-balanced distribution. The classifier can then be adapted to the imbalance
-                            of the data through few method that the author compared. The authors concluded that 
+                            of the data through few method that the author compared. The authors concluded that
                             data imbalance might be an issue learning high-quality representations.
-                            Discuss what they did or propose - not including results 
+                            Discuss what they did or propose - not including results
                             <!-- such that you can copy and paste into the paper, 
                                 one paragraph that summarise the entire paper, difference is in ideas propopse -->
                         </p>
@@ -129,112 +129,292 @@
                             of the distribution.
                         </p>
                         <p>
-                            <strong>Solution and the "WHY"</strong> 
+                            <strong>Solution and the "WHY"</strong>
                             <!-- problem, solution, analysis should be present in a good paper -->
                         <ul>
                             <li>
-                                Network(s) Architecture:
+                                <!-- Network(s) Architecture: -->
                                 This paper focuses on convolutional neural networks (CNNs) for image
                                 classification. The authors propose a decoupling of the representation
                                 learning and classifier learning. The representation learning is done
                                 through the backbone network. The classifier learning is done through a
                                 linear model or a multi-layer perceptron (MLP).
-                                ResNet-{10, 50, 101, 152}, ResNeXt-{50, 101, 152}, 
+                                ResNet-{10, 50, 101, 152}, ResNeXt-{50, 101, 152},
                             </li>
                             <li>
-                                Loss Metric(s):
+                                <!-- Loss Metric(s): -->
                                 The loss metric used is the cross-entropy loss.
-                                SGD,  Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
+                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
                             </li>
                             <li>
-                                Data Distribution for training/testing:
+                                <!-- Data Distribution for training/testing: -->
                                 2 kinds of distribution: imbalanced and balanced
 
                             </li>
                             <li>
-                                Reasoning for the approach:
+                                <!-- Reasoning for the approach: -->
                                 The authors main approach is to decouple the representation learning and
-                                classifier learning. That way, a different sampling technique can be applied to 
+                                classifier learning. That way, a different sampling technique can be applied to
                                 the representation learning and the classifier learning. The authors show that
                                 representation learning is not affected by tail distribution and therefore can
                                 leverage all data points. It's actually best for the representation learning to
                                 use instance-balanced sampling. The classifier can then be adapted to the imbalance
-                                of the data through few method that the author compared. The ones that work the best 
+                                of the data through few method that the author compared. The ones that work the best
                                 are cRT (classifier retraining where the classifier is retrained on a class-balanced
                                 sampling), thau-normalized (where the classifier's weights are normalized inversely
-                                proportional to the class frequency), and LWS (learnable weight scaling where the 
+                                proportional to the class frequency), and LWS (learnable weight scaling where the
                                 thau normalized factor is learned).
                             </li>
                         </ul>
                         </p>
                         <p>
-                            <strong>Analysis and Evaluation</strong> 
+                            <strong>Analysis and Evaluation</strong>
                         <ul>
                             <li>
-                                Comparison with existing methods:
+                                <!-- Comparison with existing methods: -->
+                                performed better ...
                             </li>
                             <li>
-                                Ablation study:
+                                <!-- Ablation study: -->
+                                they found ...
                             </li>
                         </ul>
-                        
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../images/decoupling-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../images/decoupling-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+
+                        </div>
                     </div>
                 </li>
                 <li>
                     <div class="paper-container">
                         <h3 class="paper-title"> BBN: Bilateral-Branch Network with Cumulative Learning
                             for Long-Tailed Visual Recognition</h3>
-                        <p><i class="fas fa-user"></i> Boyan Zhou, Quan Cui, Xiu-Shen Wei, Zhao-Min Chen
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{
+                            zhou2020bbn, <br>
+                            title={Bbn: Bilateral-branch network with cumulative learning for long-tailed visual
+                            recognition}, <br>
+                            author={Zhou, Boyan and Cui, Quan and Wei, Xiu-Shen and Chen, Zhao-Min}, <br>
+                            booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern
+                            recognition}, <br>
+                            year={2020}, <br>
+                            url={<a
+                                href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_BBN_Bilateral-Branch_Network_With_Cumulative_Learning_for_Long-Tailed_Visual_Recognition_CVPR_2020_paper.pdf">https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_BBN_Bilateral-Branch_Network_With_Cumulative_Learning_for_Long-Tailed_Visual_Recognition_CVPR_2020_paper.pdf</a>}
+                            }
                         </p>
-                        <p><i class="fas fa-calendar"></i> 2020</p>
-                        <p><i class="fas fa-book"></i> CVPR</p>
-                        <p><i class="fas fa-file-alt"></i> 10</p>
-                        <p><i class="fas fa-link"></i> <a
-                                href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_BBN_Bilateral-Branch_Network_With_Cumulative_Learning_for_Long-Tailed_Visual_Recognition_CVPR_2020_paper.pdf">https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_BBN_Bilateral-Branch_Network_With_Cumulative_Learning_for_Long-Tailed_Visual_Recognition_CVPR_2020_paper.pdf</a>
-                        </p>
-                        <strong>Summary:</strong>
+                        <strong>Summary</strong>
                         <br>
                         <p>
-                            To solve data imbalance, the authors propose a bilateral branch network
-                            architecture with one branch focusing on learning from uniformly sampled
-                            distribution to the benefit of representation learning of universal patterns, and the
-                            other branch focusing learning from reversed sampled distrubtion to benefit the
-                            classification of minority classes
+                           
                         </p>
                         <p>
-                            Problem: Long-tail data distributions are common in real-world applications.
-                            When models are trained on such data, they tend to perform poorly on the tail
-                            of the distribution.
+                            <strong>Idea(s)</strong>
                         </p>
                         <p>
-                            Solution and the "WHY":
+                            <strong>Problem</strong>
+                        </p>
+                        <p>
+                            <strong>Solution and the "WHY"</strong>
+                            <!-- problem, solution, analysis should be present in a good paper -->
                         <ul>
                             <li>
-                                Network(s) Architecture:
+                                <!-- Network(s) Architecture: -->
+                                
                             </li>
                             <li>
-                                Loss Metric(s):
+                                <!-- Loss Metric(s): -->
+                                The loss metric used is the cross-entropy loss.
+                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
                             </li>
                             <li>
-                                Data Distribution for training/testing:
-                                Training imbalanced and reversed imbalance
-                                Test set is balanced
+                                <!-- Data Distribution for training/testing: -->
+                                2 kinds of distribution: imbalanced and balanced
+
                             </li>
                             <li>
-                                Reasoning for the approach:
+                                <!-- Reasoning for the approach: -->
+                                
                             </li>
                         </ul>
                         </p>
                         <p>
-                            Analysis and Evaluation
+                            <strong>Analysis and Evaluation</strong>
                         <ul>
                             <li>
-                                Comparison with existing methods:
+                                <!-- Comparison with existing methods: -->
+                                performed better ...
                             </li>
                             <li>
-                                Ablation study:
+                                <!-- Ablation study: -->
+                                they found ...
                             </li>
                         </ul>
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../images/bbn-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../images/bbn-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Balanced Meta-Softmax for Long-Tailed Visual Recognition</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{
+                            NEURIPS2020_2ba61cc3, <br>
+                            title={Balanced Meta-Softmax for Long-Tailed Visual Recognition}, <br>
+                            author={Ren, Jiawei and Yu, Cunjun and sheng, shunan and Ma, Xiao and Zhao, Haiyu and Yi, Shuai and Li, hongsheng}, <br>
+                            booktitle={Advances in Neural Information Processing Systems}, <br>
+                            year={2020}, <br>
+                            url={<a
+                                href="https://proceedings.neurips.cc/paper_files/paper/2020/file/2ba61cc3a8f44143e1f2f13b2b729ab3-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2020/file/2ba61cc3a8f44143e1f2f13b2b729ab3-Paper.pdf</a>}
+                            }
+                        </p>
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            
+                        </p>
+                        <p>
+                            <strong>Idea(s)</strong>
+                        </p>
+                        <p>
+                            <strong>Problem</strong> 
+                        </p>
+                        <p>
+                            <strong>Solution and the "WHY"</strong>
+                            <!-- problem, solution, analysis should be present in a good paper -->
+                        <ul>
+                            <li>
+                                <!-- Network(s) Architecture: -->
+                                
+                            </li>
+                            <li>
+                                <!-- Loss Metric(s): -->
+                                The loss metric used is the cross-entropy loss.
+                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
+                            </li>
+                            <li>
+                                <!-- Data Distribution for training/testing: -->
+                                2 kinds of distribution: imbalanced and balanced
+
+                            </li>
+                            <li>
+                                <!-- Reasoning for the approach: -->
+                               
+                            </li>
+                        </ul>
+                        </p>
+                        <p>
+                            <strong>Analysis and Evaluation</strong>
+                        <ul>
+                            <li>
+                                <!-- Comparison with existing methods: -->
+                                performed better ...
+                            </li>
+                            <li>
+                                <!-- Ablation study: -->
+                                they found ...
+                            </li>
+                        </ul>
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../images/meta-softmax-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Exploring balanced feature spaces for representation learning</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{
+                            NEURIPS2020_2ba61cc3, <br>
+                            title={Exploring balanced feature spaces for representation learning}, <br>
+                            author={Kang, Bingyi and Li, Yu and Xie, Sa and Yuan, Zehuan and Feng, Jiashi}, <br>
+                            booktitle={International Conference on Learning Representations}, <br>
+                            year={2021}, <br>
+                            url={<a href="https://openreview.net/pdf?id=OqtLIabPTit">
+                                https://openreview.net/pdf?id=OqtLIabPTit</a>}
+                            }
+                        </p>
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                           
+                        </p>
+                        <p>
+                            <strong>Idea(s)</strong>
+                        </p>
+                        <p>
+                            <strong>Problem</strong> 
+                        </p>
+                        <p>
+                            <strong>Solution and the "WHY"</strong>
+                            <!-- problem, solution, analysis should be present in a good paper -->
+                        <ul>
+                            <li>
+                                <!-- Network(s) Architecture: -->
+                                
+                            </li>
+                            <li>
+                                <!-- Loss Metric(s): -->
+                                The loss metric used is the cross-entropy loss.
+                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
+                            </li>
+                            <li>
+                                <!-- Data Distribution for training/testing: -->
+                                2 kinds of distribution: imbalanced and balanced
+
+                            </li>
+                            <li>
+                                <!-- Reasoning for the approach: -->
+                               
+                            </li>
+                        </ul>
+                        </p>
+                        <p>
+                            <strong>Analysis and Evaluation</strong>
+                        <ul>
+                            <li>
+                                <!-- Comparison with existing methods: -->
+                                performed better ...
+                            </li>
+                            <li>
+                                <!-- Ablation study: -->
+                                they found ...
+                            </li>
+                        </ul>
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../images/exploring-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../images/exploring-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
                 </li>
             </ol>
