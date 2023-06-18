@@ -93,14 +93,19 @@
                     <div class="paper-container">
                         <h3 class="paper-title"> Decoupling Representation and Classifier for Long-Tailed
                             Recognition</h3>
-                        <p><i class="fas fa-user"></i> Bingyi Kang, Saining Xie, Marcus Rohrbach, Zhicheng Yan, Albert
-                            Gordo, Jiashi Feng,
-                            Yannis Kalantidis</p>
-                        <p><i class="fas fa-calendar"></i> 2020</p>
-                        <p><i class="fas fa-book"></i> ICLR</p>
-                        <p><i class="fas fa-file-alt"></i> 16</p>
-                        <p><i class="fas fa-link"></i> <a
-                                href="https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html">https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html</a>
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @inproceedings{kangdecoupling, <br>
+                                    title={Decoupling Representation and Classifier for Long-Tailed Recognition}, <br>
+                                    author={Kang, Bingyi and Xie, Saining and Rohrbach, Marcus and Yan, Zhicheng and Gordo, Albert and Feng, Jiashi and Kalantidis, Yannis}, <br>
+                                    booktitle={International Conference on Learning Representations}, <br>
+                                    year={2020}, <br>
+                                    url={<a
+                                        href="https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html">https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html</a>} <br>
+                                }
+                            </p>
+                        <p>
                         </p>
                         <strong>Summary</strong>
                         <br>
@@ -111,6 +116,12 @@
                             of the instance-balanced distribution. The classifier can then be adapted to the imbalance
                             of the data through few method that the author compared. The authors concluded that 
                             data imbalance might be an issue learning high-quality representations.
+                            Discuss what they did or propose - not including results 
+                            <!-- such that you can copy and paste into the paper, 
+                                one paragraph that summarise the entire paper, difference is in ideas propopse -->
+                        </p>
+                        <p>
+                            <strong>Idea(s)</strong>
                         </p>
                         <p>
                             <strong>Problem</strong> Long-tail data distributions are common in real-world applications.
@@ -119,6 +130,7 @@
                         </p>
                         <p>
                             <strong>Solution and the "WHY"</strong> 
+                            <!-- problem, solution, analysis should be present in a good paper -->
                         <ul>
                             <li>
                                 Network(s) Architecture:
@@ -136,7 +148,7 @@
                             </li>
                             <li>
                                 Data Distribution for training/testing:
-                                Datasets used are ImageNet-LT, iNaturalist 2018, Places-LT, iNaturalist 2017,
+                                2 kinds of distribution: imbalanced and balanced
 
                             </li>
                             <li>
@@ -165,6 +177,7 @@
                                 Ablation study:
                             </li>
                         </ul>
+                        
                     </div>
                 </li>
                 <li>
@@ -204,6 +217,8 @@
                             </li>
                             <li>
                                 Data Distribution for training/testing:
+                                Training imbalanced and reversed imbalance
+                                Test set is balanced
                             </li>
                             <li>
                                 Reasoning for the approach:
