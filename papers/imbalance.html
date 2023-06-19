@@ -343,7 +343,35 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+                            The authors are tackling the problem of classification on long-tail data distributions. They observed that 
+                            the softmax function is not well suited for long-tail data distributions as it gives bias gradient estimates 
+                            under long-tail data distributions. They therefore propose a balanced softmax function that is only used during training
+                            while the conventional softmax function is used during testing or inference (in deployment). Utilizing the bayesian definition of the softmax function,
+                            they propose a balanced softmax function that is softmax with the number of samples in each class a coefficient to the exponential. This formulation
+                            of a balanced softmax during training forces the training network to output larger logits for minority classes. However, paired with a class balanced 
+                            strategy, the authors observed that minority classes were overbalanced. They needed a new sampling strategy that would work with the balanced softmax
+                            function. The proposed a meta sampler, a model that could learn that optimal sampling strategy for the balanced softmax function during training.
+                            The training routine would be in two level where the first level would be the training of the meta sampler in the inner training loop and then 
+                            the training of the network in the outer training loop. The algorithmic steps are as follows: 
+                            <ul>
+                                <li>
+                                    Obtain a minibach sampled with the meta sampler from the training set and use that minibach to train a surrogate network.
+                                    The surrogate network is used there to ensure the real network can be trained with a better batch from the meta sampler later.
+                                    This step is done once per outer loop iteration
+                                </li>
+                                <li>
+                                    A loss for the surrogate network is computed on a class balanced dataset with softmax and cross entropy and the value of the loss 
+                                    was used to update the meta sampler. This update is performed a few times per outer loop iteration.
+                                </li>
+                                <li>
+                                    The improved sampled is then used to sample a new batch for the real network to train on. This step is done once per outer loop iteration.
+                                </li>
+                            </ul>   
+                            To allow end to end training, the authors used the reparameterization trick to allow the gradient to flow through the meta sampler.
+                            The authors showed that their method outperformed the state-of-the-art methods and could be paired with 
+                            decouple learning methods to further improve performance. Their method shows strong balance between the minority and majority classes
+                            on benchmark Long Tail datasets.
+
                         </p>
                         <p>
                             <strong>Idea(s)</strong>
