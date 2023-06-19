@@ -110,18 +110,58 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            In this paper, the authors propose decoupling representation learning and
-                            classifier learning for long-tail data distributions. The author show that
-                            representation learning is not affected by tail distribution but rather takes advantage
-                            of the instance-balanced distribution. The classifier can then be adapted to the imbalance
-                            of the data through few method that the author compared. The authors concluded that
-                            data imbalance might be an issue learning high-quality representations.
-                            Discuss what they did or propose - not including results
-                            <!-- such that you can copy and paste into the paper, 
-                                one paragraph that summarise the entire paper, difference is in ideas propopse -->
+                            In this paper, the authors are tackling the problem of classification on long-tail datasets. The authors 
+                            propose decoupling representation learning and classifier learning for long-tail data distributions unlike previous 
+                            methods which would train a model jointly for both representation and classifier learning. One advantage of decoupling 
+                            that the autors point out is the ability to use different sampling techniques for the stages and see which sample technique
+                            benefit best each stage. To that end, The authors setup a Convolutional Neural Network which is composed of a backbone for
+                            representation learning and a classifier head, either linear model or a MultiLayer Perceptron, for classification. They then 
+                            employ various sampling techniques for both parts independently. For learning representations, the sampling techniques are <br>
+                            <ul>
+                                <li>Instance balanced sampling: each training example has equal probability of being sampled. As a results classes with 
+                                    greater number of samples dominate the training process. </li>
+                                </li>
+                                <li>Class-balanced sampling: it occurs in two steps where a class is uniformly selected from the set of all classes and 
+                                    then the sample is uniformly selected from the selected class. This sampling technique is used to balance the number
+                                    of samples per class. </li>
+                                </li>
+                                <li>Square-root sampling: where the Square-root of the number of examples is considered instead of the number of examples
+                                    itself.</li>
+                                </li>
+                                <li>Progressively balanced sampling: it's a mix of Instance balanced sampling and Class balanced sampling. Using the 
+                                    iteration number (epoch number), the sampling can start with Instance balanced sampling and then gradually shift to
+                                    Class balanced sampling. Unfortunately, this technique requires the total number of iterations to be known ahead of 
+                                    time.
+                                </li>
+                            </ul>
+                            <br>
+                            For classifier learning, the approaches are <br>
+                            <ul>
+                                <li>cRT: Classifier Re-training where the classifier head is retrained on class-balanced sampling </li>
+                                <li>Nearest Class Mean Cluster: where a new example is classified based on its proximity to the nearest class cluster 
+                                    mean. This technique rely more heavily on the quality of the representation learning. </li>
+                                <li> tau normalized classifier: where the norms of the classifier weights associated with each class are normalized to 
+                                to prevent the majority classes' weight to grow dominant as they normally would </li>
+                                </li>
+                                <li>LWS: Learnable Weights Scaling takes that step further and makes to normalization coefficient of the class associated 
+                                    weights learnable
+                                </li>
+                            </ul><br>
+                            
+                            After the test on few long-tail datasets, the authors show that data imbalance is not an issues for learning high quality representations.
+                            Moreover, representation learning is not affected by tail distribution but rather takes advantage
+                            of the instance-balanced distribution. But classifier learning is affected by the tail
+                            distribution and therefore needs to be balanced. The best coupling the found was instance-balanced sampling for representation learning
+                            and some balancing for classifier learning (cRT, tau-normalized, LWS).
+                            
                         </p>
                         <p>
                             <strong>Idea(s)</strong>
+                            Decoupling representation learning and classifier learning for long-tail data distributions.
+                            Representation learning is not affected by the tail distribution but rather takes advantage
+                            of the instance-balanced distribution. 
+                            majority class tend to have larger weights associated with them. Therefore normalization
+                            can restore some balance.
                         </p>
                         <p>
                             <strong>Problem</strong> Long-tail data distributions are common in real-world applications.
