@@ -254,7 +254,20 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                           
+                           In this paper, the authors are tackling the problem of classification on long-tail data distributions.
+                           They observed that balancing methods (when performed jointly) promote minority classes at the expense of the majority classes.
+                           They show through their experiments that for representation learning, using the original long-tail distribution has the 
+                           least error rate overall, while for classifier learning, using a balanced distribution has the least error rate overall. In an effort
+                           to reconcile the two, they propose a bilateral-branch network (BBN) that has two branches: one branch called the convential branch
+                           that cares about learning the original distribution for strong representation learning, and another branch called the re-balancing branch
+                           that cares about learning a reverse distribution (minority classes are more likely to be sampled) for strong classifier learning. Both branches
+                           would then be combined through a cumulative learning strategy. The cumulative learning strategy features two classifier from both branches. A classifier from the conventional branch to classify majority classes and a classifier from the
+                           re-balancing branch to classify minority classes. The cumulative learning strategy is a weighted sum of the two branches' outputs.
+                           That weight is modulated by the iteration number and follows a parabolic decay. Early in the training, more weight is given to the conventional branch
+                           and much later in the training, more weight is given to the re-balancing branch. The authors also propose a weighted cross-entropy loss that accompany 
+                           the cumulative learning strategy. During inference, both branches are considered equally and the final prediction is the average of the two branches' predictions.
+                           Their results show that their soft decoupling by transitioning from conventional learning to re-balancing learning is better than technique prior. The 
+                           norms of the classifier weights are also shown to be more balanced, with a lower standard deviation, than the prior techniques.
                         </p>
                         <p>
                             <strong>Idea(s)</strong>
