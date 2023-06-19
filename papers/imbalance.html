@@ -260,7 +260,8 @@
                            least error rate overall, while for classifier learning, using a balanced distribution has the least error rate overall. In an effort
                            to reconcile the two, they propose a bilateral-branch network (BBN) that has two branches: one branch called the convential branch
                            that cares about learning the original distribution for strong representation learning, and another branch called the re-balancing branch
-                           that cares about learning a reverse distribution (minority classes are more likely to be sampled) for strong classifier learning. Both branches
+                           that cares about learning a reverse distribution (minority classes are more likely to be sampled) for strong classifier learning. It's crucial to note
+                           that both branches share the same weights for the representation learning backbone. Both branches
                            would then be combined through a cumulative learning strategy. The cumulative learning strategy features two classifier from both branches. A classifier from the conventional branch to classify majority classes and a classifier from the
                            re-balancing branch to classify minority classes. The cumulative learning strategy is a weighted sum of the two branches' outputs.
                            That weight is modulated by the iteration number and follows a parabolic decay. Early in the training, more weight is given to the conventional branch
