@@ -706,7 +706,27 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                           
+                           In this paper, the authors investigate the geomtric structure formed by representation vectors of classes and the class prototypes.
+                           They observed that past methods fail to form regular simplex geometries in the feature space, which is crucial for the generalization of the learned representations.
+                           A regular simplex geometry is has 3 crucial characteristics
+                            <ol>
+                                 <li>the mean of all class prototypes should be the origin of the representation space</li>
+                                 <li>the class prototypes should be at a radius distance from the origin</li>
+                                 <li>the class prototypes should be vectors of which the dot product with one another can be calculated</li>
+                            </ol>
+                            Most methods fail to satisfy the 1st characteristic, which means that the mean of all class prototypes is not the origin and therefore the class 
+                            prototypes are not at equal distance from each other. To addres this the propose a 2 branch learning framework, where one branch is 
+                            used to learn a feature extractor and a classifier called the classification branch. The other branch is used 
+                            for contrastive learning called the contrastive learning branch. The classification branch employs cross-entropy loss and logit adjustment based on the
+                            class prior. The contrastive learning branch employs a novel loss called balanced contrastive loss (BCL) aiming to produce a regular simplex geometry in the feature space.
+                            The BCL loss is composed of 2 parts, a class averaging part and a class component part. During experimentation, the authors observed that
+                            when trained on imbalance data, regular Supervised Contrastive Learning (SCL), using the available expamples for each classes, grows the 
+                            gradients for head classes far more than the tail classes. This is because the head classes have more examples than the tail classes. To alleviate that
+                            class averaging works by averaging the instances of each class in a minibach so that each class has the same approximate contribution to the optimization.
+                            The class component part, which carries the bulk of the positive results obtained, consists of introducing a class prototype for each class in all the minibatches.
+                            This allows all classes to be represented in all minibatches and therefore all classes contribute to the optimization stably. The class prototypes here are obtained 
+                            from the MLP projection of the class specific weights of the linear classifier in the classification branch. The whole system is trained end-to-end.
+                            
                         </p>
                         <p>
                             <strong>Problem</strong> 
@@ -714,8 +734,13 @@
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-                            
-                        
+                            <ol>
+                                <li>balanced feature space has a regular simplex geometry</li>
+                                <li>class averaging reduces the effect head classes dominating the gradients in optimization</li>
+                                <li>class component introduces class prototypes in all minibatches so that all classes contribute to the optimization stably</li>
+                                <li>logit adjustment for classifier logits using the imbalanced class priors</li>      
+                                <li>class prototypes are obtained from the MLP projection of the class specific weights of the linear classifier in the classification branch</li>
+                            </ol>
                         </p>
                         
                         <strong>Images</strong><br>
