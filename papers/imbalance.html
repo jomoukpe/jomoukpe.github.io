@@ -156,55 +156,24 @@
                             
                         </p>
                         <p>
-                            <strong>Idea(s)</strong>
-                            Decoupling representation learning and classifier learning for long-tail data distributions.
-                            Representation learning is not affected by the tail distribution but rather takes advantage
-                            of the instance-balanced distribution. 
-                            majority class tend to have larger weights associated with them. Therefore normalization
-                            can restore some balance.
-                        </p>
-                        <p>
                             <strong>Problem</strong> Long-tail data distributions are common in real-world applications.
                             When models are trained on such data, they tend to perform poorly on the tail
                             of the distribution.
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
-                            
-                        <ul>
-                            <li>
-                                
-                                This paper focuses on convolutional neural networks (CNNs) for image
-                                classification. The authors propose a decoupling of the representation
-                                learning and classifier learning. The representation learning is done
-                                through the backbone network. The classifier learning is done through a
-                                linear model or a multi-layer perceptron (MLP).
-                                ResNet-{10, 50, 101, 152}, ResNeXt-{50, 101, 152},
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
+                            <strong>Solution, Ideas and Why</strong>
+                            The authors main approach is to decouple the representation learning and
+                            classifier learning. That way, a different sampling technique can be applied to
+                            the representation learning and the classifier learning. The authors show that
+                            representation learning is not affected by tail distribution and therefore can
+                            leverage all data points. It's actually best for the representation learning to
+                            use instance-balanced sampling. The classifier can then be adapted to the imbalance
+                            of the data through few method that the author compared. The ones that work the best
+                            are cRT (classifier retraining where the classifier is retrained on a class-balanced
+                            sampling), thau-normalized (where the classifier's weights are normalized inversely
+                            proportional to the class frequency), and LWS (learnable weight scaling where the
+                            thau normalized factor is learned).
 
-                            </li>
-                            <li>
-                                
-                                The authors main approach is to decouple the representation learning and
-                                classifier learning. That way, a different sampling technique can be applied to
-                                the representation learning and the classifier learning. The authors show that
-                                representation learning is not affected by tail distribution and therefore can
-                                leverage all data points. It's actually best for the representation learning to
-                                use instance-balanced sampling. The classifier can then be adapted to the imbalance
-                                of the data through few method that the author compared. The ones that work the best
-                                are cRT (classifier retraining where the classifier is retrained on a class-balanced
-                                sampling), thau-normalized (where the classifier's weights are normalized inversely
-                                proportional to the class frequency), and LWS (learnable weight scaling where the
-                                thau normalized factor is learned).
-                            </li>
                         </ul>
                         </p>
                         
@@ -259,14 +228,12 @@
                            Their results show that their soft decoupling by transitioning from conventional learning to re-balancing learning is better than technique prior. The 
                            norms of the classifier weights are also shown to be more balanced, with a lower standard deviation, than the prior techniques.
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong>
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
                         <ul>
                             <li>
@@ -352,35 +319,14 @@
                             on benchmark Long Tail datasets.
 
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -416,35 +362,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -480,35 +405,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -544,35 +448,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -608,35 +491,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -672,35 +534,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -736,35 +577,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -800,35 +620,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -866,35 +665,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -931,34 +709,13 @@
                            
                         </p>
                         <p>
-                            <strong>Idea(s)</strong>
-                        </p>
-                        <p>
                             <strong>Problem</strong> 
+                            Current approaches to long-tailed visual recognition  (LTVR) fail to form regular simplex geometries in the feature space, which is crucial for the generalization of the learned representations.
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -994,35 +751,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -1056,35 +792,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -1118,35 +833,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -1180,35 +874,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -1242,35 +915,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
@@ -1304,35 +956,14 @@
                         <p>
                            
                         </p>
-                        <p>
-                            <strong>Idea(s)</strong>
-                        </p>
+                       
                         <p>
                             <strong>Problem</strong> 
                         </p>
                         <p>
-                            <strong>Solution and why</strong>
+                            <strong>Solution, Ideas and Why</strong>
                             
-                        <ul>
-                            <li>
-                                
-                                
-                            </li>
-                            <li>
-                                
-                                The loss metric used is the cross-entropy loss.
-                                SGD, Momentum of .9, batch size of 512, cosine learning rate schedule (.2, 0)
-                            </li>
-                            <li>
-                               
-                                2 kinds of distribution: imbalanced and balanced
-
-                            </li>
-                            <li>
-                                
-                               
-                            </li>
-                        </ul>
+                        
                         </p>
                         
                         <strong>Images</strong><br>
