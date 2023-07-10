@@ -663,16 +663,42 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                           
+                           In this paper, the authors propose a simple but effective module called RSG to address the long-tail problem. RSG works by 
+                            generating new samples for the rare classes. RSG uses variation information among the real samples from the frequent classes to 
+                            generate new samples for the rare classes. RSG is composed of 3 modules: 
+                            <ol>
+                                <li>Center estimation module: to find class feature centers</li>
+                                <li>Contrastive module: to check if 2 feature maps are from the same class</li>
+                                <li>Vector Transformation module: generate new rare samples with displacement vectors</li>
+                            </ol>
+                            The center estimation module and the contrastive module are both trained using a a center estimation with sample contrastive loss
+                            and the vector transformation module is trained using a maximized vector loss. Injected between layers of a CNN, RSG takes the feature 
+                            maps from the previous layer and outputs new synthetic samples for the rare classes. The center estimation module estimates takes the feature
+                            maps and estimate a set of centers in each clas which can be used a anchor for obtaining feature displacement of each sample. It is implemented 
+                            as a linear model. The contrastive module ensures that no frequent-class-relevent information is present in the feature displacement. It is implemented
+                            with a CNN that will output a probability distribution of yes/no that 2 feature maps belong to the same class. The vector transformation module 
+                            calculates the feature displacement of each frequent-class sample based on estimated centers and use the displacement to generate
+                            new samples for the rare classes. First a displacement vector is calculated for each sample by subtracting the sample's feature map from its closest 
+                            upsampled center. Then the displacement vector is transformed by a convolutional layer to produce a displacement vector that will be applied the rare-class
+                            sample as opposed to the center to push away the decision boundary, thus enlarging the feature space. The transformed vector is optimized by a maximized vector loss
+                            to be collinear with the rare-class displacement vector to its center. the loss function is a linear combination of the center estimation with sample contrastive loss
+                            , the maximized vector loss and the classification loss. 
+
                         </p>
-                       
                         <p>
                             <strong>Problem</strong> 
+                            Current methods on long-tail recognition lacks good generalization because they are not trained end to end, and
+                            variation information used to produce new synthetic data sample are not class-irrelevent. 
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-                            
-                        
+                            <ol>
+                                <li>Rare-class sample generator which can be trained end to end</li>
+                                <li>Assuming class samples follow a multinomial distribution so there can be center(s) for each class</li>
+                                <li>Feature displacement indicates the displacement of a sample to its corresponding center in a class and should not contain class-relevent information</li>
+                                <li>Adding feature displacement vector to rare-class samples instead of centers to improve the decision boundary</li>
+                                <li>Transformed freq class displacement vector should be collinear to rare-class displacement vector of the sample to be applied to</li>
+                            </ol>
                         </p>
                         
                         <strong>Images</strong><br>
