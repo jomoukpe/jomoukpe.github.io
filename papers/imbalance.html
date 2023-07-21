@@ -887,10 +887,15 @@
                        
                         <p>
                             <strong>Problem</strong> 
+                            supervised contrastive learning baseline suffer from poor uniformity brought in by imbalanced data distribution. Poor uniformity 
+                            leads to poor separability in feature space.
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-                            
+                            <ol>
+                                <li>generate uniform simplex geometry targets offline using stochastic gradient descent</li>
+                                <li>assign each class to a target using hungarian algorithm</li>
+                            </ol>
                         
                         </p>
                         
@@ -905,23 +910,20 @@
                         </div>
                     </div>
                 </li>
-                <!-- <li>
+                <li>
                     <div class="paper-container">
                         <h3 class="paper-title">Self-Supervised Aggregation of Diverse Experts for Test-Agnostic Long-Tailed Recognition</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            @inproceedings{
-                                wanglong, <br>
-                            title={Long-tailed Recognition by Routing Diverse Distribution-Aware Experts}, <br>
-                            author={Wang, Xudong and Lian, Long and Miao, Zhongqi and Liu, Ziwei and Yu, Stella}, <br>
-                            booktitle={International Conference on Learning Representations}, <br>
-                            year={2020}, <br>
-                            url={<a href="https://openreview.net/pdf?id=D9I3drBz4UC">
-                                https://openreview.net/pdf?id=D9I3drBz4UC</a>}
-                            }
+                            @inproceedings{zhang2022sade, <br>
+                            title={Self-supervised aggregation of diverse experts for test-agnostic long-tailed recognition}, <br>
+                            author={Zhang, Yifan and Hooi, Bryan and Hong, Lanqing and Feng, Jiashi}, <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2022}} <br>
                         </p>
+                        url=<a href="https://openreview.net/pdf?id=m7CmxlpHTiu">https://openreview.net/pdf?id=m7CmxlpHTiu</a><br>
                         <strong>Summary</strong>
                         <br>
                         <p>
@@ -940,29 +942,31 @@
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../images/experts-fig1.PNG" class="img-fluid rounded" alt="...">
+                                <img src="../images/sade-fig1.PNG" class="img-fluid rounded" alt="...">
                             </div>
-                
+                            <div class="col">
+                                <img src="../images/sade-fig2.PNG" class="img-fluid rounded" alt="...">
+                            </div>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">Decoupled Training for Long-Tailed Classification With Stochastic Representations</h3>
+                        <h3 class="paper-title">Self Supervision to Distillation for Long-Tailed Visual Recognition</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            @inproceedings{
-                                wanglong, <br>
-                            title={Long-tailed Recognition by Routing Diverse Distribution-Aware Experts}, <br>
-                            author={Wang, Xudong and Lian, Long and Miao, Zhongqi and Liu, Ziwei and Yu, Stella}, <br>
-                            booktitle={International Conference on Learning Representations}, <br>
-                            year={2020}, <br>
-                            url={<a href="https://openreview.net/pdf?id=D9I3drBz4UC">
-                                https://openreview.net/pdf?id=D9I3drBz4UC</a>}
-                            }
+                            @inproceedings{li2021ssd, <br>
+                            title={Self supervision to distillation for long-tailed visual recognition}, <br>
+                            author={Li, Tianhao and Wang, Limin and Wu, Gangshan}, <br>
+                            booktitle={Proceedings of the IEEE/CVF international conference on computer vision}, <br>
+                            year={2021}} <br>
+                            
                         </p>
+                        url=<a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Li_Self_Supervision_to_Distillation_for_Long-Tailed_Visual_Recognition_ICCV_2021_paper.pdf">
+                            https://openaccess.thecvf.com/content/ICCV2021/papers/Li_Self_Supervision_to_Distillation_for_Long-Tailed_Visual_Recognition_ICCV_2021_paper.pdf</a><br>
+                        
                         <strong>Summary</strong>
                         <br>
                         <p>
@@ -981,29 +985,31 @@
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../images/experts-fig1.PNG" class="img-fluid rounded" alt="...">
+                                <img src="../images/ssd-fig1.PNG" class="img-fluid rounded" alt="...">
                             </div>
-                
+                            <div class="col">
+                                <img src="../images/ssd-fig2.PNG" class="img-fluid rounded" alt="...">
+                            </div>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">CUDA: Curriculum of data augmentation for long-tailed recognition</h3>
+                        <h3 class="paper-title">Decoupled Training for Long-Tailed Classification with Stochastic Representations</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            @inproceedings{
-                                wanglong, <br>
-                            title={Long-tailed Recognition by Routing Diverse Distribution-Aware Experts}, <br>
-                            author={Wang, Xudong and Lian, Long and Miao, Zhongqi and Liu, Ziwei and Yu, Stella}, <br>
-                            booktitle={International Conference on Learning Representations}, <br>
-                            year={2020}, <br>
-                            url={<a href="https://openreview.net/pdf?id=D9I3drBz4UC">
-                                https://openreview.net/pdf?id=D9I3drBz4UC</a>}
-                            }
+                            @inproceedings{nam2023srepr, <br>
+                            title={Decoupled Training for Long-Tailed Classification With Stochastic Representations}, <br>
+                            author={Nam, Giung and Jang, Sunguk and Lee, Juho}, <br>
+                            journal={The Eleventh International Conference on Learning Representations}, <br>
+                            year={2023}} <br>
+                            
                         </p>
+
+                        url=<a href="https://openreview.net/pdf?id=bcYZwYo-0t">https://openreview.net/pdf?id=bcYZwYo-0t</a><br>
+                        
                         <strong>Summary</strong>
                         <br>
                         <p>
@@ -1022,12 +1028,14 @@
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../images/experts-fig1.PNG" class="img-fluid rounded" alt="...">
+                                <img src="../images/srepr-fig1.PNG" class="img-fluid rounded" alt="...">
                             </div>
-                
+                            <div class="col">
+                                <img src="../images/srepr-fig2.PNG" class="img-fluid rounded" alt="...">
+                            </div>
                         </div>
                     </div>
-                </li> -->
+                </li>
             </ol>
         </div>
 
