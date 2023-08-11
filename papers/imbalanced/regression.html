@@ -1,0 +1,566 @@
+<!-- 
+    imbalance.html
+    Webpage for papers within the imbalance data category
+    It has a Classification and Regression section
+
+    Author: Josias Moukpe
+    Advisor: Dr. Chan
+    Date: 6/14/2023
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Imbalanced Papers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(45deg, #8B0000, #FF4500);
+            background-size: 200% 200%;
+            animation: Gradient 3s ease infinite;
+            color: #333;
+        }
+
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        .root-container {
+            margin: 2em auto;
+            max-width: 90%;
+            padding: 1em 2em;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 8px;
+            /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+        }
+
+        h2 {
+            color: #444;
+            margin-bottom: 1em;
+        }
+
+        .paper-container {
+            margin-bottom: 2em;
+        }
+
+        .paper-title {
+            color: #8B0000;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="css/style.css">
+         <link rel="stylesheet" href="css/imbalance.css"> -->
+
+</head>
+
+<body>
+    <div class="root-container">
+        <a href="https://cs.fit.edu/~pkc/r/readingList.html">https://cs.fit.edu/~pkc/r/readingList.html</a>
+        <h2>Regression</h2>
+        <div class="papers-group">
+            <ol>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title"> Decoupling Representation and Classifier for Long-Tailed
+                            Recognition</h3>
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{
+                            kang2020decoupling, <br>
+                            title={Decoupling Representation and Classifier for Long-Tailed Recognition}, <br>
+                            author={Kang, Bingyi and Xie, Saining and Rohrbach, Marcus and Yan, Zhicheng and Gordo,
+                            Albert and Feng, Jiashi and Kalantidis, Yannis}, <br>
+                            booktitle={International Conference on Learning Representations}, <br>
+                            year={2020}}
+                        </p>
+                        url=<a
+                            href="https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html">https://iclr.cc/virtual_2020/poster_r1gRTCVFvB.html</a><br>
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            In this paper, the authors are tackling the problem of classification on long-tail datasets.
+                            The authors
+                            propose decoupling representation learning and classifier learning for long-tail data
+                            distributions unlike previous
+                            methods which would train a model jointly for both representation and classifier learning.
+                            One advantage of decoupling
+                            that the autors point out is the ability to use different sampling techniques for the stages
+                            and see which sample technique
+                            benefit best each stage. To that end, The authors setup a Convolutional Neural Network which
+                            is composed of a backbone for
+                            representation learning and a classifier head, either linear model or a MultiLayer
+                            Perceptron, for classification. They then
+                            employ various sampling techniques for both parts independently. For learning
+                            representations, the sampling techniques are <br>
+                        <ul>
+                            <li>Instance balanced sampling: each training example has equal probability of being
+                                sampled. As a results classes with
+                                greater number of samples dominate the training process. </li>
+                </li>
+                <li>Class-balanced sampling: it occurs in two steps where a class is uniformly selected from the set of
+                    all classes and
+                    then the sample is uniformly selected from the selected class. This sampling technique is used to
+                    balance the number
+                    of samples per class. </li>
+                </li>
+                <li>Square-root sampling: where the Square-root of the number of examples is considered instead of the
+                    number of examples
+                    itself.</li>
+                </li>
+                <li>Progressively balanced sampling: it's a mix of Instance balanced sampling and Class balanced
+                    sampling. Using the
+                    iteration number (epoch number), the sampling can start with Instance balanced sampling and then
+                    gradually shift to
+                    Class balanced sampling. Unfortunately, this technique requires the total number of iterations to be
+                    known ahead of
+                    time.
+                </li>
+                </ul>
+                <br>
+                For classifier learning, the approaches are <br>
+                <ul>
+                    <li>cRT: Classifier Re-training where the classifier head is retrained on class-balanced sampling
+                    </li>
+                    <li>Nearest Class Mean Cluster: where a new example is classified based on its proximity to the
+                        nearest class cluster
+                        mean. This technique rely more heavily on the quality of the representation learning. </li>
+                    <li> tau normalized classifier: where the norms of the classifier weights associated with each class
+                        are normalized to
+                        to prevent the majority classes' weight to grow dominant as they normally would </li>
+                    </li>
+                    <li>LWS: Learnable Weights Scaling takes that step further and makes to normalization coefficient of
+                        the class associated
+                        weights learnable
+                    </li>
+                </ul><br>
+
+                After the test on few long-tail datasets, the authors show that data imbalance is not an issues for
+                learning high quality representations.
+                Moreover, representation learning is not affected by tail distribution but rather takes advantage
+                of the instance-balanced distribution. But classifier learning is affected by the tail
+                distribution and therefore needs to be balanced. The best coupling the found was instance-balanced
+                sampling for representation learning
+                and some balancing for classifier learning (cRT, tau-normalized, LWS).
+
+                </p>
+                <p>
+                    <strong>Problem</strong>
+                    imbalanced input distribution cause the model to be biased towards the majority classes and
+                    therefore perform poorly on the minority classes.
+                </p>
+                <p>
+                    <strong>Solution, Ideas and Why</strong>
+                    The authors main approach is to decouple the representation learning and
+                    classifier learning. That way, a different sampling technique can be applied to
+                    the representation learning and the classifier learning. The authors show that
+                    representation learning is not affected by tail distribution and therefore can
+                    leverage all data points. It's actually best for the representation learning to
+                    use instance-balanced sampling. The classifier can then be adapted to the imbalance
+                    of the data through few method that the author compared. The ones that work the best
+                    are cRT (classifier retraining where the classifier is retrained on a class-balanced
+                    sampling), thau-normalized (where the classifier's weights are normalized inversely
+                    proportional to the class frequency), and LWS (learnable weight scaling where the
+                    thau normalized factor is learned).
+
+                    </ul>
+                </p>
+
+                <strong>Images</strong><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="../../images/imb_reg/decoupling-fig1.png" class="img-fluid rounded" alt="...">
+                    </div>
+                    <div class="col">
+                        <img src="../../images/imb_reg/decoupling-fig2.png" class="img-fluid rounded" alt="...">
+                    </div>
+
+                </div>
+        </div>
+        </li>
+        <li>
+            <div class="paper-container">
+                <h3 class="paper-title"> BBN: Bilateral-Branch Network with Cumulative Learning
+                    for Long-Tailed Visual Recognition</h3>
+
+                <p>
+                    <strong>BibTex</strong>
+                    <br>
+                    @inproceedings{
+                    zhou2020bbn, <br>
+                    title={Bbn: Bilateral-branch network with cumulative learning for long-tailed visual
+                    recognition}, <br>
+                    author={Zhou, Boyan and Cui, Quan and Wei, Xiu-Shen and Chen, Zhao-Min}, <br>
+                    booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern
+                    recognition}, <br>
+                    year={2020}}
+                </p>
+                url=<a
+                    href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_BBN_Bilateral-Branch_Network_With_Cumulative_Learning_for_Long-Tailed_Visual_Recognition_CVPR_2020_paper.pdf">
+                    https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_BBN_Bilateral-Branch_Network_With_Cumulative_Learning_for_Long-Tailed_Visual_Recognition_CVPR_2020_paper.pdf</a><br>
+                <strong>Summary</strong>
+                <br>
+                <p>
+                    In this paper, the authors are tackling the problem of classification on long-tail data
+                    distributions.
+                    They observed that balancing methods (when performed jointly) promote minority classes at the
+                    expense of the majority classes.
+                    They show through their experiments that for representation learning, using the original long-tail
+                    distribution has the
+                    least error rate overall, while for classifier learning, using a balanced distribution has the least
+                    error rate overall. In an effort
+                    to reconcile the two, they propose a bilateral-branch network (BBN) that has two branches: one
+                    branch called the convential branch
+                    that cares about learning the original distribution for strong representation learning, and another
+                    branch called the re-balancing branch
+                    that cares about learning a reverse distribution (minority classes are more likely to be sampled)
+                    for strong classifier learning. It's crucial to note
+                    that both branches share the same weights for the representation learning backbone. Both branches
+                    would then be combined through a cumulative learning strategy. The cumulative learning strategy
+                    features two classifier from both branches. A classifier from the conventional branch to classify
+                    majority classes and a classifier from the
+                    re-balancing branch to classify minority classes. The cumulative learning strategy is a weighted sum
+                    of the two branches' outputs.
+                    That weight is modulated by the iteration number and follows a parabolic decay. Early in the
+                    training, more weight is given to the conventional branch
+                    and much later in the training, more weight is given to the re-balancing branch. The authors also
+                    propose a weighted cross-entropy loss that accompany
+                    the cumulative learning strategy. During inference, both branches are considered equally and the
+                    final prediction is the average of the two branches' predictions.
+                    Their results show that their soft decoupling by transitioning from conventional learning to
+                    re-balancing learning is better than technique prior. The
+                    norms of the classifier weights are also shown to be more balanced, with a lower standard deviation,
+                    than the prior techniques.
+                </p>
+
+                <p>
+                    <strong>Problem</strong>
+                    imbalanced input distribution cause the classifier to be biased towards majority classes even though
+                    the feature extractor is
+                    performant under the original distribution.
+                </p>
+                <p>
+                    <strong>Solution, Ideas and Why</strong><br>
+                    2 branches are used: one branch for representation learning and another branch for classifier
+                    learning. The representation learning branch
+                    is trained on the original distribution while the classifier learning branch is trained on a reverse
+                    distribution. The two branches are then combined
+                    through a cumulative learning strategy where the weight of each branch is modulated by the iteration
+                    number according to a curriculum.
+                </p>
+
+                <strong>Images</strong><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="../../images/imb_reg/bbn-fig1.png" class="img-fluid rounded" alt="...">
+                    </div>
+                    <div class="col">
+                        <img src="../../images/imb_reg/bbn-fig2.png" class="img-fluid rounded" alt="...">
+                    </div>
+
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="paper-container">
+                <h3 class="paper-title">Balanced Meta-Softmax for Long-Tailed Visual Recognition</h3>
+
+                <p>
+                    <strong>BibTex</strong>
+                    <br>
+                    @inproceedings{
+                    ren2020balsoftmax, <br>
+                    title={Balanced Meta-Softmax for Long-Tailed Visual Recognition}, <br>
+                    author={Ren, Jiawei and Yu, Cunjun and sheng, shunan and Ma, Xiao and Zhao, Haiyu and Yi, Shuai and
+                    Li, hongsheng}, <br>
+                    booktitle={Advances in Neural Information Processing Systems}, <br>
+                    year={2020}}
+                </p>
+
+                url=<a
+                    href="https://proceedings.neurips.cc/paper_files/paper/2020/file/2ba61cc3a8f44143e1f2f13b2b729ab3-Paper.pdf">
+                    https://proceedings.neurips.cc/paper_files/paper/2020/file/2ba61cc3a8f44143e1f2f13b2b729ab3-Paper.pdf</a><br>
+                <strong>Summary</strong>
+                <br>
+                <p>
+                    The authors are tackling the problem of classification on long-tail data distributions. They
+                    observed that
+                    the softmax function is not well suited for long-tail data distributions as it gives bias gradient
+                    estimates
+                    under long-tail data distributions. They therefore propose a balanced softmax function that is only
+                    used during training
+                    while the conventional softmax function is used during testing or inference (in deployment).
+                    Utilizing the bayesian definition of the softmax function,
+                    they propose a balanced softmax function that is softmax with the number of samples in each class a
+                    coefficient to the exponential. This formulation
+                    of a balanced softmax during training forces the training network to output larger logits for
+                    minority classes. However, paired with a class balanced
+                    strategy, the authors observed that minority classes were overbalanced. They needed a new sampling
+                    strategy that would work with the balanced softmax
+                    function. The proposed a meta sampler, a model that could learn that optimal sampling strategy for
+                    the balanced softmax function during training.
+                    The training routine would be in two level where the first level would be the training of the meta
+                    sampler in the inner training loop and then
+                    the training of the network in the outer training loop. The algorithmic steps are as follows:
+                <ul>
+                    <li>
+                        Obtain a minibach sampled with the meta sampler from the training set and use that minibach to
+                        train a surrogate network.
+                        The surrogate network is used there to ensure the real network can be trained with a better
+                        batch from the meta sampler later.
+                        This step is done once per outer loop iteration
+                    </li>
+                    <li>
+                        A loss for the surrogate network is computed on a class balanced dataset with softmax and cross
+                        entropy and the value of the loss
+                        was used to update the meta sampler. This update is performed a few times per outer loop
+                        iteration.
+                    </li>
+                    <li>
+                        The improved sampled is then used to sample a new batch for the real network to train on. This
+                        step is done once per outer loop iteration.
+                    </li>
+                </ul>
+                To allow end to end training, the authors used the reparameterization trick to allow the gradient to
+                flow through the meta sampler.
+                The authors showed that their method outperformed the state-of-the-art methods and could be paired with
+                decouple learning methods to further improve performance. Their method shows strong balance between the
+                minority and majority classes
+                on benchmark Long Tail datasets.
+
+                </p>
+
+                <p>
+                    <strong>Problem</strong>
+                    output logits are not balanced for long-tail data distributions, majority classes have larger logits
+                    than minority classes. This may
+                    lead to poor performance on minority classes.
+                </p>
+                <p>
+                    <strong>Solution, Ideas and Why</strong>
+                    The authors propose a balanced softmax function that is only used during training. The balanced
+                    softmax function is softmax with the number of samples in each
+                    class a coefficient to the exponential. This formulation of a balanced softmax during training
+                    forces the training network to output larger logits for minority classes.
+                    However, paired with a class balanced strategy, the authors observed that minority classes were
+                    overbalanced.
+                    A meta sampler is proposed to learn the optimal sampling strategy for the balanced softmax function
+                    during training. The training routine would be in two level where the first level would be the
+                    training of the meta sampler in the inner training loop and then
+                    the training of the network in the outer training loop.
+
+                </p>
+
+                <strong>Images</strong><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="../../images/imb_reg/meta-softmax-fig1.png" class="img-fluid rounded" alt="...">
+                    </div>
+                    <div class="col">
+                        <img src="../../images/imb_reg/meta-softmax-fig2.png" class="img-fluid rounded" alt="...">
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="paper-container">
+                <h3 class="paper-title">Exploring balanced feature spaces for representation learning</h3>
+
+                <p>
+                    <strong>BibTex</strong>
+                    <br>
+                    @inproceedings{
+                    kang2021kcl, <br>
+                    title={Exploring balanced feature spaces for representation learning}, <br>
+                    author={Kang, Bingyi and Li, Yu and Xie, Sa and Yuan, Zehuan and Feng, Jiashi}, <br>
+                    booktitle={International Conference on Learning Representations}, <br>
+                    year={2021}}
+                </p>
+                url=<a
+                    href="https://openreview.net/pdf?id=OqtLIabPTit">https://openreview.net/pdf?id=OqtLIabPTit</a><br>
+
+                <strong>Summary</strong>
+                <br>
+                <p>
+                    The authors are tackling the issue of imbalance feature space for long-tail data distributions. They
+                    observed that the feature space is imbalanced
+                    under long-tail data distributions which leads to poor decision boundaries for minority classes when
+                    using Supervised Cross Entropy loss. They
+                    observed that with contrastive loss, the feature space is balanced. They therefore propose a
+                    supervised contrastive learning method that uses
+                    the labels of the data to learn a representation space where similar samples are close to each other
+                    and dissimilar samples are far from each other.
+                    The supervised contrastive loss use class label to draw samples from the same class close to each
+                    other and samples from different classes far from each other.
+                    The noticed however that, with a large number of samples, the majority classes would dominate the
+                    learning process. they then proposed
+                    K contrastive learning (KCL) that limits the number of positive samples from each class to K to
+                    prevent the majority classes from dominating the learning process with more samples.
+                    They showed their methods also works on other tasks such as object detection and semantic
+                    segmentation. a proposed a balancedness metric to measure the balance of the feature space.
+                </p>
+
+                <p>
+                    <strong>Problem</strong>
+                    under long tail distribution, the feature space is imbalanced which leads to poor decision
+                    boundaries for minority classes.
+                </p>
+                <p>
+                    <strong>Solution, Ideas and Why</strong>
+                    supervised contrastive learning to learn a balanced feature space. Supervised contrastive learning
+                    is a contrastive learning method that uses
+                    the labels of the data to learn a representation space where similar samples are close to each other
+                    and dissimilar samples are far from each other.
+                    K contrastive learning (KCL) is a supervised contrastive learning method that the limit of the
+                    number of samples from each class to K to prevent
+                    the majority classes from dominating the learning process with more samples.
+
+                </p>
+
+                <strong>Images</strong><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="../../images/imb_reg/kcl-fig1.png" class="img-fluid rounded" alt="...">
+                    </div>
+                    <div class="col">
+                        <img src="../../images/imb_reg/kcl-fig2.png" class="img-fluid rounded" alt="...">
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="paper-container">
+                <h3 class="paper-title">Long-tail learning via logit adjustment</h3>
+
+                <p>
+                    <strong>BibTex</strong>
+                    <br>
+                    @inproceedings{
+                    menon2021logitadjustment, <br>
+                    title={Long-tail learning via logit adjustment}, <br>
+                    author={Menon, Aditya Krishna and Jayasumana, Sadeep and Rawat, Ankit Singh and Jain, Himanshu and
+                    Veit, Andreas and Kumar, Sanjiv}, <br>
+                    booktitle={International Conference on Learning Representations}, <br>
+                    year={2021}}
+                </p>
+                url=<a href="https://openreview.net/pdf?id=37nvvqkCo5">https://openreview.net/pdf?id=37nvvqkCo5</a><br>
+                <strong>Summary</strong>
+                <br>
+                <p>
+                    The authors propose a framework to generalize on the logit adjustment methods. They observed that
+                    previous methods focused on scaling the logits and assumed the target distribution is uniform.
+                    They propose a logit adjustment framework that can be implemented post hoc to any existing model
+                    where an adjustment term based on the prior distribution of the target dataset is added to the
+                    logits.
+                    It can also be implemented as a loss function. The loss function would be adjusted based on added
+                    terms that would take into account the known prior of the
+                    target dataset. The authors showed that their method indeed was a general formulation of previous
+                    methods and that it outperformed previous methods on benchmark datasets.
+                </p>
+
+                <p>
+                    <strong>Problem</strong>
+                    logits are not balanced for long-tail data distributions, majority classes have larger logits than
+                    minority classes. furthermore, previous
+                    attempts at adjusting logits focus on scaling the logits and assumed the target distribution is
+                    uniform
+                </p>
+                <p>
+                    <strong>Solution, Ideas and Why</strong>
+                    a logit adjustment framework that can be implemented post hoc to any existing model where an
+                    adjustment term based on the prior distribution
+                    of the target dataset is added to the logits. It can also be implemented as a loss function.
+
+
+                </p>
+
+                <strong>Images</strong><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="../../images/imb_reg/logitadj-fig1.PNG" class="img-fluid rounded" alt="...">
+                    </div>
+                    <div class="col">
+                        <img src="../../images/imb_reg/logitadj-fig2.PNG" class="img-fluid rounded" alt="...">
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="paper-container">
+                <h3 class="paper-title">Long-tailed Recognition by Routing Diverse Distribution-Aware Experts</h3>
+
+                <p>
+                    <strong>BibTex</strong>
+                    <br>
+                    @inproceedings{
+                    wang2020ride, <br>
+                    title={Long-tailed Recognition by Routing Diverse Distribution-Aware Experts}, <br>
+                    author={Wang, Xudong and Lian, Long and Miao, Zhongqi and Liu, Ziwei and Yu, Stella}, <br>
+                    booktitle={International Conference on Learning Representations}, <br>
+                    year={2020}}
+                </p>
+                url=<a
+                    href="https://openreview.net/pdf?id=D9I3drBz4UC">https://openreview.net/pdf?id=D9I3drBz4UC</a><br>
+
+                <strong>Summary</strong>
+                <br>
+                <p>
+
+                </p>
+
+                <p>
+                    <strong>Problem</strong>
+                </p>
+                <p>
+                    <strong>Solution, Ideas and Why</strong>
+
+
+                </p>
+
+                <strong>Images</strong><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="../../images/imb_reg/ride-fig1.PNG" class="img-fluid rounded" alt="...">
+                    </div>
+                    <div class="col">
+                        <img src="../../images/imb_reg/ride-fig2.PNG" class="img-fluid rounded" alt="...">
+                    </div>
+                </div>
+            </div>
+        </li>
+        </ol>
+    </div>
+    </div>
+</body>
+
+</html>
