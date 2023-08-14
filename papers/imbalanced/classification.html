@@ -779,15 +779,37 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
+                    The authors are tackling the problem of imbalance classification. They observed that current methods
+                    have poor calibration of their output
+                    logits and are overconfident in their predictions. Usually by measuring the true accuracy against
+                    the predicted accuracy, the true accuracy is
+                    lower than the predicted accuracy. They also measure the ECE or expected calibration error and
+                    observed that the ECE is high for current methods (lower being better).
+                    First they propose to use Mixup to generate synthetic samples for the rare classes. Then they also
+                    propose label smoothing of the classifier logits by
+                    artificially deducting some epsilon value on the correct class logit and redistributing that value
+                    to the other classes uniformally. Epsilon is
+                    obtained as a function of the class sample count with some normalization by the difference between
+                    the maximum and minimum class sample counts. To fit the
+                    label aware smoothing objective, they combine cRT and LWS into classifier update function. It can
+                    either scale the classifier logits (LWS) or apply a
+                    learned update on the classifier weights (cRT) based on the retention factor r. For better
+                    normalization on stage 2, they update the running mean and variance
+                    in batch norm but fix the alpha and beta parameters in stage 2 (classifier update stage).
 
                 </p>
 
                 <p>
                     <strong>Problem</strong>
+                    miss-calibration of output logits which leads to over-confidence in majority classes, where the true
+                    accuracy is lower than the
+                    predicted accuracy.
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-
+                    adjust target posterior as a function of class frequency.
+                    use mixup to generate synthetic samples, and use a combination of LWS and cRT to calibrate the
+                    output logits.
 
                 </p>
 
