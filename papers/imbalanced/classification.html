@@ -1225,10 +1225,13 @@
 
                 <p>
                     <strong>Problem</strong>
+                    unknown target distribution
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-
+                    3 experts trained on imbalanced, balanced, and reverse softmax loss.
+                    learned aggregation of expert prediction based on the
+                    prediction stability (truer expert are more stable in predictions)
 
                 </p>
 
@@ -1269,10 +1272,12 @@
 
                 <p>
                     <strong>Problem</strong>
+                    imbalance input distrubution 
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-
+                    use soft labels from teacher net to create a less imbalanced distilled distribution.
+                    retrain a student network with 2 classifier heads, one on hard labels and the other on soft labels
 
                 </p>
 
@@ -1313,11 +1318,12 @@
 
                 <p>
                     <strong>Problem</strong>
+                    uncertainty in representations
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-
-
+                    CE stochastic representation via gaussian stochastic weight average.
+                    self distillation from M predictions to 1 prediction.
                 </p>
 
                 <strong>Images</strong><br>
