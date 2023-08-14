@@ -107,19 +107,25 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
-
+                            SOMGN combines both undersampling and oversampling to tackle imbalance regression. First the dataset is separated into 
+                            two groups based on relevance, where high relevance data are target ranges where samples are rare and non-existant, and low relevance
+                            are target range where samples are frequent. For irrelevant ranges, they perform undersampling by randomly selecting a percentage of frequent 
+                            ranges samples from the dataset. For relevant ranges, they combine two oversampling techniques. Given a rare case, they consider k nearest 
+                            neighbors and calculate the safety distance as half of the median distance between the cases and its neightbors. For all k neighbors within
+                            the safety distance, they oversample by interpolating between the case and the safe neighbors. For unsafe distnaces, they add small gaussian 
+                            noise to the case to produce a synthetic sample. Both oversampling produce very conservative synthetic data.
 
                         </p>
                         <p>
                             <strong>Problem</strong>
-
+                            Real world data usually follows a long tail distribution in regression as well where some range of the target have few to no data samples
 
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
-
+                            Generate additional synthetic samples where are few or none to compensate. 
+                            oversample or generating synthetics for non frequent ranges by interpolating if neighbor distance is safe or 
+                            adding gaussian noise otherwise. undersample frequent target ranges
                             </ul>
                         </p>
 
@@ -155,15 +161,18 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
+                            Smoteboost combines generating synthetic samples and boosting to tackle imbalance regression. First they use SMOTE for a prior work to generate 
+                            new synthetic samples. With the augmented dataset, they use a variant of Adaboost to learn an ensemble of regressors. They use weak models at every iteration that learn 
+                            from the mistake of the prior iteration models.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            Real world data usually follows a long tail distribution in regression as well where some range of the target have few to no data samples
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong><br>
-
+                            use SMOTE to generate synthetic samples of rare ranges and use Boosting to obtain an ensemble of regressors
                         </p>
 
                         <strong>Images</strong><br>
@@ -197,17 +206,28 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles that problem of imbalance regression by smoothing the label distribution and the feature distribution.
+                            They noticed that the error distribution doesn't correlate with the label distribution like it does in imbalance classification.
+                            To tackle this issues, they apply a gaussian kernel convolution operation to the label distribution to smooth it. The kernel size 
+                            has to be not too small to avoid overfitting and not too large to avoid oversmoothing. With the right kernel size, each target 
+                            range is smoothed with its neighboring ranges. They also noticed that the feature distribution is not calibrated with the label distribution.
+                            To tackle this issue, they collect feature means and variances across bins. They smooth the means and variances based on the
+                            neighboring bins means and variances. They then calibrate the original features based on the smoothed means and variances by 
+                            doing a distribution shift. Their method can be combined with other balancing techniques once the smoothed label distribution
+                            is obtained.
 
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            Imbalance regression is a common problem in real world data where some ranges of the target have few to no data samples. 
+                            Especially, error distribution doesn't correlate with the target distribution like it does in imbalance classification.
+                            On top of that, the features distribution is not calibrated with the label distribution.
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            Smooth the label distribution using a gaussion kernel convolution operation to estimate rare/missing ranges based on neighboring ranges.
+                            Smooth the feature distribution by collecting feature means and variances across bins, smoothing them, and calibrating the original features based on the smoothed means and variances
 
                         </p>
 
