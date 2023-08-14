@@ -535,21 +535,28 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-                    This paper demonstrate that prior methods that tackle the long-tail problem by focusing on the balacing the classifier 
-                    decrease tail bias at the expense of increased head bias, and increased variance for all classes. They tackle this issue 
-                    with an ensemble of experts that are trained on balanced data and to be diverse ie their posteriors distribution are divergent. To make sure 
-                    not too many experts are used which would take too much compute, they use a router that predicts whether to involve additional experts in the classification.
-                    The router network is trained to route to the next expert if the current expert incorrectly classify but some kth expert correctly classify the sample.
+                    This paper demonstrate that prior methods that tackle the long-tail problem by focusing on the
+                    balacing the classifier
+                    decrease tail bias at the expense of increased head bias, and increased variance for all classes.
+                    They tackle this issue
+                    with an ensemble of experts that are trained on balanced data and to be diverse ie their posteriors
+                    distribution are divergent. To make sure
+                    not too many experts are used which would take too much compute, they use a router that predicts
+                    whether to involve additional experts in the classification.
+                    The router network is trained to route to the next expert if the current expert incorrectly classify
+                    but some kth expert correctly classify the sample.
                     They optionally apply self distillation to distill many experts into fewer experts.
                 </p>
 
                 <p>
                     <strong>Problem</strong>
-                    imbalance classification and focusing reduce tail bias at expense of increased head bias, increase variance for all classes 
+                    imbalance classification and focusing reduce tail bias at expense of increased head bias, increase
+                    variance for all classes
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-                    use multiple experts to reduce variance, and add loss term to increase experts diversity and reduce bias.
+                    use multiple experts to reduce variance, and add loss term to increase experts diversity and reduce
+                    bias.
                     learne router to predict whether to involve additional experts in the classification
 
                 </p>
@@ -588,19 +595,25 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-                    This paper tackle imbalance classification and the memory inefficiency observed in current supervised contrastive learning methods where they require large amount 
-                    of negative samples. To tackle this issues, they propse a 2 branch network with a shared backbone. One branch is trained on imbalanced data samples with an MLP 
-                    to produce embedding based on supervised contrastive loss that leverages class prototypes as positive and negative samples. The other branch is trained on balanced data samples
-                    with a linear layer to produce good decision boundaries for the features based on supervised cross entropy loss. The 2 branches are trained in a curriculum fashion with alpha 
-                    controlling the balance between the 2 branches. Alpha decays as linearly with the epochs, indicating the training starts first with the feature learning branch and then 
-                    gradually shift to the classifier learning branch. More than one prototype per class can be used to improve the performance of the feature learning branch (still fewer in number
+                    This paper tackle imbalance classification and the memory inefficiency observed in current
+                    supervised contrastive learning methods where they require large amount
+                    of negative samples. To tackle this issues, they propse a 2 branch network with a shared backbone.
+                    One branch is trained on imbalanced data samples with an MLP
+                    to produce embedding based on supervised contrastive loss that leverages class prototypes as
+                    positive and negative samples. The other branch is trained on balanced data samples
+                    with a linear layer to produce good decision boundaries for the features based on supervised cross
+                    entropy loss. The 2 branches are trained in a curriculum fashion with alpha
+                    controlling the balance between the 2 branches. Alpha decays as linearly with the epochs, indicating
+                    the training starts first with the feature learning branch and then
+                    gradually shift to the classifier learning branch. More than one prototype per class can be used to
+                    improve the performance of the feature learning branch (still fewer in number
                     compared to negative samples needed). The prototypes are learned.
 
                 </p>
 
                 <p>
                     <strong>Problem</strong>
-                    memory ineffficient feature learning 
+                    memory ineffficient feature learning
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
@@ -643,15 +656,29 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-
+                    To tackle imbalance classification, the authors notice that previous methods focus on assumed
+                    uniform target distribution. They propose to not assume the
+                    target distribution is uniform but still known. Based on that, they reframe the problem as a
+                    distribution shift problem and disentangle the source distribution
+                    and logits by having logits represent likehood over evidence instead of posterior. Knowning the test
+                    distribution they can obtain a balanced output posterior
+                    by using the test distrubution prior and the network logits. They add a regulariser term to explicitly disentangle logits
+                    from source label distribution
+                    and use known target label distribution to post compensate.
                 </p>
 
                 <p>
                     <strong>Problem</strong>
+                    target distrubution may not be assumed uniform like many works do
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-
+                    frame LT as distribution shift, disentangle source
+                    distribution and logits by having logits represent
+                    likehood over evidence instead of posterior. add a
+                    regulariser term to explicitly disentangle logits from source
+                    label distribution and use known target label distribution to
+                    post compensate
 
                 </p>
 
