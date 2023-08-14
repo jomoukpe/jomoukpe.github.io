@@ -107,24 +107,33 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            SOMGN combines both undersampling and oversampling to tackle imbalance regression. First the dataset is separated into 
-                            two groups based on relevance, where high relevance data are target ranges where samples are rare and non-existant, and low relevance
-                            are target range where samples are frequent. For irrelevant ranges, they perform undersampling by randomly selecting a percentage of frequent 
-                            ranges samples from the dataset. For relevant ranges, they combine two oversampling techniques. Given a rare case, they consider k nearest 
-                            neighbors and calculate the safety distance as half of the median distance between the cases and its neightbors. For all k neighbors within
-                            the safety distance, they oversample by interpolating between the case and the safe neighbors. For unsafe distnaces, they add small gaussian 
-                            noise to the case to produce a synthetic sample. Both oversampling produce very conservative synthetic data.
+                            SOMGN combines both undersampling and oversampling to tackle imbalance regression. First the
+                            dataset is separated into
+                            two groups based on relevance, where high relevance data are target ranges where samples are
+                            rare and non-existant, and low relevance
+                            are target range where samples are frequent. For irrelevant ranges, they perform
+                            undersampling by randomly selecting a percentage of frequent
+                            ranges samples from the dataset. For relevant ranges, they combine two oversampling
+                            techniques. Given a rare case, they consider k nearest
+                            neighbors and calculate the safety distance as half of the median distance between the cases
+                            and its neightbors. For all k neighbors within
+                            the safety distance, they oversample by interpolating between the case and the safe
+                            neighbors. For unsafe distnaces, they add small gaussian
+                            noise to the case to produce a synthetic sample. Both oversampling produce very conservative
+                            synthetic data.
 
                         </p>
                         <p>
                             <strong>Problem</strong>
-                            Real world data usually follows a long tail distribution in regression as well where some range of the target have few to no data samples
+                            Real world data usually follows a long tail distribution in regression as well where some
+                            range of the target have few to no data samples
 
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-                            Generate additional synthetic samples where are few or none to compensate. 
-                            oversample or generating synthetics for non frequent ranges by interpolating if neighbor distance is safe or 
+                            Generate additional synthetic samples where are few or none to compensate.
+                            oversample or generating synthetics for non frequent ranges by interpolating if neighbor
+                            distance is safe or
                             adding gaussian noise otherwise. undersample frequent target ranges
                             </ul>
                         </p>
@@ -161,18 +170,22 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            Smoteboost combines generating synthetic samples and boosting to tackle imbalance regression. First they use SMOTE for a prior work to generate 
-                            new synthetic samples. With the augmented dataset, they use a variant of Adaboost to learn an ensemble of regressors. They use weak models at every iteration that learn 
+                            Smoteboost combines generating synthetic samples and boosting to tackle imbalance
+                            regression. First they use SMOTE for a prior work to generate
+                            new synthetic samples. With the augmented dataset, they use a variant of Adaboost to learn
+                            an ensemble of regressors. They use weak models at every iteration that learn
                             from the mistake of the prior iteration models.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            Real world data usually follows a long tail distribution in regression as well where some range of the target have few to no data samples
+                            Real world data usually follows a long tail distribution in regression as well where some
+                            range of the target have few to no data samples
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong><br>
-                            use SMOTE to generate synthetic samples of rare ranges and use Boosting to obtain an ensemble of regressors
+                            use SMOTE to generate synthetic samples of rare ranges and use Boosting to obtain an
+                            ensemble of regressors
                         </p>
 
                         <strong>Images</strong><br>
@@ -206,40 +219,51 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            This paper tackles that problem of imbalance regression by smoothing the label distribution and the feature distribution.
-                            They noticed that the error distribution doesn't correlate with the label distribution like it does in imbalance classification.
-                            To tackle this issues, they apply a gaussian kernel convolution operation to the label distribution to smooth it. The kernel size 
-                            has to be not too small to avoid overfitting and not too large to avoid oversmoothing. With the right kernel size, each target 
-                            range is smoothed with its neighboring ranges. They also noticed that the feature distribution is not calibrated with the label distribution.
-                            To tackle this issue, they collect feature means and variances across bins. They smooth the means and variances based on the
-                            neighboring bins means and variances. They then calibrate the original features based on the smoothed means and variances by 
-                            doing a distribution shift. Their method can be combined with other balancing techniques once the smoothed label distribution
+                            This paper tackles that problem of imbalance regression by smoothing the label distribution
+                            and the feature distribution.
+                            They noticed that the error distribution doesn't correlate with the label distribution like
+                            it does in imbalance classification.
+                            To tackle this issues, they apply a gaussian kernel convolution operation to the label
+                            distribution to smooth it. The kernel size
+                            has to be not too small to avoid overfitting and not too large to avoid oversmoothing. With
+                            the right kernel size, each target
+                            range is smoothed with its neighboring ranges. They also noticed that the feature
+                            distribution is not calibrated with the label distribution.
+                            To tackle this issue, they collect feature means and variances across bins. They smooth the
+                            means and variances based on the
+                            neighboring bins means and variances. They then calibrate the original features based on the
+                            smoothed means and variances by
+                            doing a distribution shift. Their method can be combined with other balancing techniques
+                            once the smoothed label distribution
                             is obtained.
 
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            Imbalance regression is a common problem in real world data where some ranges of the target have few to no data samples. 
-                            Especially, error distribution doesn't correlate with the target distribution like it does in imbalance classification.
+                            Imbalance regression is a common problem in real world data where some ranges of the target
+                            have few to no data samples.
+                            Especially, error distribution doesn't correlate with the target distribution like it does
+                            in imbalance classification.
                             On top of that, the features distribution is not calibrated with the label distribution.
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-                            Smooth the label distribution using a gaussion kernel convolution operation to estimate rare/missing ranges based on neighboring ranges.
-                            Smooth the feature distribution by collecting feature means and variances across bins, smoothing them, and calibrating the original features based on the smoothed means and variances
+                            Smooth the label distribution using a gaussion kernel convolution operation to estimate
+                            rare/missing ranges based on neighboring ranges.
+                            Smooth the feature distribution by collecting feature means and variances across bins,
+                            smoothing them, and calibrating the original features based on the smoothed means and
+                            variances
 
                         </p>
 
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../../images/imb_reg/ldsfds-fig1.png" class="img-fluid rounded"
-                                    alt="...">
+                                <img src="../../images/imb_reg/ldsfds-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/imb_reg/ldsfds-fig2.png" class="img-fluid rounded"
-                                    alt="...">
+                                <img src="../../images/imb_reg/ldsfds-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
                         </div>
                     </div>
@@ -264,16 +288,37 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles that problem of imbalance regression by balancing the loss function.
+                            First the apply gaussian kernel smoothing to the label distribution
+                            to estimate rare/missing ranges based on neighboring ranges. They then obtain a density
+                            weighting function by taking the inverse of the smoothed label distribution
+                            and normalize all data points density values. Their density function has the following
+                            properties:
+                        <ul>
+                            <li>Samples with more common target values get smaller weights than rarer samples.</li>
+                            <li>weighting function yields uniform weights for alpha = 0, while larger alpha values
+                                further emphasize the
+                                weighting scheme. This provides intuition for the efects of alpha</li>
+                            <li>No data points are weighted negatively, as models would try to maximize the diferrence
+                                between estimate and true value for these data points during training</li>
+                            <li>No weight should be 0 to avoid models ignoring parts of the dataset.</li>
+                            <li>The mean weight over all data points is 1. This eases applicability for model
+                                optimization with gradient descent as it avoids infuence on learning rates</li>
+                        </ul>
+                        They apply the density weighting function as a coefficient to any regression loss function to
+                        ensure the network to focus an rares ranges.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            Imbalance regression and imbalanced loss function
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            density weighting function takes in the smoothed label distribution and produce a reverse
+                            distribution where frequent ranges are weighted lower and rare range higher.
+                            Apply density weighting function as a coefficient to any regression loss function to ensure
+                            the network to focus an rares.
 
                         </p>
 
@@ -309,17 +354,28 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of imbalance regression by balancing the loss function. They
+                            obtained a balanced MSE by first assuming that
+                            the target distribution is uniform and doing a statiscal transfer from a balance uniform
+                            distribution to a original imbalanced distribution
+                            during training and testing the model on a balanced distribution. Unfortunately, the
+                            statiscal transfer carry an integral that is intractable
+                            to compute. They approximate the integral using GAI, BMC or BNI. GAI is GMM-based Analytical
+                            integration which uses a gaussian mixture model
+                            to approximate the integral. BMC is Batch-based monte carlo that approximate the integral by
+                            an average over the batch. BNI is Bin-based numerical
+                            integration that approximate the integral by an average over the target bins.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            MSE loss function is not suitable for imbalance regression
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
-
+                            train on balanced MSE loss function based on an assumed uniform test distribution.
+                            To compute the integral part of the Balance MSE, approximate it using bins, monte carlo
+                            technique, or gaussian mixture models
 
                         </p>
 
@@ -336,7 +392,8 @@
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">RankSim: Ranking Similarity Regularization for Deep Imbalanced Regression</h3>
+                        <h3 class="paper-title">RankSim: Ranking Similarity Regularization for Deep Imbalanced
+                            Regression</h3>
 
                         <p>
                             <strong>BibTex</strong>
@@ -353,15 +410,31 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper is tackling the problem of imbalance regression by calibrating the feature space
+                            such that for any sample,
+                            the sorted list of its neighbors in the feature space is the same as the sorted list of
+                            neighbors in the target space. To achieve that
+                            they compute the pairwise similarity matrices for both features samples and labels samples.
+                            They then compute the ranking similarity
+                            loss between the two matrices. They approximate the ranking function gradient by
+                            constructing a family of piece-wise affine continuous
+                            interpolations that trade off informativeness of gradient with fidelity to original
+                            function. They then use the gradient to update the
+                            model parameters.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
+                            Features are not well calibrated where the sorted list of neighbors in the feature space is
+                            not the same as the sorted list of neighbors in the target space.
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            Regulariser that encourage for any sample, the sorted list of its neighbors in feature space
+                            to match the sorted list of its neighbors in label space.
+                            Approximate the ranking function gradient by constructing a family of piece-wise affine
+                            continuous interpolations that trade off informativeness of gradient
+                            with fidelity to original function.
 
                         </p>
 
