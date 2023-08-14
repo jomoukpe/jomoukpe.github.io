@@ -535,15 +535,22 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-
+                    This paper demonstrate that prior methods that tackle the long-tail problem by focusing on the balacing the classifier 
+                    decrease tail bias at the expense of increased head bias, and increased variance for all classes. They tackle this issue 
+                    with an ensemble of experts that are trained on balanced data and to be diverse ie their posteriors distribution are divergent. To make sure 
+                    not too many experts are used which would take too much compute, they use a router that predicts whether to involve additional experts in the classification.
+                    The router network is trained to route to the next expert if the current expert incorrectly classify but some kth expert correctly classify the sample.
+                    They optionally apply self distillation to distill many experts into fewer experts.
                 </p>
 
                 <p>
                     <strong>Problem</strong>
+                    imbalance classification and focusing reduce tail bias at expense of increased head bias, increase variance for all classes 
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-
+                    use multiple experts to reduce variance, and add loss term to increase experts diversity and reduce bias.
+                    learne router to predict whether to involve additional experts in the classification
 
                 </p>
 
