@@ -1031,11 +1031,12 @@
 
                 <p>
                     <strong>Problem</strong>
+                    imbalanced learned weights in the classifier
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-
-
+                    apply weight decay in first stage as smaller weights are less imbalanced.
+                    using lagrangian, update the loss with a maxnorm term thatgive an upper bound to the weight norms for second stage.
                 </p>
 
                 <strong>Images</strong><br>
