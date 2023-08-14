@@ -1026,16 +1026,26 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-                    This paper is tackling the problem of imbalance classification. They observed that imbalanced data cause the norm of the weights to be 
-                    larger for the head classes than the tail classes. This is because the head classes have more examples than the tail classes. Ideally the 
-                    weights should be balanced so that the norm of the weights are the same for all classes. To tackle this issue, they propose a 2 stage 
-                    training framework. In the first stage, they train the classifier with a weight decay term that penalizes the norm of the weights. In the first
-                    they use CE loss with a weight decay term. In the second stage, they train the classifier with weight decay and a maxnorm term that gives an upper
-                    bound to the weight norms. The maxnorm term is obtained by using the lagrangian multiplier to convert the original constrained optimization problem
-                    into an unconstrained optimization problem. The new object is a minmax objective when the original loss is minimized by the classifier weights and 
-                    the maxnorm term is maximized by the KKT multiplier gamma. Intuitively, as gamma grows larger, the second term dominates the objective, forcing the 
-                    learned weights to be less than the upper bound delta. to optimize both, the weights can be fixed to optimize gamma and then gamma can be fixed to
-                    optimize the weights. Combined wih class balanced sampling, the method achieves very uniform weight norms. 
+                    This paper is tackling the problem of imbalance classification. They observed that imbalanced data
+                    cause the norm of the weights to be
+                    larger for the head classes than the tail classes. This is because the head classes have more
+                    examples than the tail classes. Ideally the
+                    weights should be balanced so that the norm of the weights are the same for all classes. To tackle
+                    this issue, they propose a 2 stage
+                    training framework. In the first stage, they train the classifier with a weight decay term that
+                    penalizes the norm of the weights. In the first
+                    they use CE loss with a weight decay term. In the second stage, they train the classifier with
+                    weight decay and a maxnorm term that gives an upper
+                    bound to the weight norms. The maxnorm term is obtained by using the lagrangian multiplier to
+                    convert the original constrained optimization problem
+                    into an unconstrained optimization problem. The new object is a minmax objective when the original
+                    loss is minimized by the classifier weights and
+                    the maxnorm term is maximized by the KKT multiplier gamma. Intuitively, as gamma grows larger, the
+                    second term dominates the objective, forcing the
+                    learned weights to be less than the upper bound delta. to optimize both, the weights can be fixed to
+                    optimize gamma and then gamma can be fixed to
+                    optimize the weights. Combined wih class balanced sampling, the method achieves very uniform weight
+                    norms.
 
                 </p>
 
@@ -1046,7 +1056,8 @@
                 <p>
                     <strong>Solution, Ideas and Why</strong>
                     apply weight decay in first stage as smaller weights are less imbalanced.
-                    using lagrangian, update the loss with a maxnorm term thatgive an upper bound to the weight norms for second stage.
+                    using lagrangian, update the loss with a maxnorm term thatgive an upper bound to the weight norms
+                    for second stage.
                 </p>
 
                 <strong>Images</strong><br>
@@ -1079,14 +1090,21 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-                    This paper tackle the issues of confident but incorrect predictions due to miscalibrated output logits by enlisting multiple experts. Each expert trains 
-                    on a dataset with balanced softmax. In addition to the normal view of the dataset, they select a set of hard classes where a hard class is class that has 
-                    the highest incorrect prediction. The hard classes training is also with balanced softmax and is nested within the normal training. Those hard classes allow 
+                    This paper tackle the issues of confident but incorrect predictions due to miscalibrated output
+                    logits by enlisting multiple experts. Each expert trains
+                    on a dataset with balanced softmax. In addition to the normal view of the dataset, they select a set
+                    of hard classes where a hard class is class that has
+                    the highest incorrect prediction. The hard classes training is also with balanced softmax and is
+                    nested within the normal training. Those hard classes allow
                     to focus on learning feature that will help further discriminate them. The experts are trained
-                    to have similar posterior distribution but not too much. This is done by minimizing the KL divergence between the posterior distributions of the experts.
-                    However, if the expert are too similar, they are essential multiple instances of the same expert and the ensemble will not be diverse. To alleviate this,
-                    the keep the lambda parameter in the KL divergence loss to be .6. Also by encourage the experts to have the same posterior they are, in adhoc manner, encourage 
-                    the expert to distill their knowledge to each other. Finally they add a supervised contrastive loss term to improve the feature learning. 
+                    to have similar posterior distribution but not too much. This is done by minimizing the KL
+                    divergence between the posterior distributions of the experts.
+                    However, if the expert are too similar, they are essential multiple instances of the same expert and
+                    the ensemble will not be diverse. To alleviate this,
+                    the keep the lambda parameter in the KL divergence loss to be .6. Also by encourage the experts to
+                    have the same posterior they are, in adhoc manner, encourage
+                    the expert to distill their knowledge to each other. Finally they add a supervised contrastive loss
+                    term to improve the feature learning.
                     The final prediction is obtained by aggregation of the experts output.
                 </p>
 
@@ -1096,7 +1114,7 @@
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-                    training on hard classes nested within training on all classes. 
+                    training on hard classes nested within training on all classes.
                     multiple experts trained to have similar posterior distribution but not too much
 
 
@@ -1133,14 +1151,34 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
+                    This paper tackles the issue of poor uniformity in the feature space brought in by imbalanced data
+                    distribution. Poor uniformity leads to poor separability in feature space.
+                    To solve this issue, they pre-process class targets to be uniform simplex geometry targets. They do
+                    this by generating uniform simplex geometry targets offline using stochastic gradient descent.
+                    Once the pre-computed targets are obtained, they assign each class to a target using hungarian
+                    algorithm such as to maintain semantic meaning of the proximity between classes. In other words, if
+                    two classes are assigned to be close together, their features should be semantically similar. The
+                    targets are then used in the supervised contrastive learning loss to encourage the network
+                    to produce representation that match the target assignments and produce a uniform simplex geometry
+                    in the feature space. To understand learned representations, they propose 3 metrics:
+                    1. the intra class alignment that measures how close the features of the same class are to each
+                    other (lower is better). 2. the inter class uniformity that measures the average of the distance
+                    between
+                    between the centers of the classes (higher is better). However, the inter class uniformity is not a
+                    good metric because it is invariant to relative distance between neighboring classes and can
+                    therefore not
+                    measure if they class centers form a good simplex geometry. To alleviate this, they propose the 3rd
+                    metric, the neighborhood uniformity that measures the average distance between top k neighboring
+                    classes (higher is better).
+                    They also introduce reasonability as a metric to measure the semantic meaning of the proximity
+                    between classes using wordnet hierarchy.
 
                 </p>
 
                 <p>
                     <strong>Problem</strong>
                     supervised contrastive learning baseline suffer from poor uniformity brought in by imbalanced data
-                    distribution. Poor uniformity
-                    leads to poor separability in feature space.
+                    distribution. Poor uniformity leads to poor separability in feature space.
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
