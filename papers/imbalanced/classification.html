@@ -662,7 +662,8 @@
                     distribution shift problem and disentangle the source distribution
                     and logits by having logits represent likehood over evidence instead of posterior. Knowning the test
                     distribution they can obtain a balanced output posterior
-                    by using the test distrubution prior and the network logits. They add a regulariser term to explicitly disentangle logits
+                    by using the test distrubution prior and the network logits. They add a regulariser term to
+                    explicitly disentangle logits
                     from source label distribution
                     and use known target label distribution to post compensate.
                 </p>
@@ -715,16 +716,33 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
+                    This paper is tackling the problem of imbalance classification. They first start by setting up the
+                    upper bound of the classification by including the test set in the
+                    dataset, making the test set known and observed that the upper bound is not achieved by current
+                    methods. They then propose a unified framework that learns a balanced
+                    network in 2 stages. First they learn an adaptive calibration function that would linearly project
+                    frozen classifier logits to a balanced space. To determine how much
+                    of calibration to use on the logit, they use a linear function with 2 learnable parameters that
+                    determine how much of the calibrated logits to use or the original logits
+                    based on the input data sample. This method effectively achieve class and instance level calibration
+                    of logits, as well as affine transformation of logits. They frame
+                    the problem as a distribution shift between
+                    training distribution (imbalanced) and target distribution (balanced), and minimize the KL
+                    divergence between the 2 distributions, with test distribution being the
+                    target distribution. The target distribution they conceived is a reweighted version of the training
+                    distribution. The reweighting is done by using the inverse of the class frequency
+                    so rare classes are weighted more than frequent classes.
 
                 </p>
 
                 <p>
                     <strong>Problem</strong>
-                    
+                    imbalanced output logits
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
-
+                    Learn affine logits adjustment at both class and instance levels.
+                    Adjuste target posterior based on class weighting for logits to approximate.
 
                 </p>
 
