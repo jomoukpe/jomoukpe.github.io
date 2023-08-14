@@ -588,14 +588,24 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
+                    This paper tackle imbalance classification and the memory inefficiency observed in current supervised contrastive learning methods where they require large amount 
+                    of negative samples. To tackle this issues, they propse a 2 branch network with a shared backbone. One branch is trained on imbalanced data samples with an MLP 
+                    to produce embedding based on supervised contrastive loss that leverages class prototypes as positive and negative samples. The other branch is trained on balanced data samples
+                    with a linear layer to produce good decision boundaries for the features based on supervised cross entropy loss. The 2 branches are trained in a curriculum fashion with alpha 
+                    controlling the balance between the 2 branches. Alpha decays as linearly with the epochs, indicating the training starts first with the feature learning branch and then 
+                    gradually shift to the classifier learning branch. More than one prototype per class can be used to improve the performance of the feature learning branch (still fewer in number
+                    compared to negative samples needed). The prototypes are learned.
 
                 </p>
 
                 <p>
                     <strong>Problem</strong>
+                    memory ineffficient feature learning 
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
+                    use class prototypes in supervised contrastive loss.
+                    2 branches and curriculum training from one to the other
 
 
                 </p>
