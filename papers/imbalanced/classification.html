@@ -1026,6 +1026,16 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
+                    This paper is tackling the problem of imbalance classification. They observed that imbalanced data cause the norm of the weights to be 
+                    larger for the head classes than the tail classes. This is because the head classes have more examples than the tail classes. Ideally the 
+                    weights should be balanced so that the norm of the weights are the same for all classes. To tackle this issue, they propose a 2 stage 
+                    training framework. In the first stage, they train the classifier with a weight decay term that penalizes the norm of the weights. In the first
+                    they use CE loss with a weight decay term. In the second stage, they train the classifier with weight decay and a maxnorm term that gives an upper
+                    bound to the weight norms. The maxnorm term is obtained by using the lagrangian multiplier to convert the original constrained optimization problem
+                    into an unconstrained optimization problem. The new object is a minmax objective when the original loss is minimized by the classifier weights and 
+                    the maxnorm term is maximized by the KKT multiplier gamma. Intuitively, as gamma grows larger, the second term dominates the objective, forcing the 
+                    learned weights to be less than the upper bound delta. to optimize both, the weights can be fixed to optimize gamma and then gamma can be fixed to
+                    optimize the weights. Combined wih class balanced sampling, the method achieves very uniform weight norms. 
 
                 </p>
 
