@@ -1220,13 +1220,20 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-                    This paper tackles of imbalance classification. They observed that current methods are not test set distrubution agnostic. Assuming the 
-                    test distribution is unknown, they propose a self-supervised method to learn a set of 3 experts that are trained on imbalanced, balanced, and reverse softmax loss.
-                    Each expert The forward expert trained on imbalanced (original) softmax loss with more focus on frequent classes, the uniform expert trained on balanced softmax loss with more focus on 
-                    on middle classes, and the reverse expert trained on reverse softmax loss more focus on the rare classes. To intelligently aggregate the experts logits, they learn a linear 
-                    aggregation function that combining the logits of each experts according to the learned weights associated with them. the aggregation function is learned by minimizing the 
-                    prediction similarity between 2 augmented views of the same image passing through all the experts. This effectively leverages the stablity of the experts where the more stable the 
-                    expert is, the more it is weighted in the aggregation.
+                    This paper tackles of imbalance classification. They observed that current methods are not test set
+                    distrubution agnostic. Assuming the
+                    test distribution is unknown, they propose a self-supervised method to learn a set of 3 experts that
+                    are trained on imbalanced, balanced, and reverse softmax loss.
+                    Each expert The forward expert trained on imbalanced (original) softmax loss with more focus on
+                    frequent classes, the uniform expert trained on balanced softmax loss with more focus on
+                    on middle classes, and the reverse expert trained on reverse softmax loss more focus on the rare
+                    classes. To intelligently aggregate the experts logits, they learn a linear
+                    aggregation function that combining the logits of each experts according to the learned weights
+                    associated with them. the aggregation function is learned by minimizing the
+                    prediction similarity between 2 augmented views of the same image passing through all the experts.
+                    This effectively leverages the stablity of the experts where the more stable the
+                    expert is, the more it is weighted in the aggregation. Their method is able to handle not just 
+                    uniform distributions but also imbalanced and reverse distributions.
 
                 </p>
 
@@ -1274,12 +1281,20 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-
+                    This paper tackles the issue of imbalance classification. The authors aimed at balancing the input distribution by using soft-labels. Soft-labels allows 
+                    frequent classes to be boost the effective sample count of rare classes. They propose a multi stage training process. The first stage is learn a good feature 
+                    extractor with a classification head and self-supervision head. The classification head learns to classify the input images into the classes under imbalanced sampling. 
+                    The self-supervision
+                    head learns to predict the rotation of the input images and contrast an instance input from other instances. Once trained, the second stage uses the frozen weights 
+                    of the feature extractor and trains a classifier head with balanced sampling. The learned network at this second stage is the teacher network, that will be used 
+                    the produce soft labels on the dataset. Then the third stage is to train a student backbone with a classifier head that is trained on the hard labels and 
+                    a self-distillation head that is trained on the soft-labels, both using imbalanced sampling. The classification head is used at the end for inference.
+                    Optionally the further train the classification head using class balanced sampling in a fourth stage.
                 </p>
 
                 <p>
                     <strong>Problem</strong>
-                    imbalance input distrubution 
+                    imbalance input distrubution
                 </p>
                 <p>
                     <strong>Solution, Ideas and Why</strong>
