@@ -1232,7 +1232,7 @@
                     associated with them. the aggregation function is learned by minimizing the
                     prediction similarity between 2 augmented views of the same image passing through all the experts.
                     This effectively leverages the stablity of the experts where the more stable the
-                    expert is, the more it is weighted in the aggregation. Their method is able to handle not just 
+                    expert is, the more it is weighted in the aggregation. Their method is able to handle not just
                     uniform distributions but also imbalanced and reverse distributions.
 
                 </p>
@@ -1281,15 +1281,23 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-                    This paper tackles the issue of imbalance classification. The authors aimed at balancing the input distribution by using soft-labels. Soft-labels allows 
-                    frequent classes to be boost the effective sample count of rare classes. They propose a multi stage training process. The first stage is learn a good feature 
-                    extractor with a classification head and self-supervision head. The classification head learns to classify the input images into the classes under imbalanced sampling. 
+                    This paper tackles the issue of imbalance classification. The authors aimed at balancing the input
+                    distribution by using soft-labels. Soft-labels allows
+                    frequent classes to be boost the effective sample count of rare classes. They propose a multi stage
+                    training process. The first stage is learn a good feature
+                    extractor with a classification head and self-supervision head. The classification head learns to
+                    classify the input images into the classes under imbalanced sampling.
                     The self-supervision
-                    head learns to predict the rotation of the input images and contrast an instance input from other instances. Once trained, the second stage uses the frozen weights 
-                    of the feature extractor and trains a classifier head with balanced sampling. The learned network at this second stage is the teacher network, that will be used 
-                    the produce soft labels on the dataset. Then the third stage is to train a student backbone with a classifier head that is trained on the hard labels and 
-                    a self-distillation head that is trained on the soft-labels, both using imbalanced sampling. The classification head is used at the end for inference.
-                    Optionally the further train the classification head using class balanced sampling in a fourth stage.
+                    head learns to predict the rotation of the input images and contrast an instance input from other
+                    instances. Once trained, the second stage uses the frozen weights
+                    of the feature extractor and trains a classifier head with balanced sampling. The learned network at
+                    this second stage is the teacher network, that will be used
+                    the produce soft labels on the dataset. Then the third stage is to train a student backbone with a
+                    classifier head that is trained on the hard labels and
+                    a self-distillation head that is trained on the soft-labels, both using imbalanced sampling. The
+                    classification head is used at the end for inference.
+                    Optionally the further train the classification head using class balanced sampling in a fourth
+                    stage.
                 </p>
 
                 <p>
@@ -1335,7 +1343,32 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
-
+                    This paper is tackling the problem of imbalance classification. They observed that current methods
+                    have large uncertainty in the representations. They first observed that
+                    SWA or Stochastic Weight Averaging of the encoder weights ath the end of the training (last 25%)
+                    combined with retraining the classifier with the SWA weights resulted in
+                    improved performance compared to not using SWA. Furthermore they can obtain the mean and covariance
+                    of the encoder weights to build a gaussian distribution of the encoder
+                    weights estimating the posterior of the encoder weights (called SWAG or Stochastic Weight Averaging
+                    Gaussian). Using SWAG, they can sample M encoder weights from the gaussion distribution
+                    over the weights and use them as
+                    a stochastic ensemble to produce M representation of an input sample called stochastic
+                    representation. The stochastic representation capture the uncertainty in the representation
+                    space of the data. Using the classifier trained with the stochastic representation, they can produce
+                    M predictions for the input sample. The stochastic representation can be seen
+                    as dispersion of area of the representations in the feature space. A classifier trained on these
+                    stochastic representations will have better decision boundaries as it takes into account
+                    the uncertainty in the Representations. Once they complete the representation learning stage, they
+                    need to train the classifier. The naive option is to train the classifier that works on
+                    average with all the M representations. However, they would like to capture the uncertainty in the
+                    predictions, not the stochastic representations themselves. So, instead, they setup a
+                    distillation objective where the teachers are the M classifiers with their encoders and the student,
+                    initialized as the SWA classifier, is further trained to maximally absorb the
+                    diversity in the teachers predictions. Instead of directly distilling from the mean of the ensemble
+                    of prediction, they instead distill from the distribution of the predictions, so a
+                    distribution over the posterior distribution of the teachers predictions over the classes. After
+                    training, they can take the mean of the student dirichlet distribution as the final
+                    classification probability for the an input sample.
                 </p>
 
                 <p>
