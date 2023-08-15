@@ -1220,6 +1220,13 @@
                 <strong>Summary</strong>
                 <br>
                 <p>
+                    This paper tackles of imbalance classification. They observed that current methods are not test set distrubution agnostic. Assuming the 
+                    test distribution is unknown, they propose a self-supervised method to learn a set of 3 experts that are trained on imbalanced, balanced, and reverse softmax loss.
+                    Each expert The forward expert trained on imbalanced (original) softmax loss with more focus on frequent classes, the uniform expert trained on balanced softmax loss with more focus on 
+                    on middle classes, and the reverse expert trained on reverse softmax loss more focus on the rare classes. To intelligently aggregate the experts logits, they learn a linear 
+                    aggregation function that combining the logits of each experts according to the learned weights associated with them. the aggregation function is learned by minimizing the 
+                    prediction similarity between 2 augmented views of the same image passing through all the experts. This effectively leverages the stablity of the experts where the more stable the 
+                    expert is, the more it is weighted in the aggregation.
 
                 </p>
 
