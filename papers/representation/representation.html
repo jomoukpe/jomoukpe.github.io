@@ -535,12 +535,20 @@
 
                         <strong>Summary</strong>
                         <br>
-                        <p> 
-                            This paper tackles the issue of avoid collapse to a constant function in representation learning by measuring the cross correlation matrix. Given a batch of samples, they generate a random 
-                            pair of batches of augmented views passed into a shared decoder and projectin head to produce a pair of projections of the batch of input samples. From the batches of projections, they calculate 
-                            the cross correlation matrix between the 2 batches of projections. The cross correlation matrix should be an identity matrix meaning that the same feature indices should be correlated and different feature 
-                            indices should be non correlated. To calculate the correlation, they assume the features are meaned at 0 over the batch dimension and divide by largest cross correlation value to avoid large feature values
-                            being interpreted as large correlation. 
+                        <p>
+                            This paper tackles the issue of avoid collapse to a constant function in representation
+                            learning by measuring the cross correlation matrix. Given a batch of samples, they generate
+                            a random
+                            pair of batches of augmented views passed into a shared decoder and projectin head to
+                            produce a pair of projections of the batch of input samples. From the batches of
+                            projections, they calculate
+                            the cross correlation matrix between the 2 batches of projections. The cross correlation
+                            matrix should be an identity matrix meaning that the same feature indices should be
+                            correlated and different feature
+                            indices should be non correlated. To calculate the correlation, they assume the features are
+                            meaned at 0 over the batch dimension and divide by largest cross correlation value to avoid
+                            large feature values
+                            being interpreted as large correlation.
                         </p>
 
                         <p>
@@ -549,8 +557,10 @@
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-                            cross correlation matrix loss between 2 views embeddings should be identity matrix where same features should be correlated and different features should be non correlated.
-                            the cross correlation calculations should include a normalization denominator so large feature values are not interpreted as large correlation 
+                            cross correlation matrix loss between 2 views embeddings should be identity matrix where
+                            same features should be correlated and different features should be non correlated.
+                            the cross correlation calculations should include a normalization denominator so large
+                            feature values are not interpreted as large correlation
 
                         </p>
 
@@ -631,16 +641,39 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of representation learning with tabular data. The paper
+                            propose SubTab or Subsetting features of tabular data for self-supervised representation
+                            learning.
+                            They divide the input instance into subsets. Subsets are used to learn representations that
+                            aggregated form the representation of the input instance. During training, the subsets are
+                            corrupted with noise. First the subsets were masked based on 3 masking schemes:
+                            1. Random block of neighboring columns or NC
+                            2. Random columns (RC)
+                            3. Random features per samples (RF)
+                            The masked features were going to be replaced by noise based on 3 noising schemes:
+                            1. adding gaussian noise
+                            2. overwritting a value of a selected entry with another one sampled from the same column.
+                            3. zeroing-out selected entries
+                            ONce corrupted the perturbed subsets were passed into a decoder to reconstruct
+                            the subsets or the original instane. Optionally, the paper proposed another branch with a
+                            projection
+                            head that would ingest the representation of the subsets and output a projection of the
+                            representation.
+                            Those representation would then be used to measure Distance or Similarity between subsets of
+                            the same instance and otherwise. For finetuning and inference, the subsets are not corrupted and the
+                            representation of the subsets are aggregated to form the representation of the instance.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
+                            representation learning on tabular data
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
-
+                            Divide the input instance into subsets. Subsets are used to learn representations that
+                            aggregated form the representation of the input instance.
+                            During training, the subsets are corrupted with noise (gaussian, swap or zero-out) and
+                            passed into a decoder to reconstruct the subsets or the original instane.
                         </p>
 
                         <strong>Images</strong><br>
