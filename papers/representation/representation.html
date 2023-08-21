@@ -773,16 +773,36 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of semantic aware generative feature learning. The authors
+                            noticed that previous approaches to self-supervised learning for images
+                            relied on discriminative models to learn features. They proposed a framework called
+                            Semantic-aware Auto-encoders for Self-supervised Representation Learning where
+                            they use a generative model to help learn the features. The framework works by generating
+                            two augmented views of the same sample. One view is passed to the encoder to
+                            obtain a representation. The representation is passed to the decoder to obtain to try to
+                            reconstruct the other view. Unfortunately, the decoder cannot guess the other view
+                            so they add transformations on the encoder feature maps (with spatial info) to align with
+                            the transformations on 2nd view, pass the transformed features maps to decoder to obtain
+                            reconstructed image, from which they obtain the final crop. They found that the
+                            transformations on the encoder feature maps are important for the decoder to learn. They
+                            also found That
+                            spatial information in feature maps for images are crucial and that global features that are
+                            not spatially aware are not good for reconstruction.
 
                         </p>
                         <p>
                             <strong>Problem</strong>
-
+                            generative representation learning
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            learn semantic aware generative features by producing 2
+                            augmented views, passing one the views to the encoder to get
+                            repr and pass the repr to decoder to get the other view.
+                            decoder cannot guess the target view so they add transformations on the
+                            encoder feature maps (with spatial info) to align with the transformations
+                            on 2nd view, pass the transformed features maps to decoder to obtain
+                            reconstructed image, from which they obtain the final crop
                         </p>
 
                         <strong>Images</strong><br>
