@@ -818,27 +818,41 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of embedding numerical features in tabular data. The paper
+                            proposed a framework called Embeddings for Numerical Features in Tabular Deep Learning.
+                            This paper proposes two approaches for embedding numerical features in tabular data. The
+                            first approach is called Piecewise Linear Encoding (PLE) where the numerical features are
+                            binned and then each bin is encoded into a vector. Intuitively, the PLE reprsents how much
+                            the numerical value "fills" the embedding vector, where if the numerical value is greater
+                            than
+                            the bins, they are marked 1 in the target vector ("filled"), or the percentage of the bin
+                            filled if the
+                            value fell within the bin, or 0 otherwise. They discussed 2 approaches to find the bins. The
+                            first
+                            based on quantiles and the other on target aware bins obtained by a decision tree. The
+                            second approach is called Periodic
+                            Position Encoding (PPE) where the numerical features are encoded into a vector of sin and
+                            cosine of a source vector v with K learned coefficients of 2*pi*x where x is the numerical
+                            input. Intuitively, the PPE resembles a positional embedding for the value where
+                            K represent the embedding dimension (2K for sin and cosine), the range of the C values
+                            represents the number of cycles of 2 pi,
+                            the Cs represents offsets from zero of the numerical value, and x represents the multiplier
+                            of all C's to get the final value.
+                            Those Cs were learned and saved as constants to be used in inference.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
+                            learning tabular data with numerical features
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            Embed numerical feature values into vectors using piecewise linear encoding based on bins
+                            either quantile or target aware with a decision tree.
+                            Use periodic position encoding with concatenated vector of sin and cosine of a source vector
+                            v with K learned coefficients of 2*pi*x where x is the numerical input
 
                         </p>
-
-                        <!-- <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/embeddings-fig1.png" class="img-fluid rounded" alt="...">
-                    </div>
-                    <div class="col">
-                        <img src="../../images/repr/embeddings-fig2.png" class="img-fluid rounded" alt="...">
-                    </div>
-                </div> -->
                     </div>
                 </li>
 
