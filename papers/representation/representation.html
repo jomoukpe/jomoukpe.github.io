@@ -660,7 +660,8 @@
                             head that would ingest the representation of the subsets and output a projection of the
                             representation.
                             Those representation would then be used to measure Distance or Similarity between subsets of
-                            the same instance and otherwise. For finetuning and inference, the subsets are not corrupted and the
+                            the same instance and otherwise. For finetuning and inference, the subsets are not corrupted
+                            and the
                             representation of the subsets are aggregated to form the representation of the instance.
                         </p>
 
@@ -710,14 +711,31 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of representation learning with tabular data. The paper
+                            proposes a framework called SCARF or Self-Supervised Contrastive Learning using Random
+                            Feature Corruption.
+                            There are 2 stages for this framework. The first stage is a self supervised stage where the
+                            create a corrupted view of a data instance using mask with some noise. The pass the instance
+                            and its
+                            perturbed view into an encoder and a projector to obtain final projects for the instance and
+                            its corrupted view. Then they calculate the InfoNCE to find out similarity between the
+                            instance and its corrupted view.
+                            The second stage is a supervised stage where they use the encoder from the first stage,
+                            removw the projector and add a predictor head to predict the class of the instance. They
+                            compared many noising schemes for the
+                            perturbation and found that swap noise, or replacing the values of the features with values
+                            from other instances, is the best.
                         </p>
                         <p>
                             <strong>Problem</strong>
+                            representation learning on tabular data
 
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
+                            generate a noisy version of the input sample, obtain the representation and projection of
+                            both the sample and the correpted to measure similarity.
+                            best noising is swap noise with feature values from other samples.
 
                         </p>
 
