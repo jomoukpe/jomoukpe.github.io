@@ -98,9 +98,10 @@
                             @inproceedings{he2020moco, <br>
                             title={Momentum contrast for unsupervised visual representation learning}, <br>
                             author={He, Kaiming and Fan, Haoqi and Wu, Yuxin and Xie, Saining and Girshick, Ross}, <br>
-                            booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition}, <br>
+                            booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern
+                            recognition}, <br>
                             year={2020}} <br>
-                            
+
                         </p>
                         url=<a
                             href="https://openaccess.thecvf.com/content_CVPR_2020/papers/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.pdf">
@@ -108,543 +109,570 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                           
+                            This paper is tackling the problem of representation learning with contrastive loss where an encoded query is matched to dictionary of encoded keys. 
+                            Contrastive methods are sensitive to the number of negative examples, usually limited by the batch. Compared to previous methods such as 
+                            end-to-end training of 2 encoders or using a memory bank, this paper proposes a new method called Momentum Contrast (MoCo) that uses a queue to store 
+                            multiples batches of encoded keys in Fifo style and a momentum update for the key encoder to ensure all encoded keys in the queue belong to the same representation space.
+                            The queue overcome the limitated on the end to end technique which was limited by the overall hardware memory available for the batch and the momementum update 
+                            ensure that the keys are in the same representation space unlike the keys in the memory bank. From training, only the query encoder is updated by backpropagation. The
+                            key encoder is conservatively updated by momementum update where at most 10% of the key encoder is updated by the query encoder. They notice Batch normalization is not 
+                            effective in this case because it leaks information via intra-batch communication across samples. To fix that, they introduce Shuffling Batch Normalization where they use
+                            multiple GPUs, performing batch normalization on independly for each GPU and then shuffling the samples across GPUs.
 
-                </p>
-                <p>
-                    <strong>Problem</strong>
-                
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
+                        </p>
+                        <p>
+                            <strong>Problem</strong>
+                            representation learning by expand negative pairs
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
+                            Fifo queue of multiple batches of previously encoded keys. the queue is larger than any
+                            single batch.
+                            Momentum update for the key encoder to ensure all encoded keys in the queue belong to the
+                            same representation space.
+                            </ul>
+                        </p>
 
-                    </ul>
-                </p>
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/moco-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/moco-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
 
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/moco-fig1.png" class="img-fluid rounded" alt="...">
+                        </div>
                     </div>
-                    <div class="col">
-                        <img src="../../images/repr/moco-fig2.png" class="img-fluid rounded" alt="...">
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title"> A simple framework for contrastive learning of visual representations
+                        </h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{chen2020simclr, <br>
+                            title={A simple framework for contrastive learning of visual representations}, <br>
+                            author={Chen, Ting and Kornblith, Simon and Norouzi, Mohammad and Hinton, Geoffrey}, <br>
+                            booktitle={International conference on machine learning}, <br>
+                            year={2020}} <br>
+                        </p>
+                        url=<a href="http://proceedings.mlr.press/v119/chen20j/chen20j.pdf">
+                            http://proceedings.mlr.press/v119/chen20j/chen20j.pdf</a><br>
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong><br>
+
+                        </p>
+
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/simclr-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/simclr-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+
+                        </div>
                     </div>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Bootstrap your own latent-a new approach to self-supervised learning
+                        </h3>
 
-                </div>
-        </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title"> A simple framework for contrastive learning of visual representations</h3>
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{grill2020byol, <br>
+                            title={Bootstrap your own latent-a new approach to self-supervised learning}, <br>
+                            author={Grill, Jean-Bastien and Strub, Florian and Altch{\'e}, Florent and Tallec, Corentin
+                            and Richemond, Pierre and Buchatskaya, Elena and Doersch, Carl and Avila Pires, Bernardo and
+                            Guo, Zhaohan and Gheshlaghi Azar, Mohammad and others}, <br>
+                            journal={Advances in neural information processing systems}, <br>
+                            year={2020}} <br>
+                        </p>
 
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @inproceedings{chen2020simclr, <br>
-                    title={A simple framework for contrastive learning of visual representations}, <br>
-                    author={Chen, Ting and Kornblith, Simon and Norouzi, Mohammad and Hinton, Geoffrey}, <br>
-                    booktitle={International conference on machine learning}, <br>
-                    year={2020}}  <br>
-                </p>
-                url=<a
-                    href="http://proceedings.mlr.press/v119/chen20j/chen20j.pdf"> http://proceedings.mlr.press/v119/chen20j/chen20j.pdf</a><br>
-                <strong>Summary</strong>
-                <br>
-                <p>
-                    
-                </p>
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2020/file/f3ada80d5c4ee70142b17b8192b2958e-Paper.pdf">
+                            https://proceedings.neurips.cc/paper_files/paper/2020/file/f3ada80d5c4ee70142b17b8192b2958e-Paper.pdf</a><br>
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
 
-                <p>
-                    <strong>Problem</strong>
-                    
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong><br>
-                    
-                </p>
 
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/simclr-fig1.png" class="img-fluid rounded" alt="...">
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
+
+
+                        </p>
+
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/byol-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/byol-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <img src="../../images/repr/simclr-fig2.png" class="img-fluid rounded" alt="...">
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Self-supervised relational reasoning for representation learning</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{patacchiola2020relational, <br>
+                            title={Self-supervised relational reasoning for representation learning}, <br>
+                            author={Patacchiola, Massimiliano and Storkey, Amos J}, <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2020}} <br>
+                        </p>
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2020/file/29539ed932d32f1c56324cded92c07c2-Paper.pdf">
+                            https://proceedings.neurips.cc/paper_files/paper/2020/file/29539ed932d32f1c56324cded92c07c2-Paper.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
+
+                        </p>
+
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/relational-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/relational-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Unsupervised learning of visual features by contrasting cluster
+                            assignments</h3>
 
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Bootstrap your own latent-a new approach to self-supervised learning</h3>
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{caron2020swav, <br>
+                            title={Unsupervised learning of visual features by contrasting cluster assignments}, <br>
+                            author={Caron, Mathilde and Misra, Ishan and Mairal, Julien and Goyal, Priya and Bojanowski,
+                            Piotr and Joulin, Armand}, <br>
+                            journal={Advances in neural information processing systems}, <br>
+                            year={2020}} <br>
 
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @article{grill2020byol, <br>
-                    title={Bootstrap your own latent-a new approach to self-supervised learning}, <br>
-                    author={Grill, Jean-Bastien and Strub, Florian and Altch{\'e}, Florent and Tallec, Corentin and Richemond, Pierre and Buchatskaya, Elena and Doersch, Carl and Avila Pires, Bernardo and Guo, Zhaohan and Gheshlaghi Azar, Mohammad and others}, <br>
-                    journal={Advances in neural information processing systems}, <br>
-                    year={2020}} <br>
-                </p>
+                        </p>
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf">
+                            https://proceedings.neurips.cc/paper_files/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf</a><br>
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
 
-                url=<a
-                    href="https://proceedings.neurips.cc/paper_files/paper/2020/file/f3ada80d5c4ee70142b17b8192b2958e-Paper.pdf">
-                    https://proceedings.neurips.cc/paper_files/paper/2020/file/f3ada80d5c4ee70142b17b8192b2958e-Paper.pdf</a><br>
-                <strong>Summary</strong>
-                <br>
-                <p>
-                    
+                        </p>
 
-                </p>
+                        <p>
+                            <strong>Problem</strong>
 
-                <p>
-                    <strong>Problem</strong>
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
-            
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
 
-                </p>
 
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/byol-fig1.png" class="img-fluid rounded" alt="...">
+
+                        </p>
+
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/swav-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/swav-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <img src="../../images/repr/byol-fig2.png" class="img-fluid rounded" alt="...">
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Vime: Extending the success of self-and semi-supervised learning to
+                            tabular domain</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{yoon2020vime, <br>
+                            title={Vime: Extending the success of self-and semi-supervised learning to tabular domain},
+                            <br>
+                            author={Yoon, Jinsung and Zhang, Yao and Jordon, James and van der Schaar, Mihaela}, <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2020}} <br>
+                        </p>
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2020/file/7d97667a3e056acab9aaf653807b4a03-Paper.pdf">
+                            https://proceedings.neurips.cc/paper_files/paper/2020/file/7d97667a3e056acab9aaf653807b4a03-Paper.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
+
+
+                        </p>
+
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/vime-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/vime-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Self-supervised relational reasoning for representation learning</h3>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Exploring simple siamese representation learning</h3>
 
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @article{patacchiola2020relational, <br>
-                    title={Self-supervised relational reasoning for representation learning}, <br>
-                    author={Patacchiola, Massimiliano and Storkey, Amos J}, <br>
-                    journal={Advances in Neural Information Processing Systems}, <br>
-                    year={2020}} <br>
-                </p>
-                url=<a
-                    href="https://proceedings.neurips.cc/paper_files/paper/2020/file/29539ed932d32f1c56324cded92c07c2-Paper.pdf">
-                    https://proceedings.neurips.cc/paper_files/paper/2020/file/29539ed932d32f1c56324cded92c07c2-Paper.pdf</a><br>
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{chen2021simsiam, <br>
+                            title={Exploring simple siamese representation learning}, <br>
+                            author={Chen, Xinlei and He, Kaiming}, <br>
+                            booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern
+                            recognition}, <br>
+                            year={2021}} <br>
+                        </p>
 
-                <strong>Summary</strong>
-                <br>
-                <p>
-                    
-                </p>
+                        url=<a
+                            href="https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Exploring_Simple_Siamese_Representation_Learning_CVPR_2021_paper.pdf">
+                            https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Exploring_Simple_Siamese_Representation_Learning_CVPR_2021_paper.pdf</a><br>
 
-                <p>
-                    <strong>Problem</strong>
-                    
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
 
-                </p>
+                        </p>
 
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/relational-fig1.png" class="img-fluid rounded" alt="...">
+                        <p>
+                            <strong>Problem</strong>
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
+
+
+                        </p>
+
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/simsiam-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/simsiam-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <img src="../../images/repr/relational-fig2.png" class="img-fluid rounded" alt="...">
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Barlow twins: Self-supervised learning via redundancy reduction</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{zbontar2021barlow, <br>
+                            title={Barlow twins: Self-supervised learning via redundancy reduction}, <br>
+                            author={Zbontar, Jure and Jing, Li and Misra, Ishan and LeCun, Yann and Deny, St{\'e}phane},
+                            <br>
+                            booktitle={International Conference on Machine Learning}, <br>
+                            year={2021}} <br>
+                        </p>
+                        url=<a
+                            href="http://proceedings.mlr.press/v139/zbontar21a/zbontar21a.pdf">http://proceedings.mlr.press/v139/zbontar21a/zbontar21a.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
+
+
+                        </p>
+
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/barlow-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/barlow-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Unsupervised learning of visual features by contrasting cluster assignments</h3>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Whitening for self-supervised representation learning</h3>
 
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @article{caron2020swav, <br>
-                    title={Unsupervised learning of visual features by contrasting cluster assignments}, <br>
-                    author={Caron, Mathilde and Misra, Ishan and Mairal, Julien and Goyal, Priya and Bojanowski, Piotr and Joulin, Armand}, <br>
-                    journal={Advances in neural information processing systems}, <br>
-                    year={2020}} <br>
-                    
-                </p>
-                url=<a href="https://proceedings.neurips.cc/paper_files/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf">
-                    https://proceedings.neurips.cc/paper_files/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf</a><br>
-                <strong>Summary</strong>
-                <br>
-                <p>
-                    
-                </p>
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{ermolov2021whitening, <br>
+                            title={Whitening for self-supervised representation learning}, <br>
+                            author={Ermolov, Aleksandr and Siarohin, Aliaksandr and Sangineto, Enver and Sebe, Nicu},
+                            <br>
+                            booktitle={International Conference on Machine Learning}, <br>
+                            year={2021}} <br>
+                        </p>
+                        url=<a
+                            href="http://proceedings.mlr.press/v139/ermolov21a/ermolov21a.pdf">http://proceedings.mlr.press/v139/ermolov21a/ermolov21a.pdf</a><br>
 
-                <p>
-                    <strong>Problem</strong>
-                    
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
-                    
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
 
 
-                </p>
+                        </p>
 
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/swav-fig1.png" class="img-fluid rounded" alt="...">
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/whitening-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/whitening-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <img src="../../images/repr/swav-fig2.png" class="img-fluid rounded" alt="...">
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Subtab: Subsetting features of tabular data for self-supervised
+                            representation learning</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{ucar2021subtab, <br>
+                            title={Subtab: Subsetting features of tabular data for self-supervised representation
+                            learning}, <br>
+                            author={Ucar, Talip and Hajiramezanali, Ehsan and Edwards, Lindsay}, <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2021}} <br>
+                        </p>
+
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper/2021/file/9c8661befae6dbcd08304dbf4dcaf0db-Paper.pdf">
+                            https://proceedings.neurips.cc/paper/2021/file/9c8661befae6dbcd08304dbf4dcaf0db-Paper.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
+
+
+                        </p>
+
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/subtab-fig1.png" class="img-fluid rounded" alt="...">
+
+                            </div>
+                            <div class="col">
+
+                                <img src="../../images/repr/subtab-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Vime: Extending the success of self-and semi-supervised learning to tabular domain</h3>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Scarf: Self-Supervised Contrastive Learning using Random Feature
+                            Corruption</h3>
 
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @article{yoon2020vime, <br>
-                    title={Vime: Extending the success of self-and semi-supervised learning to tabular domain}, <br>
-                    author={Yoon, Jinsung and Zhang, Yao and Jordon, James and van der Schaar, Mihaela}, <br>
-                    journal={Advances in Neural Information Processing Systems}, <br>
-                    year={2020}} <br>
-                </p>
-                url=<a
-                    href="https://proceedings.neurips.cc/paper_files/paper/2020/file/7d97667a3e056acab9aaf653807b4a03-Paper.pdf">
-                    https://proceedings.neurips.cc/paper_files/paper/2020/file/7d97667a3e056acab9aaf653807b4a03-Paper.pdf</a><br>
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{bahri2021scarf, <br>
+                            title={Scarf: Self-Supervised Contrastive Learning using Random Feature Corruption}, <br>
+                            author={Bahri, Dara and Jiang, Heinrich and Tay, Yi and Metzler, Donald}, <br>
+                            booktitle={International Conference on Learning Representations}, <br>
+                            year={2021}} <br>
+                        </p>
 
-                <strong>Summary</strong>
-                <br>
-                <p>
+                        url=<a href="https://openreview.net/pdf?id=CuV_qYkmKb3">
+                            https://openreview.net/pdf?id=CuV_qYkmKb3</a><br>
 
-                </p>
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
 
-                <p>
-                    <strong>Problem</strong>
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
+                        </p>
+                        <p>
+                            <strong>Problem</strong>
 
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
 
-                </p>
+                        </p>
 
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/vime-fig1.png" class="img-fluid rounded" alt="...">
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/scarf-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/scarf-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <img src="../../images/repr/vime-fig2.png" class="img-fluid rounded" alt="...">
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Semantic-aware auto-encoders for self-supervised representation learning
+                        </h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{wang2022semantic, <br>
+                            title={Semantic-aware auto-encoders for self-supervised representation learning}, <br>
+                            author={Wang, Guangrun and Tang, Yansong and Lin, Liang and Torr, Philip HS}, <br>
+                            booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
+                            Recognition}, <br>
+                            year={2022}} <br>
+                        </p>
+
+                        url=<a
+                            href="https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_Semantic-Aware_Auto-Encoders_for_Self-Supervised_Representation_Learning_CVPR_2022_paper.pdf">
+                            https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_Semantic-Aware_Auto-Encoders_for_Self-Supervised_Representation_Learning_CVPR_2022_paper.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+
+
+                        </p>
+                        <p>
+                            <strong>Problem</strong>
+
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
+
+                        </p>
+
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/semantic-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/semantic-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Exploring simple siamese representation learning</h3>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">On embeddings for numerical features in tabular deep learning</h3>
 
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @inproceedings{chen2021simsiam, <br>
-                    title={Exploring simple siamese representation learning}, <br>
-                    author={Chen, Xinlei and He, Kaiming}, <br>
-                    booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition}, <br>
-                    year={2021}} <br>
-                </p>
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{gorishniy2022embeddings, <br>
+                            title={On embeddings for numerical features in tabular deep learning}, <br>
+                            author={Gorishniy, Yury and Rubachev, Ivan and Babenko, Artem}, <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2022}} <br>
 
-                url=<a
-                    href="https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Exploring_Simple_Siamese_Representation_Learning_CVPR_2021_paper.pdf">
-                    https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Exploring_Simple_Siamese_Representation_Learning_CVPR_2021_paper.pdf</a><br>
+                        </p>
 
-                <strong>Summary</strong>
-                <br>
-                <p>
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2022/file/9e9f0ffc3d836836ca96cbf8fe14b105-Paper-Conference.pdf">
+                            https://proceedings.neurips.cc/paper_files/paper/2022/file/9e9f0ffc3d836836ca96cbf8fe14b105-Paper-Conference.pdf</a><br>
 
-                </p>
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
 
-                <p>
-                    <strong>Problem</strong>
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
+                        </p>
 
-
-                </p>
-
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/simsiam-fig1.png" class="img-fluid rounded" alt="...">
-                    </div>
-                    <div class="col">
-                        <img src="../../images/repr/simsiam-fig2.png" class="img-fluid rounded" alt="...">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Barlow twins: Self-supervised learning via redundancy reduction</h3>
-
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @inproceedings{zbontar2021barlow, <br>
-                    title={Barlow twins: Self-supervised learning via redundancy reduction}, <br>
-                    author={Zbontar, Jure and Jing, Li and Misra, Ishan and LeCun, Yann and Deny, St{\'e}phane}, <br>
-                    booktitle={International Conference on Machine Learning}, <br>
-                    year={2021}} <br>
-                </p>
-                url=<a
-                    href="http://proceedings.mlr.press/v139/zbontar21a/zbontar21a.pdf">http://proceedings.mlr.press/v139/zbontar21a/zbontar21a.pdf</a><br>
-
-                <strong>Summary</strong>
-                <br>
-                <p>
-
-                </p>
-
-                <p>
-                    <strong>Problem</strong>
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
+                        <p>
+                            <strong>Problem</strong>
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
 
 
-                </p>
+                        </p>
 
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/barlow-fig1.png" class="img-fluid rounded" alt="...">
-                    </div>
-                    <div class="col">
-                        <img src="../../images/repr/barlow-fig2.png" class="img-fluid rounded" alt="...">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Whitening for self-supervised representation learning</h3>
-
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @inproceedings{ermolov2021whitening, <br>
-                    title={Whitening for self-supervised representation learning}, <br>
-                    author={Ermolov, Aleksandr and Siarohin, Aliaksandr and Sangineto, Enver and Sebe, Nicu}, <br>
-                    booktitle={International Conference on Machine Learning}, <br>
-                    year={2021}} <br>
-                </p>
-                url=<a
-                    href="http://proceedings.mlr.press/v139/ermolov21a/ermolov21a.pdf">http://proceedings.mlr.press/v139/ermolov21a/ermolov21a.pdf</a><br>
-
-                <strong>Summary</strong>
-                <br>
-                <p>
-
-                </p>
-
-                <p>
-                    <strong>Problem</strong>
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
-
-
-                </p>
-
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/whitening-fig1.png" class="img-fluid rounded" alt="...">
-                    </div>
-                    <div class="col">
-                        <img src="../../images/repr/whitening-fig2.png" class="img-fluid rounded" alt="...">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Subtab: Subsetting features of tabular data for self-supervised representation learning</h3>
-
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @article{ucar2021subtab, <br>
-                    title={Subtab: Subsetting features of tabular data for self-supervised representation learning}, <br>
-                    author={Ucar, Talip and Hajiramezanali, Ehsan and Edwards, Lindsay}, <br>
-                    journal={Advances in Neural Information Processing Systems}, <br>
-                    year={2021}} <br>
-                </p>
-
-                url=<a
-                    href="https://proceedings.neurips.cc/paper/2021/file/9c8661befae6dbcd08304dbf4dcaf0db-Paper.pdf">
-                    https://proceedings.neurips.cc/paper/2021/file/9c8661befae6dbcd08304dbf4dcaf0db-Paper.pdf</a><br>
-
-                <strong>Summary</strong>
-                <br>
-                <p>
-
-                </p>
-
-                <p>
-                    <strong>Problem</strong>
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
-
-
-                </p>
-
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/subtab-fig1.png" class="img-fluid rounded" alt="...">
-
-                    </div>
-                    <div class="col">
-
-                        <img src="../../images/repr/subtab-fig2.png" class="img-fluid rounded" alt="...">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Scarf: Self-Supervised Contrastive Learning using Random Feature Corruption</h3>
-
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @inproceedings{bahri2021scarf, <br>
-                    title={Scarf: Self-Supervised Contrastive Learning using Random Feature Corruption}, <br>
-                    author={Bahri, Dara and Jiang, Heinrich and Tay, Yi and Metzler, Donald}, <br>
-                    booktitle={International Conference on Learning Representations}, <br>
-                    year={2021}} <br>
-                </p>
-
-                url=<a
-                    href="https://openreview.net/pdf?id=CuV_qYkmKb3">
-                    https://openreview.net/pdf?id=CuV_qYkmKb3</a><br>
-
-                <strong>Summary</strong>
-                <br>
-                <p>
-                
-                </p>
-                <p>
-                    <strong>Problem</strong>
-                    
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
-               
-                </p>
-
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/scarf-fig1.png" class="img-fluid rounded" alt="...">
-                    </div>
-                    <div class="col">
-                        <img src="../../images/repr/scarf-fig2.png" class="img-fluid rounded" alt="...">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">Semantic-aware auto-encoders for self-supervised representation learning</h3>
-
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @inproceedings{wang2022semantic, <br>
-                    title={Semantic-aware auto-encoders for self-supervised representation learning}, <br>
-                    author={Wang, Guangrun and Tang, Yansong and Lin, Liang and Torr, Philip HS}, <br>
-                    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, <br>
-                    year={2022}} <br>
-                </p>
-
-                url=<a
-                    href="https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_Semantic-Aware_Auto-Encoders_for_Self-Supervised_Representation_Learning_CVPR_2022_paper.pdf">
-                    https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_Semantic-Aware_Auto-Encoders_for_Self-Supervised_Representation_Learning_CVPR_2022_paper.pdf</a><br>
-
-                <strong>Summary</strong>
-                <br>
-                <p>
-              
-
-                </p>
-                <p>
-                    <strong>Problem</strong>
-                   
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
-                
-                </p>
-
-                <strong>Images</strong><br>
-                <div class="row">
-                    <div class="col">
-                        <img src="../../images/repr/semantic-fig1.png" class="img-fluid rounded" alt="...">
-                    </div>
-                    <div class="col">
-                        <img src="../../images/repr/semantic-fig2.png" class="img-fluid rounded" alt="...">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="paper-container">
-                <h3 class="paper-title">On embeddings for numerical features in tabular deep learning</h3>
-
-                <p>
-                    <strong>BibTex</strong>
-                    <br>
-                    @article{gorishniy2022embeddings, <br>
-                    title={On embeddings for numerical features in tabular deep learning}, <br>
-                    author={Gorishniy, Yury and Rubachev, Ivan and Babenko, Artem}, <br>
-                    journal={Advances in Neural Information Processing Systems}, <br>
-                    year={2022}} <br>
-                      
-                </p>
-
-                url=<a
-                    href="https://proceedings.neurips.cc/paper_files/paper/2022/file/9e9f0ffc3d836836ca96cbf8fe14b105-Paper-Conference.pdf">
-                    https://proceedings.neurips.cc/paper_files/paper/2022/file/9e9f0ffc3d836836ca96cbf8fe14b105-Paper-Conference.pdf</a><br>
-
-                <strong>Summary</strong>
-                <br>
-                <p>
-
-                </p>
-
-                <p>
-                    <strong>Problem</strong>
-                </p>
-                <p>
-                    <strong>Solution, Ideas and Why</strong>
-
-
-                </p>
-
-                <!-- <strong>Images</strong><br>
+                        <!-- <strong>Images</strong><br>
                 <div class="row">
                     <div class="col">
                         <img src="../../images/repr/embeddings-fig1.png" class="img-fluid rounded" alt="...">
@@ -653,11 +681,11 @@
                         <img src="../../images/repr/embeddings-fig2.png" class="img-fluid rounded" alt="...">
                     </div>
                 </div> -->
-            </div>
-        </li>
+                    </div>
+                </li>
 
-        </ol>
-    </div>
+            </ol>
+        </div>
     </div>
 </body>
 
