@@ -360,7 +360,8 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            This paper tackles the problem of representation learning but with no negative pairs and no contrastive loss. The paper proposes a framework called SwAV that 
+                            This paper tackles the problem of representation learning but with no negative pairs and no
+                            contrastive loss. The paper proposes a framework called SwAV that
                             doesn't match projections but matches cluster assignments of augmented views.
                         </p>
 
@@ -370,8 +371,10 @@
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-                            matching cluster assingments of positive pairs to  learned cluster prototypes (symmetric loss).
-                            multi-crop or using 2 standard resolution images and multiple low resolution crops to increase performance.
+                            matching cluster assingments of positive pairs to learned cluster prototypes (symmetric
+                            loss).
+                            multi-crop or using 2 standard resolution images and multiple low resolution crops to
+                            increase performance.
 
 
                         </p>
@@ -409,15 +412,24 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            This paper is tackling the problem of representation learning with tabular data. The paper propose VIME or Value Imputation and masked estimation 
-                            where there are a 2 stages, a self supervised stage and a semi-supervised stage. In the self supervised stage, they mask a random subset of features and then 
-                            pass the corrupted sample to the encoder which then outputs a representation. The representation is then passed to a decoder which outputs a reconstruction of the
-                            original sample and another decoder which outputs the mask applied to the samples. The second stage is a semi-supervised stage where they create several corrupted 
-                            views of the same sample and pass it to the encoder along with the original sample. The encoder outputs a representation for each view. The representations are passed
-                            to the predictor head to output predictions for the original samples and the corrupted views. The original sample prediction is compared to the original sample label
-                            and the corrupted views are compared with each other to make sure, coming from the same original sample, they are consistent in predictions. In total, the network has 
-                            3 branches and 4 loss functions. The reconstruction and masked estimation loss for the first stage. The Supervised and Consistency loss for second stage. The masking process
-                            is done by randomly shuffling the values of the features (columns) of the samples in the batch. 
+                            This paper is tackling the problem of representation learning with tabular data. The paper
+                            propose VIME or Value Imputation and masked estimation
+                            where there are a 2 stages, a self supervised stage and a semi-supervised stage. In the self
+                            supervised stage, they mask a random subset of features and then
+                            pass the corrupted sample to the encoder which then outputs a representation. The
+                            representation is then passed to a decoder which outputs a reconstruction of the
+                            original sample and another decoder which outputs the mask applied to the samples. The
+                            second stage is a semi-supervised stage where they create several corrupted
+                            views of the same sample and pass it to the encoder along with the original sample. The
+                            encoder outputs a representation for each view. The representations are passed
+                            to the predictor head to output predictions for the original samples and the corrupted
+                            views. The original sample prediction is compared to the original sample label
+                            and the corrupted views are compared with each other to make sure, coming from the same
+                            original sample, they are consistent in predictions. In total, the network has
+                            3 branches and 4 loss functions. The reconstruction and masked estimation loss for the first
+                            stage. The Supervised and Consistency loss for second stage. The masking process
+                            is done by randomly shuffling the values of the features (columns) of the samples in the
+                            batch.
                         </p>
 
                         <p>
@@ -426,8 +438,10 @@
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-                            mask input samples and learn generative features to predict the original sample and the applied mask.
-                            in addition to supervised loss, use consistency loss that encourages same representation for augmeted views of same input 
+                            mask input samples and learn generative features to predict the original sample and the
+                            applied mask.
+                            in addition to supervised loss, use consistency loss that encourages same representation for
+                            augmeted views of same input
 
                         </p>
 
@@ -464,15 +478,30 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
-                        </p>
+                            This paper tackles the problem of representation learning with siamese network and the
+                            collapse issue. The propose a simple siamese network that uses predictor branch and a
+                            non-predictor branch with stop gradient,
+                            no negative pairs, and no momentum encoders. From a single sample, they generate 2 augmented
+                            views and pass them to the 2 branches in both this order and the flip order of the views.
+                            Both branches have the same encoder, but only the predictive branch
+                            has gradient updates. the encoders output representation and on the predictive branch, the
+                            representation is passed to a predictor head to predict the representation of the second
+                            branch. The loss is a symmetric
+                            cosine simimlarity loss between the prediction of the first branch and the projection of the
+                            second branch. They show how their approach is similar to an expectation minimization
+                            algorithm and the stop-gradient is important
+                            to preventing collapse to a constant function.
 
                         <p>
                             <strong>Problem</strong>
+                            representation learning with siamese network simplified to avoid collapse without using
+                            negative pairs
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            stop gradient in non-predictor branch to avoid collapse to constant function.
+                            symmetric (views are swapped) loss matching first branch prediction and second branch
+                            projection.
 
                         </p>
 
