@@ -535,16 +535,22 @@
 
                         <strong>Summary</strong>
                         <br>
-                        <p>
-
+                        <p> 
+                            This paper tackles the issue of avoid collapse to a constant function in representation learning by measuring the cross correlation matrix. Given a batch of samples, they generate a random 
+                            pair of batches of augmented views passed into a shared decoder and projectin head to produce a pair of projections of the batch of input samples. From the batches of projections, they calculate 
+                            the cross correlation matrix between the 2 batches of projections. The cross correlation matrix should be an identity matrix meaning that the same feature indices should be correlated and different feature 
+                            indices should be non correlated. To calculate the correlation, they assume the features are meaned at 0 over the batch dimension and divide by largest cross correlation value to avoid large feature values
+                            being interpreted as large correlation. 
                         </p>
 
                         <p>
                             <strong>Problem</strong>
+                            representation learning without negative pairs and avoiding collapse
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            cross correlation matrix loss between 2 views embeddings should be identity matrix where same features should be correlated and different features should be non correlated.
+                            the cross correlation calculations should include a normalization denominator so large feature values are not interpreted as large correlation 
 
                         </p>
 
