@@ -164,16 +164,24 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of representation learning with contrastive loss. The paper proposes a simple framework called SimCLR that uses a
+                            non-linear projection head on top of the encoder to get an embedding that is contrasted with other embedding of the same sample. Given a sample, they apply 
+                            a random composition of augmentations like crop, color etc to get a positive pair of augmented view from the same sample and contrast it with 
+                            negative pairs of view from different samples in the batch. As such, the perform the best, the number of negative examples needs to be large, making 
+                            the batch size large. They explored different combinations of augmentations and found that the best combination is a composition of random crop, color distortion, sobel filtering and gaussian blur.
+                            The introduced projection head as simple mlp before the contrastive loss to put distance between features and output so less information is lost in features.
+                            Overall, they found that introducing a simclr stage before finetuning the model on the downstream task improves the performance of the model.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            representation learning by expand negative pairs through data augmentation
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong><br>
-
+                            Composition of augmentations like crop, color etc to get a positive pair of augmented view from the same sample. Contrast with negative pairs of view from different samples
+                            Add a projector (mlp) on top of the repr. encoder to get embeddings that will be contrasted. Puts distance between features and output so less information is lost in features. 
+                            pretrain -> simclr -> finetuning
                         </p>
 
                         <strong>Images</strong><br>
