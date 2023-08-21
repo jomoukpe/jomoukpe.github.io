@@ -109,15 +109,24 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            This paper is tackling the problem of representation learning with contrastive loss where an encoded query is matched to dictionary of encoded keys. 
-                            Contrastive methods are sensitive to the number of negative examples, usually limited by the batch. Compared to previous methods such as 
-                            end-to-end training of 2 encoders or using a memory bank, this paper proposes a new method called Momentum Contrast (MoCo) that uses a queue to store 
-                            multiples batches of encoded keys in Fifo style and a momentum update for the key encoder to ensure all encoded keys in the queue belong to the same representation space.
-                            The queue overcome the limitated on the end to end technique which was limited by the overall hardware memory available for the batch and the momementum update 
-                            ensure that the keys are in the same representation space unlike the keys in the memory bank. From training, only the query encoder is updated by backpropagation. The
-                            key encoder is conservatively updated by momementum update where at most 10% of the key encoder is updated by the query encoder. They notice Batch normalization is not 
-                            effective in this case because it leaks information via intra-batch communication across samples. To fix that, they introduce Shuffling Batch Normalization where they use
-                            multiple GPUs, performing batch normalization on independly for each GPU and then shuffling the samples across GPUs.
+                            This paper is tackling the problem of representation learning with contrastive loss where an
+                            encoded query is matched to dictionary of encoded keys.
+                            Contrastive methods are sensitive to the number of negative examples, usually limited by the
+                            batch. Compared to previous methods such as
+                            end-to-end training of 2 encoders or using a memory bank, this paper proposes a new method
+                            called Momentum Contrast (MoCo) that uses a queue to store
+                            multiples batches of encoded keys in Fifo style and a momentum update for the key encoder to
+                            ensure all encoded keys in the queue belong to the same representation space.
+                            The queue overcome the limitated on the end to end technique which was limited by the
+                            overall hardware memory available for the batch and the momementum update
+                            ensure that the keys are in the same representation space unlike the keys in the memory
+                            bank. From training, only the query encoder is updated by backpropagation. The
+                            key encoder is conservatively updated by momementum update where at most 10% of the key
+                            encoder is updated by the query encoder. They notice Batch normalization is not
+                            effective in this case because it leaks information via intra-batch communication across
+                            samples. To fix that, they introduce Shuffling Batch Normalization where they use
+                            multiple GPUs, performing batch normalization on independly for each GPU and then shuffling
+                            the samples across GPUs.
 
                         </p>
                         <p>
@@ -164,13 +173,21 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            This paper tackles the problem of representation learning with contrastive loss. The paper proposes a simple framework called SimCLR that uses a
-                            non-linear projection head on top of the encoder to get an embedding that is contrasted with other embedding of the same sample. Given a sample, they apply 
-                            a random composition of augmentations like crop, color etc to get a positive pair of augmented view from the same sample and contrast it with 
-                            negative pairs of view from different samples in the batch. As such, the perform the best, the number of negative examples needs to be large, making 
-                            the batch size large. They explored different combinations of augmentations and found that the best combination is a composition of random crop, color distortion, sobel filtering and gaussian blur.
-                            The introduced projection head as simple mlp before the contrastive loss to put distance between features and output so less information is lost in features.
-                            Overall, they found that introducing a simclr stage before finetuning the model on the downstream task improves the performance of the model.
+                            This paper tackles the problem of representation learning with contrastive loss. The paper
+                            proposes a simple framework called SimCLR that uses a
+                            non-linear projection head on top of the encoder to get an embedding that is contrasted with
+                            other embedding of the same sample. Given a sample, they apply
+                            a random composition of augmentations like crop, color etc to get a positive pair of
+                            augmented view from the same sample and contrast it with
+                            negative pairs of view from different samples in the batch. As such, the perform the best,
+                            the number of negative examples needs to be large, making
+                            the batch size large. They explored different combinations of augmentations and found that
+                            the best combination is a composition of random crop, color distortion, sobel filtering and
+                            gaussian blur.
+                            The introduced projection head as simple mlp before the contrastive loss to put distance
+                            between features and output so less information is lost in features.
+                            Overall, they found that introducing a simclr stage before finetuning the model on the
+                            downstream task improves the performance of the model.
                         </p>
 
                         <p>
@@ -179,8 +196,10 @@
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong><br>
-                            Composition of augmentations like crop, color etc to get a positive pair of augmented view from the same sample. Contrast with negative pairs of view from different samples
-                            Add a projector (mlp) on top of the repr. encoder to get embeddings that will be contrasted. Puts distance between features and output so less information is lost in features. 
+                            Composition of augmentations like crop, color etc to get a positive pair of augmented view
+                            from the same sample. Contrast with negative pairs of view from different samples
+                            Add a projector (mlp) on top of the repr. encoder to get embeddings that will be contrasted.
+                            Puts distance between features and output so less information is lost in features.
                             pretrain -> simclr -> finetuning
                         </p>
 
@@ -219,12 +238,24 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            This paper tackles the problem of representation learning but with no negative pairs. The paper proposes a framework called Bootstrap Your Own Latent (BYOL) that uses 2 branches a momentum encoder,
-                            a projector head, a predictor head, and no negative pairs. BYOL works by 2 augmented views of the same sample, and passing to the 2 branches. The first branch has an online encoder updated by backpropagation
-                            that produces a representation of the augmented view. That representation is passed to the projector head which is a mlp that outputs a projection of the representation. Finally the projection is passed to the predictor head
-                            which is a mlp that outputs a prediction of the projection of the other branch. The other branch has a target encoder updated by momentum update that produces a representation of the other augmented view. The representation 
-                            is passed to the projector head to get a projection of the representation. That second projection is the projection that the predictor head is trying to predict. The momentum update is a at most 10% update of the online encoder.
-                            BYOL uses symmetric loss, meaning that the augmented views are passed to both branches in the first order then the reverse order. This approach is at risk of collapsing to a constant function where all inputs are mapped to the same
+                            This paper tackles the problem of representation learning but with no negative pairs. The
+                            paper proposes a framework called Bootstrap Your Own Latent (BYOL) that uses 2 branches a
+                            momentum encoder,
+                            a projector head, a predictor head, and no negative pairs. BYOL works by 2 augmented views
+                            of the same sample, and passing to the 2 branches. The first branch has an online encoder
+                            updated by backpropagation
+                            that produces a representation of the augmented view. That representation is passed to the
+                            projector head which is a mlp that outputs a projection of the representation. Finally the
+                            projection is passed to the predictor head
+                            which is a mlp that outputs a prediction of the projection of the other branch. The other
+                            branch has a target encoder updated by momentum update that produces a representation of the
+                            other augmented view. The representation
+                            is passed to the projector head to get a projection of the representation. That second
+                            projection is the projection that the predictor head is trying to predict. The momentum
+                            update is a at most 10% update of the online encoder.
+                            BYOL uses symmetric loss, meaning that the augmented views are passed to both branches in
+                            the first order then the reverse order. This approach is at risk of collapsing to a constant
+                            function where all inputs are mapped to the same
                             representation. To avoid that, they use the momentum update on the target encoder branch.
 
 
@@ -236,8 +267,11 @@
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-                            positive pair into 2 branches, one with encoder, projector, and a predictor learning to predict the projection of the other branch, encouraging same representation for positive pair.
-                            momentum update on the target network branch (no predictor) to avoid collapse of the network to a constant function give same representation for all inputs.
+                            positive pair into 2 branches, one with encoder, projector, and a predictor learning to
+                            predict the projection of the other branch, encouraging same representation for positive
+                            pair.
+                            momentum update on the target network branch (no predictor) to avoid collapse of the network
+                            to a constant function give same representation for all inputs.
                         </p>
 
                         <strong>Images</strong><br>
@@ -271,16 +305,26 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of representation learning but with relational reasoning
+                            module and cross entropy loss instead of using contrastive loss. They propose a framework
+                            called Relational reasoning that uses a relational network
+                            to ingest concatenated positive pair from augmented view of the same sample and negative
+                            pair from augmented views of different samples. The relational network outputs relation
+                            probablity of a pair being related to the same sample.
+                            The relational network is trained with binary cross entropy loss. They explored different
+                            aggregation methods for the relational network and found that concatenation is the best.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            representation learning with 1 positive pair and 1 negative pair
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            relational network ingest concatenated positive pair and negative pair. outputs relation
+                            probablity (1 for related, 0 otherwise).
+                            more efficient as the number of comparision scales linearly with the batch size (instead of
+                            quadratically), best aggregation is concatenation, loss is focal loss.
                         </p>
 
                         <strong>Images</strong><br>
