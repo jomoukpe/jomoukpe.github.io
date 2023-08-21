@@ -360,16 +360,18 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of representation learning but with no negative pairs and no contrastive loss. The paper proposes a framework called SwAV that 
+                            doesn't match projections but matches cluster assignments of augmented views.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            representation learning with no negative pairs
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            matching cluster assingments of positive pairs to  learned cluster prototypes (symmetric loss).
+                            multi-crop or using 2 standard resolution images and multiple low resolution crops to increase performance.
 
 
                         </p>
@@ -407,15 +409,25 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper is tackling the problem of representation learning with tabular data. The paper propose VIME or Value Imputation and masked estimation 
+                            where there are a 2 stages, a self supervised stage and a semi-supervised stage. In the self supervised stage, they mask a random subset of features and then 
+                            pass the corrupted sample to the encoder which then outputs a representation. The representation is then passed to a decoder which outputs a reconstruction of the
+                            original sample and another decoder which outputs the mask applied to the samples. The second stage is a semi-supervised stage where they create several corrupted 
+                            views of the same sample and pass it to the encoder along with the original sample. The encoder outputs a representation for each view. The representations are passed
+                            to the predictor head to output predictions for the original samples and the corrupted views. The original sample prediction is compared to the original sample label
+                            and the corrupted views are compared with each other to make sure, coming from the same original sample, they are consistent in predictions. In total, the network has 
+                            3 branches and 4 loss functions. The reconstruction and masked estimation loss for the first stage. The Supervised and Consistency loss for second stage. The masking process
+                            is done by randomly shuffling the values of the features (columns) of the samples in the batch. 
                         </p>
 
                         <p>
                             <strong>Problem</strong>
+                            representation learning on tabular data
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            mask input samples and learn generative features to predict the original sample and the applied mask.
+                            in addition to supervised loss, use consistency loss that encourages same representation for augmeted views of same input 
 
                         </p>
 
