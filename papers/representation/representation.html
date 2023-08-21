@@ -219,17 +219,25 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
+                            This paper tackles the problem of representation learning but with no negative pairs. The paper proposes a framework called Bootstrap Your Own Latent (BYOL) that uses 2 branches a momentum encoder,
+                            a projector head, a predictor head, and no negative pairs. BYOL works by 2 augmented views of the same sample, and passing to the 2 branches. The first branch has an online encoder updated by backpropagation
+                            that produces a representation of the augmented view. That representation is passed to the projector head which is a mlp that outputs a projection of the representation. Finally the projection is passed to the predictor head
+                            which is a mlp that outputs a prediction of the projection of the other branch. The other branch has a target encoder updated by momentum update that produces a representation of the other augmented view. The representation 
+                            is passed to the projector head to get a projection of the representation. That second projection is the projection that the predictor head is trying to predict. The momentum update is a at most 10% update of the online encoder.
+                            BYOL uses symmetric loss, meaning that the augmented views are passed to both branches in the first order then the reverse order. This approach is at risk of collapsing to a constant function where all inputs are mapped to the same
+                            representation. To avoid that, they use the momentum update on the target encoder branch.
 
 
                         </p>
 
                         <p>
                             <strong>Problem</strong>
+                            representation learning with no negative pairs
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
-
+                            positive pair into 2 branches, one with encoder, projector, and a predictor learning to predict the projection of the other branch, encouraging same representation for positive pair.
+                            momentum update on the target network branch (no predictor) to avoid collapse of the network to a constant function give same representation for all inputs.
                         </p>
 
                         <strong>Images</strong><br>
