@@ -362,7 +362,21 @@
                         <p>
                             This paper tackles the problem of representation learning but with no negative pairs and no
                             contrastive loss. The paper proposes a framework called SwAV that
-                            doesn't match projections but matches cluster assignments of augmented views.
+                            doesn't match projections but matches cluster assignments of augmented views. They start by
+                            learning cluster prototypes
+                            such that the cluster assignments of the positive pair of augmented views from the same
+                            sample are the same. Their framework
+                            consist of a 2 branch network. From a single sample, they produce 2 augmented views, pass
+                            them to the 2 branches. First the encoders
+                            of the 2 branches produce representations of the augmented views. The representations are
+                            passed into a projection head to produce
+                            projections of the representations. The projections are passed into a cluster assignment
+                            head to produce cluster assignments of the
+                            projections to the cluster prototypes. The loss function compares the cluster assignment of
+                            one branch to the projection of the other
+                            and vice -versa symmetrically. They also introduce multi-crop or using 2 standard resolution
+                            images and multiple low resolution crops to
+                            increase performance.
                         </p>
 
                         <p>
@@ -595,15 +609,37 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of representation learning with whitening. The paper propose
+                            whitening to prevent collapse. The authors first start by producing
+                            a lot more than 1 positive pair with no need for negative pairs. They do that by augmenting
+                            the input sample multiple times and passing the augmented samples to the encoder to produce
+                            multiple embeddings.
+                            They then whiten the embeddings by moving them to a zero mean 1 standard dev distribution.
+                            Normalize them so they rest in a unit circle. Then they calcualte MSE similarity between all
+                            positive pairs to attract them together.
+                            The whitening step require calculating the Wv matrix and Mu mean of the embeddings. To
+                            better estimate Wv matrix, they partition the set of embeddings according to augmentation
+                            applied. Use same random permutation of elements across partitions to obtain subbatches.
+                            They calculate Wv and mu's for subbatches. Repeat this process to obtain decent estimates of
+                            Wv and mu's.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
+                            representation learning with avoiding collapse, no negative pairs, and more positive pairs
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            produce a lot more than 1 positive pair and whiten their
+                            embeddings by moving them to a zero mean 1 standard dev
+                            distribution. Normalize them so they rest in a unit circle.
+                            calcualte MSE similarity between all positive pairs to attract
+                            them together.
+                            To better estimate Wv matrix, partition the set of
+                            embeddings accroding to augmentation applied. Use same random
+                            permutation of elements across partitions to obtain subbatches.
+                            calculate Wv and mu's for subbatches. Repeat this process to obtain
+                            decent estimates
 
                         </p>
 
