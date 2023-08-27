@@ -938,12 +938,16 @@
 
                         <p>
                             <strong>Problem</strong>
-
+                            avoid collapse without using negative pairs, momentum encoders, or stop gradient
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
-
+                            from a batch of images, a pair of augmented batches passed into encoder and projector to
+                            obtain batch of augmented projections. and an invariance term to measure the mean square distance
+                            between augmented views. The distance is to be minimized.
+                            Variance and Covariance Regularizer terms to respectively prevent collapse 
+                            to a constant and information collapse (highly correlated features). Variance term insure 
+                            variance of the projections are above threshold chosen, and Covariance insure uncorrelated features.
                         </p>
                         <strong>Images</strong><br>
                         <div class="row">
@@ -984,12 +988,15 @@
 
                         <p>
                             <strong>Problem</strong>
-
+                            generative representation learning with masked image modeling
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
-
+                            mask random 75% patches of image, pass only visible patches to encoder to get
+                            representation, add mask tokens to repr before passing to encoder to get pred missing
+                            patches
+                            asymmetric Auto Encoder where the decoder is much smaller than the encoder to reduce compute
+                            cost
                         </p>
                         <strong>Images</strong><br>
                         <div class="row">
@@ -1030,12 +1037,15 @@
 
                         <p>
                             <strong>Problem</strong>
-
+                            generative representation learning with masked image modeling
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
-
+                            mask random 60% 32x32 patches of image and pass both mased and visible patches to encoder to
+                            get representation and pass representation to 1 layer Linear
+                            decoder head to predict missing patches only at raw pixel level.
+                            learned mask token vectors are used to replace masked patches. The decoder is a small linear
+                            layer (asymmetric AE) and predicting raw pixel value works best
                         </p>
                         <strong>Images</strong><br>
                         <div class="row">
@@ -1076,11 +1086,16 @@
 
                         <p>
                             <strong>Problem</strong>
-
+                            learning tabular data
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
-
+                            intersample attention or attention across rows on top of self attention between columns
+                            (features).
+                            2 stages, self supervised pretraining with contrative loss between projections of a sample
+                            and its noisy augmented view, and with reconstructing the sample from its noisy view
+                            reprresentation.
+                            Supervised finetuning stage follows.
 
                         </p>
                         <strong>Images</strong><br>
