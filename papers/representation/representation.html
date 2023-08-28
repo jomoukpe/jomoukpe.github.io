@@ -943,11 +943,13 @@
                         <p>
                             <strong>Solution, Ideas and Why</strong>
                             from a batch of images, a pair of augmented batches passed into encoder and projector to
-                            obtain batch of augmented projections. and an invariance term to measure the mean square distance
+                            obtain batch of augmented projections. and an invariance term to measure the mean square
+                            distance
                             between augmented views. The distance is to be minimized.
-                            Variance and Covariance Regularizer terms to respectively prevent collapse 
-                            to a constant and information collapse (highly correlated features). Variance term insure 
-                            variance of the projections are above threshold chosen, and Covariance insure uncorrelated features.
+                            Variance and Covariance Regularizer terms to respectively prevent collapse
+                            to a constant and information collapse (highly correlated features). Variance term insure
+                            variance of the projections are above threshold chosen, and Covariance insure uncorrelated
+                            features.
                         </p>
                         <strong>Images</strong><br>
                         <div class="row">
@@ -983,7 +985,23 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of representation learning with masked image modeling. The
+                            authors noticed that masking an image with
+                            random 16x16 patches coveraging more than 75% of the image provides a difficult task for the
+                            encoder to learn a good semantic representation
+                            of the image without simply exploiting the spatial information locality in the image. They
+                            proposed a framework called Masked Autoencoders
+                            where they mask random 75% patches of the image using 16x16 patches and pass only the
+                            visible patches to the encoder (Vision Transformer)
+                            to obtain a representation. They then add mask tokens to the representation, which are
+                            indictive of the absence of visible patches in those areas.
+                            The representation with the mask tokens are passed to the decoder to predict the missing
+                            patches. The authors proposed an asymmetric auto encoder
+                            where the decoder is much smaller than the encoder to reduce compute cost. The decoder is
+                            then trained to predict only the missing patches. Through
+                            their experiments, they found that a high mask ratio offered a difficult task for the
+                            encoder to learn a good representation. They also found that
+                            passing only the visible patches reduced the computational cost of training a large encoder.
                         </p>
 
                         <p>
@@ -1032,7 +1050,15 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of representation learning with masked image modeling.
+                            Similarly to MAE, the authors were using a Masked Autoencoder
+                            and masked significant portion of the image with random 32x32 mask patches. Unlike MAE, they
+                            passed both visible and mask patches to the encoder to
+                            obtain representations. Those representation vectors were passed to the decoder (without
+                            need to pass mask tokens) to predict the missing patches.
+                            They went smaller with the decoder and used a single linear layer to predict the missing
+                            patches. Their training objective was to predict raw pixel
+                            values for the missing patches.
                         </p>
 
                         <p>
