@@ -933,7 +933,21 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of avoid collapse to a constant function in representation learning.
+                            The authors noticed that previous approaches to repreentation learning relied on negative samples, 
+                            momentum encoders, or stop gradient to avoid collapse. They proposed a framework called VICReg or
+                            Variance-Invariance-Covariance Regularization for Self-Supervised Learning. The framework works
+                            by generating 2 augmented batches of views of the same input batch. The 2 batches are passed into
+                            an encoder and a projector to obtain 2 batches of projections. The first term in their loss is the 
+                            invariance term which is the mean square distance between the 2 batches of projections. The invariance
+                            term serves to determine that the 2 batches of projections are similar since they are from the same 
+                            batch of inputs samples. The second term is the variance term which is to prevent collapse to a constant
+                            functions. The variance term insures that the variance of the projections are above a threshold meaning 
+                            that there is enough variety between the projections and thus the representations are not collapsed to a
+                            constant vector. The third term is the covariance term which is to prevent information collapse. The covariance
+                            term insures that features of the projections are not correlated, meaning that the features are not collapsed
+                            to a single feature. In their ablative studies, they found that their methods performs the best when all 3 term 
+                            are used together with also batch normalization.
                         </p>
 
                         <p>
