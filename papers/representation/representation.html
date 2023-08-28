@@ -1107,7 +1107,24 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            This paper tackles the problem of learning on tabular data. They noticed how deep learning
+                            methods still behind
+                            traditional methods on tabular data. They proposed a framework called SAINT or
+                            Self-Attention intersample attention
+                            transformer for tabular data. First they embed both categorical and numerical values in an
+                            embedding vector before
+                            passing it to their SAINT transformer. Their transformer uses 2 kinds of attention, self
+                            attention between features
+                            and their proposed intersample attention between rows. The intersample attention is
+                            calculated by computing the attention
+                            score between the query row and all other rows. that attention score dictates how much of
+                            the features of other samples will
+                            be used to produce the representation of the query row. They also proposed a 2 stage
+                            training where they first pretrain
+                            in a self supervised manner with contrastive loss between the projection of the row and its
+                            noisy augmented view, and with
+                            reconstructing the row from its noisy view projection. The second stage is a supervised
+                            finetuning stage for the downstream task. They used CutMix and MixUp for data corruption.
                         </p>
 
                         <p>
