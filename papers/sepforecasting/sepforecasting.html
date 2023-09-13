@@ -11,376 +11,446 @@
 <!DOCTYPE htsep>
 <htsep lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Data Imbalanced Papers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <title>Data Imbalanced Papers</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
 
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(45deg, #8B0000, #FF4500);
-            background-size: 200% 200%;
-            animation: Gradient 3s ease infinite;
-            color: #333;
-        }
-
-        @keyframes Gradient {
-            0% {
-                background-position: 0% 50%
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                background: linear-gradient(45deg, #8B0000, #FF4500);
+                background-size: 200% 200%;
+                animation: Gradient 3s ease infinite;
+                color: #333;
             }
 
-            50% {
-                background-position: 100% 50%
+            @keyframes Gradient {
+                0% {
+                    background-position: 0% 50%
+                }
+
+                50% {
+                    background-position: 100% 50%
+                }
+
+                100% {
+                    background-position: 0% 50%
+                }
             }
 
-            100% {
-                background-position: 0% 50%
+            .root-container {
+                margin: 2em auto;
+                max-width: 90%;
+                padding: 1em 2em;
+                box-sizing: border-box;
+                background-color: #fff;
+                border-radius: 8px;
+                /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
             }
-        }
 
-        .root-container {
-            margin: 2em auto;
-            max-width: 90%;
-            padding: 1em 2em;
-            box-sizing: border-box;
-            background-color: #fff;
-            border-radius: 8px;
-            /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
-        }
+            h2 {
+                color: #444;
+                margin-bottom: 1em;
+            }
 
-        h2 {
-            color: #444;
-            margin-bottom: 1em;
-        }
+            .paper-container {
+                margin-bottom: 2em;
+            }
 
-        .paper-container {
-            margin-bottom: 2em;
-        }
+            .paper-title {
+                color: #8B0000;
+            }
 
-        .paper-title {
-            color: #8B0000;
-        }
+            a {
+                color: #007BFF;
+                text-decoration: none;
+                font-style: italic;
+            }
 
-        a {
-            color: #007BFF;
-            text-decoration: none;
-            font-style: italic;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-    <!-- <link rel="stylesheet" href="css/style.css">
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+        <!-- <link rel="stylesheet" href="css/style.css">
          <link rel="stylesheet" href="css/imbalance.css"> -->
 
-</head>
+    </head>
 
-<body>
-    <div class="root-container">
-        <a href="https://cs.fit.edu/~pkc/r/readingList.htsep">https://cs.fit.edu/~pkc/r/readingList.htsep</a>
-        <h2>SEP Forecasting</h2>
-        <div class="papers-group">
-            <ol>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Prediction of Solar Energetic Particle Event Peak Proton Intensity Using a Simple Algorithm
-                            Based on CME Speed and Direction and Observations of Associated Solar Phenomena</h3>
+    <body>
+        <div class="root-container">
+            <a href="https://cs.fit.edu/~pkc/r/readingList.htsep">https://cs.fit.edu/~pkc/r/readingList.htsep</a>
+            <h2>SEP Forecasting</h2>
+            <div class="papers-group">
+                <ol>
+                    <li>
+                        <div class="paper-container">
+                            <h3 class="paper-title">On the prediction of >100 MeV solar energetic particle events using
+                                GOES satellite data</h3>
 
-                        <p>
-                            <strong>BibTex</strong>
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @inproceedings{boubrahimi2017satellite, <br>
+                                title={On the prediction of >100 MeV solar energetic particle events using GOES
+                                satellite data}, <br>
+                                author={Boubrahimi, Soukaina Filali and Aydin, Berkay and Martens, Petrus and Angryk,
+                                Rafal}, <br>
+                                booktitle={2017 IEEE International Conference on Big Data (Big Data)}, <br>
+                                year={2017}} <br>
+
+                            </p>
+
+                            url=<a
+                                href="https://ieeexplore.ieee.org/document/8258212">https://ieeexplore.ieee.org/document/8258212</a><br>
+
+                            <strong>Summary</strong>
                             <br>
+                            <p>
 
-                        </p>
+                            </p>
 
-                        url=<a href=""></a><br>
+                            <p>
+                                <strong>Problem</strong>
 
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
+                            </p>
+                            <p>
+                                <strong>Solution, Ideas and Why</strong>
+                            </p>
+                            <strong>Images</strong><br>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="../../images/sep/satellite-fig1.png" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/satellite-fig2.png" class="img-fluid rounded" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="paper-container">
+                            <h3 class="paper-title">Prediction of Solar Energetic Particle Event Peak Proton Intensity
+                                Using a Simple Algorithm Based on CME Speed and Direction and Observations of Associated
+                                Solar Phenomena</h3>
 
-                        </p>
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @article{richardson2018prediction, <br>
+                                title={Prediction of solar energetic particle event peak proton intensity using a simple
+                                algorithm based on CME speed and direction and observations of associated solar
+                                phenomena}, <br>
+                                author={Richardson, IG and Mays, ML and Thompson, BJ}, <br>
+                                journal={Space Weather}, <br>
+                                year={2018}} <br>
 
-                        <p>
-                            <strong>Problem</strong>
+                            </p>
 
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig1.png" class="img-fluid rounded" alt="...">
-                             </div>
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig2.png" class="img-fluid rounded" alt="...">
-                             </div>
-                         </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">On the prediction of >100 MeV solar energetic particle events using GOES satellite data</h3>
+                            url=<a
+                                href="https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2018SW002032">https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2018SW002032</a><br>
 
-                        <p>
-                            <strong>BibTex</strong>
+                            <strong>Summary</strong>
                             <br>
+                            <p>
 
-                        </p>
+                            </p>
 
-                        url=<a href=""></a><br>
+                            <p>
+                                <strong>Problem</strong>
 
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
+                            </p>
+                            <p>
+                                <strong>Solution, Ideas and Why</strong>
+                            </p>
+                            <strong>Images</strong><br>
+                            <div class="row">
                              <div class="col">
-                                 <img src="../../images/sep/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                 <img src="../../images/sep/prediction-fig1.png" class="img-fluid rounded" alt="...">
                              </div>
                              <div class="col">
-                                 <img src="../../images/sep/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                 <img src="../../images/sep/prediction-fig2.png" class="img-fluid rounded" alt="...">
                              </div>
-                         </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Forecasting Solar Energetic Particle (SEP) events with Flare X-ray peak ratios</h3>
+                         </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="paper-container">
+                            <h3 class="paper-title">Forecasting Solar Energetic Particle (SEP) events with Flare X-ray
+                                peak ratios</h3>
 
-                        <p>
-                            <strong>BibTex</strong>
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @article{kahler2018forecasting, <br>
+                                title={Forecasting Solar Energetic Particle (SEP) events with Flare X-ray peak ratios},
+                                <br>
+                                author={Kahler, Stephen W and Ling, Alan G}, <br>
+                                journal={Journal of Space Weather and Space Climate}, <br>
+                                year={2018}} <br>
+                            </p>
+
+                            url=<a
+                                href="https://www.swsc-journal.org/articles/swsc/pdf/2018/01/swsc180013.pdf">https://www.swsc-journal.org/articles/swsc/pdf/2018/01/swsc180013.pdf</a><br>
+
+                            <strong>Summary</strong>
                             <br>
+                            <p>
 
-                        </p>
+                            </p>
 
-                        url=<a href=""></a><br>
+                            <p>
+                                <strong>Problem</strong>
 
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
+                            </p>
+                            <p>
+                                <strong>Solution, Ideas and Why</strong>
+                            </p>
+                            <strong>Images</strong><br>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="../../images/sep/forecasting-fig1.png" class="img-fluid rounded"
+                                        alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/forecasting-fig2.png" class="img-fluid rounded"
+                                        alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="paper-container">
+                            <h3 class="paper-title">A technique for prediction of SPEs from solar radio flux by
+                                statistical analysis, ANN and GA </h3>
 
-                        </p>
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @article{kim2018technique, <br>
+                                title={A technique for prediction of SPEs from solar radio flux by statistical analysis,
+                                ANN and GA}, <br>
+                                author={Kim, Kyong Nam and Sin, Sun Ae and Song, Kum Ae and Kong, Jin Hyok}, <br>
+                                journal={Astrophysics and Space Science}, <br>
+                                year={2018}} <br>
 
-                        <p>
-                            <strong>Problem</strong>
+                            </p>
 
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig1.png" class="img-fluid rounded" alt="...">
-                             </div>
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig2.png" class="img-fluid rounded" alt="...">
-                             </div>
-                         </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">A technique for prediction of SPEs from solar radio flux by statistical analysis, ANN and GA </h3>
+                            url=<a
+                                href="https://link.springer.com/article/10.1007/s10509-018-3263-8">https://link.springer.com/article/10.1007/s10509-018-3263-8</a><br>
 
-                        <p>
-                            <strong>BibTex</strong>
+                            <strong>Summary</strong>
                             <br>
+                            <p>
 
-                        </p>
+                            </p>
 
-                        url=<a href=""></a><br>
+                            <p>
+                                <strong>Problem</strong>
 
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
+                            </p>
+                            <p>
+                                <strong>Solution, Ideas and Why</strong>
+                            </p>
+                            <strong>Images</strong><br>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="../../images/sep/technique-fig1.png" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/technique-fig2.png" class="img-fluid rounded" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="paper-container">
+                            <h3 class="paper-title">Using machine learning methods to forecast if solar flares will be
+                                associated with CMEs and SEPs</h3>
 
-                        </p>
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @article{inceoglu2018using, <br>
+                                title={Using machine learning methods to forecast if solar flares will be associated
+                                with CMEs and SEPs}, <br>
+                                author={Inceoglu, Fadil and Jeppesen, Jacob H and Kongstad, Peter and Marcano,
+                                N{\'e}stor J Hern{\'a}ndez and Jacobsen, Rune H and Karoff, Christoffer}, <br>
+                                journal={The Astrophysical Journal}, <br>
+                                year={2018}} <br>
 
-                        <p>
-                            <strong>Problem</strong>
+                            </p>
 
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig1.png" class="img-fluid rounded" alt="...">
-                             </div>
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig2.png" class="img-fluid rounded" alt="...">
-                             </div>
-                         </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Using machine learning methods to forecast if solar flares will be associated with CMEs and SEPs</h3>
+                            url=<a
+                                href="https://iopscience.iop.org/article/10.3847/1538-4357/aac81e/pdf">https://iopscience.iop.org/article/10.3847/1538-4357/aac81e/pdf</a><br>
 
-                        <p>
-                            <strong>BibTex</strong>
+                            <strong>Summary</strong>
                             <br>
+                            <p>
 
-                        </p>
+                            </p>
 
-                        url=<a href=""></a><br>
+                            <p>
+                                <strong>Problem</strong>
 
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
+                            </p>
+                            <p>
+                                <strong>Solution, Ideas and Why</strong>
+                            </p>
+                            <strong>Images</strong><br>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="../../images/sep/using-fig1.png" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/using-fig2.png" class="img-fluid rounded" alt="...">
+                                    <img src="../../images/sep/using-fig3.png" class="img-fluid rounded" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="paper-container">
+                            <h3 class="paper-title">Solar energetic particle event occurrence prediction using solar
+                                flare soft X-ray measurements and machine learning</h3>
 
-                        </p>
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @article{aminalragia2021solar, <br>
+                                title={Solar energetic particle event occurrence prediction using solar flare soft X-ray
+                                measurements and machine learning}, <br>
+                                author={Aminalragia-Giamini, Sigiava and Raptis, Savvas and Anastasiadis, Anastasios and
+                                Tsigkanos, Antonis and Sandberg, Ingmar and Papaioannou, Athanasios and Papadimitriou,
+                                Constantinos and Jiggens, Piers and Aran, Angels and Daglis, Ioannis A}, <br>
+                                journal={Journal of Space Weather and Space Climate}, <br>
+                                year={2021}} <br>
 
-                        <p>
-                            <strong>Problem</strong>
+                            </p>
 
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig1.png" class="img-fluid rounded" alt="...">
-                             </div>
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig2.png" class="img-fluid rounded" alt="...">
-                             </div>
-                         </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Solar energetic particle event occurrence prediction using solar flare soft X-ray measurements and machine learning</h3>
+                            url=<a
+                                href="https://www.swsc-journal.org/articles/swsc/pdf/2021/01/swsc210024.pdf">https://www.swsc-journal.org/articles/swsc/pdf/2021/01/swsc210024.pdf</a><br>
 
-                        <p>
-                            <strong>BibTex</strong>
+                            <strong>Summary</strong>
                             <br>
+                            <p>
 
-                        </p>
+                            </p>
 
-                        url=<a href=""></a><br>
+                            <p>
+                                <strong>Problem</strong>
 
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
+                            </p>
+                            <p>
+                                <strong>Solution, Ideas and Why</strong>
+                            </p>
+                            <strong>Images</strong><br>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="../../images/sep/solar-fig1.png" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/solar-fig2.png" class="img-fluid rounded" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="paper-container">
+                            <h3 class="paper-title">Assessing the predictability of solar energetic particles with the
+                                use of machine learning techniques</h3>
 
-                        </p>
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @article{lavasa2021assessing, <br>
+                                title={Assessing the predictability of solar energetic particles with the use of machine
+                                learning techniques}, <br>
+                                author={Lavasa, E and Giannopoulos, Georgios and Papaioannou, Aikaterini and
+                                Anastasiadis, A and Daglis, IA and Aran, Angels and Pacheco, David and Sanahuja, B},
+                                <br>
+                                journal={Solar Physics}, <br>
+                                year={2021}}, <br>
 
-                        <p>
-                            <strong>Problem</strong>
+                            </p>
 
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig1.png" class="img-fluid rounded" alt="...">
-                             </div>
-                             <div class="col">
-                                 <img src="../../images/sep/saint-fig2.png" class="img-fluid rounded" alt="...">
-                             </div>
-                         </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Assessing the predictability of solar energetic particles with the use of machine learning techniques</h3>
+                            url=<a href="https://link.springer.com/article/10.1007/s11207-021-01837-x">https://link.springer.com/article/10.1007/s11207-021-01837-x</a><br>
 
-                        <p>
-                            <strong>BibTex</strong>
+                            <strong>Summary</strong>
                             <br>
+                            <p>
 
-                        </p>
+                            </p>
 
-                        url=<a href=""></a><br>
+                            <p>
+                                <strong>Problem</strong>
 
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
+                            </p>
+                            <p>
+                                <strong>Solution, Ideas and Why</strong>
+                            </p>
+                            <strong>Images</strong><br>
+                            <div class="row">
                              <div class="col">
-                                 <img src="../../images/sep/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                 <img src="../../images/sep/assessing-fig1.png" class="img-fluid rounded" alt="...">
                              </div>
                              <div class="col">
-                                 <img src="../../images/sep/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                 <img src="../../images/sep/assessing-fig2.png" class="img-fluid rounded" alt="...">
                              </div>
-                         </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Interpretable machine learning to forecast SEP events for solar cycle</h3>
+                         </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="paper-container">
+                            <h3 class="paper-title">Interpretable machine learning to forecast SEP events for solar
+                                cycle 23</h3>
 
-                        <p>
-                            <strong>BibTex</strong>
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @article{kasapis2022interpretable, <br>
+                                title={Interpretable machine learning to forecast SEP events for solar cycle 23}, <br>
+                                author={Kasapis, Spiridon and Zhao, Lulu and Chen, Yang and Wang, Xiantong and Bobra,
+                                Monica and Gombosi, Tamas}, <br>
+                                journal={Space Weather}, <br>
+                                year={2022}} <br>
+                            </p>
+
+                            url=<a href="https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2021SW002842">https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2021SW002842</a><br>
+
+                            <strong>Summary</strong>
                             <br>
+                            <p>
 
-                        </p>
+                            </p>
 
-                        url=<a href=""></a><br>
+                            <p>
+                                <strong>Problem</strong>
 
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
+                            </p>
+                            <p>
+                                <strong>Solution, Ideas and Why</strong>
+                            </p>
+                            <strong>Images</strong><br>
+                            <div class="row">
                              <div class="col">
-                                 <img src="../../images/sep/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                 <img src="../../images/sep/interpretable-fig1.png" class="img-fluid rounded" alt="...">
                              </div>
                              <div class="col">
-                                 <img src="../../images/sep/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                 <img src="../../images/sep/interpretable-fig2.png" class="img-fluid rounded" alt="...">
                              </div>
-                         </div> -->
-                    </div>
-                </li>
-            </ol>
+                         </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </htsep>
