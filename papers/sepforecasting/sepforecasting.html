@@ -113,15 +113,37 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
+                                This paper tackles the problem of predicting >100 MeV SEP events from timeseries of
+                                proton and x-ray channels with a decision tree.
+                                They first start by analyzing X-ray and proton channels as multivariate time series that
+                                entail some correlation which may be precusors
+                                to the occurence of SEP. They study the correlation across all channels. In total they
+                                have 8 channels xs for short wavelength x-ray (.5 -.3 nm)
+                                xl for long wavelength x-ray (.1 - .8 nm), and 6 proton channels p6_flux to p11_flux
+                                with different energetic interval from 80MeV to >700MeV.
+                                To analyze the correlations in channels, they consider the span and the lag in their
+                                observation. The span is the number of hours that constitute
+                                the observation period prior to an X-ray event. The lag is the factor by which a vlaue
+                                of a time series is multipled to produce its previous value in time.
+                                To express the X-ray and proton cross-channel correations, they used a vector
+                                autoregression model (VAR) where the dependent variables are the proton channels at t
+                                and the independent variables are the proton and x-ray channels at time previous times
+                                determined by the lag. After fitting the VAR to the data,
+                                they use the coefficient as features to a Decision Tree to predict SEP events based on
+                                the assumption that the coefficients values would increase as precursors to the event.
 
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
+                                Forecasting SEP events with correlation coefficients, X-rays and Protons timeseries
 
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
+                                proton channels auto-correlation and cross-relation with X-ray is indicative of the
+                                occurence of SEPs.
+                                Using decision three to predict >100 SEPs from the correlation coefficients
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
@@ -164,20 +186,20 @@
 
                             <p>
                                 <strong>Problem</strong>
-
+                                forecasting CME Speed and Connection angle using
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
-                             <div class="col">
-                                 <img src="../../images/sep/prediction-fig1.png" class="img-fluid rounded" alt="...">
-                             </div>
-                             <div class="col">
-                                 <img src="../../images/sep/prediction-fig2.png" class="img-fluid rounded" alt="...">
-                             </div>
-                         </div>
+                                <div class="col">
+                                    <img src="../../images/sep/prediction-fig1.png" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/prediction-fig2.png" class="img-fluid rounded" alt="...">
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <li>
@@ -317,20 +339,22 @@
                     </li>
                     <li>
                         <div class="paper-container">
-                            <h3 class="paper-title">A Machine Learning Approach to Forecasting SEP Events with Solar Activities</h3>
+                            <h3 class="paper-title">A Machine Learning Approach to Forecasting SEP Events with Solar
+                                Activities</h3>
 
                             <p>
                                 <strong>BibTex</strong>
                                 <br>
                                 @mastersthesis{Torres2020ml, <br>
                                 author = {Torres, Jesse Scott}, <br>
-                                title = {A Machine Learning Approach to Forecasting SEP Events with Solar Activities}, <br>
+                                title = {A Machine Learning Approach to Forecasting SEP Events with Solar Activities},
+                                <br>
                                 school = {Florida Institute of Technology}, <br>
                                 year = {2020}, <br>
                                 address = {Melbourne, FL}, <br>
                                 month = {December}, <br>
                                 }
-                                    
+
 
                             </p>
 
@@ -427,7 +451,8 @@
 
                             </p>
 
-                            url=<a href="https://link.springer.com/article/10.1007/s11207-021-01837-x">https://link.springer.com/article/10.1007/s11207-021-01837-x</a><br>
+                            url=<a
+                                href="https://link.springer.com/article/10.1007/s11207-021-01837-x">https://link.springer.com/article/10.1007/s11207-021-01837-x</a><br>
 
                             <strong>Summary</strong>
                             <br>
@@ -444,13 +469,13 @@
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
-                             <div class="col">
-                                 <img src="../../images/sep/assessing-fig1.png" class="img-fluid rounded" alt="...">
-                             </div>
-                             <div class="col">
-                                 <img src="../../images/sep/assessing-fig2.png" class="img-fluid rounded" alt="...">
-                             </div>
-                         </div>
+                                <div class="col">
+                                    <img src="../../images/sep/assessing-fig1.png" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/assessing-fig2.png" class="img-fluid rounded" alt="...">
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <li>
@@ -469,7 +494,8 @@
                                 year={2022}} <br>
                             </p>
 
-                            url=<a href="https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2021SW002842">https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2021SW002842</a><br>
+                            url=<a
+                                href="https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2021SW002842">https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2021SW002842</a><br>
 
                             <strong>Summary</strong>
                             <br>
@@ -486,32 +512,37 @@
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
-                             <div class="col">
-                                 <img src="../../images/sep/interpretable-fig1.png" class="img-fluid rounded" alt="...">
-                             </div>
-                             <div class="col">
-                                 <img src="../../images/sep/interpretable-fig2.png" class="img-fluid rounded" alt="...">
-                             </div>
-                         </div>
+                                <div class="col">
+                                    <img src="../../images/sep/interpretable-fig1.png" class="img-fluid rounded"
+                                        alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/interpretable-fig2.png" class="img-fluid rounded"
+                                        alt="...">
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <li>
                         <div class="paper-container">
-                            <h3 class="paper-title">Forecasting >100 MeV SEP Events and Intensity based on CME and other Solar Activities using Machine Learning</h3>
+                            <h3 class="paper-title">Forecasting >100 MeV SEP Events and Intensity based on CME and other
+                                Solar Activities using Machine Learning</h3>
 
                             <p>
                                 <strong>BibTex</strong>
                                 <br>
                                 @mastersthesis{griessler2023rtae, <br>
                                 author = {Griessler, Daniel Lee}, <br>
-                                title = {Forecasting >100 MeV SEP Events and Intensity based on CME and other Solar Activities using Machine Learning}, <br>
+                                title = {Forecasting >100 MeV SEP Events and Intensity based on CME and other Solar
+                                Activities using Machine Learning}, <br>
                                 school = {Florida Institute of Technology}, <br>
                                 year = {2023}, <br>
                                 address = {Melbourne, FL}, <br>
                                 month = {July}} <br>
                             </p>
 
-                            url=<a href="https://cs.fit.edu/~pkc/theses/griessler23.pdf">https://cs.fit.edu/~pkc/theses/griessler23.pdf</a><br>
+                            url=<a
+                                href="https://cs.fit.edu/~pkc/theses/griessler23.pdf">https://cs.fit.edu/~pkc/theses/griessler23.pdf</a><br>
 
                             <strong>Summary</strong>
                             <br>
@@ -528,13 +559,13 @@
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
-                             <div class="col">
-                                 <img src="../../images/sep/rtae-fig1.png" class="img-fluid rounded" alt="...">
-                             </div>
-                             <div class="col">
-                                 <img src="../../images/sep/rtae-fig2.png" class="img-fluid rounded" alt="...">
-                             </div>
-                         </div>
+                                <div class="col">
+                                    <img src="../../images/sep/rtae-fig1.png" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/rtae-fig2.png" class="img-fluid rounded" alt="...">
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ol>
