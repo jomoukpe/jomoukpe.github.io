@@ -430,7 +430,7 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-                                This paper tackle SEP forecasting based using Proton, Electrons and X-ray timeseries
+                                This thesis tackle SEP forecasting based using Proton, Electrons and X-ray timeseries
                                 data. Their approach takes as input
                                 electron and proton intensities 2hours in the past to output proton intensity in 30mins
                                 and an hour in the future. They also add phases
@@ -693,15 +693,26 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-
+                                This thesis tackles the forecasting SEPs from non-SEPs and the intensity of the SEPs. For classifying SEPs using CME features, 
+                                they explore 3 methods, oversampling the minority classes to obtain a more balanced dataset, apply classifier retraining (cRT) and 
+                                an auto-encoder head to learn better features during the first stage (cRT+AE). For cRT+AE, they estimate the coefficient contribution of 
+                                the auto-encoder loss to ensure both branches are equally valued in the training. They found cRT+AE to perform the best in their experiments.
+                                For predicting the SEP natural logarithm intensity, they explore 6 methods, oversampling the minority ranges, retraining the regressor (rRT), adding an auto-encoder 
+                                head to learn better features during the first stage (rRT+AE), integrating the Richardson equation prediction by linear combination or by using the neural network to 
+                                predict an adjustment error term to the Richardson prediction, and applying dense loss reweighting to the loss function so the training model pays more attention
+                                to rare samples. They evaluate their performance using Mean Absolute Error and Pearson Correlation Coefficient. They found that rRT+AE with either dense loss or Richardson 
+                                adjustment error yielded the best results.
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
-
+                                Predicting SEPs using CME features, Solar Flares and X-rays
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
+                                Forecasting SEPs events and SEP intensity using various techniques to deal with imbalance
+                                Leveraging representation learning with an Auto-Encoder branch, the richardson equation, and 
+                                the dense loss. 
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
