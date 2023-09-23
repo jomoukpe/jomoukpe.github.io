@@ -181,15 +181,35 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-
+                                This paper analyses the effectiveness of the Richardson Equation (Richardson et al 2014)
+                                for predicting intensity of 14-24MeV protons in SEPs using CME
+                                speed and connection angle as features. The richardson equation which is I(𝜙)(MeV s ⋅
+                                cm2 ⋅ sr)−1 ≈ 0.013 exp(0.0036V − 𝜙2∕2𝜎2)), 𝜎 = 43° where the
+                                43° Gaussian width is the average obtained by Richardson et al. (2014). They found that
+                                the Richardson equation leads to a lot of false alarms compared
+                                in predicting SEPs. By increasing the threshold for the intensity considered SEP, they
+                                found that the false alarm rate reduces but so does the number of
+                                SEPs they can actually catch. They then explore using the CME speed for filtering out
+                                false alarm rate which yields the same reduction in false alarm rate
+                                at the cost of missing SEPs as well. They explore using the CME width as well resulting
+                                a variant of the same trade off. They explore using interplanetary
+                                and non interplanetary type 2 Radio emissions, weak, moderate, and bright Type 3 Radio
+                                emissions power and duration as additional filters. They found
+                                these filters reduce the false alarm rate but misses weaker SEPs. They conclude that the
+                                richardson equation is decent basis for empirical prediction of SEPs.
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
-                                forecasting CME Speed and Connection angle using
+                                forecasting CME Speed and Connection angle using the Richardson Equation
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
+                                the richardson equation can be used to predict SEPs only needing CME speed and
+                                connection angle.
+                                Richardson equation gives a high false positive rate, pairing it with type 2 and 3
+                                emissions or only selecting faster and
+                                wider CMEs help reduce false alarm rate, but at the cost of missing some SEPs
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
@@ -224,15 +244,30 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-
+                                This paper addresses the SEP forecasting with flare X-ray peak ratios. They found that
+                                flares associated with >10MeV SEPs of >10 proton flux units have lower peak temperatures
+                                than those without SEPs. They first analyze how the ratios of the short (0.05 - 0.4nm)
+                                and long (0.1 - 0.8nm) wavelengths x-rays peak fluxes and peak flare fluxes of long
+                                wavelengths are useful features for distinguishing SEP events of greater intensity
+                                against lower energy and background events. They further analyzed the Eastern and
+                                Western hemisphere events and found that the Western hemisphere events are better
+                                classified by the peak-flux ratios and peak fluxes. Using the peak flux ratio between
+                                the short and long wavelength and the peak fluxes of the long wavelength x-ray as
+                                features, they train an MLP and a KNN to classify high-intensity SEPs from low intensity
+                                and background events.
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
-
+                                Prediction of SEPs Peak Ratio, Peak Flux Ratio of X-rays
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
+                                Compare peak ratios with ratios of peak for short and long
+                                wavelength X-rays, eastern and western hemisphere sources.
+                                Found ratio of peak and peak of ratios in west hemi as features.
+                                use KNN and MLP to predict SEP events using ratio of peaks and
+                                the peak flux ratio in the western hemisphere
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
