@@ -305,15 +305,35 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
+                                This paper tackles the prediction of SEP events using Solar Radio Flux. By looking at
+                                Solar Radio Flux (SRF) at 2800MHz, 1415MHz, and 610MHz,
+                                they analyze the solar activity related to those fluxes and the SEPs that might be
+                                related. First the analyze the probability distribution on the relative
+                                overall rate of increase of SRF related to SEPs and found that a significant increase in
+                                the rate of SRF was correlated to an increase in the number of SEPs.
+                                They also look at the probability distribution of daily total SRF related to SEPs and
+                                found that an increase in the SRF level was correlated to increase in the
+                                number of SEPs when only looking at SEPs. Moreoever, the 610MHz band seems to be the
+                                earliest and highest correlated precursor to SEP events. Using these findings,
+                                they pass all 3 bands SRF rate of increase and the daily total SRF level as features to
+                                a Neural Network to predict the number of SEPs. They propose to find the
+                                neural network optimal weights using gradient descent or a Genetic Algorithm. Finally
+                                the propose a second neural network that is tasked to predict SRF to generate
+                                more recent data (within 3 days) if it's not available.
 
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
-
+                                Solar Radio Flux Rate of Increase and Level
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
+                                Investigated the relationship between the rate of increase in SRF
+                                , the level of SRF for 2600MHz, 1415MHz, 610MHz, and the
+                                number of associated SEPs. 610MHz SRF as features
+                                Use a MLP optimized SGD or GA to predict SEP from SRF levels and rate of rate of change
+
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
@@ -350,7 +370,18 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-
+                                This paper tackles predicting whether Solar Flares will be associated with CME and SEPs.
+                                First they start by comparing the number of events associated with
+                                Solar Flares alone compared to solar flares with CME and SEPs. They found that Solar
+                                Flares associated with CMEs and SEPs tend to have higher classes. They also
+                                compared the number of events associated with the speed of CMEs when they are alone and
+                                when they are with Solar Flares and SEPs. Again they found that
+                                CMEs associated with Solar Flares and SEPs tended to have higher speeds. They also
+                                consider Active Regions which are regions of high magnetism. Active regions
+                                have been known to generate SEPs. The authors considered features from active regions at
+                                some time in the past to predict current SEP events. They employed a SVM and
+                                a MLP to ingest those features to output the right class. THey found that the SVM tended
+                                to be more accurate than the MLP.
                             </p>
 
                             <p>
@@ -399,15 +430,38 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-
+                                This paper tackle SEP forecasting based using Proton, Electrons and X-ray timeseries
+                                data. Their approach takes as input
+                                electron and proton intensities 2hours in the past to output proton intensity in 30mins
+                                and an hour in the future. They also add phases
+                                information to every 5min timestep as additional input features. The phases are the
+                                onset, threshold, peak, and end periods. They applied
+                                an MLP and RNN to the forecasting task. They divide their forecasting into 3 levels
+                                where a model (MLP or RNN) is dedicated to train and test
+                                on that level only. To decide which of the levels is appropriate for each model, they
+                                employ either routing algorithm based on predefined thresholds
+                                and with the models only focusing on the intensity levels associated with them or use a
+                                phase selection model route the timeseries intensities to
+                                the different phase models. They add X-rays to the electron data as additional features.
+                                To measure the performance of the approaches, they measure
+                                Mean Absolute Error between the actual and predicted intensities, the lag between the
+                                prediction and the actual intensity forecast between the on-set and peak,
+                                the onset and the threshhold, to measure the detection of the rising edge and of the
+                                precursory intensity signal respectively. Finally they measure the
+                                difference between when the target and and when prediction reaches individually reach
+                                ln(10).
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
-
+                                Predicting SEPs using Protons, Electrons, and X-ray timeseries data
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
+                                Use CME properties to predict SEP events and Using Time Series data to forecast proton
+                                intensity.
+                                Used a MLP to predict SEP and an RNN to predict proton intensity by channels .
+                                Used MAE, On-Set and On-Peak lag to evaluate intensity
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
@@ -446,25 +500,44 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-
+                                This paper tackles the prediction of SEP events using short and long wavelength X-rays
+                                and 24 Solar Flare features such as cosine and sine of the heliolongitude, peak flux and
+                                fluence etc.
+                                For their classifier, the authors used an ensemble of 3 MLP whose outputs are averaged.
+                                They analyze the relationship between X-ray peak fluxes in the long band and the number
+                                of SEPs in the dataset
+                                to find that More SEPs are related to more intense X-rays. They artificially balance the
+                                dataset and found that their method achieve good performance
+                                on the balanced dataset. To further analyze the performance of their model, they only
+                                focus on type M2 solar flares and found that the uncertainty associated with Solar
+                                Flares
+                                of M2 ang greater class is larger in their method. They analyze the decision threshold
+                                of their method and found it to be best at around .79 for Solar Flares of C1 and above,
+                                and .5 for
+                                solar Flares of class M2 and above.
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
-
+                                prediction of SEPs from X-rays timeseries features
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
-                            </p>
-                            <strong>Images</strong><br>
-                            <div class="row">
-                                <div class="col">
-                                    <img src="../../images/sep/solar-fig1.png" class="img-fluid rounded" alt="...">
-                                </div>
-                                <div class="col">
-                                    <img src="../../images/sep/solar-fig2.png" class="img-fluid rounded" alt="...">
-                                </div>
-                            </div>
+                                Analyze how X-rays and X-rays class >M2 timeseries are correlated with SEP events
+                                occurance.
+                                used an ensemble of 3 MLP to predict SEP from X-rays with betterresults found for X-rays
+                                < M2 </p>
+                                    <strong>Images</strong><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <img src="../../images/sep/solar-fig1.png" class="img-fluid rounded"
+                                                alt="...">
+                                        </div>
+                                        <div class="col">
+                                            <img src="../../images/sep/solar-fig2.png" class="img-fluid rounded"
+                                                alt="...">
+                                        </div>
+                                    </div>
                         </div>
                     </li>
                     <li>
@@ -492,15 +565,39 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
+                                This paper approaches the prediction of SEPs using CME and Solar Flare features. The
+                                authors start with an initial sample analysis where they find that
+                                for about 33,221 Solar Flare events, 6218 are CMEs and only 257 are SEPs, illustrating
+                                the extreme imbalance in the data. Before applying any model to the
+                                data, they preprocess it and extract 8 features, 6 Solar Flare features and 2 CME
+                                features. They then normalize the features or apply the logarithm to make sure that
+                                the values and ranges of those features are manageable. They apply a Nested Cross
+                                Validation scheme where there is the inner folds for finding hyperparameters
+                                for the models and the outer folds for testing the found hyperparameters. It works by
+                                first spliting the dataset in K folds. They hold on out for testing and use the k-1
+                                folds for training.
+                                Of the K-1 folds, the perform another n-folding where they divide the combined k-1 folds
+                                into n folds. They hold n one out for validation and train on the remaining n-1 folds.
+                                They train 8 machine learning including Linear models, SVMs, Neural Nets, and Decision
+                                Trees algorithms compare their relative performance in balanced and imbalanced settings.
+                                No clear winner
+                                can be declared as the algorithms trade wins over different metrics. They analyze the
+                                importance of the given features in the classification, finding out that Solar Flare
+                                fluence, CME speed and width are the most useful to predict SEPs.
 
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
-
+                                Using Solar Flares and CME features to predict SEPs
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
+                                Nested cross validation scheme where the find the hyperparams
+                                using the inner cross validation and test them using the outer cross
+                                validation
+                                used many ml models to classifier SEP events from solar flares and CME
+                                features
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
@@ -535,15 +632,29 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-
+                                This paper addresses SEPs forecasting using SMARP Features and Solar Flare features.
+                                They first analyze Active Regions (AR) which are regions of high magnetic
+                                fields, and how these regions are related to Solar Flares and SEPs. They track 5 AR
+                                properties and 2 Solar Flare properties which are used as inputs to a Linear Model
+                                and an SVM. They train and test their models using balanced as well as imbalanced data,
+                                where the balancing is done by oversampling the rare samples. They found that
+                                they obtained the best performance by leveraging a subset of features from SMARP and
+                                Solar Flares that were the most discerning of SEP events. They found that the
+                                flares features performed better then the SMARP Active Region featuers. They also
+                                observe that the performance of the algorithms would drop significantly as the level
+                                of imbalance in training and testing increased.
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
-
+                                predicting SEPs from Solar Flares and SMARP (Active Regions) features
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
+                                Analyzed how SMARP Active region features and Solar Flares are correlated with SEP
+                                occurance.
+                                Use SVM and MLP to predict SEPs from subsets of features to find the optimal subset of
+                                features from SMARP and Solar Flares.
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
