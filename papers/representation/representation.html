@@ -77,6 +77,13 @@
         a:hover {
             text-decoration: underline;
         }
+
+        img {
+            max-height: 300px;
+            /* Change this value to your preferred maximum height */
+            width: auto;
+            /* Maintains aspect ratio */
+        }
     </style>
     <!-- <link rel="stylesheet" href="css/style.css">
          <link rel="stylesheet" href="css/imbalance.css"> -->
@@ -933,20 +940,34 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            This paper tackles the problem of avoid collapse to a constant function in representation learning.
-                            The authors noticed that previous approaches to repreentation learning relied on negative samples, 
-                            momentum encoders, or stop gradient to avoid collapse. They proposed a framework called VICReg or
-                            Variance-Invariance-Covariance Regularization for Self-Supervised Learning. The framework works
-                            by generating 2 augmented batches of views of the same input batch. The 2 batches are passed into
-                            an encoder and a projector to obtain 2 batches of projections. The first term in their loss is the 
-                            invariance term which is the mean square distance between the 2 batches of projections. The invariance
-                            term serves to determine that the 2 batches of projections are similar since they are from the same 
-                            batch of inputs samples. The second term is the variance term which is to prevent collapse to a constant
-                            functions. The variance term insures that the variance of the projections are above a threshold meaning 
-                            that there is enough variety between the projections and thus the representations are not collapsed to a
-                            constant vector. The third term is the covariance term which is to prevent information collapse. The covariance
-                            term insures that features of the projections are not correlated, meaning that the features are not collapsed
-                            to a single feature. In their ablative studies, they found that their methods performs the best when all 3 term 
+                            This paper tackles the problem of avoid collapse to a constant function in representation
+                            learning.
+                            The authors noticed that previous approaches to repreentation learning relied on negative
+                            samples,
+                            momentum encoders, or stop gradient to avoid collapse. They proposed a framework called
+                            VICReg or
+                            Variance-Invariance-Covariance Regularization for Self-Supervised Learning. The framework
+                            works
+                            by generating 2 augmented batches of views of the same input batch. The 2 batches are passed
+                            into
+                            an encoder and a projector to obtain 2 batches of projections. The first term in their loss
+                            is the
+                            invariance term which is the mean square distance between the 2 batches of projections. The
+                            invariance
+                            term serves to determine that the 2 batches of projections are similar since they are from
+                            the same
+                            batch of inputs samples. The second term is the variance term which is to prevent collapse
+                            to a constant
+                            functions. The variance term insures that the variance of the projections are above a
+                            threshold meaning
+                            that there is enough variety between the projections and thus the representations are not
+                            collapsed to a
+                            constant vector. The third term is the covariance term which is to prevent information
+                            collapse. The covariance
+                            term insures that features of the projections are not correlated, meaning that the features
+                            are not collapsed
+                            to a single feature. In their ablative studies, they found that their methods performs the
+                            best when all 3 term
                             are used together with also batch normalization.
                         </p>
 
@@ -1173,69 +1194,120 @@
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            
+                            @inproceedings{liu2021rwsam, <br>
+                            title={Self-supervised Learning is More Robust to Dataset Imbalance}, <br>
+                            author={Liu, Hong and HaoChen, Jeff Z and Gaidon, Adrien and Ma, Tengyu}, <br>
+                            booktitle={International Conference on Learning Representations}, <br>
+                            year={2021}} <br>
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://openreview.net/pdf?id=4AZz9osqrar">https://openreview.net/pdf?id=4AZz9osqrar</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+                            Investigated the robustness of SSL to imbalance in data and has better results on OoD cases.
+                            Without labels, net is less sensitive to outlier compared to with labels. SSL does this by
+                            learning
+                            the intrinsic structure of the input data. SL can overfit to noise if it is consistent
+                            enough.
+                            It's hard to rebalance without labels so instead we can use the loss sharpness where a
+                            sharper loss indicate
+                            harder and therefore tailer sample. Using KDE on the repr, they measure the loss in the
+                            neighborhood of the
+                            sample and if that loss is uniformly low, it's weight less and if it's uniformly high, it is
+                            weighted more.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            
+                            imbalance data in self supervised learning
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
+                            Investigated the robustness of SSL to imbalance in data and has better results on OoD cases.
+                            Without labels, net is less sensitive to outlier compared to with labels. SSL does this by
+                            learning
+                            the intrinsic structure of the input data. SL can overfit to noise if it is consistent
+                            enough.
+                            It's hard to rebalance without labels so instead we can use the loss sharpness where a
+                            sharper loss indicate
+                            harder and therefore tailer sample. Using KDE on the repr, they measure the loss in the
+                            neighborhood of the
+                            sample and if that loss is uniformly low, it's weight less and if it's uniformly high, it is
+                            weighted more.
                         </p>
                         <strong>Images</strong><br>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/rwsam-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/rwsam-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">data2vec: A General Framework for Self-supervised Learning in Speech, Vision and Language,</h3>
+                        <h3 class="paper-title">data2vec: A General Framework for Self-supervised Learning in Speech,
+                            Vision and Language,</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            
+                            @inproceedings{baevski2022data2vec, <br>
+                            title={Data2vec: A general framework for self-supervised learning in speech, vision and
+                            language}, <br>
+                            author={Baevski, Alexei and Hsu, Wei-Ning and Xu, Qiantong and Babu, Arun and Gu, Jiatao and
+                            Auli, Michael}, <br>
+                            booktitle={International Conference on Machine Learning}, <br>
+                            year={2022}}, <br>
+
+
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://proceedings.mlr.press/v162/baevski22a/baevski22a.pdf">https://proceedings.mlr.press/v162/baevski22a/baevski22a.pdf</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+                            2 networks, ema teacher which takes original input (image or text or sound) to produce
+                            embeddings and a student which takes masked input to produce embeddings and predictions of
+                            the teacher avg of K layers outputs.
+                            Their objective is smooth L1 loss which transition from square loss to l1 loss when the
+                            error of a particular
+                            sample is greater than a threshold beta. The equations are setup with additional terms of
+                            beta to transition
+                            the function smoothly. This help mitigate outliers.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            
+                            predict embedding
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
+                            2 networks, ema teacher which takes original input (image or text or sound) to produce
+                            embeddings and a student which takes masked input to produce embeddings and predictions of
+                            the teacher avg of K layers outputs.
+                            Their objective is smooth L1 loss which transition from square loss to l1 loss when the
+                            error of a particular
+                            sample is greater than a threshold beta. The equations are setup with additional terms of
+                            beta to transition
+                            the function smoothly. This help mitigate outliers.
                         </p>
                         <strong>Images</strong><br>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/data2vec-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/data2vec-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
                 <li>
@@ -1245,33 +1317,57 @@
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            
+                            @inproceedings{assran2022msn, <br>
+                            title={Masked siamese networks for label-efficient learning}, <br>
+                            author={Assran, Mahmoud and Caron, Mathilde and Misra, Ishan and Bojanowski, Piotr and
+                            Bordes, Florian and Vincent, Pascal and Joulin, Armand and Rabbat, Mike and Ballas,
+                            Nicolas}, <br>
+                            booktitle={European Conference on Computer Vision}, <br>
+                            year={2022}} <br>
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136910442.pdf">https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136910442.pdf</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+                            2 branches, anchor (online) branch and a ema (target) branch. Anchor branch get
+                            patchified and masked anchor image while target branch used augmentation and patchify
+                            target image. With learned cluster center (Dense), the objetive was to match cluster
+                            assignment from online to target branch
+                            To ensure the clusters formed are roughly the same size (same number of elements), they
+                            explicitly maximize
+                            the mean entropy of the assignment prediction. The max entropy is when their probabilities
+                            are the same and
+                            they are uniformly distributed
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            
+                            predict embedding
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
+                            2 branches, anchor (online) branch and a ema (target) branch. Anchor branch get
+                            patchified and masked anchor image while target branch used augmentation and patchify
+                            target image. With learned cluster center (Dense), the objetive was to match cluster
+                            assignment from online to target branch
+                            To ensure the clusters formed are roughly the same size (same number of elements), they
+                            explicitly maximize
+                            the mean entropy of the assignment prediction. The max entropy is when their probabilities
+                            are the same and
+                            they are uniformly distributed
                         </p>
                         <strong>Images</strong><br>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/msn-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/msn-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
                 <li>
@@ -1281,187 +1377,306 @@
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            
+                            @inproceedings{assran2022hidden, <br>
+                            title={The hidden uniform cluster prior in self-supervised learning}, <br>
+                            author={Assran, Mido and Balestriero, Randall and Duval, Quentin and Bordes, Florian and
+                            Misra, Ishan and Bojanowski, Piotr and Vincent, Pascal and Rabbat, Michael and Ballas,
+                            Nicolas}, <br>
+                            booktitle={The Eleventh International Conference on Learning Representations}, <br>
+                            year={2022}} <br>
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://openreview.net/pdf?id=04K3PMtMckp">https://openreview.net/pdf?id=04K3PMtMckp</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+                            Contrastive Methods can be showed to reduce to implicit or explicit k-means clustering.
+                            those can be further divided into instance based or volume maximizing. Volume maximi-
+                            zing does worse on imbalance because they assume clusters are of equal size
+                            The hidden cluster prior is addressed by explicit incentivizing the clusters formed to be
+                            less uniform and more
+                            like a pareto distribution. Assume the distribution of the data is known and can be provided
+                            to the algorithm
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            
+                            imbalanced data
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
+                            Contrastive Methods can be showed to reduce to implicit or explicit k-means clustering.
+                            those can be further divided into instance based or volume maximizing. Volume maximi-
+                            zing does worse on imbalance because they assume clusters are of equal size
+                            The hidden cluster prior is addressed by explicit incentivizing the clusters formed to be
+                            less uniform and more
+                            like a pareto distribution. Assume the distribution of the data is known and can be provided
+                            to the algorithm
                         </p>
                         <strong>Images</strong><br>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/hidden-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/hidden-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
+
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">TabNet: Attentive Interpretable Tabular Learning</h3>
+                        <h3 class="paper-title">Divide and contrast: Self-supervised learning from uncurated data</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            
+                            @inproceedings{tian2021dnc, <br>
+                            title={Divide and contrast: Self-supervised learning from uncurated data}, <br>
+                            author={Tian, Yonglong and Henaff, Olivier J and van den Oord, A{\"a}ron}, <br>
+                            booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision}, <br>
+                            year={2021}} <br>
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://openaccess.thecvf.com/content/ICCV2021/papers/Tian_Divide_and_Contrast_Self-Supervised_Learning_From_Uncurated_Data_ICCV_2021_paper.pdf">https://openaccess.thecvf.com/content/ICCV2021/papers/Tian_Divide_and_Contrast_Self-Supervised_Learning_From_Uncurated_Data_ICCV_2021_paper.pdf</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+                            train base model on uncurated data to using CL to get repr that will be clustered using
+                            k-means. Original dataset is split according to the cluster and expert models are trained
+                            on individual subsets using CL. For any sample, the base model and the appropriate expert is
+                            used to distill knowledge into student. The
+                            student model learns to predict the project of the teachers models with its additional
+                            regression head. The
+                            subsets allow for hard negative mining which incentivizes learning better expert
+                            representations. Base model
+                            helps tie repr space together.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            
+                            imbalanced uncurated data
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
+                            train base model on uncurated data to using CL to get repr that will be clustered using
+                            k-means. Original dataset is split according to the cluster and expert models are trained
+                            on individual subsets using CL. For any sample, the base model and the appropriate expert is
+                            used to distill knowledge into student. The
+                            student model learns to predict the project of the teachers models with its additional
+                            regression head. The
+                            subsets allow for hard negative mining which incentivizes learning better expert
+                            representations. Base model
+                            helps tie repr space together.
                         </p>
                         <strong>Images</strong><br>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/dnc-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/dnc-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
+
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">Local Contrastive Feature Learning for Tabular Data</h3>
+                        <h3 class="paper-title">
+
+                            Improving contrastive learning on imbalanced data via open-world sampling
+                        </h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            
+                            @article{jiang2021mak, <br>
+                            title={Improving contrastive learning on imbalanced data via open-world sampling}, <br>
+                            author={Jiang, Ziyu and Chen, Tianlong and Chen, Ting and Wang, Zhangyang}, <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2021}} <br>
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2021/file/2f37d10131f2a483a8dd005b3d14b0d9-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2021/file/2f37d10131f2a483a8dd005b3d14b0d9-Paper.pdf</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+                            compensate for imbalance in data by sampling external data according to tailness,
+                            proximity, diversity. Tailness where the hard samples according to ECLE are considered
+                            tail, diversity to prevent similar samples, and proximity to prevent OoD outlier samples
+                            ECLE is based on expected contrastive loss over many augmentations for the views to smooth
+                            out the
+                            randomness of augmentations so the ECLE is only attributed to tailness. When applying
+                            K-center greedy, they
+                            use min because min garantees that the sample will be further away than any other.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            
+                            imbalanced data
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
+                            compensate for imbalance in data by sampling external data according to tailness,
+                            proximity, diversity. Tailness where the hard samples according to ECLE are considered
+                            tail, diversity to prevent similar samples, and proximity to prevent OoD outlier samples
+                            ECLE is based on expected contrastive loss over many augmentations for the views to smooth
+                            out the
+                            randomness of augmentations so the ECLE is only attributed to tailness. When applying
+                            K-center greedy, they
+                            use min because min garantees that the sample will be further away than any other.
                         </p>
                         <strong>Images</strong><br>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/mak-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/mak-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">Learning Enhanced Representation for Tabular Data via Neighborhood Propagation</h3>
+                        <h3 class="paper-title">
+                            Representation learning with contrastive predictive coding
+                        </h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            
+                            @article{oord2019cpc, <br>
+                            title={Representation learning with contrastive predictive coding}, <br>
+                            author={Oord, Aaron van den and Li, Yazhe and Vinyals, Oriol}, <br>
+                            journal={arXiv preprint arXiv:1807.03748}, <br>
+                            year={2019}} <br>
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a href="https://arxiv.org/pdf/1807.03748.pdf">https://arxiv.org/pdf/1807.03748.pdf</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+                            from time series, use encoder to produce timestep representation z and use an autoregressive
+                            encoder to produce representation context c across timesteps. Context of repr in the past is
+                            used
+                            to predict the repr z of future timesteps using CL where a positve pair is with Wc and z in
+                            the future.
+                            from time series, use encoder to produce timestep representation z and use an autoregressive
+                            encoder to produce representation context c across timesteps. Context of repr in the past is
+                            used
+                            to predict the repr z of future timesteps using CL where a positve pair is with Wc and z in
+                            the future
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            
+                            time series data
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
+                            from time series, use encoder to produce timestep representation z and use an autoregressive
+                            encoder to produce representation context c across timesteps. Context of repr in the past is
+                            used
+                            to predict the repr z of future timesteps using CL where a positve pair is with Wc and z in
+                            the future.
+                            from time series, use encoder to produce timestep representation z and use an autoregressive
+                            encoder to produce representation context c across timesteps. Context of repr in the past is
+                            used
+                            to predict the repr z of future timesteps using CL where a positve pair is with Wc and z in
+                            the future
                         </p>
                         <strong>Images</strong><br>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/cpc-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/cpc-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
+
+
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</h3>
+                        <h3 class="paper-title">Unsupervised scalable representation learning for multivariate time
+                            series</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            
+                            @article{franceschi2019tloss, <br>
+                            title={Unsupervised scalable representation learning for multivariate time series}, <br>
+                            author={Franceschi, Jean-Yves and Dieuleveut, Aymeric and Jaggi, Martin}, <br>
+                            journal={Advances in neural information processing systems}, <br>
+                            year={2019}} <br>
+
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper/2019/file/53c6de78244e9f528eb3e1cda69699bb-Paper.pdf">https://proceedings.neurips.cc/paper/2019/file/53c6de78244e9f528eb3e1cda69699bb-Paper.pdf</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+                            using triplet loss where a reference subseries is taken from a batch of series, a positive
+                            subseries taken from the reference subseries to form a positive pair with the reference. K
+                            negative subseries are taken from any other series in the batch to form a negative pair.
+                            dilated convolution where the stride and the filter size is the same for every layer but the
+                            dilation increase
+                            by factor of 2 at every layer, increasing the distance between 2 consecutive weights. To
+                            handle multivariate
+                            series, the increase the dimensionality of the filters from 1 to 2 where the added dim is
+                            for the additional vars
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            
+                            time series data
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
+                            using triplet loss where a reference subseries is taken from a batch of series, a positive
+                            subseries taken from the reference subseries to form a positive pair with the reference. K
+                            negative subseries are taken from any other series in the batch to form a negative pair.
+                            dilated convolution where the stride and the filter size is the same for every layer but the
+                            dilation increase
+                            by factor of 2 at every layer, increasing the distance between 2 consecutive weights. To
+                            handle multivariate
+                            series, the increase the dimensionality of the filters from 1 to 2 where the added dim is
+                            for the additional vars
                         </p>
                         <strong>Images</strong><br>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/tloss-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/tloss-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
+
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">With a little help from my friends: nearest-neighbor contrastive learning of visual representations</h3>
+                        <h3 class="paper-title"></h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-                            
+
                         </p>
 
                         url=<a href=""></a><br>
@@ -1469,316 +1684,27 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-                            
+
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-                            
+
                         </p>
                         <p>
                             <strong>Solution, Ideas and Why</strong>
                         </p>
                         <strong>Images</strong><br>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">ReSSL: Relational self-supervised learning with weak augmentation</h3>
-
-                        <p>
-                            <strong>BibTex</strong>
-                            <br>
-                            
-                        </p>
-
-                        url=<a href=""></a><br>
-
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-                            
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-                            
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
-                            </div>
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
-                            </div>
-                        </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">BEiT: BERT pre-training of image transformers</h3>
-
-                        <p>
-                            <strong>BibTex</strong>
-                            <br>
-                            
-                        </p>
-
-                        url=<a href=""></a><br>
-
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-                            
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-                            
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
-                            </div>
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
-                            </div>
-                        </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">iBOT: Image BERT pre-training with online tokenizer</h3>
-
-                        <p>
-                            <strong>BibTex</strong>
-                            <br>
-                            
-                        </p>
-
-                        url=<a href=""></a><br>
-
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-                            
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-                            
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
-                            </div>
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
-                            </div>
-                        </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Emerging properties in self-supervised vision transformers</h3>
-
-                        <p>
-                            <strong>BibTex</strong>
-                            <br>
-                            
-                        </p>
-
-                        url=<a href=""></a><br>
-
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-                            
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-                            
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
-                            </div>
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
-                            </div>
-                        </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Decoupled Contrastive Learning</h3>
-
-                        <p>
-                            <strong>BibTex</strong>
-                            <br>
-                            
-                        </p>
-
-                        url=<a href=""></a><br>
-
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-                            
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-                            
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
-                            </div>
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
-                            </div>
-                        </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Automatic Shortcut Removal for Self-Supervised Representation Learning</h3>
-
-                        <p>
-                            <strong>BibTex</strong>
-                            <br>
-                            
-                        </p>
-
-                        url=<a href=""></a><br>
-
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-                            
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-                            
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
-                            </div>
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
-                            </div>
-                        </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Adversarial Masking for Self-Supervised Learning</h3>
-
-                        <p>
-                            <strong>BibTex</strong>
-                            <br>
-                            
-                        </p>
-
-                        url=<a href=""></a><br>
-
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-                            
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-                            
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
-                            </div>
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
-                            </div>
-                        </div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="paper-container">
-                        <h3 class="paper-title">Improving Self-Supervised Learning by Characterizing Idealized Representations</h3>
-
-                        <p>
-                            <strong>BibTex</strong>
-                            <br>
-                            
-                        </p>
-
-                        url=<a href=""></a><br>
-
-                        <strong>Summary</strong>
-                        <br>
-                        <p>
-                            
-                        </p>
-
-                        <p>
-                            <strong>Problem</strong>
-                            
-                        </p>
-                        <p>
-                            <strong>Solution, Ideas and Why</strong>
-                        </p>
-                        <strong>Images</strong><br>
-                        <!-- <div class="row">
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig1.png" class="img-fluid rounded" alt="...">
-                            </div>
-                            <div class="col">
-                                <img src="../../images/repr/saint-fig2.png" class="img-fluid rounded" alt="...">
-                            </div>
-                        </div> -->
-                    </div>
-                </li>
-                
             </ol>
         </div>
     </div>
