@@ -1224,7 +1224,7 @@
                             <strong>Problem</strong>
                             imbalance data in self supervised learning
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
                             Investigated the robustness of SSL to imbalance in data and has better results on OoD cases.
                             Without labels, net is less sensitive to outlier compared to with labels. SSL does this by
@@ -1237,7 +1237,7 @@
                             neighborhood of the
                             sample and if that loss is uniformly low, it's weight less and if it's uniformly high, it is
                             weighted more.
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
@@ -1288,7 +1288,7 @@
                             <strong>Problem</strong>
                             predict embedding
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
                             2 networks, ema teacher which takes original input (image or text or sound) to produce
                             embeddings and a student which takes masked input to produce embeddings and predictions of
@@ -1298,7 +1298,7 @@
                             sample is greater than a threshold beta. The equations are setup with additional terms of
                             beta to transition
                             the function smoothly. This help mitigate outliers.
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
@@ -1347,7 +1347,7 @@
                             <strong>Problem</strong>
                             predict embedding
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
                             2 branches, anchor (online) branch and a ema (target) branch. Anchor branch get
                             patchified and masked anchor image while target branch used augmentation and patchify
@@ -1358,7 +1358,7 @@
                             the mean entropy of the assignment prediction. The max entropy is when their probabilities
                             are the same and
                             they are uniformly distributed
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
@@ -1405,7 +1405,7 @@
                             <strong>Problem</strong>
                             imbalanced data
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
                             Contrastive Methods can be showed to reduce to implicit or explicit k-means clustering.
                             those can be further divided into instance based or volume maximizing. Volume maximi-
@@ -1414,7 +1414,7 @@
                             less uniform and more
                             like a pareto distribution. Assume the distribution of the data is known and can be provided
                             to the algorithm
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
@@ -1462,7 +1462,7 @@
                             <strong>Problem</strong>
                             imbalanced uncurated data
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
                             train base model on uncurated data to using CL to get repr that will be clustered using
                             k-means. Original dataset is split according to the cluster and expert models are trained
@@ -1473,7 +1473,7 @@
                             subsets allow for hard negative mining which incentivizes learning better expert
                             representations. Base model
                             helps tie repr space together.
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
@@ -1523,7 +1523,7 @@
                             <strong>Problem</strong>
                             imbalanced data
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
                             compensate for imbalance in data by sampling external data according to tailness,
                             proximity, diversity. Tailness where the hard samples according to ECLE are considered
@@ -1533,7 +1533,7 @@
                             randomness of augmentations so the ECLE is only attributed to tailness. When applying
                             K-center greedy, they
                             use min because min garantees that the sample will be further away than any other.
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
@@ -1582,7 +1582,7 @@
                             <strong>Problem</strong>
                             time series data
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
                             from time series, use encoder to produce timestep representation z and use an autoregressive
                             encoder to produce representation context c across timesteps. Context of repr in the past is
@@ -1594,7 +1594,7 @@
                             used
                             to predict the repr z of future timesteps using CL where a positve pair is with Wc and z in
                             the future
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
@@ -1645,7 +1645,7 @@
                             <strong>Problem</strong>
                             time series data
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
                             using triplet loss where a reference subseries is taken from a batch of series, a positive
                             subseries taken from the reference subseries to form a positive pair with the reference. K
@@ -1656,7 +1656,7 @@
                             handle multivariate
                             series, the increase the dimensionality of the filters from 1 to 2 where the added dim is
                             for the additional vars
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
@@ -1669,6 +1669,145 @@
                     </div>
                 </li>
 
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Unsupervised Representation Learning for Time Series with Temporal
+                            Neighborhood Coding</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{tonekaboni2020tnc, <br>
+                            title={Unsupervised Representation Learning for Time Series with Temporal Neighborhood
+                            Coding}, <br>
+                            author={Tonekaboni, Sana and Eytan, Danny and Goldenberg, Anna}, <br>
+                            booktitle={International Conference on Learning Representations}, <br>
+                            year={2020}} <br>
+                        </p>
+
+                        url=<a
+                            href="https://openreview.net/pdf?id=8qDwejCuCN">https://openreview.net/pdf?id=8qDwejCuCN</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            define a time window Wt centered at a reference timestep t of width delta. From Wt, define a
+                            a temporal neighborhood as a gaussion distribution over the time windows with mean Wt and
+                            variance defined by eta*delta. Given the anchor window Wt and the temp neighborhood of Wt, a
+                            positive sample is one from the neighborhood and a "negative" sample is one outside the hood
+                            Sampling bias in MTS where even outsdie of the hood, a sample window can still have
+                            similarities with the anchor
+                            window. To tackle this, consider outside neighborhood as unlabeled with some prob w to be
+                            positive ('similar)
+                            and 1-w to be (dissimilar). They use a Disciminator Net with BCE with output 1 as 2 repr of
+                            windows in hood and
+                            0 outside the hood.
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            representation learning on time series
+                        </p>
+                        <!-- <p>
+                            <strong>Solution, Ideas and Why</strong>
+                            define a time window Wt centered at a reference timestep t of width delta. From Wt, define a
+                            a temporal neighborhood as a gaussion distribution over the time windows with mean Wt and
+                            variance defined by eta*delta. Given the anchor window Wt and the temp neighborhood of Wt, a
+                            positive sample is one from the neighborhood and a "negative" sample is one outside the hood
+                            Sampling bias in MTS where even outsdie of the hood, a sample window can still have
+                            similarities with the anchor
+                            window. To tackle this, consider outside neighborhood as unlabeled with some prob w to be
+                            positive ('similar)
+                            and 1-w to be (dissimilar). They use a Disciminator Net with BCE with output 1 as 2 repr of
+                            windows in hood and
+                            0 outside the hood.
+
+                        </p> -->
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">A Transformer-based Framework for Multivariate Time Series
+                            Representation Learning</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{zerveas2021tst, <br>
+                            title={A transformer-based framework for multivariate time series representation learning},
+                            <br>
+                            author={Zerveas, George and Jayaraman, Srideepika and Patel, Dhaval and Bhamidipaty,
+                            Anuradha and Eickhoff, Carsten}, <br>
+                            booktitle={Proceedings of the 27th ACM SIGKDD conference on knowledge discovery \& data
+                            mining}, <br>
+                            year={2021}} <br>
+
+                        </p>
+
+                        url=<a
+                            href="https://dl.acm.org/doi/pdf/10.1145/3447548.3467401">https://dl.acm.org/doi/pdf/10.1145/3447548.3467401</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            From MTS, input variable vector at time t is encoded with a Linear layer into d dimensional
+                            vector.
+                            to further reduce the resolution in time of the MTS, a 1D conv can be applied to summary
+                            multiple
+                            timesteps into 1. Once d dim vector is obtained, learned positional embedding are added to
+                            produce
+                            the final input for encoder only transformer.
+                            The encoder is then used to produce representation per timesteps. They trained first with
+                            unsupervised where
+                            a fraction of the input window was masked and the network predicts the mask input to
+                            reconstructed the
+                            window. They then trained for the downstream task where for a window, they obtain
+                            representations for each
+                            timesteps and concatenate them into the full window representation.
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            using transformer for time series data
+                        </p>
+                        <!-- <p>
+                            <strong>Solution, Ideas and Why</strong>
+                            From MTS, input variable vector at time t is encoded with a Linear layer into d dimensional
+                            vector.
+                            to further reduce the resolution in time of the MTS, a 1D conv can be applied to summary
+                            multiple
+                            timesteps into 1. Once d dim vector is obtained, learned positional embedding are added to
+                            produce
+                            the final input for encoder only transformer.
+                            The encoder is then used to produce representation per timesteps. They trained first with
+                            unsupervised where
+                            a fraction of the input window was masked and the network predicts the mask input to
+                            reconstructed the
+                            window. They then trained for the downstream task where for a window, they obtain
+                            representations for each
+                            timesteps and concatenate them into the full window representation.
+                        </p> -->
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/tst-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/tst-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li>
                     <div class="paper-container">
                         <h3 class="paper-title"></h3>
