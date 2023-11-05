@@ -1815,6 +1815,124 @@
                         <p>
                             <strong>BibTex</strong>
                             <br>
+                            @article{eldele2021tstcc, <br>
+                            title={Time-series representation learning via temporal and contextual contrasting}, <br>
+                            author={Eldele, Emadeldeen and Ragab, Mohamed and Chen, Zhenghua and Wu, Min and Kwoh, Chee
+                            Keong and Li, Xiaoli and Guan, Cuntai}, <br>
+                            journal={Proceedings of the Thirtieth International Joint Conference on Artificial
+                            Intelligence (IJCAI-21)}, <br>
+                            year={2021}} <br>
+
+                        </p>
+
+                        url=<a
+                            href="https://www.ijcai.org/proceedings/2021/0324.pdf">https://www.ijcai.org/proceedings/2021/0324.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            From a time series, they produce 2 augs, a weak aug (jitter and scale) and a strong aug
+                            (segment
+                            suffling and jitter). From the 2 augs from the same sample, they are encoded into repr per
+                            timesteps.
+                            they do temporal contrating where the repr are used to produce context summarizing past
+                            timesteps.
+                            From context of an aug, they predict the future repr of the other aug as positive pair. neg
+                            pair are
+                            other sample repr in minibatch.
+                            They also do contextual repr where from the context of both augs, they measure the cosine
+                            similarity and that
+                            similarity should be maximized for contexts of augs from the same sample and minimized for
+                            contexts of augs
+                            from different samples. During experimentation, they found contextual contrastive is of
+                            higher importance than
+                            temporal contrasting
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            time series representation
+                        </p>
+                        <!-- <p>
+                            <strong>Solution, Ideas and Why</strong>
+                            From a time series, they produce 2 augs, a weak aug (jitter and scale) and a strong aug
+                            (segment
+                            suffling and jitter). From the 2 augs from the same sample, they are encoded into repr per
+                            timesteps.
+                            they do temporal contrating where the repr are used to produce context summarizing past
+                            timesteps.
+                            From context of an aug, they predict the future repr of the other aug as positive pair. neg
+                            pair are
+                            other sample repr in minibatch.
+                            They also do contextual repr where from the context of both augs, they measure the cosine
+                            similarity and that
+                            similarity should be maximized for contexts of augs from the same sample and minimized for
+                            contexts of augs
+                            from different samples. During experimentation, they found contextual contrastive is of
+                            higher importance than
+                            temporal contrasting
+                        </p> -->
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/tstcc-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/tstcc-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Ts2vec: Towards universal representation of time series</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{yue2022ts2vec, <br>
+                            title={Ts2vec: Towards universal representation of time series}, <br>
+                            author={Yue, Zhihan and Wang, Yujing and Duan, Juanyong and Yang, Tianmeng and Huang,
+                            Congrui and Tong, Yunhai and Xu, Bixiong}, <br>
+                            booktitle={Proceedings of the AAAI Conference on Artificial Intelligence}, <br>
+                            year={2022}} <br>
+                        </p>
+
+                        url=<a
+                            href="https://ojs.aaai.org/index.php/AAAI/article/view/20881/20640">https://ojs.aaai.org/index.php/AAAI/article/view/20881/20640</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            time series representations
+
+                        </p>
+                        <p>
+                            <strong>Solution, Ideas and Why</strong>
+                        </p>
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/ts2vec-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/ts2vec-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title"></h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
 
                         </p>
 
