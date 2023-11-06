@@ -1810,7 +1810,8 @@
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title"></h3>
+                        <h3 class="paper-title">Time-series representation learning via temporal and contextual
+                            contrasting</h3>
 
                         <p>
                             <strong>BibTex</strong>
@@ -1904,7 +1905,28 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
-
+                            from a time series, they produce 2 augs which are random croppings with an overlapping
+                            region to
+                            incentivize contextual consistancy between the augs. Cropping doesn't affect the amplitude
+                            of the
+                            series. From the 2 crops, the obtain per timestep projections. In the overlapping region,
+                            they mask
+                            random timesteps according to bernoulli distribution in such a way that they are visible in
+                            the second
+                            aug if masked in the first and vice versa. From masked views they obtain repr using Dialated
+                            conv.
+                            they employ hierarchical contrasting composed of temporal and instance-wise contrasting
+                            summed at multiple
+                            semantic levels using maxpooling (dividing the repr series in half) to incentivize temporal
+                            invariance of the
+                            representations. The temporal contrasting is considering a view of a sample at a time t and
+                            the other view of the
+                            sample at the same time t as positive pair, while all other timesteps of both views for the
+                            same sample are negative.
+                            The instance-wise contrasting considers the repr of the views from the same sample at the
+                            same timestep as
+                            positive pair while the reprs of the views of other instances at the same timestep are
+                            negative.
                         </p>
 
                         <p>
@@ -1912,9 +1934,20 @@
                             time series representations
 
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
-                        </p>
+                            from a time series, they produce 2 augs which are random croppings with an overlapping region to 
+                            incentivize contextual consistancy between the augs. Cropping doesn't affect the amplitude of the 
+                            series. From the 2 crops, the obtain per timestep projections. In the overlapping region, they mask
+                            random timesteps according to bernoulli distribution in such a way that they are visible in the second
+                            aug if masked in the first and vice versa. From masked views they obtain repr using Dialated conv.
+                            they employ hierarchical contrasting composed of temporal and instance-wise contrasting summed at multiple 
+                            semantic levels using maxpooling (dividing the repr series in half) to incentivize temporal invariance of the
+                            representations. The temporal contrasting is considering a view of a sample at a time t and the other view of the
+                            sample at the same time t as positive pair, while all other timesteps of both views for the same sample are negative. 
+                            The instance-wise contrasting considers the repr of the views from the same sample at the same timestep as 
+                            positive pair while the reprs of the views of other instances at the same timestep are negative. 
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
