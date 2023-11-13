@@ -1961,6 +1961,147 @@
                 </li>
                 <li>
                     <div class="paper-container">
+                        <h3 class="paper-title">Dynamic sparse network for time series classification: Learning what to
+                            “see”</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{xiao2022dns, <br>
+                            title={Dynamic sparse network for time series classification: Learning what to “see”}, <br>
+                            author={Xiao, Qiao and Wu, Boqian and Zhang, Yu and Liu, Shiwei and Pechenizkiy, Mykola and
+                            Mocanu, Elena and Mocanu, Decebal Constantin}, <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2022}} <br>
+                        </p>
+
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2022/file/6b055b95d689b1f704d8f92191cdb788-Paper-Conference.pdf">https://proceedings.neurips.cc/paper_files/paper/2022/file/6b055b95d689b1f704d8f92191cdb788-Paper-Conference.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            Use large sparse kernel that are dynamically "indicated" with a dynamic indicator function.
+                            the eNRF or
+                            effective neighborhood Receptive Field is the distance between the first and the last
+                            activate weight in
+                            the kernel layer. The indicator funtion is updated every set of epochs to insure the
+                            sparsity of the kernels.
+                            The kernels in each dynamic sparse layer are divided into groups corresponding to
+                            exploration regions for the
+                            kernel weights. Activated weights for a particular group are limited to the exploration
+                            region. This allows for
+                            various eNRF to be covered without biasing toward large receptive fields, and the
+                            exploration space to be reduced
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            efficient representation of time series data
+
+                        </p>
+                        <!-- <p>
+                            <strong>Solution, Ideas and Why</strong>
+                            Use large sparse kernel that are dynamically "indicated" with a dynamic indicator function.
+                            the eNRF or
+                            effective neighborhood Receptive Field is the distance between the first and the last
+                            activate weight in
+                            the kernel layer. The indicator funtion is updated every set of epochs to insure the
+                            sparsity of the kernels.
+                            The kernels in each dynamic sparse layer are divided into groups corresponding to
+                            exploration regions for the
+                            kernel weights. Activated weights for a particular group are limited to the exploration
+                            region. This allows for
+                            various eNRF to be covered without biasing toward large receptive fields, and the
+                            exploration space to be reduced 
+                        </p> -->
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/dsn-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/dsn-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Self-supervised contrastive pre-training for time series via
+                            time-frequency consistency</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{zhang2022tfc, <br>
+                            title={Self-supervised contrastive pre-training for time series via time-frequency
+                            consistency}, <br>
+                            author={Zhang, Xiang and Zhao, Ziyuan and Tsiligkaridis, Theodoros and Zitnik, Marinka},
+                            <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2022}} <br>
+
+                        </p>
+
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2022/file/194b8dac525581c346e30a2cebe9a369-Paper-Conference.pdf">https://proceedings.neurips.cc/paper_files/paper/2022/file/194b8dac525581c346e30a2cebe9a369-Paper-Conference.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            time-frequency consistency where from sample, the time based and frequency representation
+                            should be
+                            close. In addition to time based and freq based represenations, they produce repr of
+                            augmented views of
+                            both time based and freq based. In time-freq, reprs of the same sample in time and freq
+                            should be closer
+                            to each other than to repr of aug view in time and freq fo the same sample which should
+                            closer than to repr
+                            of other samples.
+                            in time, anchor view with aug view of the same sample is positive pair while anchor view
+                            with other samples and their
+                            views as negative pairs. Similarly in frequency. Their architecture has 4 networks. 2
+                            encoder networks. Time enoder,
+                            a space encoder. 2 projectors, a time to time-space project and a freq to freq-time
+                            projector.
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            representation learning of time series data
+                        </p>
+                        <!-- <p>
+                            <strong>Solution, Ideas and Why</strong>
+                            time-frequency consistency where from sample, the time based and frequency representation
+                            should be
+                            close. In addition to time based and freq based represenations, they produce repr of
+                            augmented views of
+                            both time based and freq based. In time-freq, reprs of the same sample in time and freq
+                            should be closer
+                            to each other than to repr of aug view in time and freq fo the same sample which should
+                            closer than to repr
+                            of other samples.
+                            in time, anchor view with aug view of the same sample is positive pair while anchor view
+                            with other samples and their
+                            views as negative pairs. Similarly in frequency. Their architecture has 4 networks. 2
+                            encoder networks. Time enoder,
+                            a space encoder. 2 projectors, a time to time-space project and a freq to freq-time
+                            projector.
+                        </p> -->
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/tfc-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/tfc-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="paper-container">
                         <h3 class="paper-title"></h3>
 
                         <p>
