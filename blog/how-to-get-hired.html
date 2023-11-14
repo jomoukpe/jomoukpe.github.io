@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application and Interview Guide</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav ul {
+            list-style: none;
+            background-color: #444;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        section {
+            margin: 2em 5%;
+            padding: 1em;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Job Application and Interview Guide</h1>
+        <p>By Josias Moukpe, Loïc Moukpe</p>
+        <p>Nov 13, 2023</p>
+    </header>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#application-strategy">Application Strategy</a></li>
+            <li><a href="#resume-tips">Resume/Cover Letter Tips</a></li>
+            <li><a href="#interview-prep">Interview Preparation</a></li>
+            <li><a href="#networking-research">Networking and Research</a></li>
+            <li><a href="#post-application">Post-Application Actions</a></li>
+            <li><a href="#additional-tips">Additional Tips</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Application Strategy -->
+        <section id="application-strategy">
+            <h2>Application Strategy</h2>
+            <ol>
+                <li>Embracing Patience: Understand that job hunting is a process that requires patience and
+                    self-compassion. Avoid self-criticism and maintain a positive outlook.</li>
+                <li>Exploring Varied Career Paths: Consider alternative paths like internships which can lead to
+                    rewarding career opportunities.</li>
+                <li>Diversifying Applications: Apply to various roles that match your skills and interests to broaden
+                    your chances.</li>
+                <li>Targeted Company Applications: When a company interests you, apply for multiple relevant positions
+                    to increase visibility and likelihood of employment.</li>
+                <li>Keeping Options Open: Don’t fixate on a single job opening. Open-mindedness about different
+                    opportunities can reduce stress and increase options.</li>
+            </ol>
+        </section>
+
+        <!-- Resume/Cover Letter Tips -->
+        <section id="resume-tips">
+            <h2>Resume/Cover Letter Tips</h2>
+            <ol>
+                <li>Leveraging Experience: In your resume and interviews, emphasize key projects and experiences that
+                    showcase your strengths.</li>
+                <li>Tailoring Applications: Customize your resume and cover letter for each company. Make your
+                    application stand out with a focus on unique contributions and a clear depiction of your role and
+                    impact. Ensure the quality of your application reflects your best self.</li>
+                <li>Stand-Out Techniques: Think creatively about making your application unique among numerous
+                    applicants. This can include enhancing your personal website, LinkedIn, GitHub, and Twitter
+                    profiles.</li>
+            </ol>
+        </section>
+
+        <!-- Interview Preparation -->
+        <section id="interview-prep">
+            <h2>Interview Preparation</h2>
+            <ol>
+                <li>Conducting In-Depth Research: Deeply understand the company’s culture, values, and operations to
+                    tailor your responses.</li>
+                <li>Showcasing Confidence and Authenticity: Approach interviews confidently, presenting your true self
+                    and establishing a genuine connection.</li>
+                <li>Technical Interview Prep: Thoroughly prepare for technical questions and behavioral scenarios. This
+                    is critical for distinguishing yourself in technical roles.</li>
+                <li>Project Presentation: Discuss projects relevant to the company's interests. Be prepared to delve
+                    into details confidently.</li>
+            </ol>
+        </section>
+
+        <!-- Networking and Research -->
+        <section id="networking-research">
+            <h2>Networking and Research</h2>
+            <ol>
+                <li>Utilizing Networks: Leverage your network to gain insights into the company’s priorities. Use your
+                    social media, like LinkedIn, to actively engage with relevant communities.</li>
+                <li>Reflecting Company Values: Make sure your language and approach reflect the values and culture of
+                    the company you are applying to.</li>
+            </ol>
+        </section>
+
+        <!-- Post-Application Actions -->
+        <section id="post-application">
+            <h2>Post-Application Actions</h2>
+            <ol>
+                <li>Organizing Applications: Keep a folder for each company to easily manage company-specific documents.
+                </li>
+                <li>Feedback and Negotiation: Don’t hesitate to ask for feedback on your applications. When receiving an
+                    offer, be ready to negotiate salary, especially if you have competing offers.</li>
+                <li>Learning from Rejections: Use rejections as a learning opportunity to improve future applications.
+                </li>
+                <li>Developing a Personal System: Create a system that makes it easy for you to apply repeatedly to jobs
+                    you are interested in.</li>
+            </ol>
+        </section>
+
+        <!-- Additional Tips -->
+        <section id="additional-tips">
+            <h2>Additional Tips</h2>
+            <ol>
+                <li>Early Preparation: The sooner you start preparing for applications, the better your chances.</li>
+                <li>Going the Extra Mile: Show your enthusiasm and interest, for instance, by sending thank you messages
+                    post-interview or asking insightful questions.</li>
+                <li>Enthusiastic Application: Apply to companies you are genuinely interested in. This enthusiasm can be
+                    a key differentiator.</li>
+                <li>Application Focus: Limit the number of active applications to manage them effectively. For example,
+                    having five active applications at a time can be a good balance.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 J. Moukpe's blog</p>
+    </footer>
+    <script>
+        // JavaScript for interactive navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.href.includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
