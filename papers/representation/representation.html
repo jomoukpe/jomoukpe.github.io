@@ -2102,6 +2102,73 @@
                 </li>
                 <li>
                     <div class="paper-container">
+                        <h3 class="paper-title">CLOCS: Contrastive Learning of Cardiac Signals Across Space, Time, and
+                            Patients.</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @inproceedings{kiyasseh2021clocs, <br>
+                            title={Clocs: Contrastive learning of cardiac signals across space, time, and patients},
+                            <br>
+                            author={Kiyasseh, Dani and Zhu, Tingting and Clifton, David A}, <br>
+                            booktitle={International Conference on Machine Learning}, <br>
+                            year={2021}} <br>
+
+                        </p>
+
+                        url=<a
+                            href="http://proceedings.mlr.press/v139/kiyasseh21a/kiyasseh21a.pdf">http://proceedings.mlr.press/v139/kiyasseh21a/kiyasseh21a.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            From samples they generate 2 sets augmented views. In addition they generate segments from
+                            the same
+                            samples (temporal consistency) and use different lead (spatial consistency) as augmented
+                            views. They
+                            measure the cosine similary and, when from different segments, different leads, diff segment
+                            and lead, or
+                            diff augmentatios, two view from the same patient (whether same or different instance
+                            sample) are positive
+                            and 2 view from different patients are negative.
+                            the transformation applied to the two view are flipped to make sure that the initial
+                            asymmetric contrastive learning
+                            equations 2 and 3 are symmetrized in equation 4.
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            sample efficient time series representation learning
+                        </p>
+                        <!-- <p>
+                            <strong>Solution, Ideas and Why</strong>
+                            From samples they generate 2 sets augmented views. In addition they generate segments from
+                            the same
+                            samples (temporal consistency) and use different lead (spatial consistency) as augmented
+                            views. They
+                            measure the cosine similary and, when from different segments, different leads, diff segment
+                            and lead, or
+                            diff augmentatios, two view from the same patient (whether same or different instance
+                            sample) are positive
+                            and 2 view from different patients are negative.
+                            the transformation applied to the two view are flipped to make sure that the initial
+                            asymmetric contrastive learning
+                            equations 2 and 3 are symmetrized in equation 4.
+                        </p> -->
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/clocs-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/clocs-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="paper-container">
                         <h3 class="paper-title"></h3>
 
                         <p>
