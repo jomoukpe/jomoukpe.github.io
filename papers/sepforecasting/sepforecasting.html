@@ -727,6 +727,57 @@
                             </div>
                         </div>
                     </li>
+                    <li>
+                        <div class="paper-container">
+                            <h3 class="paper-title">Up to 1-hour forecasting of radiation hazards from solar energetic ion events with relativistic electrons</h3>
+
+                            <p>
+                                <strong>BibTex</strong>
+                                <br>
+                                @article{posner2007up, <br>
+                                author = {Posner, Arik}, <br>
+                                title = {Up to 1-hour forecasting of radiation hazards from solar energetic ion events with relativistic electrons}, <br>
+                                journal = {Space Weather}, <br>
+                                year = {2007}, <br>
+                                }
+                            </p>
+
+                            url=<a
+                                href="https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2006SW000268">https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2006SW000268</a><br>
+
+                            <strong>Summary</strong>
+                            <br>
+                            <p>
+                                This thesis tackles the forecasting SEPs from non-SEPs and the intensity of the SEPs. For classifying SEPs using CME features, 
+                                they explore 3 methods, oversampling the minority classes to obtain a more balanced dataset, apply classifier retraining (cRT) and 
+                                an auto-encoder head to learn better features during the first stage (cRT+AE). For cRT+AE, they estimate the coefficient contribution of 
+                                the auto-encoder loss to ensure both branches are equally valued in the training. They found cRT+AE to perform the best in their experiments.
+                                For predicting the SEP natural logarithm intensity, they explore 6 methods, oversampling the minority ranges, retraining the regressor (rRT), adding an auto-encoder 
+                                head to learn better features during the first stage (rRT+AE), integrating the Richardson equation prediction by linear combination or by using the neural network to 
+                                predict an adjustment error term to the Richardson prediction, and applying dense loss reweighting to the loss function so the training model pays more attention
+                                to rare samples. They evaluate their performance using Mean Absolute Error and Pearson Correlation Coefficient. They found that rRT+AE with either dense loss or Richardson 
+                                adjustment error yielded the best results.
+                            </p>
+
+                            <p>
+                                <strong>Problem</strong>
+                                
+                            </p>
+                            <p>
+                                <strong>Solution, Ideas and Why</strong>
+                                
+                            </p>
+                            <strong>Images</strong><br>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="../../images/sep/rtae-fig1.png" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col">
+                                    <img src="../../images/sep/rtae-fig2.png" class="img-fluid rounded" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ol>
             </div>
         </div>
