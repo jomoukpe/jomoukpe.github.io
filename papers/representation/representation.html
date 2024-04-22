@@ -2170,15 +2170,20 @@
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title"></h3>
+                        <h3 class="paper-title">CoST: Contrastive Learning of Disentangled Seasonal-Trend Representations for Time Series Forecasting</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
+                            @inproceedings{woo2021cost, <br>
+                                title={CoST: Contrastive Learning of Disentangled Seasonal-Trend Representations for Time Series Forecasting}, <br>
+                                author={Woo, Gerald and Liu, Chenghao and Sahoo, Doyen and Kumar, Akshat and Hoi, Steven}, <br>
+                                booktitle={International Conference on Learning Representations}, <br>
+                                year={2021}}  <br>
 
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a href="https://openreview.net/pdf?id=PilZY3omXV2">https://openreview.net/pdf?id=PilZY3omXV2</a><br>
 
                         <strong>Summary</strong>
                         <br>
@@ -2190,31 +2195,43 @@
                             <strong>Problem</strong>
 
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/cost-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/cost-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/cost-fig3.png" class="img-fluid rounded" alt="...">
                             </div>
                         </div>
+                
                     </div>
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title"></h3>
+                        <h3 class="paper-title">Rank-N-Contrast: Learning Continuous Representations for Regression</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
+                            @article{zha2023RNC, <br>
+                            title={Rank-N-Contrast: Learning Continuous Representations for Regression}, <br>
+                            author={Zha, Kaiwen and Cao, Peng and Son, Jeany and Yang, Yuzhe and Katabi, Dina}, <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2023}} <br>
 
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2023/file/39e9c5913c970e3e49c2df629daff636-Paper-Conference.pdf">
+                            https://proceedings.neurips.cc/paper_files/paper/2023/file/39e9c5913c970e3e49c2df629daff636-Paper-Conference.pdf
+                        </a><br>
 
                         <strong>Summary</strong>
                         <br>
@@ -2226,16 +2243,16 @@
                             <strong>Problem</strong>
 
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/rnc-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/rnc-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
                         </div>
                     </div>
@@ -2272,7 +2289,7 @@
                             conditional entropy H(Z|Y) and maximizing marginal entropy H(Z). In contrast, regression
                             with the mean squared error (MSE) loss only minimizes H(Z|Y) but ignores H(Z), resulting in
                             lower-entropy feature spaces.
-                            
+
                             Ordinal entropy regularizer: To address the limitation of regression in learning
                             high-entropy features, the authors propose an ordinal entropy regularizer Loe, which
                             consists of two terms: a diversity term Ld and a tightness term Lt.
