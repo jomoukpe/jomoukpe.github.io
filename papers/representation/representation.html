@@ -2350,36 +2350,77 @@
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title"></h3>
+                        <h3 class="paper-title">TabNet: Attentive Interpretable Tabular Learning</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-
+                            @inproceedings{arik2021tabnet, <br>
+                            title={Tabnet: Attentive interpretable tabular learning}, <br>
+                            author={Arik, Sercan {\"O} and Pfister, Tomas}, <br>
+                            booktitle={Proceedings of the AAAI conference on artificial intelligence}, <br>
+                            year={2021} <br>
+                            }
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://ojs.aaai.org/index.php/AAAI/article/download/16826/16633">https://ojs.aaai.org/index.php/AAAI/article/download/16826/16633</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
+                            The authors propose TabNet, a novel deep learning architecture for tabular data that
+                            uses sequential attention to select salient features at each decision step, enabling
+                            interpretability and efficient learning. The key components of TabNet are:
 
+                            1. Feature selection: TabNet employs a learnable mask to perform soft selection of salient
+                            features at each decision step. The mask is obtained using an attentive transformer that
+                            takes the processed features from the previous step as input. The masks are sparse, which
+                            allows the model to focus on the most relevant features and improves parameter efficiency.
+
+                            2. Feature processing: The selected features are processed using a feature transformer,
+                            which consists of decision step-dependent and shared layers. The processed features are then
+                            split into the decision step output and information for the subsequent step.
+
+                            3. Interpretability: TabNet's feature selection masks provide insight into the model's
+                            reasoning process. The masks can be analyzed at each decision step to understand the
+                            importance of individual features, and the masks can be aggregated to obtain global feature
+                            importance.
+
+                            4. Tabular self-supervised learning: TabNet introduces a decoder architecture for
+                            reconstructing tabular features from the encoded representations. The model is trained to
+                            predict missing feature columns from the others, enabling unsupervised pre-training to
+                            improve performance when labeled data is scarce.
+
+                            The overall TabNet architecture consists of an encoder with multiple decision steps, each
+                            performing feature selection and processing, followed by an aggregation of the decision step
+                            outputs to obtain the final prediction. The model is trained end-to-end using standard
+                            classification or regression loss functions, along with a sparsity regularization term to
+                            encourage sparsity in the feature selection masks.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            Despite the remarkable success of deep neural networks (DNNs) in various domains, their
+                            performance on tabular data has been limited compared to tree-based ensemble methods.
+                            Tabular data often has complex relationships between features and target variables, with
+                            decision boundaries well-approximated by axis-aligned splits. Standard DNN architectures
+                            struggle to learn optimal decision boundaries for tabular data and lack interpretability,
+                            hindering their adoption in real-world applications.
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/tabnet-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/tabnet-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/tabnet-fig3.png" class="img-fluid rounded" alt="...">
                             </div>
                         </div>
                     </div>
@@ -2394,13 +2435,15 @@
                             @inproceedings{gharibshah2022local, <br>
                             title={Local contrastive feature learning for tabular data},<br>
                             author={Gharibshah, Zhabiz and Zhu, Xingquan}, <br>
-                            booktitle={Proceedings of the 31st ACM International Conference on Information \& Knowledge Management}, <br>
+                            booktitle={Proceedings of the 31st ACM International Conference on Information \& Knowledge
+                            Management}, <br>
                             year={2022}} <br>
 
 
                         </p>
 
-                        url=<a href="https://dl.acm.org/doi/pdf/10.1145/3511808.3557630?casa_token=1Z0XoSMMHn0AAAAA:5Vt7BZgpIoonKWOI5ML4Bjg8quihpVoVKJlCwNLSaxJkPUupQNLrQE-2fLb5V4t0Xxtivj5bOa7stA">
+                        url=<a
+                            href="https://dl.acm.org/doi/pdf/10.1145/3511808.3557630?casa_token=1Z0XoSMMHn0AAAAA:5Vt7BZgpIoonKWOI5ML4Bjg8quihpVoVKJlCwNLSaxJkPUupQNLrQE-2fLb5V4t0Xxtivj5bOa7stA">
                             https://dl.acm.org/doi/pdf/10.1145/3511808.3557630?casa_token=1Z0XoSMMHn0AAAAA:5Vt7BZgpIoonKWOI5ML4Bjg8quihpVoVKJlCwNLSaxJkPUupQNLrQE-2fLb5V4t0Xxtivj5bOa7stA
                         </a><br>
 
