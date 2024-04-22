@@ -2242,36 +2242,81 @@
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title"></h3>
+                        <h3 class="paper-title">Improving Deep Regression with Ordinal Entropy</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
+                            @inproceedings{zhang2022improving, <br>
+                            title={Improving Deep Regression with Ordinal Entropy}, <br>
+                            author={Zhang, Shihao and Yang, Linlin and Mi, Michael Bi and Zheng, Xiaoxu and Yao,
+                            Angela}, <br>
+                            booktitle={The Eleventh International Conference on Learning Representations}, <br>
+                            year={2022}} <br>
 
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://openreview.net/pdf?id=raU07GpP0P">https://openreview.net/pdf?id=raU07GpP0P</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
+                            The authors propose an ordinal entropy regularizer to encourage higher-entropy feature
+                            spaces while maintaining ordinal relationships in regression tasks. The key ideas and
+                            technical details of the method are as follows:
 
+                            Mutual information analysis: The authors analyze the difference in feature learning between
+                            classification and regression from a mutual information perspective. They show that
+                            classification with the cross-entropy loss maximizes mutual information by minimizing
+                            conditional entropy H(Z|Y) and maximizing marginal entropy H(Z). In contrast, regression
+                            with the mean squared error (MSE) loss only minimizes H(Z|Y) but ignores H(Z), resulting in
+                            lower-entropy feature spaces.
+                            
+                            Ordinal entropy regularizer: To address the limitation of regression in learning
+                            high-entropy features, the authors propose an ordinal entropy regularizer Loe, which
+                            consists of two terms: a diversity term Ld and a tightness term Lt.
+                            a. Diversity term (Ld): This term encourages higher distances between feature centers to
+                            increase the marginal entropy. The feature centers are calculated by taking the mean of
+                            features that project to the same target value.
+                            b. Tightness term (Lt): This term minimizes the conditional entropy by encouraging features
+                            to be close to their corresponding centers.
+
+                            Feature normalization: The authors emphasize the importance of normalizing the features z
+                            with an L2 norm before applying the ordinal entropy regularizer to ensure its effectiveness.
+                            Loss function: The final loss function combines the task-specific regression loss Lm (e.g.,
+                            MSE) with the ordinal entropy regularizer Loe: Ltotal = Lm + λd * Ld + λt * Lt where λd and
+                            λt are trade-off parameters to balance the contribution of the diversity and tightness
+                            terms, respectively.
+                            Experiments: The authors evaluate their method on various regression tasks, including
+                            synthetic datasets for solving ODEs and stochastic PDEs, as well as real-world tasks such as
+                            depth estimation, crowd counting, and age estimation. The experiments demonstrate that the
+                            ordinal entropy regularizer consistently improves the performance of regression models and
+                            can be easily integrated with existing methods.
+                            In summary, the proposed ordinal entropy regularizer addresses the limitation of regression
+                            models in learning high-entropy feature spaces by explicitly encouraging feature diversity
+                            while preserving ordinal relationships. The method is simple, effective, and can be easily
+                            incorporated into existing regression architectures to improve their performance.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            Deep learning models for regression tasks often underperform compared to classification
+                            models. This curious phenomenon suggests that regression models may be limited in their
+                            ability to learn high-entropy feature representations, which are crucial for achieving
+                            better performance.
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/ord-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/ord-fig3.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/ord-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
                         </div>
                     </div>
