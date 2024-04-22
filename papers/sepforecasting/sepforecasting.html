@@ -198,7 +198,7 @@
                                 these filters reduce the false alarm rate but misses weaker SEPs. They conclude that the
                                 richardson equation is decent basis for empirical prediction of SEPs.
 
-                                
+
                             </p>
 
                             <p>
@@ -695,14 +695,22 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-                                This thesis tackles the forecasting SEPs from non-SEPs and the intensity of the SEPs. For classifying SEPs using CME features, 
-                                they explore 3 methods, oversampling the minority classes to obtain a more balanced dataset, apply classifier retraining (cRT) and 
-                                an auto-encoder head to learn better features during the first stage (cRT+AE). For cRT+AE, they estimate the coefficient contribution of 
-                                the auto-encoder loss to ensure both branches are equally valued in the training. They found cRT+AE to perform the best in their experiments.
-                                For predicting the SEP natural logarithm intensity, they explore 6 methods, oversampling the minority ranges, retraining the regressor (rRT), adding an auto-encoder 
-                                head to learn better features during the first stage (rRT+AE), integrating the Richardson equation prediction by linear combination or by using the neural network to 
-                                predict an adjustment error term to the Richardson prediction, and applying dense loss reweighting to the loss function so the training model pays more attention
-                                to rare samples. They evaluate their performance using Mean Absolute Error and Pearson Correlation Coefficient. They found that rRT+AE with either dense loss or Richardson 
+                                This thesis tackles the forecasting SEPs from non-SEPs and the intensity of the SEPs.
+                                For classifying SEPs using CME features,
+                                they explore 3 methods, oversampling the minority classes to obtain a more balanced
+                                dataset, apply classifier retraining (cRT) and
+                                an auto-encoder head to learn better features during the first stage (cRT+AE). For
+                                cRT+AE, they estimate the coefficient contribution of
+                                the auto-encoder loss to ensure both branches are equally valued in the training. They
+                                found cRT+AE to perform the best in their experiments.
+                                For predicting the SEP natural logarithm intensity, they explore 6 methods, oversampling
+                                the minority ranges, retraining the regressor (rRT), adding an auto-encoder
+                                head to learn better features during the first stage (rRT+AE), integrating the
+                                Richardson equation prediction by linear combination or by using the neural network to
+                                predict an adjustment error term to the Richardson prediction, and applying dense loss
+                                reweighting to the loss function so the training model pays more attention
+                                to rare samples. They evaluate their performance using Mean Absolute Error and Pearson
+                                Correlation Coefficient. They found that rRT+AE with either dense loss or Richardson
                                 adjustment error yielded the best results.
                             </p>
 
@@ -712,9 +720,11 @@
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
-                                Forecasting SEPs events and SEP intensity using various techniques to deal with imbalance
-                                Leveraging representation learning with an Auto-Encoder branch, the richardson equation, and 
-                                the dense loss. 
+                                Forecasting SEPs events and SEP intensity using various techniques to deal with
+                                imbalance
+                                Leveraging representation learning with an Auto-Encoder branch, the richardson equation,
+                                and
+                                the dense loss.
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
@@ -729,14 +739,16 @@
                     </li>
                     <li>
                         <div class="paper-container">
-                            <h3 class="paper-title">Up to 1-hour forecasting of radiation hazards from solar energetic ion events with relativistic electrons</h3>
+                            <h3 class="paper-title">Up to 1-hour forecasting of radiation hazards from solar energetic
+                                ion events with relativistic electrons</h3>
 
                             <p>
                                 <strong>BibTex</strong>
                                 <br>
                                 @article{posner2007up, <br>
                                 author = {Posner, Arik}, <br>
-                                title = {Up to 1-hour forecasting of radiation hazards from solar energetic ion events with relativistic electrons}, <br>
+                                title = {Up to 1-hour forecasting of radiation hazards from solar energetic ion events
+                                with relativistic electrons}, <br>
                                 journal = {Space Weather}, <br>
                                 year = {2007}, <br>
                                 }
@@ -748,32 +760,46 @@
                             <strong>Summary</strong>
                             <br>
                             <p>
-                                This thesis tackles the forecasting SEPs from non-SEPs and the intensity of the SEPs. For classifying SEPs using CME features, 
-                                they explore 3 methods, oversampling the minority classes to obtain a more balanced dataset, apply classifier retraining (cRT) and 
-                                an auto-encoder head to learn better features during the first stage (cRT+AE). For cRT+AE, they estimate the coefficient contribution of 
-                                the auto-encoder loss to ensure both branches are equally valued in the training. They found cRT+AE to perform the best in their experiments.
-                                For predicting the SEP natural logarithm intensity, they explore 6 methods, oversampling the minority ranges, retraining the regressor (rRT), adding an auto-encoder 
-                                head to learn better features during the first stage (rRT+AE), integrating the Richardson equation prediction by linear combination or by using the neural network to 
-                                predict an adjustment error term to the Richardson prediction, and applying dense loss reweighting to the loss function so the training model pays more attention
-                                to rare samples. They evaluate their performance using Mean Absolute Error and Pearson Correlation Coefficient. They found that rRT+AE with either dense loss or Richardson 
-                                adjustment error yielded the best results.
+                                Posner's study addresses the need for a reliable forecasting method that can predict the
+                                arrival and intensity of hazardous solar energetic particle (SEP) events with a lead
+                                time sufficient to mitigate radiation risks for astronauts and spacecraft. The study
+                                establishes a methodology using relativistic electron data to forecast the onset and
+                                intensity of SEP protons at energies above 30-50 MeV, which can penetrate spacesuits and
+                                spacecraft shielding. By analyzing SEP events from 1996-2002, Posner demonstrates that
+                                relativistic electrons consistently arrive 30-60 minutes before hazardous SEP protons,
+                                and their intensity rise times are correlated, depending on the magnetic connection
+                                angle between the observer and the flare location. A forecasting matrix is developed
+                                using the electron intensity and maximum rise time parameter to predict the proton
+                                intensity 60 minutes in advance. The matrix, derived from historic data, is tested on
+                                events from 2003, demonstrating a high success rate in predicting hazardous SEP events
+                                with a low false alarm rate. This forecasting method provides a reliable solution for
+                                short-term SEP event prediction, enabling timely mitigation of radiation risks for human
+                                spaceflight and robotic missions.
                             </p>
 
                             <p>
                                 <strong>Problem</strong>
-                                
+                                Current forecasting methods for solar energetic particle (SEP) events do not provide
+                                sufficient advance warning time for protons at energies that pose a radiation hazard to
+                                humans and spacecraft
                             </p>
                             <p>
                                 <strong>Solution, Ideas and Why</strong>
-                                
+                                Relativistic electrons (0.3-1.2 MeV) consistently arrive 30-60 minutes before hazardous
+                                SEP ions (>30 MeV), providing a reliable precursor for advance warning.
+                                The rise times of both electron and proton intensities are correlated and depend on the
+                                magnetic connection angle between the observer and the flare location, with
+                                well-connected events showing faster rise times.
+                                A forecasting matrix is developed using the electron intensity and maximum rise time
+                                parameter to predict the proton intensity 60 minutes in advance.
                             </p>
                             <strong>Images</strong><br>
                             <div class="row">
                                 <div class="col">
-                                    <img src="../../images/sep/rtae-fig1.png" class="img-fluid rounded" alt="...">
+                                    <img src="../../images/sep/up-fig1.png" class="img-fluid rounded" alt="...">
                                 </div>
                                 <div class="col">
-                                    <img src="../../images/sep/rtae-fig2.png" class="img-fluid rounded" alt="...">
+                                    <img src="../../images/sep/up-fig2.png" class="img-fluid rounded" alt="...">
                                 </div>
                             </div>
                         </div>
