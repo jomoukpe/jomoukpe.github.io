@@ -2278,36 +2278,79 @@
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title"></h3>
+                        <h3 class="paper-title">Distilling Virtual Examples for Long-tailed Recognition</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
+                            @inproceedings{he2021dive, <br>
+                            title={Distilling virtual examples for long-tailed recognition}, <br>
+                            author={He, Yin-Yin and Wu, Jianxin and Wei, Xiu-Shen}, <br>
+                            booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision}, <br>
+                            year={2021}} <br>
 
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://openaccess.thecvf.com/content/ICCV2021/papers/He_Distilling_Virtual_Examples_for_Long-Tailed_Recognition_ICCV_2021_paper.pdf">
+                            https://openaccess.thecvf.com/content/ICCV2021/papers/He_Distilling_Virtual_Examples_for_Long-Tailed_Recognition_ICCV_2021_paper.pdf</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
+                            The authors propose the Distill the Virtual Examples (DiVE) method, which tackles
+                            long-tailed recognition by distilling knowledge from a teacher model's predictions, treated
+                            as virtual examples, to a student model. The key ideas of DiVE are as follows:
 
+                            Virtual example interpretation: The teacher model's prediction scores for each class are
+                            interpreted as virtual examples. For instance, a prediction of (0.7, 0.3) for a dog image is
+                            interpreted as 0.7 dog virtual examples and 0.3 cat virtual examples. This allows for direct
+                            interaction between classes, even if they are not semantically related.
+                            Equivalence between knowledge distillation and label distribution learning: The authors
+                            prove that under certain constraints, distilling from virtual examples is equivalent to
+                            label distribution learning (LDL). LDL is a technique that learns from uncertain labels
+                            represented as a distribution over classes.
+                            Necessity of a balanced virtual example distribution: For long-tailed recognition, the
+                            virtual example distribution must be flatter than the original input distribution to remove
+                            bias against tail classes. The authors demonstrate this requirement through theoretical
+                            analysis and empirical experiments.
+                            Explicit control of virtual example distribution: DiVE directly tunes the virtual example
+                            distribution towards a flatter one using two techniques: a) Adjusting the temperature
+                            parameter in the softmax function, which controls the smoothness of the output distribution.
+                            b) Applying power normalization to the teacher's soft labels, which further balances the
+                            virtual example distribution.
+                            Rule-of-thumb for determining flatness: The authors provide a rule-of-thumb for selecting
+                            the appropriate temperature and power normalization settings. The goal is to make the
+                            average number of virtual examples per category in the tail part slightly higher than that
+                            in the head part.
+                            Two-stage training pipeline: DiVE first trains a teacher model using any existing
+                            long-tailed recognition method (e.g., balanced softmax cross-entropy loss). Then, it
+                            distills the knowledge from the teacher's virtual examples to a student model using the DiVE
+                            loss function, which combines the balanced softmax cross-entropy loss and the KL divergence
+                            between the teacher and student predictions.
+                            The proposed DiVE method is simple yet effective, consistently outperforming
+                            state-of-the-art methods on various long-tailed benchmark datasets. The virtual example
+                            interpretation allows for explicit interaction between head and tail classes, while the
+                            control over the virtual example distribution ensures a more balanced learning process.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            Deep neural networks often perform poorly on long-tailed recognition tasks, where the number
+                            of samples per class varies significantly. Existing methods that address this issue by
+                            re-sampling or re-weighting training examples do not allow for direct interaction between
+                            head and tail classes, limiting their effectiveness.
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/dive-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/dive-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
                         </div>
                     </div>
@@ -2324,7 +2367,7 @@
                             author={Ahn, Sumyeong and Ko, Jongwoo and Yun, Se-Young}, <br>
                             booktitle={The Eleventh International Conference on Learning Representations}, <br>
                             year={2022}} <br>
-                            
+
                         </p>
 
                         url=<a
@@ -2395,7 +2438,7 @@
                             author={Arik, Sercan {\"O} and Pfister, Tomas}, <br>
                             booktitle={Proceedings of the AAAI conference on artificial intelligence}, <br>
                             year={2021}} <br>
-                            
+
                         </p>
 
                         url=<a
