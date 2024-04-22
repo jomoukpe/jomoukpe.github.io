@@ -2170,29 +2170,85 @@
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title">CoST: Contrastive Learning of Disentangled Seasonal-Trend Representations for Time Series Forecasting</h3>
+                        <h3 class="paper-title">CoST: Contrastive Learning of Disentangled Seasonal-Trend
+                            Representations for Time Series Forecasting</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
                             @inproceedings{woo2021cost, <br>
-                                title={CoST: Contrastive Learning of Disentangled Seasonal-Trend Representations for Time Series Forecasting}, <br>
-                                author={Woo, Gerald and Liu, Chenghao and Sahoo, Doyen and Kumar, Akshat and Hoi, Steven}, <br>
-                                booktitle={International Conference on Learning Representations}, <br>
-                                year={2021}}  <br>
+                            title={CoST: Contrastive Learning of Disentangled Seasonal-Trend Representations for Time
+                            Series Forecasting}, <br>
+                            author={Woo, Gerald and Liu, Chenghao and Sahoo, Doyen and Kumar, Akshat and Hoi, Steven},
+                            <br>
+                            booktitle={International Conference on Learning Representations}, <br>
+                            year={2021}} <br>
 
                         </p>
 
-                        url=<a href="https://openreview.net/pdf?id=PilZY3omXV2">https://openreview.net/pdf?id=PilZY3omXV2</a><br>
+                        url=<a
+                            href="https://openreview.net/pdf?id=PilZY3omXV2">https://openreview.net/pdf?id=PilZY3omXV2</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
 
+                            The authors propose CoST, a contrastive learning framework for learning disentangled
+                            seasonal-trend representations for time series forecasting. The key ideas and technical
+                            details are as follows:
+
+                            1. Structural time series formulation: CoST assumes that the observed time series data X is
+                            generated from an error variable E and an error-free latent variable X*, which in turn is
+                            generated from a trend variable T and a seasonal variable S. The goal is to learn
+                            representations of T and S, which are invariant under changes in E, to achieve optimal
+                            prediction.
+
+                            2. Contrastive learning: CoST uses data augmentations as interventions on the error variable
+                            E and learns invariant representations of T and S via contrastive learning. The contrastive
+                            loss encourages the model to learn representations that are invariant to the interventions
+                            on E.
+
+                            3. Trend Feature Disentangler (TFD): The TFD extracts trend representations using a mixture
+                            of auto-regressive experts, which adaptively selects the appropriate lookback window. Each
+                            expert is implemented as a 1D causal convolution with a different kernel size. The outputs
+                            of the experts are averaged to obtain the final trend representations. The TFD is learned
+                            using a time-domain contrastive loss.
+
+                            4. Seasonal Feature Disentangler (SFD): The SFD extracts seasonal representations using a
+                            learnable Fourier layer, which enables intra-frequency interactions. The intermediate
+                            representations are transformed into the frequency domain using the discrete Fourier
+                            transform (DFT). A learnable Fourier layer, implemented as a per-element linear layer with
+                            unique weights for each frequency, is applied to the frequency-domain representations. An
+                            inverse DFT is then performed to map the representations back to the time domain, forming
+                            the seasonal representations.
+
+                            5. Frequency-domain contrastive loss: The SFD is learned using a frequency-domain
+                            contrastive loss, which consists of an amplitude component and a phase component. The loss
+                            encourages the model to learn discriminative seasonal representations without prior
+                            knowledge of the periodicity.
+
+                            6. Training: CoST is trained end-to-end using a combined loss function that includes the
+                            time-domain contrastive loss for the TFD and the frequency-domain contrastive loss for the
+                            SFD. The outputs of the TFD and SFD are concatenated to form the final output
+                            representations.
+
+                            7. Downstream forecasting: After training, the learned representations are used as input to
+                            a simple regression model, such as ridge regression, to perform time series forecasting.
+
+                            CoST achieves state-of-the-art performance on various real-world benchmark datasets,
+                            outperforming both end-to-end supervised forecasting methods and other representation
+                            learning approaches. The disentangled seasonal-trend representations learned by CoST are
+                            more robust to noise and distribution shifts, leading to improved generalization in
+                            non-stationary environments.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
+                            Deep learning methods for time series forecasting often suffer from poor performance due to
+                            learning entangled representations from observed data, which may contain noise. This leads
+                            to the model capturing spurious correlations that do not generalize well, especially in
+                            non-stationary environments.
+
 
                         </p>
                         <!-- <p>
@@ -2210,7 +2266,7 @@
                                 <img src="../../images/repr/cost-fig3.png" class="img-fluid rounded" alt="...">
                             </div>
                         </div>
-                
+
                     </div>
                 </li>
                 <li>
@@ -2236,11 +2292,55 @@
                         <strong>Summary</strong>
                         <br>
                         <p>
+                            The authors propose Rank-N-Contrast (RNC), a framework that learns continuous
+                            representations for regression by contrasting samples against each other based on their
+                            rankings in the target space. The key ideas and technical details of RNC are as follows:
 
+                            1. RNC introduces the LRNC loss, which first ranks the samples in a batch according to their
+                            labels and then contrasts them against each other based on their relative rankings. For each
+                            anchor sample, the likelihood of any other sample to be similar to the anchor increases
+                            exponentially with respect to their similarity in the representation space. The denominator
+                            of the likelihood is a sum over the samples that possess higher ranks than the current
+                            sample in terms of label distance to the anchor.
+
+                            2. LRNC can be interpreted in the context of positive and negative pairs in contrastive
+                            learning. In regression, any two samples can be considered as a positive or negative pair
+                            depending on the context. For a given anchor sample, any other sample in the batch can be
+                            used to construct a positive pair, with the corresponding negative samples being all samples
+                            whose labels differ from the anchor's label by more than the label of the positive sample.
+
+                            3. The authors prove that optimizing LRNC results in an ordered feature embedding that
+                            corresponds to the ordering of the labels. They introduce the concept of δ-ordered feature
+                            embeddings and show that as the optimization of LRNC approaches its lower bound, the feature
+                            embeddings become δ-ordered. The authors also provide an analysis based on Rademacher
+                            Complexity to prove that a δ-ordered feature embedding results in a better generalization
+                            bound.
+
+                            4. RNC first learns a regression-aware representation using the LRNC loss and then leverages
+                            it to predict the continuous targets. The framework is compatible with existing regression
+                            methods, allowing for the use of any regression method to map the learned representation to
+                            the final prediction values.
+
+                            5. The authors conduct ablation studies to investigate the impact of various components of
+                            RNC, such as the number of positive samples, the feature similarity measure, and the
+                            training scheme. The results show that considering all samples as positive, using negative
+                            L1 or L2 norm as the similarity measure, and employing the linear probing training scheme
+                            lead to the best performance.
+
+                            RNC provides a simple and effective approach to learn continuous representations for
+                            regression tasks, addressing the limitations of existing regression and representation
+                            learning methods. The learned representations capture the intrinsic ordered relationships
+                            between samples, leading to improved performance, robustness, and generalization in various
+                            real-world regression problems.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
+                            Deep regression models often fail to capture the continuous nature of sample orders in the
+                            learned representations, leading to suboptimal performance across a wide range of regression
+                            tasks. Existing representation learning methods also overlook the intrinsic continuity in
+                            data for regression.
+
 
                         </p>
                         <!-- <p>
