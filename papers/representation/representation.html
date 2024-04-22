@@ -2314,36 +2314,71 @@
                 </li>
                 <li>
                     <div class="paper-container">
-                        <h3 class="paper-title"></h3>
+                        <h3 class="paper-title">CUDA: Curriculum of Data Augmentation for Long-tailed Recognition</h3>
 
                         <p>
                             <strong>BibTex</strong>
                             <br>
-
+                            @inproceedings{ahn2022cuda, <br>
+                            title={CUDA: Curriculum of Data Augmentation for Long-tailed Recognition}, <br>
+                            author={Ahn, Sumyeong and Ko, Jongwoo and Yun, Se-Young}, <br>
+                            booktitle={The Eleventh International Conference on Learning Representations}, <br>
+                            year={2022}} <br>
+                            
                         </p>
 
-                        url=<a href=""></a><br>
+                        url=<a
+                            href="https://openreview.net/pdf?id=RgUPdudkWlN">https://openreview.net/pdf?id=RgUPdudkWlN</a><br>
 
                         <strong>Summary</strong>
                         <br>
                         <p>
+                            The authors propose CUDA (CUrriculum of Data Augmentation), a simple and efficient method
+                            for finding the appropriate per-class strength of data augmentation in long-tailed
+                            recognition tasks. The key ideas of CUDA are as follows:
 
+                            Strength-based data augmentation: CUDA controls the difficulty of augmented images using two
+                            values: the number of augmentations and their magnitudes. This allows for generating
+                            augmented samples with varying levels of difficulty.
+                            Level-of-Learning (LoL) score: CUDA introduces the LoL score, which measures how well the
+                            model can correctly predict augmented versions of samples from each class without losing the
+                            original information. The LoL score is adaptively updated during training.
+                            Curriculum learning: Based on the LoL score, CUDA increases the augmentation strength for
+                            classes that the model successfully predicts and decreases the strength for classes with
+                            incorrect predictions. This curriculum learning approach helps the model learn from easier
+                            samples first and gradually progress to more difficult augmented samples.
+                            Class-wise augmentation: CUDA applies augmentation strengths to each class independently,
+                            allowing the model to allocate appropriate levels of augmentation for different classes
+                            based on their learning progress.
+                            Compatibility with existing methods: CUDA can be easily integrated with various long-tailed
+                            recognition methods, such as class-balanced loss, two-stage training, and ensemble
+                            approaches, to further improve their performance.
+                            CUDA is trained in an end-to-end manner, where the LoL score is computed for each class at
+                            every epoch, and the augmentation strengths are determined accordingly. The proposed method
+                            is evaluated on several long-tailed benchmarks, demonstrating improved generalization
+                            performance compared to state-of-the-art methods.
                         </p>
 
                         <p>
                             <strong>Problem</strong>
-
+                            Conventional deep learning algorithms often suffer from performance degradation when trained
+                            on imbalanced datasets, where the number of samples per class varies significantly. Existing
+                            methods that aim to balance the impact of different classes by re-weighting or re-sampling
+                            training samples may not effectively capture the limited information in minority classes.
+                            Although some methods have attempted to augment minority classes by transferring information
+                            from majority classes, there has been limited analysis on determining which classes should
+                            be augmented and to what extent.
                         </p>
-                        <p>
+                        <!-- <p>
                             <strong>Solution, Ideas and Why</strong>
-                        </p>
+                        </p> -->
                         <strong>Images</strong><br>
                         <div class="row">
                             <div class="col">
-                                <img src="../../images/repr/-fig1.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/cuda-fig1.png" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col">
-                                <img src="../../images/repr/-fig2.png" class="img-fluid rounded" alt="...">
+                                <img src="../../images/repr/cuda-fig2.png" class="img-fluid rounded" alt="...">
                             </div>
                         </div>
                     </div>
@@ -2359,8 +2394,8 @@
                             title={Tabnet: Attentive interpretable tabular learning}, <br>
                             author={Arik, Sercan {\"O} and Pfister, Tomas}, <br>
                             booktitle={Proceedings of the AAAI conference on artificial intelligence}, <br>
-                            year={2021} <br>
-                            }
+                            year={2021}} <br>
+                            
                         </p>
 
                         url=<a
