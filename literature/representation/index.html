@@ -2761,6 +2761,99 @@
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Learning Enhanced Representations for Tabular Data
+                            via Neighborhood Propagation</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{du2022pet, <br>
+                            title={Learning enhanced representation for tabular data via neighborhood propagation}, <br>
+                            author={Du, Kounianhua and Zhang, Weinan and Zhou, Ruiwen and Wang, Yangkun and Zhao, Xilong
+                            and Jin, Jiarui and Gan, Quan and Zhang, Zheng and Wipf, David P}, <br>
+                            journal={Advances in Neural Information Processing Systems}, <br>
+                            year={2022}} <br>
+                        </p>
+
+                        url=<a
+                            href="https://proceedings.neurips.cc/paper_files/paper/2022/file/67e79c8e9b11f068a7cafd79505175c0-Paper-Conference.pdf">
+                            https://proceedings.neurips.cc/paper_files/paper/2022/file/67e79c8e9b11f068a7cafd79505175c0-Paper-Conference.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            The paper proposes PET (Propagate and Enhance Tabular data), a novel architecture that
+                            constructs a retrieval-based hypergraph to model cross-row and cross-column relationships,
+                            and propagates information on the graph to enhance target data representations for
+                            prediction. PET is particularly effective when, at inference time, nearest neighbor data is
+                            available (e.g., a running memory of data), and the data instances are not assumed to be
+                            independent and identically distributed (non-IID).
+
+                            The key components of PET are:
+                            <br>
+                            1. Retrieval-based hypergraph construction: For each target data instance, PET retrieves a
+                            set of relevant instances based on a relevance metric. The relevance metric assigns higher
+                            weights to matches of rarer feature values because it is harder to match them compared to
+                            more frequent feature values, making their matches more meaningful. The resulting instance
+                            set is modeled as a hypergraph, where each distinct feature value forms a node and each data
+                            instance (a collection of feature values) forms a hyperedge. The hypergraph is then
+                            transformed into a bipartite graph through star expansion, where the two sets of vertices
+                            represent feature values and data instances, respectively.
+                            <br>
+                            2. Message passing and interaction: PET performs message propagation on the bipartite graph
+                            to enhance data representations. The propagation serves three purposes: <br>
+                            a) Label propagation: Labels from retrieved instances propagate through common feature value
+                            nodes to help predict the target instance's label. <br>
+                            b) Feature enhancement: Features are enhanced by capturing high-order interactions through
+                            the graph structure. The interactive message generation, attention-based aggregation, and
+                            node embedding update steps generate locality-aware high-order feature interactions.<br>
+                            c) Label-feature interaction: Labels are incorporated into the propagating messages to
+                            adjust feature spaces and generate label-enhanced feature representations. <br>
+                            <br>
+                            3. Prediction: After message passing, the enhanced target data instance representation is
+                            used for the final prediction.
+                            <br>
+                            The proposed propagation mechanism in PET allows for effective utilization of label
+                            information and feature interactions across data instances. By modeling the relationships
+                            among instances and propagating information through the graph, PET learns more informative
+                            and discriminative representations for tabular data prediction.
+
+                            In essence, PET can be viewed as a Graph Neural Network (GNN) based feature extractor that
+                            leverages the relationships among data instances and their feature values to learn enhanced
+                            representations. PET to learn more expressive and informative representations for improved
+                            tabular data
+                            prediction, especially in non-IID settings where nearest neighbor data is available at
+                            inference time. However, the additional steps involved in retrieval and graph construction
+                            make the inference process slower compared to methods that treat data instances
+                            independently.
+
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            Problem:
+                            Prediction over tabular data is a fundamental problem in many applications. However, most
+                            existing methods either treat each data instance independently without considering the
+                            relationships among them, or do not effectively utilize the information from multiple
+                            instances to enhance the target representation for prediction. This limits their ability to
+                            capture cross-row and cross-column patterns in tabular data.
+                        </p>
+                        <!-- <p>
+                            <strong>Solution, Ideas and Why</strong>
+                        </p> -->
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/pet-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/pet-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <!-- <li>
                     <div class="paper-container">
                         <h3 class="paper-title"></h3>
