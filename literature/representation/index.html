@@ -2854,6 +2854,65 @@
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Multidimensional Scaling by Optimizing Goodness of Fit to a Nonmetric
+                            Hypothesis</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{kruskal1964mds, <br>
+                            title={Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis},
+                            <br>
+                            author={Kruskal, Joseph B}, <br>
+                            journal={Psychometrika}, <br>
+                            publisher={Springer} <br>
+                            year={1964}} <br>
+                        </p>
+
+                        url1=<a
+                            href="http://cda.psych.uiuc.edu/psychometrika_highly_cited_articles/kruskal_1964a.pdf">http://cda.psych.uiuc.edu/psychometrika_highly_cited_articles/kruskal_1964a.pdf</a><br>
+                        url2=<a
+                            href="http://cda.psych.uiuc.edu/psychometrika_highly_cited_articles/kruskal_1964b.pdf">http://cda.psych.uiuc.edu/psychometrika_highly_cited_articles/kruskal_1964b.pdf</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            MDS paper 1
+                            Objective one is finding d_hat given config such that monotonicity with the object
+                            dissimilarity is maintained (<=, not just <) Objective two is finding a configuration X
+                                (x_il in NT-dimensional space) to minimize the stress Consequence 1: MDS doesn’t take
+                                into account the object’s features themselves but just their dissimilarity rankings
+                                Consequence 2: MDS through Algo 1 for objective 2 finds the feature values of the
+                                configuration (representations) directly, not the weights of a Model that generates the
+                                feature values of the representations. MDS paper 2 Objective 1 is achieved by forming
+                                blocks such that Block b is up-satisfied, or the d_hat value of b is less than the d_hat
+                                value of the block following b Block b is down-satisfied, or the d_hat value of b is
+                                higher than the ed_hat value of the block preceding b Starting with each point as a
+                                block, the blocks are merged with their neighboring blocks if they are either not
+                                up-satisfied or down-satisfied Objective 2 is achieved by gradient descent, the gradient
+                                of the stress with respect the the configuration feature values. The step side has 3
+                                additional factors, which are, Angle factor, which considers the similarity between
+                                consecutive gradients Relaxation factor which considers the ratio between current stress
+                                and stress from 5 iterations ago. Good luck factor, which considers the ratio between
+                                current stress and the previous iteration stress. </p>
+
+                                <p>
+                                    <strong>Problem</strong>
+                                    Find a dimensional representation of objects that maintains the rank order of their
+                                    dissimilarities while minimizing a stress function.
+                                </p>
+
+                                <strong>Images</strong><br>
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="../../images/repr/mds-fig1.png" class="img-fluid rounded" alt="...">
+                                    </div>
+
+                                </div>
+                    </div>
+                </li>
                 <!-- <li>
                     <div class="paper-container">
                         <h3 class="paper-title"></h3>
