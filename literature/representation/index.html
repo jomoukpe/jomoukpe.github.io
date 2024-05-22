@@ -2913,6 +2913,186 @@
                                 </div>
                     </div>
                 </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">Visualizing data using t-SNE</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{van2008tsne, <br>
+                            title={Visualizing data using t-SNE.}, <br>
+                            author={Van der Maaten, Laurens and Hinton, Geoffrey}, <br>
+                            journal={Journal of machine learning research}, <br>
+                            year={2008}} <br>
+                        </p>
+
+                        url=<a
+                            href="https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf?fbcl">https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf?fbcl</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            The paper introduces t-Distributed Stochastic Neighbor Embedding (t-SNE), a novel technique
+                            designed to improve the visualization of high-dimensional data by mapping it into a
+                            lower-dimensional space. t-SNE addresses significant challenges in existing methods,
+                            particularly the crowding problem and the difficulty of preserving both local and global
+                            structures. The crowding problem
+                            arises because, in high-dimensional spaces, the volume increases exponentially with the
+                            radius, leading to many points being equidistant from a central point. In low-dimensional
+                            visualizations, this results in points being placed too closely together.
+
+                            To begin, t-SNE converts high-dimensional data into a matrix of pairwise similarities,
+                            employing conditional probabilities based on Gaussian distributions. Each high-dimensional
+                            data point selects its neighbors with probabilities proportional to their similarity,
+                            modeled using a Gaussian distribution centered on the point. These probabilities are then
+                            symmetrized to ensure mutual comparability between any two points. In the low-dimensional
+                            space, t-SNE uses a Student-t distribution to represent similarities, effectively handling
+                            the crowding problem by spreading out the points more appropriately. This allows moderate
+                            distances in high-dimensional space to be faithfully represented by larger distances in the
+                            low-dimensional map, thus preserving both local and global structures.
+
+                            The optimization of the t-SNE cost function is performed using a gradient descent method
+                            with a momentum term. Two key techniques, early compression and early exaggeration, are
+                            employed to enhance the optimization process. Early compression involves applying an
+                            additional penalty to keep all points close to the origin at the start. This helps clusters
+                            explore the space more freely and settle into a more globally optimal configuration. The
+                            penalty is gradually reduced to allow points to spread out appropriately. Specifically, an
+                            L2-penalty is added to the cost function, proportional to the sum of squared distances of
+                            the map points from the origin, and is reduced over iterations. Early exaggeration, on the
+                            other hand, involves multiplying all pairwise similarities by a constant factor (e.g., 4)
+                            during the initial optimization phase. This exaggeration strengthens the attractive forces
+                            between similar points, encouraging the formation of tight, distinct clusters. Once the
+                            clusters are formed, the exaggeration is removed, allowing for fine-tuning of the map.
+
+                            To handle large datasets, the paper introduces a "landmark" approach, which uses random
+                            walks on neighborhood graphs to visualize subsets of the data while maintaining the overall
+                            structure. This approach selects a subset of data points (landmarks) and initiates random
+                            walks from these landmarks to compute similarities based on the entire dataset. By
+                            integrating information from all data points, not just the landmarks, this method ensures
+                            that the global structure influences the visualization. The probabilities of transitioning
+                            between landmarks are calculated by considering paths through all data points, making the
+                            visualization robust to the overall data structure.
+
+                            Despite its strengths, t-SNE has potential weaknesses, including sensitivity to the
+                            intrinsic dimensionality of data and the non-convexity of its cost function. Future work
+                            aims to optimize the degrees of freedom in the Student-t distribution, extend t-SNE to
+                            higher dimensions, and develop a parametric version for better generalization.
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            The problem of visualizing high-dimensional data lies in effectively reducing the data to a
+                            lower-dimensional space while preserving its significant structure. Prior methods often
+                            struggle with retaining both the local and global structures of the data, leading to issues
+                            like the crowding problem and difficulty in separating clusters in the visualized map.
+                        </p>
+                        <!-- <p>
+                            <strong>Solution, Ideas and Why</strong>
+                        </p> -->
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../images/repr/tsne-fig1.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/tsne-fig2.png" class="img-fluid rounded" alt="...">
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/tsne-fig3.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="paper-container">
+                        <h3 class="paper-title">ConR: Contrastive Regularizer for Deep Imbalanced Regression</h3>
+
+                        <p>
+                            <strong>BibTex</strong>
+                            <br>
+                            @article{keramati2023conr, <br>
+                            title={Conr: Contrastive regularizer for deep imbalanced regression}, <br>
+                            author={Keramati, Mahsa and Meng, Lili and Evans, R David}, <br>
+                            booktitle={International Conference on Learning Representations}, <br>
+                            year={2024}} <br>
+
+                        </p>
+
+                        url=<a
+                            href="https://openreview.net/pdf?id=RIuevDSK5V">https://openreview.net/pdf?id=RIuevDSK5V</a><br>
+
+                        <strong>Summary</strong>
+                        <br>
+                        <p>
+                            The paper introduces ConR, a novel contrastive regularizer designed to address deep
+                            imbalanced regression (DIR) by effectively modeling both local and global label similarities
+                            in the feature space. ConR aims to prevent minority sample features from collapsing into
+                            majority sample features, a common issue in imbalanced regression tasks. It operates by
+                            penalizing incorrect proximities in the feature space proportionally to label similarities
+                            while encouraging correct proximities to model local similarities.
+
+                            ConR builds upon the concept of contrastive learning, utilizing problem-specific
+                            augmentations to create pairs of augmented samples. For each augmented sample, ConR performs
+                            two levels of subset selection:
+
+                            Negative Pair Selection: Negative pairs are selected based on prediction similarities. A
+                            pair is considered negative if the examples have dissimilar labels but similar predictions.
+                            Anchor Selection: An anchor is chosen if it has at least one negative pair. Specifically,
+                            anchors are selected from samples exhibiting confusion around their feature space position,
+                            meaning they have misclassified predictions.
+                            The regularizer applies a loss function that pulls together positive pairs (samples with
+                            similar labels) and pushes away negative pairs (samples with dissimilar labels but similar
+                            predictions). The pushing force is determined by a similarity threshold, which defines
+                            whether pairs are considered similar or dissimilar.
+
+                            ConR is implemented as a regularizer, meaning it is added to the primary regression loss
+                            function to enhance the model's learning process. The pushing weight for negative pairs does
+                            not solely depend on label dissimilarity but also on the anchor's label density. This weight
+                            is computed as the product of a density-based weight for the anchor and the inverse of the
+                            label similarity between the anchor and the negative pair. This approach ensures that
+                            minority samples, which typically have lower density, exert a stronger repulsion force on
+                            their negative pairs, helping to maintain a balanced feature space. Additionally, the
+                            inverse label similarity factor ensures that samples with highly dissimilar labels from the
+                            anchor exert a stronger repulsion, thus maintaining the integrity of the feature space
+                            across diverse label distributions.
+
+                            A key finding from the ablation studies is that the biggest contributor to ConR's
+                            effectiveness is the selection of negative examples to focus solely on mistakes. By
+                            concentrating on these errors, ConR significantly enhances the learning process, leading to
+                            better model performance.
+                        </p>
+
+                        <p>
+                            <strong>Problem</strong>
+                            Existing methods for imbalanced data primarily address categorical labels and struggle to
+                            generalize to deep imbalanced regression (DIR) tasks, where the label space is continuous,
+                            leading to the collapse of minority samples into their majority counterparts.
+                        </p>
+                        <!-- <p>
+                            <strong>Solution, Ideas and Why</strong>
+                        </p> -->
+                        <strong>Images</strong><br>
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="../../images/repr/conr-fig1.png" class="img-fluid rounded" alt="...">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="../../images/repr/conr-fig2.png" class="img-fluid rounded" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <img src="../../images/repr/conr-fig3.png" class="img-fluid rounded" alt="...">
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
                 <!-- <li>
                     <div class="paper-container">
                         <h3 class="paper-title"></h3>
