@@ -3251,6 +3251,71 @@
         </li>
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{foret2020SAM, <br>
+              title={Sharpness-aware Minimization for Efficiently Improving Generalization}, <br>
+              author={Foret, Pierre and Kleiner, Ariel and Mobahi, Hossein and Neyshabur, Behnam}, <br>
+              booktitle={International Conference on Learning Representations} <br>
+              year={2020}}
+            </p>
+
+            url=<a href="https://openreview.net/pdf?id=6Tm1mposlrM">https://openreview.net/pdf?id=6Tm1mposlrM</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              Traditional optimization methods that focus solely on minimizing the training loss often result in sharp
+              minima in the loss landscape, and these sharp minima are associated with poor generalization. The goal of
+              SAM is to find flatter minima, which are correlated with better generalization performance.
+
+              To address this issue, SAM simultaneously minimizes the value of the training loss and the sharpness of
+              the loss landscape. The SAM method involves formulating a new objective that incorporates a term
+              accounting for the sharpness of the loss. Specifically, the SAM objective is defined as the minimization
+              of the maximum loss within a neighborhood of the current parameters.This formulation ensures that the
+              parameters found by the optimization process not only minimize the
+              loss but also reside in a neighborhood where the loss remains uniformly low, leading to flatter minima.
+
+              To solve this SAM objective efficiently, the method approximates the gradient of the SAM objective by
+              differentiating through the inner maximization problem. This involves computing the adversarial
+              perturbation
+              that maximizes the loss in the local neighborhood and then updating the model parameters in the
+              direction that minimizes this perturbed loss. In the context of estimating sharpness, a larger the batch
+              size used in the approximation provides a better estimate of the sharpness of the landscape,
+              as it allows for a more comprehensive assessment of the local loss variations.
+
+              The implementation of SAM involves two main steps for each parameter update. First, it computes the
+              adversarial perturbation by performing a gradient ascent step on the loss. Second, it updates the model
+              parameters using the
+              gradient of the perturbed loss. These steps ensure that the optimization process is guided towards flatter
+              regions of the loss landscape, improving generalization. 
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              Often models generalize poorly due to the sharp local minimum the converge to. Paper aims at improving the
+              generalization ability of heavily overparameterized models by simultaneously minimizing loss
+              value and loss sharpness to avoid suboptimal model quality.
+            </p>
+            <!-- <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p> -->
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/sam-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/sam-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">SimPer: Simple Self-Supervised Learning of Periodic Targets</h3>
 
             <p>
@@ -3332,71 +3397,7 @@
             </div>
           </div>
         </li>
-        <li>
-          <div class="paper-container">
-            <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
 
-            <p>
-              <strong>BibTex</strong>
-              <br>
-              @inproceedings{foret2020SAM, <br>
-              title={Sharpness-aware Minimization for Efficiently Improving Generalization}, <br>
-              author={Foret, Pierre and Kleiner, Ariel and Mobahi, Hossein and Neyshabur, Behnam}, <br>
-              booktitle={International Conference on Learning Representations} <br>
-              year={2020}}
-            </p>
-
-            url=<a href="https://openreview.net/pdf?id=6Tm1mposlrM">https://openreview.net/pdf?id=6Tm1mposlrM</a><br>
-
-            <strong>Summary</strong>
-            <br>
-            <p>
-              Traditional optimization methods that focus solely on minimizing the training loss often result in sharp
-              minima in the loss landscape, and these sharp minima are associated with poor generalization. The goal of
-              SAM is to find flatter minima, which are correlated with better generalization performance.
-
-              To address this issue, SAM simultaneously minimizes the value of the training loss and the sharpness of
-              the loss landscape. The SAM method involves formulating a new objective that incorporates a term
-              accounting for the sharpness of the loss. Specifically, the SAM objective is defined as the minimization
-              of the maximum loss within a neighborhood of the current parameters.This formulation ensures that the
-              parameters found by the optimization process not only minimize the
-              loss but also reside in a neighborhood where the loss remains uniformly low, leading to flatter minima.
-
-              To solve this SAM objective efficiently, the method approximates the gradient of the SAM objective by
-              differentiating through the inner maximization problem. This involves computing the adversarial
-              perturbation
-              that maximizes the loss in the local neighborhood and then updating the model parameters in the
-              direction that minimizes this perturbed loss. In the context of estimating sharpness, a larger the batch
-              size used in the approximation provides a better estimate of the sharpness of the landscape,
-              as it allows for a more comprehensive assessment of the local loss variations.
-
-              The implementation of SAM involves two main steps for each parameter update. First, it computes the
-              adversarial perturbation by performing a gradient ascent step on the loss. Second, it updates the model
-              parameters using the
-              gradient of the perturbed loss. These steps ensure that the optimization process is guided towards flatter
-              regions of the loss landscape, improving generalization. 
-            </p>
-
-            <p>
-              <strong>Problem</strong>
-              Often models generalize poorly due to the sharp local minimum the converge to. Paper aims at improving the
-              generalization ability of heavily overparameterized models by simultaneously minimizing loss
-              value and loss sharpness to avoid suboptimal model quality.
-            </p>
-            <!-- <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p> -->
-            <strong>Images</strong><br>
-            <div class="row">
-              <div class="col">
-                <img src="../../images/repr/sam-fig1.png" class="img-fluid rounded" alt="...">
-              </div>
-              <div class="col">
-                <img src="../../images/repr/sam-fig2.png" class="img-fluid rounded" alt="...">
-              </div>
-            </div>
-          </div>
-        </li>
         <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
