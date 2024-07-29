@@ -3397,6 +3397,69 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Class-Conditional Sharpness-Aware Minimization for Deep Long-Tailed Recognition</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{zhou2023ccsam, <br>
+              title={Class-conditional sharpness-aware minimization for deep long-tailed recognition}, <br>
+              author={Zhou, Zhipeng and Li, Lanqing and Zhao, Peilin and Heng, Pheng-Ann and Gong, Wei}, <br>
+              booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, <br>
+              year={2023}} <br>
+            </p>
+
+            url=<a
+              href="https://openaccess.thecvf.com/content/CVPR2023/papers/Zhou_Class-Conditional_Sharpness-Aware_Minimization_for_Deep_Long-Tailed_Recognition_CVPR_2023_paper.pdf">
+              https://openaccess.thecvf.com/content/CVPR2023/papers/Zhou_Class-Conditional_Sharpness-Aware_Minimization_for_Deep_Long-Tailed_Recognition_CVPR_2023_paper.pdf</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper "Class-Conditional Sharpness-Aware Minimization for Deep Long-Tailed Recognition" introduces a
+              novel two-stage optimization approach to address the challenge of generalizing deep learning models
+              trained on highly imbalanced datasets. Their method, termed Class-Conditional Sharpness-Aware Minimization
+              (CC-SAM), builds on the decoupling paradigm and focuses on finding flat minima in the loss landscape to
+              enhance model robustness under parameter perturbations.
+
+              In the first stage, both the feature extractor and classifier are trained with parameter perturbations at
+              a class-conditioned scale. This is theoretically motivated by the characteristic radius of flat minima
+              derived from the PAC-Bayesian framework, ensuring that perturbations are scaled according to the class
+              distribution. The perturbation and the loss are broken out per class, with each class-specific gradient
+              contributing to a combined overall loss. This method incorporates a first-order approximation of the
+              perturbative bound to efficiently estimate the optimal perturbation vector. The training process involves
+              iteratively applying these perturbations to navigate towards flatter minima, which improves
+              generalization. The paper's ablation studies indicate that the direction of the perturbation is more
+              critical than its magnitude for effective training.
+
+              In the second stage, the classifier undergoes robust training using adversarial features generated with
+              class-balanced sampling while the backbone is frozen. The perturbation applied to the representation is
+              scaled by a factor. It is crucial that
+              is not too large, as excessively large perturbations can push the representation into the wrong cluster
+              of another class, thereby compromising model accuracy. The adversarial perturbation helps refine the
+              decision boundary, producing samples that are closer to the decision boundary, which is beneficial for
+              learning a more robust classifier. This stage focuses on improving the decision boundary, ensuring better
+              generalization across all classes, particularly in the context of long-tailed distributions.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              improving the generalization of deep learning models trained on highly imbalanced label distributions
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/ccsam-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/ccsam-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
