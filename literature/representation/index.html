@@ -3460,6 +3460,80 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Deep Imbalanced Regression via Hierarchical Classification Adjustment</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{xiong2024hca, <br>
+              title={Deep Imbalanced Regression via Hierarchical Classification Adjustment}, <br>
+              author={Xiong, Haipeng and Yao, Angela},<br>
+              booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, <br>
+              year={2024}} <br>
+            </p>
+
+            url=<a
+              href="https://openaccess.thecvf.com/content/CVPR2024/papers/Xiong_Deep_Imbalanced_Regression_via_Hierarchical_Classification_Adjustment_CVPR_2024_paper.pdf">
+              https://openaccess.thecvf.com/content/CVPR2024/papers/Xiong_Deep_Imbalanced_Regression_via_Hierarchical_Classification_Adjustment_CVPR_2024_paper.pdf</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper proposes a method called Hierarchical Classification Adjustment (HCA) to address the issue of
+              imbalanced regression in computer vision tasks. The approach begins by dividing the continuous target
+              space into discrete classes or bins, which are then arranged hierarchically with progressively coarser
+              quantization levels. The finest classifier in this hierarchy has the smallest quantization error but lower
+              accuracy, while the coarser classifiers have higher accuracy but greater quantization errors.
+
+              To balance the trade-off between classification accuracy and quantization error, the finest classifier's
+              predictions are adjusted using predictions from the coarser classifiers. This adjustment is achieved by
+              merging the predictions through addition and multiplication of logits, facilitated by a transition matrix
+              that maps classes from the coarser classifiers to the finest classifier.Those transition matrix
+              effectively duplicate the logits.
+              Specifically, the hierarchical
+              adjustment uses a summation or multiplication operation to merge predictions: addition-adjusted
+              predictions are computed by summing the logits of the finest classifier with the coarser ones, while
+              multiplication-adjusted predictions involve summing the logarithms of these logits. This coarse-to-fine
+              merging process leverages the higher accuracy of coarse classifiers and the lower quantization error of
+              fine classifiers to enhance the overall regression performance.
+
+              Additionally, the method includes a process called Range-Preserving Distillation (HCA-d), which distills
+              the ensemble of hierarchical classifiers into a single classifier. This distillation process ensures that
+              the predicted ranges remain consistent across the hierarchy, addressing the inconsistency issues of
+              standard hierarchical classification approaches. To preserve the range, the distillation process involves
+              aligning the predictions of the hierarchical classifiers by taking the maximum value within each class
+              range from coarser to finer classifiers, ensuring that the predicted ranges do not conflict. The
+              distillation employs Kullback-Leibler (KL) divergence to match the probability distributions of the
+              coarser classifiers with the finest classifier, thereby maintaining the hierarchical structure and
+              improving the accuracy of the distilled classifier. This range-preserving adjustment is crucial for
+              maintaining consistent predictions and efficient inference, effectively handling the challenges posed by
+              imbalanced and insufficient data.
+
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper addresses the problem of performing regression tasks with imbalanced data, where using
+              classification bins leads to a trade-off between balancing data distribution and minimizing quantization
+              error.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/hca-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/hca-fig3.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/hca-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
