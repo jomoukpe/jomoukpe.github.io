@@ -3534,6 +3534,84 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">
+              Bag of Tricks for Long-Tailed Visual Recognition with Deep Convolutional Neural Networks
+            </h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{zhang2021cambs, <br>
+              title={Bag of tricks for long-tailed visual recognition with deep convolutional neural networks}, <br>
+              author={Zhang, Yongshun and Wei, Xiu-Shen and Zhou, Boyan and Wu, Jianxin}, <br>
+              booktitle={Proceedings of the AAAI conference on artificial intelligence}, <br>
+              year={2021}} <br>
+
+            </p>
+
+            url=<a
+              href="https://ojs.aaai.org/index.php/AAAI/article/view/16458/16265">https://ojs.aaai.org/index.php/AAAI/article/view/16458/16265</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+
+              The authors categorize the "tricks" into four main families: re-weighting, re-sampling, mixup training,
+              and two-stage training, each containing multiple sub-methods. Re-weighting methods involve adjusting the
+              loss function to give more importance to underrepresented classes. This includes techniques like
+              cost-sensitive cross-entropy loss, which scales the loss inversely to the class frequency, and focal loss,
+              which focuses more on hard-to-classify examples. However, the authors found that directly applying these
+              re-weighting methods can sometimes lead to suboptimal performance, particularly as the number of classes
+              increases. Re-sampling techniques aim to modify the data distribution by either over-sampling minority
+              classes or under-sampling majority classes. Methods such as random over-sampling and random under-sampling
+              were tested, but while they provided some improvement, they often introduced issues like overfitting or
+              reduced data diversity. Mixup training is another approach where new training examples are created by
+              interpolating between pairs of existing examples, which helps in regularizing the model and improving its
+              robustness. The authors experimented with both input mixup, which operates on raw input images, and
+              manifold mixup, which operates on intermediate feature representations within the network. Finally, in the
+              two-stage training process, the network is first trained on the imbalanced data without any interventions,
+              and then fine-tuned on a balanced subset using re-weighting or re-sampling methods.
+
+              The authors introduce a novel method called CAM-based sampling as part of their two-stage training
+              strategy. CAM-based sampling leverages Class Activation Maps (CAMs), which highlight the regions of an
+              image that are most relevant to a CNN’s classification decision. The CAM-based method begins by generating
+              these activation maps for each image in the training set using a pre-trained network. The image is then
+              split into foreground and background regions based on the CAM values, where the foreground includes the
+              pixels most relevant to the class label. The key idea is to apply transformations—such as flipping,
+              rotating, or scaling—to the foreground while leaving the background unchanged. This process generates new,
+              more informative training examples that are better suited to the network's fine-tuning process. The
+              CAM-based approach is integrated with various re-sampling methods, creating new subsets of the data that
+              are more balanced and discriminative. The authors found that this method significantly enhances the
+              effectiveness of the fine-tuning process, leading to better overall performance on long-tailed datasets.
+
+              In their experiments, the authors explore combinations of these tricks to identify the most effective
+              strategy for improving long-tailed visual recognition. They discovered that combining input mixup with
+              CAM-based balance sampling during the two-stage training process yields the best results. Specifically, in
+              the first stage, the network is trained using input mixup, which regularizes the model by creating
+              interpolated examples from the imbalanced data. In the second stage, the CAM-based balance sampling is
+              employed to generate a balanced subset of the data, which the network is fine-tuned on. This combination
+              effectively leverages the strengths of both mixup and CAM-based sampling, addressing the class imbalance
+              issue while maintaining the robustness of the model. The authors also experimented with fine-tuning after
+              mixup training, but they found that the best results were achieved when mixup and CAM-based sampling were
+              applied sequentially with additional fine-tuning
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              effectively combining and optimizing simple training "tricks" for long-tailed visual recognition tasks to
+              improve recognition accuracy without introducing additional computational complexity.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/cambs-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
