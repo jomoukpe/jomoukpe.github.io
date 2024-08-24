@@ -3854,6 +3854,83 @@
                     </div>
                 </div>
             </li>
+            <li>
+                <div class="paper-container">
+                    <h3 class="paper-title">Attention-Based Autoregression for Accurate and Efficient
+                        Multivariate Time Series Forecasting
+                    </h3>
+
+                    <p>
+                        <strong>BibTex</strong>
+                        <br>
+                        @inproceedings{yoo2021attnar, <br>
+                        title={Attention-based autoregression for accurate and efficient multivariate time series
+                        forecasting}, <br>
+                        author={Yoo, Jaemin and Kang, U}, <br>
+                        booktitle={Proceedings of the 2021 SIAM International Conference on Data Mining (SDM)}, <br>
+                        year={2021}} <br>
+                    </p>
+
+                    url=<a
+                        href="https://epubs.siam.org/doi/pdf/10.1137/1.9781611976700.60">https://epubs.siam.org/doi/pdf/10.1137/1.9781611976700.60</a><br>
+
+                    <strong>Summary</strong>
+                    <br>
+                    <p>
+                        The paper introduces a novel approach called AttnAR (attention-based autoregression) for
+                        multivariate time series forecasting, addressing limitations in existing methods related to
+                        model size, complexity, and accuracy. AttnAR is designed to efficiently capture both the
+                        individual patterns within each variable and the relationships between multiple variables in a
+                        time series dataset, thereby improving forecasting performance.
+
+                        The AttnAR framework is built upon three main components: the Extractor Module, the Attention
+                        Module, and the Predictor Module. The Extractor Module is responsible for identifying patterns
+                        within each individual variable. It employs a mixed convolution extractor, which combines deep
+                        convolutional layers with shallow fully-connected layers. This design allows the model to
+                        capture both short-term complex patterns through the deep layers and long-term simpler patterns
+                        through the shallow layers. The use of convolutional layers helps in leveraging the temporal
+                        locality of observations, ensuring that the model can detect intricate nonlinear patterns with a
+                        minimal increase in parameters.
+
+                        Following the extraction of individual variable patterns, the Attention Module comes into play.
+                        This module is tasked with aggregating the extracted patterns by learning time-invariant
+                        attention maps that represent the stable correlations between different variables. The attention
+                        mechanism in AttnAR is unique in that it learns these correlations based on the intrinsic
+                        properties of the variables, rather than dynamically adjusting to the current state of the data.
+                        This is achieved through a concept called time-invariant attention, where each variable is
+                        represented by a learned embedding vector. These embeddings serve as both the query and the key
+                        in the attention mechanism, ensuring that the correlations captured are consistent and robust,
+                        regardless of changes in the input data over time.
+
+                        The final component, the Predictor Module, combines the variable-wise patterns and the
+                        aggregated patterns to make the final predictions. This module uses a simple multilayer
+                        perceptron (MLP) to process the concatenated patterns and produce the forecasted values. The
+                        choice of an MLP, rather than a more complex model, is intentional; the previous modules already
+                        introduce sufficient nonlinearity and complexity, so the predictor can focus on efficiently
+                        mapping the combined patterns to the predicted outputs.
+                    </p>
+
+                    <p>
+                        <strong>Problem</strong>
+                        problem of efficient and accurate multivariate time series forecasting. Traditional models often
+                        suffer from large model sizes and poor accuracy due to their inefficiency in capturing complex
+                        intra-variable patterns and inter-variable correlations.
+                    </p>
+
+                    <strong>Images</strong><br>
+                    <div class="row">
+                        <div class="col">
+                            <img src="../../images/repr/attnar-fig1.png" class="img-fluid rounded" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="../../images/repr/attnar-fig2.png" class="img-fluid rounded" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="../../images/repr/attnar-fig3.png" class="img-fluid rounded" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </li>
             <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
