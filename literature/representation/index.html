@@ -3931,6 +3931,92 @@
                     </div>
                 </div>
             </li>
+            <li>
+                <div class="paper-container">
+                    <h3 class="paper-title">FCC: Feature Clusters Compression for Long-Tailed Visual Recognition</h3>
+
+                    <p>
+                        <strong>BibTex</strong>
+                        <br>
+                        @inproceedings{li2023fcc, <br>
+                        title={Fcc: Feature clusters compression for long-tailed visual recognition}, <br>
+                        author={Li, Jian and Meng, Ziyao and Shi, Daqian and Song, Rui and Diao, Xiaolei and Wang,
+                        Jingwen and Xu, Hao}, <br>
+                        booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+                        <br>
+                        year={2023}} <br>
+                    </p>
+
+                    url=<a
+                        href="https://openaccess.thecvf.com/content/CVPR2023/papers/Li_FCC_Feature_Clusters_Compression_for_Long-Tailed_Visual_Recognition_CVPR_2023_paper.pdf">
+                    https://openaccess.thecvf.com/content/CVPR2023/papers/Li_FCC_Feature_Clusters_Compression_for_Long-Tailed_Visual_Recognition_CVPR_2023_paper.pdf</a><br>
+
+                    <strong>Summary</strong>
+                    <br>
+                    <p>
+                        The authors propose a method called Feature Clusters Compression (FCC). The key idea behind FCC
+                        is to manipulate the feature space during the training phase to encourage the network to map
+                        features more densely. This is achieved by multiplying the original features by a scaling
+                        factor tau during training. The DNN learns the decision boundary on these scaled, or
+                        "multiplied,"
+                        features, which spreads them out in the feature space. However, during testing, the original,
+                        unscaled features are used for inference. This discrepancy between the training and testing
+                        phases is what effectively compresses the feature clusters because the decision boundary learned
+                        on the multiplied features applies to the original features, pulling them closer together and
+                        reducing their spread.
+
+                        The authors explore four different strategies for determining the scaling factor tau. These
+                        strategies include uniform compression, where the same
+                        tau is applied to all classes; equal difference compression, where
+                        tau varies linearly across classes with larger values for majority classes and smaller values
+                        for
+                        minority classes; and two forms of half compression, where
+                        tau is applied only to the top or bottom 50% of classes by size. Equal difference compression is
+                        identified as the most effective approach because it balances the need to compress the clusters
+                        of all classes without causing excessive distortion, especially for minority classes. Minority
+                        classes, which already have features closer to decision boundaries, require smaller values of
+                        tau to avoid pushing their features across the boundary during compression.
+
+                        A critical aspect of the FCC method is the concept of a misclassification area, which emerges
+                        due to the difference between the features used during training (multiplied) and testing
+                        (original). As
+                        tau increases, this misclassification area grows, meaning that more features may fall into this
+                        area and be incorrectly classified. This introduces a trade-off: while higher
+                        tau values can lead to more compact clusters, they also increase the risk of misclassification.
+                        Therefore,
+                        tau must be carefully calibrated, particularly for minority classes.
+
+                        The FCC method not only compresses feature clusters but also tends to preserve their original
+                        shapes. However, preserving the shape of these clusters is not always beneficial because the
+                        ultimate goal should be to reshape the clusters in ways that enhance the network’s performance
+                        in downstream tasks. Additionally, the simple linear multiplier used in FCC causes the feature
+                        clusters to shift toward the bottom left of the feature space, which can be problematic for
+                        minority classes. These classes, with features already close to decision boundaries, are at
+                        greater risk of being misclassified if
+                        tau is set too high.
+                    </p>
+
+                    <p>
+                        <strong>Problem</strong>
+                        the challenge of increasing the density of backbone feature clusters for minority classes in
+                        long-tailed visual recognition, where sparse feature clusters often lead to poor classification
+                        accuracy.
+                    </p>
+
+                    <strong>Images</strong><br>
+                    <div class="row">
+                        <div class="col">
+                            <img src="../../images/repr/fcc-fig1.png" class="img-fluid rounded" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="../../images/repr/fcc-fig2.png" class="img-fluid rounded" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="../../images/repr/fcc-fig3.png" class="img-fluid rounded" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </li>
             <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
