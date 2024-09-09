@@ -4017,6 +4017,72 @@
                     </div>
                 </div>
             </li>
+            <li>
+                <div class="paper-container">
+                    <h3 class="paper-title">Long-Tailed Recognition by Mutual Information Maximization
+                        between Latent Features and Ground-Truth Labels</h3>
+
+                    <p>
+                        <strong>BibTex</strong>
+                        <br>
+                        @inproceedings{suh2023gml, <br>
+                        title={Long-tailed recognition by mutual information maximization between latent features and
+                        ground-truth labels}, <br>
+                        author={Suh, Min-Kook and Seo, Seung-Woo}, <br>
+                        booktitle={International Conference on Machine Learning}, <br>
+                        year={2023}} <br>
+                    </p>
+
+                    url=<a
+                        href="https://proceedings.mlr.press/v202/suh23a/suh23a.pdf">https://proceedings.mlr.press/v202/suh23a/suh23a.pdf</a><br>
+
+                    <strong>Summary</strong>
+                    <br>
+                    <p>
+                        This paper addresses the problem of long-tailed recognition, where datasets have an imbalanced
+                        class distribution, leading traditional contrastive learning methods to struggle, particularly
+                        with underrepresented (tail) classes. Instead of maximizing mutual information between latent
+                        features and input instances, which doesn’t account for class imbalances, the authors propose
+                        maximizing mutual information between latent features and ground-truth labels. However, they
+                        leverage label information through class samples and class centers.
+                        While input instances are no longer the primary focus, they still act as prototypes for the
+                        classes, standing in as real samples, while the label means in the Gaussian mixture model
+                        represent idealized class centers that aren’t actual data points. This distinction allows the
+                        model to handle class imbalances while retaining the variability within each class.
+
+                        To ensure a balance between head and tail classes, the authors introduce class-wise queues,
+                        where head classes (with more data) have longer queues and tail classes have shorter ones. This
+                        system guarantees sufficient representation for even underrepresented classes, although the
+                        infrequent updates for tail classes can lead to outdated contrast samples. To address this, the
+                        authors employ a teacher-student framework where the teacher is pre-trained with a
+                        classification loss (Lcls). The teacher learns the class centers by optimizing the weights in
+                        its final dense layer, which encode these centers. It then produces projections (derived a few
+                        layers below the representations), and the student's task is to align its own projections with
+                        those of the teacher. The projections—not the raw representations—are used for contrastive
+                        learning, ensuring more accurate learning of class-specific features.
+
+                        The student is trained with both the Gaussian Mixture Likelihood (GML) loss, which models class
+                        distributions with Gaussian kernels, and the classification loss, while the teacher is trained
+                        solely with the classification loss. This dual-loss approach allows the student to learn both to
+                        classify individual samples and to model class structures in a way that balances head and tail
+                        classes effectively.
+                    </p>
+
+                    <p>
+                        <strong>Problem</strong>
+                        The problem is how to improve contrastive learning methods for long-tailed recognition tasks by
+                        maximizing mutual information between latent features and ground-truth labels, rather than input
+                        data, to address class imbalances.
+                    </p>
+
+                    <strong>Images</strong><br>
+                    <div class="row">
+                        <div class="col">
+                            <img src="../../images/repr/gml-fig1.png" class="img-fluid rounded" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </li>
             <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
