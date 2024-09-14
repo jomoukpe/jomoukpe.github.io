@@ -22,61 +22,61 @@
 
 
   <style>
-      body {
-          font-family: 'Roboto', sans-serif;
-          background: linear-gradient(45deg, #8B0000, #FF4500);
-          background-size: 200% 200%;
-          animation: Gradient 3s ease infinite;
-          color: #333;
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(45deg, #8B0000, #FF4500);
+      background-size: 200% 200%;
+      animation: Gradient 3s ease infinite;
+      color: #333;
+    }
+
+    @keyframes Gradient {
+      0% {
+        background-position: 0% 50%
       }
 
-      @keyframes Gradient {
-          0% {
-              background-position: 0% 50%
-          }
-
-          50% {
-              background-position: 100% 50%
-          }
-
-          100% {
-              background-position: 0% 50%
-          }
+      50% {
+        background-position: 100% 50%
       }
 
-      .root-container {
-          margin: 2em auto;
-          max-width: 90%;
-          padding: 1em 2em;
-          box-sizing: border-box;
-          background-color: #fff;
-          border-radius: 8px;
-          /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+      100% {
+        background-position: 0% 50%
       }
+    }
 
-      h2 {
-          color: #444;
-          margin-bottom: 1em;
-      }
+    .root-container {
+      margin: 2em auto;
+      max-width: 90%;
+      padding: 1em 2em;
+      box-sizing: border-box;
+      background-color: #fff;
+      border-radius: 8px;
+      /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+    }
 
-      .paper-container {
-          margin-bottom: 2em;
-      }
+    h2 {
+      color: #444;
+      margin-bottom: 1em;
+    }
 
-      .paper-title {
-          color: #8B0000;
-      }
+    .paper-container {
+      margin-bottom: 2em;
+    }
 
-      a {
-          color: #007BFF;
-          text-decoration: none;
-          font-style: italic;
-          overflow-wrap: break-word;
-      }
+    .paper-title {
+      color: #8B0000;
+    }
 
-      a:hover {
-          text-decoration: underline;
-      }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+      font-style: italic;
+      overflow-wrap: break-word;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
   <!-- <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/imbalance.css"> -->
@@ -84,38 +84,119 @@
 </head>
 
 <body>
-<div class="root-container">
-  <a href="https://cs.fit.edu/~pkc/r/readingList.html">https://cs.fit.edu/~pkc/r/readingList.html</a>
-  <h2>Pertinent Machine Learning Papers</h2>
-  <div class="papers-group">
-    <ol>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">"Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
+  <div class="root-container">
+    <a href="https://cs.fit.edu/~pkc/r/readingList.html">https://cs.fit.edu/~pkc/r/readingList.html</a>
+    <h2>Pertinent Machine Learning Papers</h2>
+    <div class="papers-group">
+      <ol>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Policy Adaptation via Language Optimization: Decomposing Tasks for Few-Shot
+              Imitation</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{myers2024palo, <br>
+              title={Policy Adaptation via Language Optimization: Decomposing Tasks for Few-Shot Imitation}, <br>
+              author={Myers, Vivek and Zheng, Chunyuan and Mees, Oier and Fang, Kuan and Levine, Sergey}, <br>
+              booktitle={8th Annual Conference on Robot Learning} <br>
+              year={2024}} <br>
+
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2408.16228">https://arxiv.org/pdf/2408.16228</a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
+              The method proposed, Policy Adaptation via Language Optimization (PALO), aims to enable few-shot
+              adaptation of pre-trained language-conditioned robot policies to new, unseen tasks. The key insight is to
+              leverage vision-language models (VLMs) to decompose high-level instructions into smaller, more manageable
+              subtasks, which the robot can execute using its existing knowledge. This approach circumvents the need for
+              extensive fine-tuning on new tasks, which is often infeasible due to the high cost of collecting
+              large-scale teleoperated demonstrations. Instead, PALO relies on the semantic understanding provided by
+              VLMs to propose candidate decompositions of the task, using a small set of demonstrations as a calibration
+              set to guide this decomposition process. The method then optimizes over these decompositions and selects
+              the one that minimizes validation error on the given demonstrations.
 
-          </p>
+              The core of the approach involves task decomposition through language. Given a high-level task
+              instruction, the VLM generates a set of candidate decompositions that break the task into sequential
+              subtasks. These subtasks are designed to align with the robot's prior training, leveraging its existing
+              capabilities. Each candidate decomposition is evaluated to find the optimal one that can guide the robot
+              to successfully complete the task. The evaluation process involves rolling out the pre-trained policy on
+              the candidate decompositions and computing the cost based on the mean squared error between the robot's
+              predicted actions and the actions demonstrated by the expert. By minimizing this error, PALO identifies
+              the sequence of language subtasks that most effectively bridges the robot's prior knowledge with the new
+              task requirements.
 
-          url=<a href=""></a><br>
+              An important aspect of PALO is the consideration of when to transition between subtasks. The method
+              introduces an additional variable to represent the time steps allocated to each subtask, recognizing that
+              the execution of each subtask may vary depending on the initial state and the environment's stochasticity.
+              This variable is optimized alongside the task decomposition to ensure the robot executes the sequence of
+              subtasks in a manner that fits the dynamics of the specific task instance. This joint optimization of
+              subtasks and their timing is critical for adapting to long-horizon, multi-step tasks that require a
+              precise and fluid combination of actions.
 
-          <strong>Summary</strong>
-          <br>
-          <p>
+              PALO operates under two key assumptions: first, that the low-level subtasks required for the new task are
+              present within the robot's prior training, and second, that the VLM can generate decompositions that are
+              consistent with the semantics of the task in the given environment. These assumptions are essential for
+              the method's success, as they ensure that the robot can use its pre-trained policy to execute the proposed
+              subtasks effectively. By optimizing within the language space rather than directly fine-tuning policy
+              parameters, PALO enables rapid adaptation with significantly fewer demonstrations, making it a
+              sample-efficient approach to handling a variety of complex, unseen robotic manipulation tasks. They also
+              found that
+              hierarchical decomposition to subtasks as high level and low level subtasks help further improve
+              performance. This paper shows that learning generalizable low level skills and knowning how to break down
+              high level OoD instructions into low level InD skills helps.
+            </p>
 
-          </p>
+            <p>
+              <strong>Problem</strong>
+              Improving robot adaptability to new tasks with minimal demonstrations by leveraging vision-language models
+              to semantically decompose complex instructions into executable subtasks.
+            </p>
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/palo-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/palo-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/palo-fig3.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">"Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
-          <p>
-            <strong>Problem</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
 
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
                <div class="col">
                    <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
                </div>
@@ -123,35 +204,35 @@
                    <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
                </div>
            </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">A Unified Approach to Interpreting Model Predictions</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">A Unified Approach to Interpreting Model Predictions</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
                <div class="col">
                    <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
                </div>
@@ -159,35 +240,35 @@
                    <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
                </div>
            </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">Axiomatic attribution for deep networks</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Axiomatic attribution for deep networks</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
                <div class="col">
                    <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
                </div>
@@ -195,36 +276,36 @@
                    <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
                </div>
            </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">Towards better understanding of gradient-based attribution methods for Deep Neural
-            Networks </h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Towards better understanding of gradient-based attribution methods for Deep Neural
+              Networks </h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
                <div class="col">
                    <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
                </div>
@@ -232,36 +313,36 @@
                    <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
                </div>
            </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">How Can I Explain This to You? An Empirical Study of Deep Neural Network Explanation
-            Methods</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">How Can I Explain This to You? An Empirical Study of Deep Neural Network Explanation
+              Methods</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
                <div class="col">
                    <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
                </div>
@@ -269,35 +350,35 @@
                    <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
                </div>
            </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">Do Feature Attribution Methods Correctly Attribute Features?</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Do Feature Attribution Methods Correctly Attribute Features?</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
                <div class="col">
                    <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
                </div>
@@ -305,35 +386,35 @@
                    <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
                </div>
            </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">mixup: Beyond Empirical Risk Minimization</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">mixup: Beyond Empirical Risk Minimization</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
                <div class="col">
                    <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
                </div>
@@ -341,35 +422,35 @@
                    <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
                </div>
            </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">Manifold Mixup: Better Representations by Interpolating Hidden States</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Manifold Mixup: Better Representations by Interpolating Hidden States</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
                <div class="col">
                    <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
                </div>
@@ -377,35 +458,35 @@
                    <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
                </div>
            </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">Revisiting Deep Learning Models for Tabular Data</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Revisiting Deep Learning Models for Tabular Data</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
               <div class="col">
                   <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
               </div>
@@ -413,36 +494,37 @@
                   <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
               </div>
           </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">Self-Attention Between Datapoints: Going Beyond Individual Input-Output Pairs in Deep
-            Learning</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Self-Attention Between Datapoints: Going Beyond Individual Input-Output Pairs in
+              Deep
+              Learning</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
               <div class="col">
                   <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
               </div>
@@ -450,35 +532,35 @@
                   <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
               </div>
           </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">Robustness via cross-domain ensembles</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Robustness via cross-domain ensembles</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
               <div class="col">
                   <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
               </div>
@@ -486,35 +568,35 @@
                   <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
               </div>
           </div> -->
-        </div>
-      </li>
-      <li>
-        <div class="paper-container">
-          <h3 class="paper-title">Online Knowledge Distillation via Collaborative Learning</h3>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Online Knowledge Distillation via Collaborative Learning</h3>
 
-          <p>
-            <strong>BibTex</strong>
+            <p>
+              <strong>BibTex</strong>
+              <br>
+
+            </p>
+
+            url=<a href=""></a><br>
+
+            <strong>Summary</strong>
             <br>
+            <p>
 
-          </p>
+            </p>
 
-          url=<a href=""></a><br>
+            <p>
+              <strong>Problem</strong>
 
-          <strong>Summary</strong>
-          <br>
-          <p>
-
-          </p>
-
-          <p>
-            <strong>Problem</strong>
-
-          </p>
-          <p>
-            <strong>Solution, Ideas and Why</strong>
-          </p>
-          <strong>Images</strong><br>
-          <!-- <div class="row">
+            </p>
+            <p>
+              <strong>Solution, Ideas and Why</strong>
+            </p>
+            <strong>Images</strong><br>
+            <!-- <div class="row">
               <div class="col">
                   <img src="../../images/ml/saint-fig1.png" class="img-fluid rounded" alt="...">
               </div>
@@ -522,11 +604,11 @@
                   <img src="../../images/ml/saint-fig2.png" class="img-fluid rounded" alt="...">
               </div>
           </div> -->
-        </div>
-      </li>
-    </ol>
+          </div>
+        </li>
+      </ol>
+    </div>
   </div>
-</div>
 </body>
 
 </html>
