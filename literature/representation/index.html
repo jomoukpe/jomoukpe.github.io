@@ -4081,12 +4081,47 @@
             <strong>Summary</strong>
             <br>
             <p>
+              The method, called Balanced Product of Experts (BalPoE), addresses the long-tailed recognition problem by
+              leveraging an ensemble of multiple expert models, each calibrated to handle different parts of the label
+              distribution. The approach extends the concept of logit adjustment, a technique used to correct biases
+              caused by imbalanced datasets, to ensembles of models. In this method, each expert is trained with a
+              different target distribution using logit adjustment based on label frequencies. This allows the ensemble
+              to cover both the head classes with abundant data and the tail classes with sparse data. The key idea is
+              to combine these diverse experts such that the overall ensemble remains unbiased and consistent in
+              minimizing the balanced error rate, which is crucial for long-tailed recognition tasks.
 
+              The ensemble is formed by averaging the logits from the different experts, which are designed to target
+              various distributions derived from the training data. During training, the method defines a set of expert
+              models, each with a specific bias parameterization. By adjusting the logits for each expert according to a
+              different target distribution, the method ensures that each expert specializes in a particular region of
+              the class distribution, balancing the effect of the long-tailed distribution. To achieve an overall
+              unbiased prediction from the ensemble, the paper derives a theoretical framework showing that if the
+              average bias across all experts equals zero, the ensemble prediction is Fisher-consistent, meaning it is
+              optimal for minimizing balanced error.
+
+              A critical component of this approach is ensuring that each expert model is well-calibrated. Calibration
+              refers to the model's ability to provide accurate probability estimates, which is essential for the proper
+              functioning of the logit adjustment. The method uses mixup, a data augmentation technique, to improve the
+              calibration of individual experts. Mixup generates new training samples by interpolating between pairs of
+              examples and their labels, which helps the model avoid overconfidence and improves the generalization to
+              tail classes. Importantly, mixup does not alter the underlying label distribution, making it compatible
+              with the logit adjustment framework. This calibration step ensures that the ensemble remains unbiased and
+              effective in handling the varying distributions encountered during training and inference. The mixup is of
+              both features and labels with U-shape sampling, closer to the extreme ends.
+
+              During inference, the method combines the outputs of all the experts by averaging their adjusted logits
+              before applying the softmax function to produce the final prediction. This process allows the ensemble to
+              leverage the strengths of each expert and generate more robust predictions across the entire class
+              distribution. The ensemble's ability to generalize over different distributions enables it to perform well
+              on imbalanced datasets, particularly in scenarios where the test distribution differs from the training
+              distribution.
             </p>
 
             <p>
               <strong>Problem</strong>
-
+              The paper tackles the challenge of learning unbiased and effective representations in long-tailed
+              recognition tasks, where the label distribution is highly imbalanced, by addressing the difficulty of
+              generalizing well over classes with limited data.
             </p>
 
             <strong>Images</strong><br>
