@@ -4138,6 +4138,85 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">DeiT-LT: Distillation Strikes Back for Vision Transformer Training on Long-Tailed
+              Datasets</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{rangwani2024deitlt, <br>
+              title={DeiT-LT: Distillation Strikes Back for Vision Transformer Training on Long-Tailed Datasets}, <br>
+              author={Rangwani, Harsh and Mondal, Pradipto and Mishra, Mayank and Asokan, Ashish Ramayee and Babu, R
+              Venkatesh}, <br>
+              booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, <br>
+              year={2024}} <br>
+            </p>
+
+            url=<a
+              href="https://openaccess.thecvf.com/content/CVPR2024/papers/Rangwani_DeiT-LT_Distillation_Strikes_Back_for_Vision_Transformer_Training_on_Long-Tailed_CVPR_2024_paper.pdf">
+              https://openaccess.thecvf.com/content/CVPR2024/papers/Rangwani_DeiT-LT_Distillation_Strikes_Back_for_Vision_Transformer_Training_on_Long-Tailed_CVPR_2024_paper.pdf</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The proposed method, DeiT-LT (Data-efficient Image Transformer for Long-Tailed Data), enhances Vision
+              Transformer (ViT) training for long-tailed datasets by introducing key improvements centered around
+              distillation from CNNs. The architecture of DeiT-LT is based on the Vision Transformer, which processes
+              input images by splitting them into patches and passing them through a sequence of self-attention blocks.
+              To address the challenge of imbalanced data, DeiT-LT incorporates both a classification (CLS) token, which
+              focuses on majority (head) classes, and a distillation (DIST) token, which becomes specialized in handling
+              minority (tail) classes.
+
+              A central idea in DeiT-LT is to distill knowledge from CNNs to ViTs using a strategy of
+              Out-of-Distribution (OOD) images. Unlike the standard DeiT model, where distillation occurs from a CNN
+              pre-trained on large datasets, DeiT-LT generates OOD images by applying strong data augmentations. These
+              augmented images are typically "out of distribution" for the CNN teacher (which may have lower accuracy on
+              these images), yet this helps the ViT student network generalize better. By training on OOD images, the
+              DIST token in DeiT-LT learns CNN-like local features in early blocks, which improves generalization for
+              tail classes. This divergence in training between the CLS and DIST tokens allows DeiT-LT to effectively
+              handle both head and tail classes within a single architecture.
+
+              DeiT-LT also introduces the use of Sharpness-Aware Minimization (SAM) to train the CNN teachers. SAM leads
+              to "flat" minima, which encourage the learning of low-rank, generalizable features. These low-rank
+              features are then distilled into the ViT, enabling the model to handle the inherent imbalance in the
+              dataset. The low-rank nature of the features ensures better generalization across ViT blocks, further
+              improving performance on minority classes.
+
+              The method also incorporates Deferred Re-Weighting (DRW) for the distillation loss. In DRW, the loss
+              assigned to each class is dynamically adjusted based on its frequency in the dataset, with greater
+              emphasis placed on tail classes as training progresses. This step further focuses the DIST token’s
+              attention on tail classes, while the CLS token remains an expert on head classes. Importantly, this
+              approach enables the training of distinct experts (CLS for head classes and DIST for tail classes) within
+              a single ViT backbone without the need for multiple expert models, reducing the complexity at inference
+              time.
+
+              Finally, DeiT-LT maintains computational efficiency by using small CNN models (e.g., ResNet-32) for
+              distillation rather than larger models (e.g., RegNetY-16GF), significantly reducing training time while
+              still achieving high performance. The combination of OOD distillation, SAM-trained teachers, and DRW
+              creates a robust method for training Vision Transformers on long-tailed datasets, addressing both data
+              imbalance and overfitting to majority classes.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper addresses the challenge of training Vision Transformers on long-tailed datasets by introducing a
+              distillation approach from CNNs to improve performance on minority (tail) classes without sacrificing
+              accuracy on majority (head) classes.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/deitlt-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/deitlt-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
