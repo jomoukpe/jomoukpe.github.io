@@ -260,7 +260,75 @@
         </li>
         <li>
           <div class="paper-container">
-            <h3 class="paper-title">"Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
+            <h3 class="paper-title">Learning Iterative Reasoning through Energy Diffusion</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{du2024ired, <br>
+              title={Learning Iterative Reasoning through Energy Diffusion}, <br>
+              author={Du, Yilun and Mao, Jiayuan and Tenenbaum, Joshua B}, <br>
+              booktitle={Forty-first International Conference on Machine Learning} <br>
+              year={2024}} <br>
+
+            </p>
+
+            url=<a href="https://openreview.net/pdf?id=CduFAALvGe">https://openreview.net/pdf?id=CduFAALvGe</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper "Learning Iterative Reasoning through Energy Diffusion" introduces IRED, a novel framework for
+              solving reasoning and decision-making tasks by formulating them as energy-based optimization problems. The
+              method focuses on learning an energy function E_\theta(x, y) that models the constraints between
+              inputs x and outputs y, allowing the model to solve tasks via iterative optimization.
+
+              A key innovation of IRED is its use of annealed energy landscapes. Instead of learning a single
+              complex energy landscape, the model learns a sequence of smoother energy functions that progressively
+              sharpen. This gradual refinement helps avoid local minima and allows for more effective optimization,
+              improving the model's ability to solve complex tasks. The energy minimization process is adaptive, meaning
+              the number of optimization steps during inference is adjusted based on the problem's difficulty. This
+              enables IRED to solve tasks beyond its training distribution, such as more challenging Sudoku puzzles,
+              large matrix completion problems, and complex pathfinding tasks.
+
+              The training process incorporates two key supervision techniques: score function supervision and
+              energy landscape supervision. Score function supervision addresses instability in energy-based
+              model training by directly optimizing the gradients of the energy function, resulting in more stable and
+              faster training. Energy landscape supervision ensures that the energy function can effectively
+              distinguish between correct and incorrect outputs by using negative sample mining, which forces the model
+              to assign higher energy to invalid outputs, sharpening the energy landscape.
+
+              IRED’s model architecture consists of a neural network that learns the energy function. During inference,
+              the model performs energy minimization over the learned energy function to find
+              the optimal output. This process is iterative, where the model uses gradient-based optimization to
+              minimize the energy
+              landscape progressively. The key feature here is that this iterative optimization is done on a sequence of
+              annealed energy landscapes, making the search for the optimal solution more effective and efficient.
+
+              IRED outperforms traditional methods in reasoning tasks across continuous and discrete spaces, as well as
+              planning problems. It generalizes well to more difficult instances of these tasks by dynamically adjusting
+              its computational effort during inference, making it a robust and versatile framework for a wide range of
+              reasoning problems.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The main problem solved is developing
+              a framework that learns to reason across different tasks by using energy-based optimization, enabling
+              generalization to more complex problems beyond its training distribution​
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/ired-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
               <strong>BibTex</strong>
