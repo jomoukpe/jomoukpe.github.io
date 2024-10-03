@@ -172,6 +172,94 @@
         </li>
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">Concept Learning with Energy-Based Models</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{mordatch2018concept, <br>
+              title={Concept learning with energy-based models}, <br>
+              author={Mordatch, Igor}, <br>
+              journal={arXiv preprint arXiv:1811.02486}, <br>
+              year={2018}}<br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/1811.02486">https://arxiv.org/pdf/1811.02486</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              This paper presents a framework that uses Energy-Based Models (EBMs) to learn, identify, and generate
+              abstract concepts from events in an environment. The core idea is that each concept is represented by an
+              energy function, which takes a state trajectory (the sequence of entity behaviors over time), an
+              attention mask (focusing on relevant entities in the event), and a concept code (parameters
+              representing the concept) as inputs. The energy function returns a scalar energy value that indicates
+              how well the given event configuration aligns with the specified concept. Low energy means the event
+              satisfies the concept, while high energy signals a mismatch.
+
+              The approach leverages inference-time optimization, which occurs dynamically during task execution
+              rather than relying on pre-trained, fixed models. By minimizing the energy during inference, the model can
+              either generate new events that fit the concept or identify existing events that match it. This method is
+              more flexible than traditional learning approaches, as it adapts to new situations on the fly by adjusting
+              the event parameters in real-time.
+
+              The technique operates within a meta-learning framework, where the model generalizes its learning
+              across tasks and environments. Once the energy function is trained, it can be reused in different contexts
+              without retraining. This makes it particularly effective for tasks requiring few-shot learning, where
+              the model needs to generalize from just a few examples. By observing a small set of demonstration events,
+              the model predicts future states and identifies key entities through attention. This is formulated as a
+              maximum likelihood estimation problem to maximize the probability of the observed states given the
+              concept.
+
+              The framework also employs a relational network architecture in the energy function, enabling it to
+              model interactions between multiple entities, such as spatial or temporal relationships. This allows the
+              model to understand and generate complex multi-entity dynamics, such as objects being "inside" or moving
+              "slowly."
+
+              To improve sampling during inference, the model uses a KL-divergence objective that refines the
+              sampling process. This objective minimizes the difference between the biased sampling distribution (due to
+              the truncated inference steps) and the true distribution of real-world events. This ensures that the
+              generated samples during inference are realistic and align closely with the learned concepts.
+
+              Finally, the model supports concept transfer across environments. Once a concept is learned, it can be
+              transferred and applied in new environments, such as transferring concepts learned in a 2D environment to
+              a 3D robot simulation. This is achieved by manually mapping representations between environments and using
+              the learned energy function as a cost function in the new environment’s optimization process.
+
+              In summary, the framework combines energy-based modeling, inference-time optimization, relational
+              networks, few-shot learning, KL-divergence sampling refinement, and cross-environment concept transfer.
+              These techniques enable the model to generalize from limited demonstrations, handle complex multi-entity
+              concepts, and adapt to new tasks and environments, all while efficiently identifying or generating events
+              that fit learned abstract concepts.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The problem being solved is learning abstract concepts from a few demonstrations and being able to
+              generate or identify similar concepts in new events using energy-based models​
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/emb-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/emb-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/emb-fig3.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/emb-fig4.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">"Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
@@ -192,9 +280,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
                <div class="col">
@@ -228,9 +314,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
                <div class="col">
@@ -264,9 +348,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
                <div class="col">
@@ -301,9 +383,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
                <div class="col">
@@ -338,9 +418,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
                <div class="col">
@@ -374,9 +452,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
                <div class="col">
@@ -410,9 +486,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
                <div class="col">
@@ -446,9 +520,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
                <div class="col">
@@ -482,9 +554,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
               <div class="col">
@@ -520,9 +590,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
               <div class="col">
@@ -556,9 +624,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
               <div class="col">
@@ -592,9 +658,7 @@
               <strong>Problem</strong>
 
             </p>
-            <p>
-              <strong>Solution, Ideas and Why</strong>
-            </p>
+
             <strong>Images</strong><br>
             <!-- <div class="row">
               <div class="col">
