@@ -4217,6 +4217,83 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">No one left behind: Improving the worst categories in long-tailed learning</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{du2023cegml, <br>
+              title={No one left behind: Improving the worst categories in long-tailed learning}, <br>
+              author={Du, Yingxiao and Wu, Jianxin}, <br>
+              booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition}, <br>
+              year={2023}} <br>
+            </p>
+
+            url=<a
+              href="https://openaccess.thecvf.com/content/CVPR2023/papers/Du_No_One_Left_Behind_Improving_the_Worst_Categories_in_Long-Tailed_CVPR_2023_paper.pdf">
+              https://openaccess.thecvf.com/content/CVPR2023/papers/Du_No_One_Left_Behind_Improving_the_Worst_Categories_in_Long-Tailed_CVPR_2023_paper.pdf
+            </a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              This paper addresses the issue of low recall for worst-performing categories in long-tailed image
+              classification. The authors propose a novel method called Geometric Mean Loss (GML) to improve the
+              performance of these categories without sacrificing overall accuracy. GML is designed as a plug-in method
+              that can be applied to various existing long-tailed recognition approaches.
+
+              The authors argue that harmonic mean of per-class recall is a better objective than arithmetic mean for
+              long-tailed recognition, as it's more sensitive to low values and thus encourages improvement of the
+              worst-performing classes. However, since harmonic mean is difficult to optimize directly due to its use of
+              reciprocals, they propose using geometric mean as a surrogate objective. The geometric mean serves as a
+              middle ground between arithmetic and harmonic means in terms of sensitivity to low values, aligning with
+              their goal of ensuring "no category is left behind" in long-tailed recognition tasks.
+
+              The core idea of GML is to maximize the geometric mean of per-class recall. The GML loss is defined as the
+              negative log of the average softmax outputs for each class. It incorporates a re-weighting scheme similar
+              to balanced softmax cross-entropy. The method consists of three stages: pre-training using an existing
+              method, fine-tuning the classifier with the GML loss while freezing the backbone, and an optional ensemble
+              stage.
+
+              During the fine-tuning stage, only the classifier is re-trained while the backbone remains frozen. This
+              approach allows the method to be easily integrated with existing techniques. The optional ensemble stage
+              combines predictions from both the original and fine-tuned classifiers. It uses temperature scaling for
+              calibration, introducing two hyperparameters: t_old and t_new. These temperatures are applied to the
+              logits of the original and fine-tuned classifiers, respectively, before combining their predictions
+              through simple averaging.
+
+              Ablation studies revealed several important aspects of the method. The re-weighting scheme in GML was
+              found to be crucial for performance, outperforming alternatives like re-sampling. The ensemble stage's
+              effectiveness was explored through different temperature combinations, showing that preserving more
+              information from the fine-tuned classifier (lower t_new) was important for improving the lowest recall.
+              The authors also demonstrated that while GML can be used to train a model from scratch, it performs best
+              when applied as a fine-tuning step to existing methods.
+
+              This approach provides a simple yet effective way to address the problem of low recall in worst-performing
+              categories in long-tailed recognition, ensuring that no category is left behind while maintaining high
+              overall accuracy.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The true problem identified is that existing long-tailed recognition methods often result in very low
+              recall (close to zero) for some of the worst-performing categories, even as overall accuracy improves. The
+              authors argue this means some categories are essentially "left behind" or ignored by current approaches.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/cegml-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/cegml-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
