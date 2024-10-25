@@ -4294,6 +4294,82 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Curvature-Balanced Feature Manifold Learning for Long-Tailed Classification</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{ma2023cr, <br>
+              title={Curvature-balanced feature manifold learning for long-tailed classification}, <br>
+              author={Ma, Yanbiao and Jiao, Licheng and Liu, Fang and Yang, Shuyuan and Liu, Xu and Li, Lingling}, <br>
+              booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition}, <br>
+              year={2023}} <br>
+            </p>
+
+            url=<a
+              href="https://openaccess.thecvf.com/content/CVPR2023/papers/Ma_Curvature-Balanced_Feature_Manifold_Learning_for_Long-Tailed_Classification_CVPR_2023_paper.pdf">
+              https://openaccess.thecvf.com/content/CVPR2023/papers/Ma_Curvature-Balanced_Feature_Manifold_Learning_for_Long-Tailed_Classification_CVPR_2023_paper.pdf</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper first establishes a systematic way to measure geometric characteristics of perceptual manifolds
+              (feature spaces) in deep neural networks. They propose methods to calculate the volume of these manifolds,
+              the degree of separation between different manifolds, and most importantly, the curvature of these
+              manifolds using neighboring points.
+
+              For calculating manifold volume, they introduce a method using the determinant of the covariance matrix of
+              features, with special consideration for non-full rank cases by adding an identity matrix. To measure
+              separation between manifolds, they develop an asymmetric measure that accounts for different manifold
+              volumes, ensuring that when manifolds overlap, the impact on smaller manifolds is appropriately weighted
+              more heavily.
+
+              The curvature calculation is particularly sophisticated. For each point in the manifold, they first
+              estimate the normal vector using neighboring points through eigenvalue decomposition of the local
+              covariance matrix. They then project neighboring points onto the tangent space and fit a quadratic
+              hypersurface to estimate the Gauss curvature. This process is done for all points, and the average is
+              taken as the manifold's complexity measure.
+
+              Their key methodological contribution is the Curvature Regularization (CR) term. This regularization aims
+              to balance curvature across all class manifolds while encouraging overall flatter manifolds. The CR term
+              is designed with three principles: stronger penalties for higher curvature manifolds, equal penalties when
+              curvatures are balanced, and an overall tendency to decrease total curvature. The final loss function
+              combines the original loss with the CR term, weighted by a logarithmic function of the training epoch.
+
+              To make this practical in training, they introduce Dynamic Curvature Regularization (DCR). DCR maintains a
+              first-in-first-out storage pool of recent feature embeddings, addressing the challenge of calculating
+              manifold properties without access to all features at once. This approach leverages the observation that
+              features drift slowly during training, making recent historical features useful for curvature estimation.
+              The storage pool is updated continuously during training, with the oldest batch being replaced by the
+              newest one at each iteration.
+
+              The implementation requires careful hyperparameter selection, particularly for τ, which controls the
+              relative weight of the curvature regularization term. The authors find that different dataset sizes
+              require different τ values, with larger datasets needing larger values to allow more time for proper
+              feature separation. The method can be integrated with any existing loss function and training framework,
+              requiring only the addition of the feature storage pool and curvature calculation components.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper solves the problem that class accuracy in deep learning becomes increasingly negatively
+              correlated with feature manifold curvature during training, while existing methods only focus on feature
+              separability and ignore this curvature imbalance issue.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/cr-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/cr-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>

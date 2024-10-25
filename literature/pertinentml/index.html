@@ -328,6 +328,80 @@
         </li>
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">Attention is not all you need: Pure attention loses rank doubly exponentially with
+              depth</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{dong2021attentionNotAllYouNeed, <br>
+              title={Attention is not all you need: Pure attention loses rank doubly exponentially with depth}, <br>
+              author={Dong, Yihe and Cordonnier, Jean-Baptiste and Loukas, Andreas}, <br>
+              booktitle={International Conference on Machine Learning}, <br>
+              year={2021}} <br>
+            </p>
+
+            url=<a
+              href="https://proceedings.mlr.press/v139/dong21a/dong21a.pdf">https://proceedings.mlr.press/v139/dong21a/dong21a.pdf</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              Here is a comprehensive summary of the paper's key points and methodology:
+
+              The authors introduce a novel way to analyze self-attention networks (SANs) through what they call "path
+              decomposition." This approach breaks down a SAN's output into a sum of smaller terms, where each term
+              represents a path through different attention heads across layers. Think of attention heads as gateways,
+              and a path is like choosing one gateway per layer to pass through. This decomposition allows them to study
+              how information flows through the network and how the rank collapse phenomenon occurs.
+
+              The paper presents a rigorous mathematical analysis of how pure attention networks (without skip
+              connections or MLPs) process information. They prove that these networks have a strong inductive bias
+              toward making all tokens uniform, which manifests as a doubly exponential convergence to a rank-1 matrix
+              with network depth. A rank-1 matrix means all output rows are identical, effectively destroying the
+              network's ability to produce diverse outputs for different inputs.
+
+              The authors then systematically analyze how different architectural components affect this rank collapse.
+              They demonstrate that skip connections play a crucial role in preventing rank collapse by providing paths
+              that preserve input information. MLPs also help counteract rank collapse by potentially increasing the
+              rank through their non-linear transformations, though their effect is less dramatic than skip connections.
+              Interestingly, they prove that layer normalization, another common component in transformers, plays no
+              role in preventing rank collapse.
+
+              Their methodology involves developing new mathematical tools to analyze the convergence rates of these
+              networks. They introduce concepts like the `1,∞-composite norm and derive bounds on how quickly the
+              residual (the difference between the output and its rank-1 approximation) decreases with network depth.
+              The analysis carefully tracks how the interaction between stochastic attention matrices and value
+              transformations affects the network's output rank.
+
+              The authors also develop a theoretical framework to understand why transformers work in practice despite
+              the potential for rank collapse. They show that transformer networks effectively operate as ensembles of
+              shallow networks due to skip connections, with shorter paths carrying more predictive power than longer
+              ones. This insight provides a new perspective on transformer architecture design and suggests ways to make
+              these networks more effective.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper discusses how pure self-attention networks (without skip connections or MLPs) suffer from "rank
+              collapse" - their output converges doubly exponentially to a rank-1 matrix as network depth increases,
+              meaning all output vectors become identical copies of each other, severely limiting the network's ability
+              to produce diverse outputs.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/attentionNotAllYouNeed-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/attentionNotAllYouNeed-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
