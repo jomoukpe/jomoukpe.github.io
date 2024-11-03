@@ -347,7 +347,6 @@
             <strong>Summary</strong>
             <br>
             <p>
-              Here is a comprehensive summary of the paper's key points and methodology:
 
               The authors introduce a novel way to analyze self-attention networks (SANs) through what they call "path
               decomposition." This approach breaks down a SAN's output into a sum of smaller terms, where each term
@@ -400,6 +399,81 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">π0: A Vision-Language-Action Flow Model for General Robot Control</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{black2024pi0, <br>
+              title={π0: A Vision-Language-Action Flow Model for General Robot Control}, <br>
+              author={Black, Kevin and Brown, Noah and Driess, Danny and Esmail, Adnan and Equi, Michael and Finn,
+              Chelsea and Fusai, Niccolo and Groom, Lachy and Hausman, Karol and Ichter, Brian and Jakubczak, Szymon and
+              Jones, Tim and Ke, Liyiming and Levine, Sergey and Li-Bell, Adrian and Mothukuri, Mohith and Nair, Suraj
+              and Pertsch, Karl and Shi, Lucy Xiaoyang and Tanner, James and Vuong, Quan and Walling, Anna and Wang,
+              Haohuan and Zhilinsky, Ury}, <br>
+              booktitle={Physical Intelligence Company}, <br>
+              year={2024}} <br>
+            </p>
+
+            url=<a href="https://www.physicalintelligence.company/download/pi0.pdf">
+              https://www.physicalintelligence.company/download/pi0.pdf</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+
+              The authors present π0, a vision-language-action (VLA) Flow Matching model designed to make robots more
+              versatile and capable of handling diverse manipulation tasks. The model takes multiple RGB camera images
+              (2-3 per robot), language commands, and the robot's joint state as input, and outputs action sequences
+              that control the robot at 50Hz (one action every 20ms). These actions can control complex robot
+              configurations with up to 18 dimensions to handle multiple arms and mobile bases. The key innovation lies
+              in their training approach, which mirrors the successful paradigm used in large language models:
+              pre-training on diverse, large-scale data followed by task-specific fine-tuning. This approach helps
+              address fundamental challenges in robot learning: data scarcity, limited generalization, and lack of
+              robustness.
+
+              The model architecture builds upon the PaliGemma vision-language model and incorporates flow matching to
+              generate continuous robot actions. A crucial architectural innovation is the "action expert" - a separate
+              set of weights dedicated to handling robotics-specific inputs and outputs. This design allows the model to
+              leverage pre-trained vision-language knowledge while maintaining precise control over robot movements. The
+              model processes multiple camera views, language commands, and robot state information to generate
+              high-frequency action sequences for dexterous manipulation.
+
+              The training process involves two key phases. In pre-training, they use over 10,000 hours of robot data
+              from 7 different robot configurations and 68 diverse tasks, combined with existing open-source datasets.
+              This creates a broad foundation of manipulation skills. The post-training phase then uses high-quality,
+              task-specific data to refine the model for particular applications. This two-phase approach is crucial:
+              the diverse pre-training data helps the model learn to recover from mistakes and handle varied situations,
+              while the post-training data teaches it to execute tasks efficiently and fluently.
+
+              A major strength of their approach is its ability to handle complex, multi-stage tasks. The model can be
+              guided either through direct language commands from humans or through a high-level policy that breaks down
+              complex tasks into simpler subtasks. This enables the system to perform sophisticated behaviors like
+              folding multiple articles of clothing, cleaning tables while appropriately sorting items between trash and
+              dishes, and assembling boxes - tasks that require both physical dexterity and strategic planning.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              Robot learning currently faces three major challenges: data scarcity which limits training, limited
+              generalization across different manipulation tasks and robots, and lack of robustness to handle unexpected
+              situations and environmental variations in real-world settings.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/pizero-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/pizero-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+
         <li>
           <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
