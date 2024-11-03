@@ -4370,6 +4370,84 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Superdisco: Super-class discovery improves visual recognition for the long-tail</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{du2023superdisco, <br>
+              title={Superdisco: Super-class discovery improves visual recognition for the long-tail}, <br>
+              author={Du, Yingjun and Shen, Jiayi and Zhen, Xiantong and Snoek, Cees GM}, <br>
+              booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, <br>
+              year={2023}} <br>
+            </p>
+
+            url=<a
+              href="https://openaccess.thecvf.com/content/CVPR2023/papers/Du_SuperDisco_Super-Class_Discovery_Improves_Visual_Recognition_for_the_Long-Tail_CVPR_2023_paper.pdf">
+              https://openaccess.thecvf.com/content/CVPR2023/papers/Du_SuperDisco_Super-Class_Discovery_Improves_Visual_Recognition_for_the_Long-Tail_CVPR_2023_paper.pdf</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper introduces SuperDisco, an algorithm that learns to discover semantic super-class representations
+              to help with long-tailed visual recognition. The key insight comes from how humans effortlessly handle
+              object recognition from rarely seen classes by using different levels of semantic abstraction. The authors
+              note that while individual classes may have imbalanced distributions (many examples of common objects, few
+              of rare ones), their corresponding super-classes tend to be more balanced. For example, while specific car
+              models may be rare in a dataset, the overall super-class of "vehicles" maintains a good number of examples
+              due to the shared visual features among vehicles, enabling knowledge transfer from frequent to rare
+              classes.
+              SuperDisco constructs a hierarchy of graphs that work together to refine features. The super-class graph
+              (C) discovers and represents semantic groupings through learnable vertices (representing super-classes)
+              and edges (representing relationships between super-classes). The relationship graph (R) connects original
+              image represenations to the super-class graph by computing similarities, allowing features to be refined
+              through
+              message passing with relevant super-classes. To improve robustness, Meta-SuperDisco introduces a prototype
+              graph (P) built from a small balanced dataset to capture clean sample-level relationships. Finally, a
+              super graph (S) connects the prototype graph to the super-class graph (C), allowing the prototypes to guide
+              better super-class discovery
+
+              Interestingly, the authors structure their super-class hierarchy to start with fewer classes at higher
+              levels and progressively increase the number of classes at lower levels (e.g., 2->4->8->16). This is
+              counter to traditional deep learning architectures where feature representations typically start large and
+              get progressively smaller.
+
+              Through message passing mechanisms across these interconnected graphs, the original image features are
+              refined by attending to relevant super-class representations. This helps pull tail class features away
+              from being dominated by head class features, making them more discriminative. The deeper and wider graph
+              structures are particularly important when dealing with severe class imbalance, as they allow the model to
+              discover more nuanced hierarchical relationships.
+
+              The paper's significance lies in its novel approach to automatically discovering and utilizing semantic
+              hierarchies without requiring explicit super-class labels, effectively mimicking humans' intuitive ability
+              to use abstract categorization for recognizing rare objects. This differs from previous approaches that
+              either required predefined hierarchical labels or focused on rebalancing techniques without considering
+              semantic relationships.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              Current AI image classifiers lack humans' natural ability to leverage different levels of semantic
+              abstraction (like grouping objects into higher-level categories) to effectively recognize objects from
+              rarely seen classes.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/superdisco-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/superdisco-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/superdisco-fig3.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
