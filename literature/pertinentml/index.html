@@ -509,7 +509,8 @@
               lower than that of full fine-tuning. This limitation points to LoRA's underutilization of parameter space,
               explaining its struggles with complex tasks. Furthermore, an experiment isolating matrix <i>B</i> in
               LoRA—where only <i>B</i> is trained while <i>A</i> remains fixed—shows a sharp reduction in intruder
-              dimensions. This suggests that the matrix product <i>BA</i> amplifies spectral differences, contributing to
+              dimensions. This suggests that the matrix product <i>BA</i> amplifies spectral differences, contributing
+              to
               the issue.
 
               The authors conclude that while LoRA is computationally efficient, its distinct parameter updates lead to
@@ -539,6 +540,81 @@
               </div>
               <div class="col">
                 <img src="../../images/repr/loravft-fig4.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Differential Transformer</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{ye2024diffT, <br>
+              title={Differential Transformer}, <br>
+              author={Ye, Tianzhu and Dong, Li and Xia, Yuqing and Sun, Yutao and Zhu, Yi and Huang, Gao and Wei, Furu},
+              <br>
+              journal={arXiv preprint arXiv:2410.05258}, <br>
+              year={2024}} <br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2410.05258">
+              https://arxiv.org/pdf/2410.05258
+            </a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The Differential Transformer (DIFF Transformer) is a novel enhancement to the standard Transformer
+              architecture designed to improve the efficiency and accuracy of attention mechanisms in large language
+              models. Traditional Transformers often struggle with attention allocation, frequently focusing on
+              irrelevant parts of the input context, a phenomenon referred to as attention noise. This misallocation can
+              hinder their performance in tasks that require precise retrieval of key information, especially in
+              long-context scenarios.
+
+              The DIFF Transformer introduces a unique differential attention mechanism that calculates attention scores
+              by subtracting one softmax attention map from another. This mechanism starts by dividing the query and key
+              vectors into two groups, producing separate softmax attention maps for each group. The attention scores
+              are then derived from the difference between these maps, effectively canceling out shared noise. This
+              process enhances the model's focus on relevant context while minimizing distractions, similar to how
+              noise-canceling technology works by subtracting ambient noise from a signal. The resulting attention
+              pattern is sparser and more precise, which helps the model prioritize crucial information.
+
+              This differential attention mechanism can be seamlessly integrated with the existing multi-head attention
+              framework, where each head independently performs this subtraction-based attention (delta). The learnable scalar λ
+              controls the degree of noise cancellation and adapts throughout training to optimize performance. This
+              method leads to more efficient attention operations without significantly increasing computational
+              complexity.
+
+              Experimentally, the DIFF Transformer has demonstrated superior performance over traditional Transformers
+              across a variety of tasks, including language modeling and key information retrieval. It also shows
+              reduced attention noise and improved focus, making it robust for long-sequence processing and complex
+              scenarios.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The Differential Transformer aims to address the issue of excessive attention to irrelevant context in
+              standard Transformers by introducing a mechanism that enhances focus on relevant information while
+              reducing attention noise.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/difft-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/difft-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/difft-fig3.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/difft-fig4.png" class="img-fluid rounded" alt="...">
               </div>
             </div>
           </div>
