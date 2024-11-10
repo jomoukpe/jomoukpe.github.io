@@ -473,6 +473,76 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">LoRA vs Full Fine-tuning: An Illusion of Equivalence</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{shuttleworth2024loravft, <br>
+              title={LoRA vs Full Fine-tuning: An Illusion of Equivalence}, <br>
+              author={Shuttleworth, Reece and Andreas, Jacob and Torralba, Antonio and Sharma, Pratyusha}, <br>
+              journal={arXiv preprint arXiv:2410.21228}, <br>
+              year={2024}} <br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2410.21228">https://arxiv.org/pdf/2410.21228</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper "LoRA vs Full Fine-Tuning: An Illusion of Equivalence" examines the structural and behavioral
+              differences between Low-Rank Adaptation (LoRA) and full fine-tuning of pre-trained language models.
+              Although LoRA matches full fine-tuning performance with fewer trainable parameters, the paper reveals that
+              these methods produce fundamentally different solutions.
+
+              The authors find that LoRA introduces "intruder dimensions"—high-ranking singular vectors orthogonal to
+              pre-trained vectors—which do not appear in full fine-tuning. This structural divergence impacts model
+              behavior, causing LoRA models to forget more of the pre-training distribution and adapt less robustly in
+              continual learning scenarios. Despite similar performance on target tasks, LoRA-fine-tuned models exhibit
+              reduced generalization due to these intruder dimensions. Full fine-tuning, on the other hand, preserves
+              the alignment with pre-trained singular vectors, maintaining spectral similarity and higher effective rank
+              in weight matrices.
+
+              The study also highlights that even when LoRA uses a high-rank configuration, its effective rank remains
+              lower than that of full fine-tuning. This limitation points to LoRA's underutilization of parameter space,
+              explaining its struggles with complex tasks. Furthermore, an experiment isolating matrix <i>B</i> in
+              LoRA—where only <i>B</i> is trained while <i>A</i> remains fixed—shows a sharp reduction in intruder
+              dimensions. This suggests that the matrix product <i>BA</i> amplifies spectral differences, contributing to
+              the issue.
+
+              The authors conclude that while LoRA is computationally efficient, its distinct parameter updates lead to
+              reduced generalization unless higher ranks or stabilizing strategies are employed. This insight emphasizes
+              the trade-offs between LoRA’s parameter efficiency and the robustness of full fine-tuning.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper analyzes whether fine-tuning pre-trained language models using LoRA yields solutions equivalent
+              to those obtained through full fine-tuning, particularly by examining their structural differences,
+              generalization behaviors, and spectral properties.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/loravft-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/loravft-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/loravft-fig3.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/loravft-fig4.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
 
         <li>
           <div class="paper-container">
