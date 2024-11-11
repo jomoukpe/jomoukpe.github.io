@@ -582,7 +582,8 @@
               pattern is sparser and more precise, which helps the model prioritize crucial information.
 
               This differential attention mechanism can be seamlessly integrated with the existing multi-head attention
-              framework, where each head independently performs this subtraction-based attention (delta). The learnable scalar λ
+              framework, where each head independently performs this subtraction-based attention (delta). The learnable
+              scalar λ
               controls the degree of noise cancellation and adapts throughout training to optimize performance. This
               method leads to more efficient attention operations without significantly increasing computational
               complexity.
@@ -615,6 +616,72 @@
               </div>
               <div class="col">
                 <img src="../../images/repr/difft-fig4.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">nGPT: Normalized Transformer with Representation Learning on the Hypersphere</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{loshchilov2024ngpt, <br>
+              title={ngpt: Normalized transformer with representation learning on the hypersphere}, <br>
+              author={Loshchilov, Ilya and Hsieh, Cheng-Ping and Sun, Simeng and Ginsburg, Boris}, <br>
+              journal={arXiv preprint arXiv:2410.01131}, <br>
+              year={2024}} <br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2410.01131">
+              https://arxiv.org/pdf/2410.01131
+            </a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The nGPT method enhances the standard Transformer by incorporating a normalization strategy that
+              constrains all vectors involved—such as embeddings, MLP, attention matrices, and hidden states—to have
+              unit norm on a hypersphere. This normalization ensures that matrix-vector multiplications can be
+              interpreted as cosine similarities, bounded between -1 and 1, which eliminates the need for weight decay
+              and stabilizes training.
+
+              In nGPT, each input token is represented on the surface of a hypersphere, and the model iteratively
+              adjusts its position with updates determined by attention and MLP layers. These updates are controlled by
+              trainable eigen learning rates, represented as diagonal elements in a variable-metric matrix. The updates
+              are followed by normalization steps, which act as retraction steps in Riemannian optimization, keeping the
+              vectors on the hypersphere and maintaining consistency across layers.
+
+              The attention mechanism in nGPT applies normalization to the query and key vectors after projecting them,
+              ensuring that their dot products represent controlled, bounded similarities. This adjustment also modifies
+              the softmax scaling to restore variance, improving the model's stability. In the MLP block, similar
+              normalization is applied, with scaling factors introduced to maintain the impact of non-linearities like
+              the SiLU activation.
+
+              The method has demonstrated significant efficiency gains, requiring 4 to 20 times fewer training steps to
+              achieve the same accuracy as conventional Transformers, depending on context length. This approach
+              simplifies training by removing the need for additional normalization layers and weight decay, thus
+              optimizing performance for large-scale language models.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The nGPT model addresses the problem of improving training stability and efficiency in Transformers by
+              normalizing all vectors (embeddings, attention matrices, etc.) on a hypersphere, leading to faster
+              convergence and better representation learning​
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/ngpt-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/ngpt-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/ngpt-fig3.png" class="img-fluid rounded" alt="...">
               </div>
             </div>
           </div>
