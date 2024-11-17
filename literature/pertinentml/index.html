@@ -686,6 +686,83 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{schrittwieser2020muzero, <br>
+              title={Mastering atari, go, chess and shogi by planning with a learned model}, <br>
+              author={Schrittwieser, Julian and Antonoglou, Ioannis and Hubert, Thomas and Simonyan, Karen and Sifre,
+              Laurent and Schmitt, Simon and Guez, Arthur and Lockhart, Edward and Hassabis, Demis and Graepel, Thore
+              and others}, <br>
+              journal={Nature}, <br>
+              year={2020}} <br>
+            </p>
+
+            url=<a
+              href="https://www.nature.com/articles/s41586-020-03051-4">https://www.nature.com/articles/s41586-020-03051-4</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              In the context of MuZero, the value represents the expected cumulative reward of a state, essentially
+              summing up future rewards over a horizon, discounted to account for their diminishing significance over
+              time. The reward indicates the immediate benefit or outcome of a specific action, and the policy
+              defines the strategy for selecting the best action at any given state. Monte Carlo Tree Search (MCTS) is a
+              planning algorithm that explores possible future action sequences in a tree-like structure. It evaluates
+              the outcomes of actions by simulating hypothetical scenarios, balancing the exploration of new
+              possibilities with the exploitation of known good actions, and refines the policy and value estimates to
+              guide the agent's decision-making.
+
+              MuZero is a model-based reinforcement learning algorithm designed to operate without explicit knowledge of
+              the environment's dynamics. It focuses on predicting three key quantities essential for planning and
+              decision-making: policy, value, and reward. Instead of reconstructing the environment or modeling its full
+              dynamics, MuZero uses a learned latent representation optimized for these predictions, enabling efficient
+              planning and generalization across diverse tasks.
+
+              The core of the method consists of three interconnected functions: a representation function, a
+              dynamics function, and a prediction function. The representation function processes historical
+              observations to produce a hidden state, which serves as the input to the planning process. The dynamics
+              function updates this hidden state iteratively based on hypothetical actions, generating a new state and
+              an immediate reward prediction. The prediction function uses the hidden state at each step to compute the
+              policy and value estimates required for decision-making.
+
+              MuZero integrates these components with Monte Carlo Tree Search (MCTS) to enable planning. The search
+              algorithm explores hypothetical trajectories, using the learned model to simulate transitions and evaluate
+              states. The outputs of the MCTS—improved policy and value estimates—are used as targets to refine the
+              model through end-to-end training. The training minimizes prediction errors for policy, value, and reward
+              across sampled trajectories from a replay buffer, using a combined loss function that includes
+              regularization.
+
+              A key innovation of MuZero is its latent state representation, which is free from constraints to match the
+              actual environment state or observation. This allows the model to efficiently encode only the information
+              necessary for accurate planning, reducing computational overhead and improving scalability. The latent
+              state evolves through recurrent unrolling during planning and training, adapting to the task's
+              requirements dynamically.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper addresses the problem of constructing agents capable of effective planning in environments where
+              the dynamics are unknown or too complex to model explicitly, a limitation that has hindered the
+              application of traditional planning and model-based reinforcement learning methods in real-world and
+              visually rich domains.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/muzero-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/muzero-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
 
         <li>
           <div class="paper-container">
