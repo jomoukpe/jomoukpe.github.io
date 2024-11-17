@@ -1393,6 +1393,90 @@
                 </div>
             </div>
         </li>
+        <li>
+            <div class="paper-container">
+                <h3 class="paper-title">Towards realistic long-tailed semi-supervised learning: Consistency is all you
+                    need</h3>
+
+                <p>
+                    <strong>BibTex</strong>
+                    <br>
+                    @inproceedings{wei2023acr, <br>
+                    title={Towards realistic long-tailed semi-supervised learning: Consistency is all you need}, <br>
+                    author={Wei, Tong and Gan, Kai}, <br>
+                    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, <br>
+                    year={2023}} <br>
+                </p>
+
+                url=<a
+                    href="https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Towards_Realistic_Long-Tailed_Semi-Supervised_Learning_Consistency_Is_All_You_Need_CVPR_2023_paper.pdf">
+                    https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Towards_Realistic_Long-Tailed_Semi-Supervised_Learning_Consistency_Is_All_You_Need_CVPR_2023_paper.pdf</a><br>
+
+                <strong>Summary</strong>
+                <br>
+                <p>
+                    The paper proposes the Adaptive Consistency Regularizer (ACR), a novel approach to tackle the
+                    challenges of Long-Tailed Semi-Supervised Learning (LTSSL) when the class distributions of labeled
+                    and unlabeled data are mismatched. ACR extends the FixMatch algorithm by incorporating a two-branch
+                    network architecture to balance representation learning and unbiased classification. The network
+                    comprises a standard branch, which focuses on robust feature representation, and a balanced
+                    branch, which addresses class imbalance by leveraging adjusted logits and pseudo-labels.
+
+                    In the standard branch, the loss function includes two terms: a supervised classification term
+                    using standard cross-entropy for labeled data, and an unsupervised consistency regularization term
+                    that enforces prediction stability for augmented unlabeled samples using pseudo-labels. This branch
+                    primarily focuses on extracting strong feature representations by directly learning from the labeled
+                    and pseudo-labeled data without explicit adjustments for class imbalance.
+
+                    The balanced branch, in contrast, aims to counteract the inherent bias toward majority classes
+                    often seen in long-tailed datasets. Its loss function also has two components: a supervised term
+                    using a balanced softmax loss, which adjusts logits based on estimated class priors, and a
+                    consistency regularization term that uses refined pseudo-labels. These pseudo-labels are generated
+                    by adjusting logits to bias predictions toward minority classes, enhancing the balance in classifier
+                    learning.
+
+                    A key innovation in ACR is its pseudo-label refinement mechanism, which dynamically adjusts
+                    pseudo-labels based on the estimated true class distribution of the unlabeled data. To estimate this
+                    distribution, ACR compares the pseudo-label distribution with three anchor distributions—consistent,
+                    uniform, and reversed—using bidirectional KL divergence. The closest anchor distribution guides the
+                    adjustment of logits, ensuring the refined pseudo-labels align better with the actual class
+                    distribution.
+
+                    A dynamic scaling parameter (τ) is introduced to control the intensity of logit adjustments.
+                    This parameter is updated adaptively during training, based on the estimated distances to the anchor
+                    distributions. This flexibility allows ACR to handle diverse class distribution scenarios, such as
+                    consistent, uniform, or reversed distributions, ensuring that pseudo-labels are appropriately
+                    calibrated for both branches.
+
+                    Both branches share a feature extractor, fostering synergy between their objectives. The standard
+                    branch benefits from refined pseudo-labels for improved representation learning, while the balanced
+                    branch ensures fair and unbiased classification. Consistency regularization in both branches
+                    enforces robust learning, with each branch leveraging the refined pseudo-labels differently to
+                    optimize their respective goals.
+                </p>
+
+                <p>
+                    <strong>Problem</strong>
+                    learning from long-tailed semi-supervised datasets with
+                    mismatched class distributions between labeled and unlabeled data
+                </p>
+
+                <p>
+                    <strong>Solution, Ideas and Why</strong>
+                    pseudo-label refinement, dynamic distribution estimation, and consistency constraints.
+                </p>
+
+                <strong>Images</strong><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="../../images/imb_class/acr-fig1.PNG" class="img-fluid rounded" alt="...">
+                    </div>
+                    <div class="col">
+                        <img src="../../images/imb_class/acr-fig2.PNG" class="img-fluid rounded" alt="...">
+                    </div>
+                </div>
+            </div>
+        </li>
         </ol>
     </div>
     </div>
