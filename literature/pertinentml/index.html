@@ -845,6 +845,66 @@
 
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">Combining Induction and Transduction for Abstract Reasoning</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{li2024transdvInd, <br>
+              title={Combining Induction and Transduction for Abstract Reasoning}, <br>
+              author={Li, Wen-Ding and Hu, Keya and Larsen, Carter and Wu, Yuqing and Alford, Simon and Woo, Caleb and
+              Dunn, Spencer M and Tang, Hao and Naim, Michelangelo and Nguyen, Dat and others}, <br>
+              journal={arXiv preprint arXiv:2411.02272}, <br>
+              year={2024}} <br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2411.02272">https://arxiv.org/pdf/2411.02272</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              This paper explores the interplay between induction and transduction in solving abstract reasoning tasks
+              within the challenging Abstract Reasoning Corpus (ARC). Induction focuses on inferring a latent function
+              that maps inputs to outputs, while transduction predicts outputs directly without an explicit function
+              representation. Using synthetic ARC-style datasets generated with large language models, the authors show
+              that these approaches are not only distinct but strongly complementary—induction handles tasks requiring
+              symbolic reasoning and compositionality, while transduction excels in perceptual tasks like pattern
+              recognition. Surprisingly, even when trained on identical datasets and architectures, the two methods
+              excel on different subsets of problems, and their combination via ensembling yields superior performance.
+
+              The study also introduces a scalable methodology for generating ARC-like problems by crafting Python
+              programs (called seeds) that encapsulate abstract concepts and generate inputs and outputs tailored to
+              these concepts. These seeds are expanded into large datasets through language model-assisted remixing,
+              allowing for diverse and realistic problem generation. The findings challenge traditional views that favor
+              induction or transduction exclusively, demonstrating that their strengths depend on problem
+              characteristics. The paper also highlights the limitations of existing neural architectures in achieving
+              true sample-efficient generalization and suggests a path forward by developing representations that
+              intertwine symbolic and neural paradigms. This work sets new benchmarks for ARC while bridging gaps in
+              understanding the roles of induction and transduction in abstract reasoning.
+
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper addresses the challenge of robust few-shot generalization in abstract reasoning by exploring and
+              comparing two neural approaches—induction and transduction—for solving tasks in the Abstract Reasoning
+              Corpus (ARC)​
+            </p>
+
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/transdvind-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/transdvind-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
