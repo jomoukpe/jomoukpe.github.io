@@ -763,6 +763,85 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">The Surprising Effectiveness of Test-Time Training for Abstract Reasoning</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{akyurek2024ttt, <br>
+              title={The Surprising Effectiveness of Test-Time Training for Abstract Reasoning}, <br>
+              author={Aky{\"u}rek, Ekin and Damani, Mehul and Qiu, Linlu and Guo, Han and Kim, Yoon and Andreas, Jacob},
+              <br>
+              journal={arXiv e-prints}, <br>
+              year={2024}} <br>
+            </p>
+
+            url=<a
+              href="https://ekinakyurek.github.io/papers/ttt.pdf">https://ekinakyurek.github.io/papers/ttt.pdf</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The method revolves around Test-Time Training (TTT), a dynamic approach for improving the reasoning
+              abilities of large language models (LLMs) on novel abstract reasoning tasks. TTT involves updating the
+              model parameters during inference by creating an auxiliary dataset derived from the test inputs and
+              optimizing a loss function specific to this test-time dataset. This enables the model to adapt
+              specifically to the task at hand without requiring extensive offline retraining or access to large labeled
+              datasets.
+
+              To begin, the base model is fine-tuned on synthetic tasks similar to those expected at test time. This
+              initial fine-tuning provides the model with a foundation of reasoning capabilities. At inference, TTT
+              takes over and constructs a test-time training dataset by applying two main techniques: leave-one-out
+              tasks and rule-based augmentations. The leave-one-out tasks involve generating synthetic examples by
+              holding out one input-output pair at a time, effectively creating smaller training datasets for the model
+              to learn from. Rule-based augmentations apply geometric transformations (e.g., rotations, flips, or color
+              permutations) to enhance the diversity and richness of the test-time data while preserving the task's
+              underlying structure.
+
+              During TTT, the method employs Low-Rank Adaptation (LoRA) for parameter-efficient fine-tuning. LoRA
+              introduces task-specific adapters that are trained on the generated test-time dataset while keeping most
+              of the model's original parameters frozen. This approach allows the model to adapt quickly and effectively
+              to each new task without losing its general pre-trained knowledge.
+
+              Inference is further enhanced through an augmented pipeline. The model predicts outputs not only on
+              the original task representation but also on its transformed versions generated during the augmentation
+              process. Each transformation is applied to the task's input and outputs, and predictions are made under
+              these altered conditions. After inference, the transformed predictions are reverted back to the original
+              space using inverse transformations.
+
+              To consolidate predictions, the method uses a hierarchical voting strategy. In the first stage,
+              predictions are grouped by transformation type, and the most frequent outputs are identified within each
+              group. In the second stage, the top candidates from each transformation are aggregated, and the final
+              prediction is chosen based on overall consistency across all transformations. This voting mechanism
+              ensures that the model's output reflects a self-consistent understanding of the task.
+
+              The results of this approach demonstrate significant gains in accuracy on the ARC dataset. TTT enables
+              models to match or exceed the performance of traditional neuro-symbolic approaches while remaining purely
+              neural. The combination of carefully crafted test-time data generation, efficient parameter adaptation,
+              and robust inference strategies forms the core of this highly effective methodology.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper addresses the problem of improving large language models' ability to solve novel abstract
+              reasoning tasks by using test-time training (TTT) to adapt model parameters during inference, with
+              significant improvements on the challenging Abstraction and Reasoning Corpus (ARC).
+            </p>
+
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/ttt-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/ttt-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
 
         <li>
           <div class="paper-container">
