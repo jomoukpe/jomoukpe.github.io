@@ -1050,7 +1050,86 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Bootstrapping reinforcement learning with imitation for vision-based agile flight
+            </h3>
 
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{xing2024iltorl,<br>
+              title={Bootstrapping reinforcement learning with imitation for vision-based agile flight},<br>
+              author={Xing, Jiaxu and Romero, Angel and Bauersfeld, Leonard and Scaramuzza, Davide},<br>
+              journal={CoRL},<br>
+              year={2024}<br>
+              }
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2403.12203">https://arxiv.org/pdf/2403.12203</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The proposed method combines the strengths of Reinforcement Learning (RL) and Imitation Learning (IL) to
+              train visuomotor policies for agile quadrotor flight. The key challenge addressed is the inefficiency of
+              RL in high-dimensional visual input spaces and the limited generalizability of IL policies due to reliance
+              on expert demonstrations. The approach introduces a three-phase framework: RL-based teacher policy
+              training, IL-based student policy distillation, and RL-based adaptive fine-tuning.
+
+              In the first phase, a teacher policy is trained using RL with privileged state information. This
+              state-based policy leverages data such as position, velocity, orientation, and gate-relative positions,
+              which are not available to the drone in real-time. The RL training employs Proximal Policy Optimization
+              (PPO) and uses a carefully designed reward function. This reward includes components for progress through
+              gates, perception alignment, action smoothness, body rate minimization, gate-passing success, and
+              collision penalties. By optimizing these factors, the teacher policy achieves high performance and
+              robustness in simulation.
+
+              The second phase transitions from privileged state information to vision-based inputs by distilling the
+              teacher policy into a student policy using IL. The student policy directly maps visual inputs, such as RGB
+              images or gate corner projections, to control actions. Temporal Convolutional Networks (TCNs) process
+              sequences of visual inputs to encode spatial-temporal features, which are then passed through a
+              multi-layer perceptron (MLP) to output actions. The IL objective minimizes the error between the teacher
+              and student actions over a dataset of teacher-generated trajectories. This phase creates a performant
+              baseline policy capable of operating on real-world visual inputs.
+
+              In the third phase, the student policy is fine-tuned through vision-based RL to improve performance and
+              robustness. This stage addresses the limitations of IL, such as covariate shift and lack of exploration,
+              by allowing the policy to interact with the environment. A performance-constrained adaptation algorithm is
+              introduced to mitigate the stability-plasticity dilemma, where policies risk forgetting learned behaviors
+              during exploration. The algorithm adjusts learning rates and policy update constraints based on
+              performance metrics, ensuring smooth and stable fine-tuning. Additionally, an asymmetric actor-critic
+              architecture is used, where the critic has access to privileged state information to guide the actor's
+              learning. This setup improves sample efficiency and accelerates convergence.
+
+              The combined framework is validated in both simulation and real-world environments. It demonstrates that
+              the bootstrapped policy outperforms standalone RL and IL methods in robustness, performance, and sample
+              efficiency. The integration of IL for rapid baseline policy learning and RL for adaptive fine-tuning
+              allows the approach to overcome the inherent challenges of training visuomotor policies for agile drone
+              flight, such as handling high-dimensional inputs, adapting to unseen scenarios, and ensuring low-latency
+              control. This makes the method a significant step forward in enabling autonomous flight systems to perform
+              complex tasks using only visual data.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper addresses the challenge of training high-performance visuomotor policies for agile drone flight
+              using only visual inputs, by proposing a framework that combines the sample efficiency of Imitation
+              Learning (IL) with the exploration capability of Reinforcement Learning (RL), overcoming limitations of
+              both methods in isolation.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/iltorl-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/iltorl-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <li>
           <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
