@@ -1469,10 +1469,92 @@
                 <strong>Images</strong><br>
                 <div class="row">
                     <div class="col">
-                        <img src="../../images/imb_class/acr-fig1.PNG" class="img-fluid rounded" alt="...">
+                        <img src="../../images/imb_class/acr-fig1.png" class="img-fluid rounded" alt="...">
                     </div>
                     <div class="col">
-                        <img src="../../images/imb_class/acr-fig2.PNG" class="img-fluid rounded" alt="...">
+                        <img src="../../images/imb_class/acr-fig2.png" class="img-fluid rounded" alt="...">
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="paper-container">
+                <h3 class="paper-title">Transfer Knowledge from Head to Tail: Uncertainty Calibration under Long-tailed
+                    Distribution</h3>
+
+                <p>
+                    <strong>BibTex</strong>
+                    <br>
+                    @inproceedings{chen2023unccalib, <br>
+                    title={Transfer knowledge from head to tail: Uncertainty calibration under long-tailed
+                    distribution}, <br>
+                    author={Chen, Jiahao and Su, Bing}, <br>
+                    booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition}, <br>
+                    year={2023}} <br>
+                </p>
+
+                url=<a
+                    href="https://openaccess.thecvf.com/content/CVPR2023/papers/Chen_Transfer_Knowledge_From_Head_to_Tail_Uncertainty_Calibration_Under_Long-Tailed_CVPR_2023_paper.pdf">https://openaccess.thecvf.com/content/CVPR2023/papers/Chen_Transfer_Knowledge_From_Head_to_Tail_Uncertainty_Calibration_Under_Long-Tailed_CVPR_2023_paper.pdf</a><br>
+
+                <strong>Summary</strong>
+                <br>
+                <p>
+                    This paper tackles the challenge of uncertainty calibration for models trained on long-tailed
+                    distributions, where dominant "head" classes have abundant data, and underrepresented "tail" classes
+                    are prone to overconfidence and poor reliability. Traditional calibration methods, such as
+                    temperature scaling, fail to generalize well in these scenarios due to the mismatch between the
+                    long-tailed training data and the balanced test data. To address this, the authors propose a
+                    knowledge-transfer-based method that leverages the statistics of head classes to improve calibration
+                    for tail classes. The core idea is to model class distributions as Gaussians, with head classes
+                    treated as reliable estimates in both training and test sets. Tail class distributions, however, are
+                    estimated by borrowing information from head classes, guided by a similarity metric based on the
+                    Wasserstein distance, which captures both mean and variance statistics.
+
+                    The method involves constructing an attention mechanism to transfer information from head to tail
+                    classes. For each tail class, the similarity to head classes is computed using the Wasserstein
+                    distance, and this guides the borrowing process. The resulting estimated mean and variance for the
+                    tail class distributions are a weighted combination of their own statistics and those of the head
+                    classes. These estimated distributions are then used to calculate importance weights, which are
+                    defined as the ratio of the estimated balanced density to the observed long-tailed density for each
+                    instance. The importance weights reweight the loss function during calibration, allowing the model
+                    to generalize better across the mismatch between training and test distributions. Temperature
+                    scaling is applied on top of this process to further refine the calibration, with the importance
+                    weights ensuring the adjustment is tailored to the long-tailed setting.
+
+                    While the method is conceptually novel, its implementation introduces several significant issues. A
+                    key parameter, the borrowing coefficient (α), is set very high in practice, meaning the method
+                    relies minimally on transferred information from head classes. This undermines the fundamental
+                    premise of the approach, as the transfer of meaningful information is a central component.
+                    Furthermore, borrowing the mean from head classes is problematic, as the spatial position of the
+                    mean for tail classes in the feature space is unrelated to the means of head classes, leading to
+                    potentially misleading estimates. Borrowing the variance is somewhat more defensible, as it could
+                    reflect the uncertainty scale of tail classes. However, this approach risks inflating the manifold
+                    of tail classes excessively, causing overlaps with other classes and introducing classification
+                    errors. These limitations highlight a disconnect between the conceptual goals of the method and its
+                    practical execution.
+                </p>
+
+                <p>
+                    <strong>Problem</strong>
+                    This paper addresses the challenge of calibrating uncertainty estimates for models trained on
+                    long-tailed distributions, proposing a novel method that transfers knowledge from head classes to
+                    improve calibration for tail classes using importance weights and Gaussian modeling.
+                </p>
+
+                <p>
+                    <strong>Solution, Ideas and Why</strong>
+                    borrowing mean and variance from head classes to estimate tail classes.
+
+                </p>
+
+
+                <strong>Images</strong><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="../../images/imb_class/unccalib-fig1.png" class="img-fluid rounded" alt="...">
+                    </div>
+                    <div class="col">
+                        <img src="../../images/imb_class/unccalib-fig2.png" class="img-fluid rounded" alt="...">
                     </div>
                 </div>
             </div>
