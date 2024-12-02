@@ -4406,7 +4406,8 @@
               through
               message passing with relevant super-classes. To improve robustness, Meta-SuperDisco introduces a prototype
               graph (P) built from a small balanced dataset to capture clean sample-level relationships. Finally, a
-              super graph (S) connects the prototype graph to the super-class graph (C), allowing the prototypes to guide
+              super graph (S) connects the prototype graph to the super-class graph (C), allowing the prototypes to
+              guide
               better super-class discovery
 
               Interestingly, the authors structure their super-class hierarchy to start with fewer classes at higher
@@ -4444,6 +4445,77 @@
               </div>
               <div class="col">
                 <img src="../../images/repr/superdisco-fig3.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Enhancing Class-Imbalanced Learning with Pre-Trained Guidance through
+              Class-Conditional Knowledge Distillation</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{liacckd, <br>
+              title={Enhancing Class-Imbalanced Learning with Pre-Trained Guidance through Class-Conditional Knowledge
+              Distillation}, <br>
+              author={Li, Lan and Li, Xin-Chun and Ye, Han-Jia and Zhan, De-Chuan}, <br>
+              booktitle={Forty-first International Conference on Machine Learning} <br>
+              }
+            </p>
+
+            url=<a href="https://openreview.net/pdf?id=O4nXWHPl6g">https://openreview.net/pdf?id=O4nXWHPl6g</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper introduces a method to address the challenges of class-imbalanced learning (CIL) by leveraging
+              the capabilities of large-scale pre-trained models to enhance the generalization of features, particularly
+              for minority classes. Central to the proposed approach is the concept of Class-Conditional Knowledge
+              Distillation (CCKD), which departs from conventional knowledge distillation techniques by focusing on
+              learning the teacher model's class-conditional probability distribution p(x|y). This shift is crucial
+              because traditional methods transfer the posterior distribution p(y|x), which often fails to
+              generalize well on imbalanced datasets due to insufficient representation of minority classes.
+
+              To implement CCKD, the student model learns the class-conditional probability distribution p(x|y) by
+              normalizing the teacher model's predictions p(y|x) with the class priors, which are computed based on
+              Bayes' theorem. However, since the continuous nature of x makes direct optimization infeasible, the
+              method employs a reformulation that indirectly learns p(x|y) through adjusted distillation loss
+              functions. The model integrates these probabilities with logit adjustments to counteract the imbalanced
+              class distributions.
+
+              The method is extended with Augmented Class-Conditional Knowledge Distillation (ACCKD), which further
+              improves generalization by introducing a synthetic class-balanced dataset generated using data
+              augmentation techniques like Mixup and CutMix. These methods create new training samples by interpolating
+              or combining samples from different classes. By ensuring a balanced distribution of classes in the
+              synthetic dataset, the approach helps the student model learn a more generalized p(x|y). Additionally,
+              a feature imitation loss is introduced to align the feature spaces of the teacher and student models,
+              promoting the transfer of intrinsic feature structures across the two models. This alignment is achieved
+              by minimizing the cosine distance between the feature embeddings from the teacher and student networks.
+
+              While the proposed method introduces novel and effective techniques for addressing class imbalance, a few
+              issues remain with the paper. Notably, the authors conflate the use of likelihood p(x|y) and posterior
+              p(y|x) terms, treating them interchangeably in several contexts, which may lead to theoretical
+              ambiguities and potential misunderstandings. This conflation undermines the conceptual clarity of the
+              proposed approach and makes it challenging to rigorously assess its implications. Addressing such issues
+              would strengthen the paper's contributions and solidify its impact on the field.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              This paper addresses the problem of improving class-imbalanced learning by leveraging pre-trained models
+              to enhance the generalization of features for minority classes through class-conditional knowledge
+              distillation and data augmentation techniques.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/acckd-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/acckd-fig2.png" class="img-fluid rounded" alt="...">
               </div>
             </div>
           </div>
