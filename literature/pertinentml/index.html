@@ -973,6 +973,86 @@
         </li>
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">D-FINE: Redefine Regression Task in DETRs as Fine-grained Distribution Refinement
+            </h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{peng2024dfine,
+              title={D-FINE: Redefine Regression Task in DETRs as Fine-grained Distribution Refinement},
+              author={Peng, Yansong and Li, Hebei and Wu, Peixi and Zhang, Yueyi and Sun, Xiaoyan and Wu, Feng},
+              journal={ICLR},
+              year={2024}
+              }
+            </p>
+
+            url=<a href="https://openreview.net/pdf?id=MFZjrTFE7h">https://openreview.net/pdf?id=MFZjrTFE7h</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper introduces D-FINE, a novel framework for real-time object detection that redefines the
+              bounding box regression process in Detection Transformer (DETR) models. Traditional methods rely on
+              fixed-coordinate predictions for bounding boxes, which struggle with modeling localization uncertainty and
+              often lead to suboptimal performance. D-FINE addresses these challenges by transforming the regression
+              task into a probabilistic iterative refinement process that significantly improves localization accuracy.
+              The framework is designed to be computationally efficient while achieving high precision, making it ideal
+              for real-time applications.
+
+              At the core of D-FINE is Fine-grained Distribution Refinement (FDR), which replaces traditional
+              fixed-coordinate bounding box predictions with iterative refinements of probability distributions.
+              Initially, the bounding box is predicted as a reference point with basic center coordinates and
+              dimensions. FDR transforms these predictions into probability distributions for the distances from the
+              center to each edge. Each decoder layer refines these distributions in a residual manner, progressively
+              narrowing the range of uncertainty and aligning the predictions closer to the ground truth. The iterative
+              process enables fine-grained adjustments that capture both large and small discrepancies in localization,
+              resulting in precise bounding boxes even in challenging scenarios. A specially designed weighting function
+              adapts the adjustments based on prediction accuracy, ensuring flexible and robust optimization.
+
+              Complementing FDR is Global Optimal Localization Self-Distillation (GO-LSD), a self-distillation
+              mechanism that transfers refined localization knowledge from deeper layers to shallower ones. This process
+              ensures that early layers produce better initial predictions, reducing the complexity of subsequent
+              refinements and accelerating convergence. By aligning the outputs of earlier layers with the more accurate
+              predictions of later layers, GO-LSD fosters a collaborative learning process across the model's depth,
+              enhancing both efficiency and accuracy without increasing training costs or parameter counts.
+
+              D-FINE integrates additional architectural optimizations to streamline computationally intensive
+              components, maintaining a balance between speed and accuracy. Despite these efficiency-driven changes, the
+              synergy between FDR and GO-LSD mitigates any potential performance losses, resulting in a framework that
+              outperforms state-of-the-art detectors. This redefinition of the regression task not only improves
+              precision but also makes the model more adaptable to various DETR architectures, demonstrating its
+              versatility and scalability.
+
+              By addressing the fundamental limitations of traditional regression-based approaches, D-FINE sets a new
+              benchmark in object detection. Its probabilistic, iterative approach to bounding box refinement and
+              innovative self-distillation mechanism ensure precise localization, computational efficiency, and
+              scalability across different tasks and datasets. This makes D-FINE a significant advancement in the field
+              of real-time object detection.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper addresses the challenges in bounding box regression and knowledge distillation for real-time
+              object detection by introducing D-FINE, which enhances detection precision through Fine-grained
+              Distribution Refinement (FDR) and Global Optimal Localization Self-Distillation (GO-LSD), significantly
+              improving both accuracy and efficiency in DETR-based models.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/dfine-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/dfine-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
