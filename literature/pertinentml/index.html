@@ -1128,6 +1128,79 @@
             </div>
           </div>
         </li>
+
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Abandoning objectives: Evolution through the search for novelty alone</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{lehman2011novelty,<br>
+              title={Abandoning objectives: Evolution through the search for novelty alone},<br>
+              author={Lehman, Joel and Stanley, Kenneth O},<br>
+              journal={Evolutionary computation},<br>
+              year={2011},<br>
+              publisher={MIT Press}<br>
+              }
+            </p>
+
+            url=<a href="https://stars.library.ucf.edu/cgi/viewcontent.cgi?article=2529&context=facultybib2010">
+              https://stars.library.ucf.edu/cgi/viewcontent.cgi?article=2529&context=facultybib2010</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper introduces a novel approach called *novelty search*, which challenges the traditional reliance
+              on objective-based fitness functions in evolutionary computation. Instead of measuring progress toward a
+              predefined goal, novelty search rewards the discovery of new and unique behaviors, circumventing common
+              issues like deception and local optima that often plague objective-based methods. This method redefines
+              the search process by focusing solely on behavioral diversity, using a novelty metric to evaluate how
+              distinct an individual’s behavior is compared to others in a behavior space. Sparseness in this space,
+              calculated as the average distance to the k-nearest neighbors, determines the novelty score. Behaviors
+              deemed sufficiently novel are added to a growing archive, which guides the search toward unexplored areas.
+
+              The paper demonstrates novelty search through experiments using the NeuroEvolution of Augmenting
+              Topologies (NEAT) algorithm, which evolves artificial neural networks (ANNs) to control agents. NEAT’s
+              gradual complexification of network structures aligns naturally with novelty search, as simpler behaviors
+              are explored first, setting the stage for progressively more complex behaviors to emerge. This combination
+              allows novelty search to navigate behavior space methodically, avoiding the pitfalls of random
+              exploration.
+
+              Experiments in maze navigation and biped locomotion tasks illustrate the effectiveness of this approach.
+              In maze navigation, novelty search outperformed traditional objective-based methods by avoiding dead-end
+              paths that appeared promising under a goal-oriented fitness function but led to failure. In biped
+              locomotion, novelty search evolved controllers that walked farther and more stably than those optimized
+              explicitly for walking performance. These results highlight a counterintuitive yet crucial insight:
+              ignoring the objective can lead to better solutions than directly pursuing it, particularly in problems
+              with deceptive or rugged search landscapes.
+
+              Novelty search represents a significant shift in evolutionary computation, promoting open-ended
+              exploration as an alternative to objective optimization. It offers a robust tool for solving complex
+              problems that require discovering intermediate stepping stones, which are often missed by traditional
+              methods. By prioritizing behavioral diversity, novelty search opens the door to innovative solutions
+              across a range of domains, challenging the assumption that objectives are always necessary for effective
+              search.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper addresses the problem of overcoming the limitations of objective-based search in evolutionary
+              computation by proposing novelty search as an alternative approach to mitigate deception and local optima
+              in complex search spaces​
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/novelty-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/novelty-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <li>
           <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
