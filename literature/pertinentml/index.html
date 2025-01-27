@@ -1256,7 +1256,7 @@
               encoder configurations, with better alignment leading to superior performance in both generation and
               linear probing tasks. The scalability of REPA was further validated, as its relative improvement became
               more pronounced with larger model sizes.
-  
+
             </p>
 
             <p>
@@ -1273,6 +1273,86 @@
               </div>
               <div class="col">
                 <img src="../../images/ml/repa-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{chen2024df,<br>
+              title={Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion},<br>
+              author={Chen, Boyuan and Mons{\'o}, Diego Mart{\'\i} and Du, Yilun and Simchowitz, Max and Tedrake, Russ
+              and Sitzmann, Vincent},<br>
+              booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},<br>
+              year={2024}}<br>
+            </p>
+
+            url=<a href="https://openreview.net/pdf?id=yDo1ynArjj">https://openreview.net/pdf?id=yDo1ynArjj</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper introduces Diffusion Forcing (DF), a novel training and sampling paradigm designed to unify the
+              strengths of next-token prediction models and full-sequence diffusion models for sequence generation.
+              Traditional next-token models excel in generating variable-length sequences and maintaining causality but
+              often fail in long-horizon scenarios, where errors compound over time. Full-sequence diffusion models, on
+              the other hand, perform well for continuous data and support guided sampling, but their non-causal
+              architectures limit them to fixed-length sequences and prevent flexible guidance. Diffusion Forcing
+              bridges these gaps by introducing a method where each token in a sequence is associated with an
+              independent noise level, allowing flexible denoising schedules and causal sequence modeling.
+
+              The Diffusion Forcing framework works by treating noise addition as a form of partial masking. During
+              training, a causal architecture, such as an RNN, is used to model sequences where each token can be noised
+              independently. The model learns to denoise these sequences by predicting the clean tokens from their noisy
+              counterparts, while maintaining a causal dependency between past and future tokens. The key innovation
+              lies in enabling the model to operate across a 2D grid where one axis represents time and the other axis
+              represents noise levels. This approach allows the model to simultaneously learn temporal relationships and
+              handle varying degrees of uncertainty across the sequence.
+
+              During sampling, Diffusion Forcing employs a flexible noise scheduling mechanism, where tokens are
+              denoised incrementally along the time axis. By allowing future tokens to remain noisier than immediate
+              ones, the model maintains uncertainty about distant events, which can then be guided dynamically. The
+              framework introduces Monte Carlo Guidance (MCG), a technique that samples multiple potential future
+              trajectories and uses their gradients to guide the sampling of the current token. This approach ensures
+              that the generated sequences align with high-reward trajectories, making it particularly effective for
+              decision-making and planning tasks.
+
+              The authors demonstrate the capabilities of Diffusion Forcing across diverse applications, including video
+              generation, sequential decision-making, and imitation learning. In video generation tasks, the method
+              produces temporally consistent rollouts that remain stable even beyond the training horizon, outperforming
+              both next-token prediction models trained with teacher forcing and causal full-sequence diffusion models.
+              For decision-making tasks, such as reinforcement learning in 2D maze environments, Diffusion Forcing
+              achieves superior performance by leveraging MCG and its ability to model causal uncertainty. The results
+              show that it significantly outperforms baselines like Diffuser, a state-of-the-art diffusion-based
+              planner, especially when directly executing generated actions without relying on handcrafted controllers.
+
+              In imitation learning, Diffusion Forcing proves highly robust, enabling long-horizon visuomotor tasks
+              where memory is essential. By incorporating latent states that summarize past observations, it can handle
+              scenarios where immediate observations are ambiguous or noisy. The framework also allows for pretraining
+              on unlabeled video data, further expanding its applicability to tasks requiring both action generation and
+              video synthesis.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              unifying the strengths of next-token prediction models and full-sequence diffusion models for
+              probabilistic sequence generation, by introducing a novel framework called Diffusion Forcing that enables
+              efficient, stable, and flexible generation of variable-length sequences while supporting long-horizon
+              guidance
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/df-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/df-fig2.png" class="img-fluid rounded" alt="...">
               </div>
             </div>
           </div>
