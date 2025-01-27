@@ -1623,6 +1623,88 @@
         </li>
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">Okami: Teaching humanoid robots manipulation skills through single video imitation
+            </h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{li2024okami,<br>
+              title={Okami: Teaching humanoid robots manipulation skills through single video imitation},<br>
+              author={Li, Jinhan and Zhu, Yifeng and Xie, Yuqi and Jiang, Zhenyu and Seo, Mingyo and Pavlakos, Georgios
+              and Zhu, Yuke},<br>
+              booktitle={8th Annual Conference on Robot Learning},<br>
+              year={2024}}<br>
+            </p>
+
+            url=<a href="https://openreview.net/pdf?id=URj5TQTAXM">https://openreview.net/pdf?id=URj5TQTAXM</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper introduces OKAMI, a two-stage method designed to teach humanoid robots manipulation skills
+              through single video demonstrations of human actions. This approach addresses the challenge of open-world
+              imitation from observation, where robots must learn manipulation tasks without action labels and
+              generalize to new environments with varying object placements and conditions. OKAMI is centered on an
+              object-aware retargeting mechanism that enables humanoid robots to mimic human actions while adapting to
+              the spatial and visual complexities of real-world scenarios.
+
+              The first stage of OKAMI involves generating a reference plan from the given RGB-D video demonstration.
+              This begins with identifying task-relevant objects using vision-language models like GPT-4V, which
+              leverage commonsense knowledge to recognize objects and their roles in the task. These objects are
+              segmented and tracked throughout the video using visual models like Grounded-SAM. Once task-relevant
+              objects are identified, human motions are reconstructed from the video using an enhanced version of
+              SLAHMR, a motion reconstruction algorithm that captures both full-body and hand poses. OKAMI further
+              refines these hand poses using HaMeR, enabling precise reproduction of fine-grained manipulation
+              behaviors. The reconstructed motions and identified objects are combined to segment the video into
+              subgoals, each corresponding to a key manipulation step. Each subgoal includes information about target
+              and reference objects, motion trajectories, and spatial relations, forming the basis of the reference
+              plan.
+
+              In the second stage, OKAMI performs object-aware motion retargeting to translate the human actions into
+              robot-executable commands. This involves localizing objects in the test environment using the same vision
+              pipeline, enabling the robot to adapt its actions to new object placements and unseen environments. The
+              retargeting process is factorized into two components: body motions and hand poses. First, the human body
+              motions are mapped to the robot's task space, scaling and adjusting trajectories to account for
+              differences in size and proportion between humans and humanoids. The trajectories are then warped to align
+              with the new object locations. In cases where the spatial relationship between objects changes, the
+              warping process is further refined to ensure accurate manipulation. Next, human hand poses are retargeted
+              to the robot's dexterous hands, allowing the robot to reproduce fine-grained interactions with objects.
+              The final output is a sequence of joint configurations for the robot, computed using inverse kinematics to
+              maintain natural and efficient motions.
+
+              OKAMI's approach is validated through extensive experiments on a variety of tasks, such as placing a plush
+              toy in a basket, sprinkling salt into a bowl, and closing a laptop. These tasks cover diverse manipulation
+              behaviors, including pick-and-place, pouring, and interacting with articulated objects. OKAMI achieves a
+              71.7% average task success rate, significantly outperforming baseline methods like ORION, which fail to
+              incorporate human embodiment information. The experiments demonstrate that OKAMI can generalize across
+              varying object layouts and visual backgrounds, even when tested with novel object instances.
+
+              Additionally, OKAMI's rollout trajectories are used to train closed-loop visuomotor policies through
+              behavioral cloning, enabling the robot to autonomously perform tasks using vision-based observations.
+              These policies achieve an average success rate of 79.2%, highlighting the potential of OKAMI as a
+              data-efficient framework for training robotic policies without the need for labor-intensive teleoperation.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              enabling humanoid robots to acquire manipulation skills from a single video demonstration by introducing
+              OKAMI, a method that uses object-aware motion retargeting to translate human actions observed in RGB-D
+              videos into actionable plans and policies adaptable to varying object locations and environmental
+              conditions​
+
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/okami-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
