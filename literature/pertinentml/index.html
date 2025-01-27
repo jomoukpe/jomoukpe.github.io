@@ -1203,6 +1203,82 @@
         </li>
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">Representation alignment for generation: Training diffusion transformers is easier
+              than you think</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{yu2024repa,<br>
+              title={Representation alignment for generation: Training diffusion transformers is easier than you
+              think},<br>
+              author={Yu, Sihyun and Kwak, Sangkyung and Jang, Huiwon and Jeong, Jongheon and Huang, Jonathan and Shin,
+              Jinwoo and Xie, Saining},<br>
+              journal={arXiv preprint arXiv:2410.06940},<br>
+              year={2024}}<br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2410.06940v2">https://arxiv.org/pdf/2410.06940v2</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper proposes a novel regularization technique called REPresentation Alignment (REPA) to address the
+              inefficiencies in training large-scale diffusion models for generative tasks. Traditional diffusion models
+              struggle with learning high-quality internal representations, which is a critical bottleneck for improving
+              generation quality. REPA mitigates this issue by explicitly aligning the noisy hidden state
+              representations of the diffusion model with clean image representations derived from external, pretrained
+              visual encoders, such as DINOv2. The core idea is that by leveraging these powerful external
+              representations, the diffusion models can bypass the need to learn such representations independently,
+              leading to faster convergence and better generation quality.
+
+              The REPA approach works by introducing an additional loss term that maximizes the similarity between the
+              diffusion model's intermediate representations and the pretrained external representations. Specifically,
+              a multilayer perceptron (MLP) is used as a projection head to map the diffusion model’s hidden states to a
+              representation space that aligns with the pretrained encoder’s output. This alignment is enforced
+              patch-wise, ensuring that even noisy inputs maintain semantically meaningful information throughout the
+              denoising process. REPA is integrated into the standard diffusion training objectives, such as velocity
+              prediction, with a regularization coefficient controlling the trade-off between representation alignment
+              and denoising.
+
+              The authors conducted an extensive empirical analysis, demonstrating that the REPA-aligned models achieve
+              significantly faster convergence compared to vanilla diffusion models. For instance, REPA-enabled SiT-XL/2
+              models matched the performance of a standard model trained for 7 million steps in just 400,000 steps,
+              achieving a 17.5× speed-up. The alignment also reduces the semantic gap between diffusion models and
+              pretrained visual encoders, enabling the diffusion models to achieve better feature representation and
+              generation quality simultaneously. Key findings include improved Fréchet Inception Distance (FID) scores,
+              with REPA-trained models achieving state-of-the-art results, such as an FID of 1.42 with classifier-free
+              guidance on ImageNet.
+
+              Interestingly, the authors found that aligning only the early layers of the diffusion model is sufficient
+              to achieve these gains. This allows later layers to focus on capturing high-frequency details necessary
+              for image generation. They also showed that REPA’s benefits are robust across different model sizes and
+              encoder configurations, with better alignment leading to superior performance in both generation and
+              linear probing tasks. The scalability of REPA was further validated, as its relative improvement became
+              more pronounced with larger model sizes.
+  
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              improve the training efficiency and generation quality of diffusion models by introducing a simple
+              regularization technique, REPresentation Alignment (REPA), which aligns internal representations of
+              diffusion models with pretrained visual encoders
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/repa-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/repa-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
