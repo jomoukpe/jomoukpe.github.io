@@ -1527,6 +1527,100 @@
             </div>
           </div>
         </li>
+
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">FAST: Efficient Action Tokenization for Vision-Language-Action Models</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{pertsch2025fast,<br>
+              title={FAST: Efficient Action Tokenization for Vision-Language-Action Models},<br>
+              author={Pertsch, Karl and Stachowicz, Kyle and Ichter, Brian and Driess, Danny and Nair, Suraj and Vuong,
+              Quan and Mees, Oier and Finn, Chelsea and Levine, Sergey},<br>
+              journal={arXiv preprint arXiv:2501.09747},<br>
+              year={2025}}<br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2501.09747">https://arxiv.org/pdf/2501.09747</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper introduces Frequency-space Action Sequence Tokenization (FAST), a novel method for compressing
+              robot action signals into discrete tokens to improve the training of vision-language-action (VLA) models
+              for robotics. Traditional approaches for tokenizing continuous robotic actions, such as naive binning
+              schemes that discretize each action dimension at each timestep independently, perform poorly for
+              high-frequency and dexterous tasks. These naive methods generate highly redundant tokens with low marginal
+              information between consecutive timesteps, which hinders the training process of autoregressive models.
+              FAST overcomes these limitations by leveraging the Discrete Cosine Transform (DCT), a widely-used
+              frequency-space compression method, to tokenize continuous action sequences in a way that captures the
+              underlying structure of the data while reducing redundancy.
+
+              FAST operates in several stages. First, raw robotic actions are normalized to bring their values within a
+              consistent range, which improves the robustness of tokenization across datasets with varying action
+              scales. The normalized actions are then transformed into the frequency domain using DCT. This
+              transformation expresses the action signal as a sum of cosine components, where low-frequency components
+              capture the overall structure of the signal, and high-frequency components represent finer details. To
+              compress the signal, insignificant high-frequency components are omitted by applying a scale-and-round
+              operation, resulting in a sparse matrix of DCT coefficients. The sparse matrix is then flattened into a
+              one-dimensional sequence, prioritizing low-frequency components for autoregressive prediction. Finally,
+              the sequence is compressed into dense tokens using byte-pair encoding (BPE), which groups frequently
+              occurring patterns for efficient representation.
+
+              FAST is computationally efficient and has minimal hyperparameters, requiring only a scaling coefficient
+              for quantization and a vocabulary size for BPE compression. It is also fully invertible, allowing
+              predicted tokens to be decoded back into continuous action sequences. The authors extend this framework to
+              create FAST+, a universal tokenizer trained on a large, diverse dataset of one million robotic action
+              trajectories. FAST+ can be applied as a black-box tokenizer to various robotic datasets, eliminating the
+              need for dataset-specific tuning.
+
+              The authors evaluate FAST and FAST+ on a range of real-world and simulated robotic tasks, including
+              dexterous tasks like laundry folding, grocery bagging, and T-shirt folding, as well as generalization
+              tasks requiring zero-shot performance in unseen environments. Compared to naive binning tokenization, FAST
+              achieves significantly better compression rates while maintaining high reconstruction accuracy. For
+              example, in high-frequency tasks like T-shirt folding, FAST reduces the number of tokens per action chunk
+              by a factor of 13. This compression enables the training of autoregressive VLA models that scale
+              effectively to large datasets, achieving comparable performance to state-of-the-art diffusion-based VLAs
+              while reducing training time by up to five times.
+
+              A key finding of the study is that FAST maintains consistent compression across tasks with varying action
+              dimensionalities and frequencies, demonstrating its robustness and adaptability. In zero-shot evaluation
+              tasks, policies trained with FAST tokenization generalize well to new environments, highlighting the
+              effectiveness of its representation. The authors also show that the performance benefits of FAST are most
+              pronounced in high-frequency tasks, where naive tokenization fails entirely due to excessive redundancy.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              the problem of inefficiencies in training autoregressive vision-language-action (VLA) models for robotics
+              by introducing a novel tokenization approach called Frequency-space Action Sequence Tokenization (FAST),
+              which compresses continuous robot action signals into discrete tokens using the Discrete Cosine Transform
+              (DCT) for more effective learning of dexterous and high-frequency robotic behaviors​
+
+
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/fast-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/fast-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/fast-fig3.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/fast-fig4.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <li>
           <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
