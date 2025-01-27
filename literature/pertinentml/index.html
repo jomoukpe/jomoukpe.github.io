@@ -1359,6 +1359,89 @@
         </li>
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">Training Large Language Models to Reason in a Continuous Latent Space</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{hao2024coconut<br>
+              title={Training large language models to reason in a continuous latent space},<br>
+              author={Hao, Shibo and Sukhbaatar, Sainbayar and Su, DiJia and Li, Xian and Hu, Zhiting and Weston, Jason
+              and Tian, Yuandong},<br>
+              journal={arXiv preprint arXiv:2412.06769},<br>
+              year={2024}}<br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2412.06769">https://arxiv.org/pdf/2412.06769</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper introduces Coconut (Chain of Continuous Thought), a novel paradigm that allows large language
+              models (LLMs) to reason in a continuous latent space rather than being confined to language space.
+              Traditional reasoning in LLMs relies on generating explicit reasoning processes as sequences of natural
+              language tokens, a method known as chain-of-thought (CoT) reasoning. While effective, CoT is inefficient
+              because most tokens are generated for linguistic fluency rather than contributing to actual reasoning, and
+              critical reasoning steps often require disproportionately complex computations. Coconut addresses these
+              limitations by bypassing the need for explicit token-based reasoning and instead uses the model's hidden
+              states as latent representations of reasoning steps.
+
+              In the Coconut framework, the model alternates between "language mode" and "latent mode." During language
+              mode, the model operates as a standard language model, generating tokens autoregressively. In latent mode,
+              the last hidden state of the model, referred to as a "continuous thought," is fed directly as the next
+              input embedding, eliminating the need for intermediate language token generation. This modification allows
+              the reasoning process to unfold entirely within the latent space, leveraging the model's internal
+              representations to perform computations. The transition between these modes is marked by special tokens, `
+              <bot>` (beginning of latent thought) and `<eot>` (end of latent thought), enabling seamless switching.
+
+                  To train the model, the authors implement a multi-stage curriculum inspired by CoT reasoning.
+                  Initially, the model is trained with standard CoT examples, where reasoning steps are explicitly
+                  expressed in language. In subsequent stages, language reasoning steps are progressively replaced by
+                  continuous thoughts. This gradual replacement allows the model to learn how to encode and process
+                  reasoning steps in the latent space while maintaining coherence with language-based reasoning. The
+                  training objective is the standard cross-entropy loss, applied to the remaining language tokens, with
+                  the latent thoughts excluded from the loss calculation. This encourages the model to focus on
+                  predicting future reasoning steps rather than compressing information into removed language tokens.
+
+                  The authors evaluate Coconut on a range of reasoning tasks, including math reasoning (GSM8k), logical
+                  reasoning (ProntoQA), and a new planning-intensive task, ProsQA. Coconut demonstrates significant
+                  improvements in reasoning accuracy and efficiency compared to CoT and other baselines. For example, in
+                  ProsQA, which involves reasoning over directed acyclic graphs (DAGs) to identify correct paths,
+                  Coconut achieves higher accuracy while generating fewer tokens during inference. The model's ability
+                  to encode multiple potential reasoning paths in the latent space allows it to perform a breadth-first
+                  search (BFS)-like reasoning process, progressively narrowing down options rather than committing
+                  prematurely to a single path. This capability proves particularly advantageous in tasks that require
+                  substantial planning and backtracking.
+
+                  The experiments also reveal that Coconut reduces hallucination (incorrect reasoning paths) and
+                  improves the accuracy of final answers compared to CoT. Notably, the multi-stage training curriculum
+                  plays a crucial role in these improvements, as removing this curriculum results in significantly
+                  degraded performance. The authors further analyze the latent reasoning process and find that it
+                  enables the model to prioritize promising reasoning paths while pruning irrelevant ones, mimicking the
+                  behavior of search algorithms. This latent reasoning mechanism also enhances the model's ability to
+                  plan and evaluate future steps, making it more effective in complex problem-solving scenarios.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              enabling large language models (LLMs) to reason in a continuous latent space, rather than being
+              constrained to language-based reasoning, by introducing "Coconut" (Chain of Continuous Thought), which
+              enhances reasoning efficiency and accuracy through latent state representations
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/coconut-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/coconut-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
