@@ -1442,6 +1442,93 @@
         </li>
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">Byte Latent Transformer: Patches Scale Better Than Tokens</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{pagnoni2024blt,<br>
+              title={Byte Latent Transformer: Patches Scale Better Than Tokens},<br>
+              author={Pagnoni, Artidoro and Pasunuru, Ram and Rodriguez, Pedro and Nguyen, John and Muller, Benjamin and
+              Li, Margaret and Zhou, Chunting and Yu, Lili and Weston, Jason and Zettlemoyer, Luke and others},<br>
+              journal={arXiv preprint arXiv:2412.09871},<br>
+              year={2024}}<br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/2412.09871">https://arxiv.org/pdf/2412.09871</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The Byte Latent Transformer (BLT) proposed in this paper is a tokenizer-free architecture designed to
+              overcome the inefficiencies and limitations of tokenization-based large language models (LLMs).
+              Traditional tokenization methods rely on fixed vocabularies and heuristic grouping of bytes into tokens,
+              which introduces biases, inefficiencies, and a lack of robustness to input noise. BLT eliminates this
+              dependency by operating directly on raw bytes and introducing a novel approach that dynamically groups
+              bytes into patches based on their entropy, ensuring that more computational resources are allocated to
+              complex data regions. This dynamic patching mechanism enables BLT to process byte sequences with variable
+              granularity, providing both computational efficiency and scalability.
+
+              BLT's architecture consists of three main components: a lightweight local encoder, a global latent
+              transformer, and a local decoder. The local encoder processes raw bytes into latent patch representations
+              using a combination of cross-attention and transformer layers. It employs entropy-based patching, where
+              byte groups are formed dynamically based on the next-byte prediction entropy. This approach allows the
+              model to allocate more compute to regions with higher uncertainty and compress predictable regions into
+              larger patches, reducing the overall computational load. The global latent transformer operates on these
+              patch representations, leveraging a block-causal attention mechanism to ensure that patches are processed
+              in a computationally efficient manner while maintaining contextual consistency. Finally, the local decoder
+              reconstructs raw bytes from the latent patch representations, completing the sequence generation process.
+
+              Training BLT involves a carefully designed curriculum to balance computational efficiency and modeling
+              accuracy. The model is trained on large-scale datasets of raw bytes without relying on tokenization,
+              ensuring end-to-end learning of byte-level representations. BLT introduces several innovations, such as
+              hash n-gram embeddings, which enhance the expressiveness of byte representations by capturing patterns
+              over multiple byte sequences. Additionally, entropy-based patching is implemented using a small
+              autoregressive language model to determine the optimal patch boundaries dynamically, providing a more
+              data-driven approach to byte grouping compared to fixed heuristics like whitespace or stride-based
+              patching.
+
+              BLT achieves significant improvements in both efficiency and performance. The model demonstrates that it
+              can match or even surpass tokenization-based models like LLaMA in terms of scaling trends, achieving
+              comparable results with up to 50% fewer inference floating-point operations (FLOPs). In a controlled
+              scaling study, BLT models with larger patch sizes not only reduced computational costs but also showed
+              improved performance on downstream tasks. For example, BLT-Entropy models trained with dynamic patching
+              exhibited enhanced long-tail generalization and robustness to noisy inputs compared to tokenization-based
+              baselines. Moreover, BLT outperformed traditional models in tasks requiring fine-grained character-level
+              understanding, such as the CUTE benchmark for sequence manipulation and the Phonology-G2P task.
+
+              A key finding of the study is that BLT unlocks a new scaling dimension for LLMs. By increasing both the
+              model size and the patch size simultaneously, BLT achieves better scaling trends while maintaining a fixed
+              computational budget. This flexibility enables BLT to adapt to larger training datasets and more complex
+              tasks. Additionally, BLT's robustness to input noise and its ability to generalize to unseen, long-tail
+              data distributions highlight its potential for real-world applications, especially in domains where input
+              data may be noisy or highly variable.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              inefficiency and robustness limitations in tokenization-based large language models (LLMs) by introducing
+              a novel tokenizer-free architecture, the Byte Latent Transformer (BLT), which dynamically groups bytes
+              into patches and processes them in a scalable and compute-efficient manner, thereby enabling end-to-end
+              training on raw byte data without relying on a fixed vocabulary
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/blt-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/blt-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/blt-fig3.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
