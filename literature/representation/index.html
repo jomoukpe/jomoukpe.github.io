@@ -4520,6 +4520,82 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Distribution alignment optimization through neural collapse for long-tailed
+              classification</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @inproceedings{gao2024disA, <br>
+              title={Distribution alignment optimization through neural collapse for long-tailed classification}, <br>
+              author={Gao, Jintong and Zhao, He and dan Guo, Dan and Zha, Hongyuan}, <br>
+              booktitle={Forty-first International Conference on Machine Learning}, <br>
+              year={2024}}
+            </p>
+
+            url=<a href="https://openreview.net/pdf?id=Hjwx3H6Vci">https://openreview.net/pdf?id=Hjwx3H6Vci</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper proposes a novel method, Distribution Alignment Optimization (DisA), to address the challenges
+              of long-tailed classification, where class imbalance results in poor representation quality for minority
+              classes. The method leverages two foundational concepts: Neural Collapse (NC) and Optimal Transport (OT).
+              Neural Collapse is a phenomenon observed during training on balanced datasets where, in the final phase,
+              last-layer features collapse into their within-class means. These means, along with the classifier weight
+              vectors, align into a geometric structure called the simplex Equiangular Tight Frame (ETF), which ensures
+              that classes are optimally separated in representation space. However, on imbalanced datasets, achieving
+              NC is challenging because the minority class representations do not align well with the ideal ETF
+              structure, leading to performance degradation.
+ 
+              Optimal Transport, a mathematical framework originating from the problem of moving distributions
+              efficiently, is the second key concept underlying DisA. OT finds the minimal cost of transforming one
+              probability distribution into another, where the cost is defined by a chosen distance metric, such as
+              cosine distance. Two important components of OT are the <strong>cost matrix</strong> and the <strong>transport plan</strong>. The
+              cost matrix quantifies the distance between individual elements of two distributions, and the transport
+              plan determines how much mass should be moved from each element of the source distribution to the target
+              distribution to minimize the overall cost. By minimizing this transport cost, OT provides a principled way
+              to align distributions in a way that respects their underlying geometry.
+              
+              In DisA, the last-layer representations of the model are treated as the source distribution P, which
+              is imbalanced due to the long-tailed nature of the data. The target distribution Q is defined by the
+              balanced ETF structure, which represents the ideal configuration for class separation. DisA minimizes the
+              OT distance between P and Q, aligning the imbalanced representations with the balanced ideal. This
+              alignment is achieved through entropy-regularized OT, which makes the optimization computationally
+              efficient while preserving the interpretability of the transport plan. The regularization ensures smooth
+              alignment by discouraging overly sharp or rigid transport assignments, which would otherwise be
+              computationally expensive. Essentially using the OT as a distance/similarity metric to measure the difference between
+              the imbalanced and balanced distributions.
+              
+              By integrating DisA, the method enforces better alignment between learned representations and the balanced
+              ETF structure, effectively addressing the imbalanced nature of long-tailed datasets. This alignment
+              ensures that even minority classes benefit from the improved representation quality, allowing the model to
+              generalize better across all classes. The combination of Neural Collapse and Optimal Transport in this
+              framework provides a powerful solution to the inherent challenges of imbalanced learning.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              poor performance in long-tailed classification tasks by proposing Distribution Alignment Optimization
+              (DisA), a method that leverages Neural Collapse and distribution matching through Optimal Transport to
+              align imbalanced class representations with an ideal balanced structure, improving the representation
+              quality for minority classes and overall model performance​
+
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/disA-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/repr/disA-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <!-- <li>
           <div class="paper-container">
             <h3 class="paper-title">Sharpness-Aware Minimization for Efficiently Improving Generalization</h3>
