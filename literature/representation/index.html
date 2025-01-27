@@ -4549,16 +4549,17 @@
               that classes are optimally separated in representation space. However, on imbalanced datasets, achieving
               NC is challenging because the minority class representations do not align well with the ideal ETF
               structure, leading to performance degradation.
- 
+
               Optimal Transport, a mathematical framework originating from the problem of moving distributions
               efficiently, is the second key concept underlying DisA. OT finds the minimal cost of transforming one
               probability distribution into another, where the cost is defined by a chosen distance metric, such as
-              cosine distance. Two important components of OT are the <strong>cost matrix</strong> and the <strong>transport plan</strong>. The
+              cosine distance. Two important components of OT are the <strong>cost matrix</strong> and the
+              <strong>transport plan</strong>. The
               cost matrix quantifies the distance between individual elements of two distributions, and the transport
               plan determines how much mass should be moved from each element of the source distribution to the target
               distribution to minimize the overall cost. By minimizing this transport cost, OT provides a principled way
               to align distributions in a way that respects their underlying geometry.
-              
+
               In DisA, the last-layer representations of the model are treated as the source distribution P, which
               is imbalanced due to the long-tailed nature of the data. The target distribution Q is defined by the
               balanced ETF structure, which represents the ideal configuration for class separation. DisA minimizes the
@@ -4566,9 +4567,10 @@
               alignment is achieved through entropy-regularized OT, which makes the optimization computationally
               efficient while preserving the interpretability of the transport plan. The regularization ensures smooth
               alignment by discouraging overly sharp or rigid transport assignments, which would otherwise be
-              computationally expensive. Essentially using the OT as a distance/similarity metric to measure the difference between
+              computationally expensive. Essentially using the OT as a distance/similarity metric to measure the
+              difference between
               the imbalanced and balanced distributions.
-              
+
               By integrating DisA, the method enforces better alignment between learned representations and the balanced
               ETF structure, effectively addressing the imbalanced nature of long-tailed datasets. This alignment
               ensures that even minority classes benefit from the improved representation quality, allowing the model to
@@ -4592,6 +4594,79 @@
               </div>
               <div class="col">
                 <img src="../../images/repr/disA-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Two Fists, One Heart: Multi-Objective Optimization Based Strategy Fusion for
+              Long-tailed Learning</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{zhao2024moosf, <br>
+              title={Two Fists, One Heart: Multi-Objective Optimization Based Strategy Fusion for Long-tailed Learning},
+              <br>
+              author={Zhao, Zhe and Wang, Pengkun and Wen, HaiBin and Xu, Wei and Lai, Song and Zhang, Qingfu and Wang,
+              Yang}, <br>
+              booktitle={Proceedings of the 41st International Conference on Machine Learning}, <br>
+              year={2024}}
+            </p>
+
+            url=<a href="https://openreview.net/pdf?id=MEZydkOr3l">https://openreview.net/pdf?id=MEZydkOr3l</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper presents a novel approach to address the inherent trade-offs in long-tailed learning, where
+              models often perform well on head (frequent) classes at the expense of medium and tail (rare) classes.
+              This imbalance is particularly challenging as existing strategies, such as re-sampling, loss adjustment,
+              and transfer learning, tend to optimize for specific subsets of classes, resulting in a performance
+              trade-off. To resolve this issue, the authors reformulate the problem as a multi-objective optimization
+              (MOO) task, aiming to maximize performance across head, medium, and tail classes simultaneously. They
+              propose a framework called Multi-Objective Optimization based Strategy Fusion (MOOSF) to fuse multiple
+              long-tailed learning strategies effectively, addressing the limitations of single-strategy approaches.
+
+              MOOSF integrates insights from multi-task learning and multi-objective optimization to balance
+              class-specific performance. The framework begins with a shared feature extraction module that processes
+              input data for all strategies, followed by strategy-specific modules that optimize individual loss
+              functions. Each strategy is weighted dynamically based on its contribution to performance across class
+              groups, using an adaptive weighting mechanism known as Hierarchical Influence Calibrated Adjustment
+              (HICA). HICA evaluates the alignment of each strategy's performance with the overall objective and adjusts
+              weights accordingly, ensuring balanced contributions across all strategies.
+
+              To resolve conflicts between strategies, MOOSF employs Gradient Harmonization via Orthogonal Projection
+              (GHOP). GHOP adjusts the gradients of conflicting strategies by orthogonalizing them, preventing one
+              strategy from dominating the optimization process. This mechanism ensures that the model explores
+              parameter space efficiently while maintaining harmony between strategies. Additionally, the framework
+              includes Evolving Optimal Strategy Selection (EOSS), which dynamically selects the most effective strategy
+              for each class based on historical performance. By combining these components, MOOSF achieves an efficient
+              and conflict-resolving fusion of strategies, allowing the model to adapt dynamically to the challenges of
+              long-tailed distributions.
+
+              The authors conducted extensive experiments on benchmark datasets such as CIFAR-100-LT and ImageNet-LT,
+              demonstrating the effectiveness of MOOSF. They found that MOOSF significantly improves overall and
+              class-specific performance compared to individual strategies and traditional multi-task learning. The
+              adaptive fusion approach not only enhances the average performance but also balances the trade-offs
+              between head, medium, and tail classes. Their analysis of gradient harmonization and dynamic weighting
+              shows that these mechanisms effectively reduce conflicts and align strategy contributions, resulting in
+              Pareto-optimal solutions for long-tailed learning.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              The paper addresses the problem of balancing performance across head, medium, and tail classes in
+              long-tailed learning by transforming the trade-off challenge into a multi-objective optimization problem
+              and proposing a Multi-Objective Optimization based Strategy Fusion (MOOSF) to integrate and reconcile
+              conflicting strategies for improved generalization.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/repr/moosf-fig1.png" class="img-fluid rounded" alt="...">
               </div>
             </div>
           </div>
