@@ -1703,6 +1703,93 @@
             </div>
           </div>
         </li>
+
+        <li>
+          <div class="paper-container">
+            <h3 class="paper-title">Population Based Training of Neural Networks</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @article{jaderberg2017pbt<br>
+              title={Population based training of neural networks},<br>
+              author={Jaderberg, Max and Dalibard, Valentin and Osindero, Simon and Czarnecki, Wojciech M and Donahue,
+              Jeff and Razavi, Ali and Vinyals, Oriol and Green, Tim and Dunning, Iain and Simonyan, Karen and
+              others},<br>
+              journal={arXiv preprint arXiv:1711.09846},<br>
+              year={2017}}<br>
+            </p>
+
+            url=<a href="https://arxiv.org/pdf/1711.09846">https://arxiv.org/pdf/1711.09846</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              Population Based Training (PBT) is a novel optimization algorithm introduced to improve the training of
+              neural networks by jointly optimizing model weights and hyperparameters in an adaptive and dynamic manner.
+              The core idea of PBT is to treat the optimization process as a population-based search, where a population
+              of models is trained in parallel, each with its own set of hyperparameters. Unlike traditional
+              hyperparameter tuning methods, PBT does not rely on predefining a fixed hyperparameter schedule or
+              conducting sequential trials. Instead, it adapts hyperparameters online during training, leveraging the
+              performance of the entire population to guide the optimization process.
+
+              PBT operates in two main phases: exploitation and exploration. During exploitation, underperforming models
+              in the population are replaced by better-performing ones. This is achieved by copying the weights and
+              hyperparameters of the best-performing models to less successful models. Exploration then introduces
+              diversity into the hyperparameter space by perturbing the hyperparameters of the newly copied models.
+              Perturbation involves applying small random changes or resampling hyperparameters from predefined
+              distributions. This iterative process allows PBT to dynamically refine both model weights and
+              hyperparameters while maintaining a balance between exploiting successful configurations and exploring new
+              ones.
+
+              The algorithm is asynchronous and decentralized, meaning that population members do not need to wait for
+              the entire population to synchronize before updating. Each member evaluates its performance periodically
+              and decides whether to exploit or explore based on its relative performance in the population. This
+              approach ensures efficient use of computational resources and allows PBT to scale to large populations
+              without significant overhead.
+
+              PBT was applied to various tasks, including reinforcement learning, supervised learning, and generative
+              modeling, to demonstrate its effectiveness. In reinforcement learning, PBT optimized hyperparameters such
+              as learning rate, entropy cost, and auxiliary loss weights for A3C, UNREAL, and Feudal Networks. It
+              significantly improved learning stability and performance by automatically adapting hyperparameters to
+              non-stationary learning dynamics. For example, PBT increased the average human-normalized performance of
+              reinforcement learning agents on Atari games and DeepMind Lab tasks, achieving faster convergence and
+              higher final performance compared to baseline methods like random search.
+
+              In supervised learning, PBT was used to train transformer models for machine translation, specifically on
+              the WMT 2014 English-to-German dataset. PBT automatically discovered hyperparameter schedules that matched
+              or exceeded the performance of heavily tuned baselines, improving BLEU scores and reducing training time.
+              For generative adversarial networks (GANs), PBT optimized the learning rates of the generator and
+              discriminator, addressing the instability of GAN training. PBT-trained GANs achieved higher Inception
+              scores than baseline models, highlighting its ability to handle complex, competing objectives.
+
+              The paper's findings emphasize the versatility and effectiveness of PBT across different domains. Key
+              advantages include its ability to discover adaptive hyperparameter schedules that outperform fixed
+              schedules, its capacity to stabilize training in challenging scenarios, and its efficiency in utilizing
+              computational resources. The experiments also revealed that PBT benefits from the combination of weight
+              copying (exploitation) and hyperparameter perturbation (exploration). This synergy allows PBT to adapt to
+              dynamic training conditions and discover optimal configurations that static methods cannot achieve.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              inefficient and suboptimal neural network training caused by static and manually tuned hyperparameter
+              schedules by introducing Population Based Training (PBT), an asynchronous optimization algorithm that
+              dynamically adapts hyperparameters and model weights during training to improve performance and stability
+              across various domains
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/pbt-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/pbt-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
         <li>
           <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
