@@ -1851,6 +1851,85 @@
         </li>
         <li>
           <div class="paper-container">
+            <h3 class="paper-title">Preventing Rogue Agents Improves Multi-Agent Collaboration</h3>
+
+            <p>
+              <strong>BibTex</strong>
+              <br>
+              @misc{barbi2025rogue,<br>
+              title={Preventing Rogue Agents Improves Multi-Agent Collaboration},<br>
+              author={Barbi, Ohav and Yoran, Ori and Geva, Mor},<br>
+              year={2025}},<br>
+            </p>
+
+            url=<a href="https://arxiv.org/abs/2502.05986">https://arxiv.org/abs/2502.05986</a><br>
+
+            <strong>Summary</strong>
+            <br>
+            <p>
+              The paper explores the problem of rogue agents in multi-agent systems, where a single erroneous
+              decision can lead to system-wide failure. In multi-agent collaboration, different agents share knowledge
+              and make decisions collectively, but failures in communication or reasoning can result in one agent
+              disrupting the entire system. This is particularly problematic in environments where decisions are
+              irreversible or where incorrect information can propagate. The authors propose a real-time monitoring
+              and intervention framework to detect and mitigate such failures before they occur, ensuring more stable
+              collaboration.
+
+              At the core of the proposed solution is a monitoring system that tracks agent behavior during action
+              selection, aiming to predict when an agent is likely to make a mistake. The monitoring is based on
+              uncertainty estimation, leveraging statistical features such as entropy, varentropy, and kurtosis
+              of the agent’s probability distribution over its decision space. The system determines the likelihood of
+              success based on these measures and compares it against a predefined threshold. If the likelihood of
+              success falls below the threshold, an intervention mechanism is triggered. The intervention can take
+              different forms, but the most effective strategy found in the study is resetting communication,
+              allowing agents to reassess their decisions before taking irreversible actions.
+
+              To implement this system, the authors use simple polynomial ridge classifiers trained on past agent
+              behaviors. These classifiers predict task success based on collected probability distributions at key
+              decision points. The monitoring system runs in real-time, evaluating agent actions at every
+              decision-making step. The required setup involves training classifiers on historical data, defining
+              failure thresholds, and integrating an intervention strategy that does not disrupt overall task
+              progression. The interventions include either resetting the last communication round or, in some
+              cases, resetting the entire task environment, depending on whether actions are reversible or not.
+
+              To evaluate the effectiveness of their approach, the authors introduce WhoDunitEnv, a novel
+              multi-agent environment inspired by the game "Guess Who," where agents must collaborate to identify a
+              suspect using partial information. They also test their method in GovSim, an environment that
+              simulates sustainable resource management. Experiments using state-of-the-art language models—GPT-4o,
+              LLAMA-3.1-70B, and QWEN-2.5-72B—demonstrate that live monitoring and intervention significantly improve
+              multi-agent collaboration. The intervention system improves task success rates by up to 17.4% in
+              WhoDunitEnv and 20% in GovSim, validating the effectiveness of the proposed approach.
+
+              Further analysis reveals the common causes of rogue agent behavior that lead to failures. The study
+              categorizes the detected errors into four main types: hallucinations (48%), where agents introduce
+              incorrect information into the communication; collapse (16%), where an agent fixates on a single
+              aspect of the problem, repeatedly requesting the same information despite having received it; role loss
+              (8%), where agents forget their assigned function in the task and take actions outside their role; and
+              recall failure (4%), where agents fail to retain or correctly use previously shared information. The
+              monitoring system effectively detects these failure patterns and intervenes before they escalate,
+              preventing the system from failing due to a single agent's mistake.
+            </p>
+
+            <p>
+              <strong>Problem</strong>
+              rogue agents in multi-agent systems, where a single agent's incorrect decision can cause system-wide
+              failure. It proposes monitoring agents' actions in real-time and intervening when a failure is likely to
+              occur, improving collaboration and overall system performance.
+            </p>
+
+            <strong>Images</strong><br>
+            <div class="row">
+              <div class="col">
+                <img src="../../images/ml/rogue-fig1.png" class="img-fluid rounded" alt="...">
+              </div>
+              <div class="col">
+                <img src="../../images/ml/rogue-fig2.png" class="img-fluid rounded" alt="...">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="paper-container">
             <h3 class="paper-title">Why Should I Trust You?" Explaining the Predictions of Any Classifier</h3>
 
             <p>
