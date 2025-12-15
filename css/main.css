@@ -3732,4 +3732,120 @@ html.no-csstransitions .home-content__main {
   }
 }
 
+/* Research Comparison Diagrams */
+.research-comparison {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+}
+
+.cycle-box {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.cycle-box h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #cc147f;
+}
+
+.cycle-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cycle-step {
+    background: white;
+    padding: 1rem 2rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    font-family: "metropolis-semibold", sans-serif;
+}
+
+.cycle-step::after {
+    content: "↓";
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+    color: #999;
+}
+
+.cycle-step:last-child::after {
+    content: "↻"; /* Loop back icon */
+    font-size: 2rem;
+    line-height: 1;
+}
+
+/* Map */
+.map-container {
+    width: 100%;
+    height: 400px;
+    margin-top: 4rem;
+    background: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Publications */
+.publications-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+}
+
+.publication-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.publication-title {
+    font-family: "metropolis-bold", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #000;
+}
+
+.publication-authors {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.publication-venue {
+    font-family: "metropolis-semibold", sans-serif;
+    color: #cc147f;
+}
+
+.publication-links {
+    margin-top: 1rem;
+}
+
+.publication-links a {
+    margin-right: 1.5rem;
+    font-size: 1.4rem;
+    text-decoration: underline;
+}
+
 /*# sourceMappingURL=main.css.map */
