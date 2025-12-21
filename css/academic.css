@@ -270,7 +270,18 @@ ul, ol {
 .main-content {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 6rem 1.5rem 2rem;
+    padding: 0 1.5rem 2rem;
+    padding-top: 60px; /* Account for fixed navbar */
+}
+
+/* Let hero section break out of container to span full width */
+.hero {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -278,7 +289,34 @@ ul, ol {
    -------------------------------------------------------------------------- */
 .hero {
     text-align: center;
-    padding: 2rem 0 3rem;
+    padding: 4rem 0 2.5rem;
+    background-image: url('../assets/quadro-turing-arch-fb-ig-2048x2048.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+    width: 100vw;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95) 0%, 
+        rgba(255, 255, 255, 0.9) 100%);
+    z-index: 1;
+}
+
+[data-theme="dark"] .hero::before {
+    background: linear-gradient(135deg, 
+        rgba(17, 17, 17, 0.92) 0%, 
+        rgba(17, 17, 17, 0.85) 100%);
 }
 
 .hero-name {
@@ -288,12 +326,16 @@ ul, ol {
     color: var(--text-primary);
     margin-bottom: 0.25rem;
     letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-title {
     font-size: 1.1rem;
     color: var(--text-muted);
     font-weight: 400;
+    position: relative;
+    z-index: 2;
 }
 
 /* --------------------------------------------------------------------------
@@ -584,25 +626,43 @@ ul, ol {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
+    border: 1px solid;
     transition: all 0.3s ease;
 }
 
 .paper-item[data-type="publication"] {
-    background: linear-gradient(to right, rgba(66, 133, 244, 0.08), var(--bg-primary) 50%);
+    background: linear-gradient(135deg, rgba(66, 133, 244, 0.10), rgba(66, 133, 244, 0.08) 50%, var(--bg-primary) 100%);
+    border-color: rgba(66, 133, 244, 0.6);
 }
 
 .paper-item[data-type="product"] {
-    background: linear-gradient(to right, rgba(234, 140, 0, 0.08), var(--bg-primary) 50%);
+    background: linear-gradient(135deg, rgba(234, 140, 0, 0.10), rgba(234, 140, 0, 0.08) 50%, var(--bg-primary) 100%);
+    border-color: rgba(234, 140, 0, 0.6);
 }
 
 .paper-item[data-type="project"] {
-    background: linear-gradient(to right, rgba(52, 168, 83, 0.08), var(--bg-primary) 50%);
+    background: linear-gradient(135deg, rgba(52, 168, 83, 0.10), rgba(52, 168, 83, 0.08) 50%, var(--bg-primary) 100%);
+    border-color: rgba(52, 168, 83, 0.6);
 }
 
 .paper-item:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+}
+
+.paper-item[data-type="publication"]:hover {
+    border-color: rgba(66, 133, 244, 0.9);
+    box-shadow: 0 10px 30px rgba(66, 133, 244, 0.2);
+}
+
+.paper-item[data-type="product"]:hover {
+    border-color: rgba(234, 140, 0, 0.9);
+    box-shadow: 0 10px 30px rgba(234, 140, 0, 0.2);
+}
+
+.paper-item[data-type="project"]:hover {
+    border-color: rgba(52, 168, 83, 0.9);
+    box-shadow: 0 10px 30px rgba(52, 168, 83, 0.2);
 }
 
 .paper-thumbnail {
@@ -959,7 +1019,7 @@ ul, ol {
         flex-direction: column;
         text-align: center;
     }
-
+    
     .opportunity-icon {
         margin: 0 auto;
     }
