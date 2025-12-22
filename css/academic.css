@@ -289,77 +289,29 @@ ul, ol {
 .main-content {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: var(--navbar-height) 1.5rem 2rem;
-}
-
-/* --------------------------------------------------------------------------
-   Hero Section
-   -------------------------------------------------------------------------- */
-.hero {
-    text-align: center;
-    padding: 2rem 2rem 1.5rem;
-    background-image: url('../assets/quadro-turing-arch-fb-ig-2048x2048.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-color);
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    margin-top: calc(-1 * var(--navbar-height));
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.85) 0%, 
-        rgba(255, 255, 255, 0.75) 100%);
-    z-index: 1;
-}
-
-[data-theme="dark"] .hero::before {
-    background: linear-gradient(135deg, 
-        rgba(17, 17, 17, 0.82) 0%, 
-        rgba(17, 17, 17, 0.72) 100%);
-}
-
-.hero-name {
-    font-family: var(--font-serif);
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
-    letter-spacing: -0.02em;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-title {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    font-weight: 700;
-    position: relative;
-    z-index: 2;
+    padding: calc(var(--navbar-height) + 2rem) 1.5rem 2rem;
 }
 
 /* --------------------------------------------------------------------------
    Bio Section
    -------------------------------------------------------------------------- */
 .bio-section {
-    padding: var(--section-gap) 0;
+    padding: 0 0 var(--section-gap) 0;
     border-bottom: 1px solid var(--border-color);
+}
+
+.page-name {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
 }
 
 .bio-content {
     display: grid;
-    grid-template-columns: 1fr 173px;
+    grid-template-columns: 1fr 208px;
     gap: 2.5rem;
     align-items: start;
 }
@@ -381,8 +333,8 @@ ul, ol {
 .bio-photo {
     position: sticky;
     top: 100px;
-    width: 173px;
-    height: 173px;
+    width: 208px;
+    height: 208px;
 }
 
 .profile-photo {
@@ -1090,18 +1042,26 @@ ul, ol {
         align-items: center;
         justify-content: center;
     }
+    
+    .bio-section {
+        display: flex;
+        flex-direction: column;
+    }
 
-    .hero-name {
-        font-size: 1.5rem;
+    .page-name {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        order: 1;
+        text-align: center;
     }
 
     .bio-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        display: contents;
     }
 
     .bio-photo {
-        order: -1;
+        order: 0;
         width: 200px;
         height: 200px;
         margin: 0 auto;
@@ -1110,6 +1070,7 @@ ul, ol {
 
     .bio-text {
         font-size: 0.9rem;
+        order: 2;
     }
 
     .opportunity-card {
@@ -1172,16 +1133,13 @@ ul, ol {
 
 @media (max-width: 480px) {
     .main-content {
-        padding: var(--navbar-height) 1rem 2rem;
+        padding: calc(var(--navbar-height) + 1.5rem) 1rem 2rem;
     }
 
-    .hero {
-        padding-top: 2rem;
-        padding-bottom: 1rem;
-    }
-
-    .hero-name {
-        font-size: 1.5rem;
+    .page-name {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
     }
 
     .section-title {
