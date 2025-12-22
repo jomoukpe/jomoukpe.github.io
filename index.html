@@ -25,6 +25,28 @@
     <!-- Vertical Scroll Progress -->
     <div class="scroll-progress">
         <div class="scroll-progress-bar"></div>
+        <div class="scroll-sections">
+            <a href="#bio" class="scroll-section-marker" data-section="bio" title="About">
+                <span class="marker-dot"></span>
+                <span class="marker-label">About</span>
+            </a>
+            <a href="#research" class="scroll-section-marker" data-section="research" title="Research">
+                <span class="marker-dot"></span>
+                <span class="marker-label">Research</span>
+            </a>
+            <a href="#timeline" class="scroll-section-marker" data-section="timeline" title="Timeline">
+                <span class="marker-dot"></span>
+                <span class="marker-label">Timeline</span>
+            </a>
+            <a href="#papers" class="scroll-section-marker" data-section="papers" title="Works">
+                <span class="marker-dot"></span>
+                <span class="marker-label">Works</span>
+            </a>
+            <a href="#misc" class="scroll-section-marker" data-section="misc" title="Misc">
+                <span class="marker-dot"></span>
+                <span class="marker-label">Misc</span>
+            </a>
+        </div>
     </div>
 
     <!-- Scroll Navigation Buttons -->
@@ -118,33 +140,68 @@
         <section class="section research-interests" id="research">
             <h2 class="section-title">Research Interests</h2>
             <ul class="interests-list">
-                <li>
-                    <span class="interest-title">SICC (Super Intelligence Cognitive Core)</span>
-                    <span class="interest-description">VLAs, Value Functions, World Models, MCTS (search/planning), Long-Term Memory, Self-Play RL. This architecture integrates grounding from Vision-Language-Action models with predictive World Models to simulate and evaluate potential futures. By leveraging Monte Carlo Tree Search guided by dense Value Functions, the core enables strategic reasoning, while Self-Play Reinforcement Learning drives the emergence of complex strategies through competitive internal simulation.</span>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">SICC (Super Intelligence Cognitive Core)</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">VLAs, Value Functions, World Models, MCTS (search/planning), Long-Term Memory, Self-Play RL. This architecture integrates grounding from Vision-Language-Action models with predictive World Models to simulate and evaluate potential futures. By leveraging Monte Carlo Tree Search guided by dense Value Functions, the core enables strategic reasoning, while Self-Play Reinforcement Learning drives the emergence of complex strategies through competitive internal simulation.</div>
                 </li>
-                <li>
-                    <span class="interest-title">AI Agents</span>
-                    <span class="interest-description">Autonomous systems capable of perception, reasoning, and action in long-horizon complex environments. </span>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">AI Agents</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">Autonomous systems capable of perception, reasoning, and action in long-horizon complex environments. </div>
                 </li>
-                <li>
-                    <span class="interest-title">Open Ended Optimization</span>
-                    <span class="interest-description">Algorithms that continuously discover and optimize for novel objectives without predefined goals. Drawing inspiration from evolutionary dynamics, this paradigm seeks to create unbounded complexity by searching for novelty and diversity rather than static metrics.</span>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Open Ended Optimization</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">Algorithms that continuously discover and optimize for novel objectives without predefined goals. Drawing inspiration from evolutionary dynamics, this paradigm seeks to create unbounded complexity by searching for novelty and diversity rather than static metrics.</div>
                 </li>
-                <li>
-                    <span class="interest-title">Recursive Self Improvement</span>
-                    <span class="interest-description">Systems that autonomously improve their own capabilities through iterative self-modification and learning. The objective is to establish a stable, positive feedback loop of enhancement while maintaining alignment guarantees as the system's capabilities scale.</span>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Recursive Self Improvement</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">Systems that autonomously improve their own capabilities through iterative self-modification and learning. The objective is to establish a stable, positive feedback loop of enhancement while maintaining alignment guarantees as the system's capabilities scale.</div>
                 </li>
-                <li>
-                    <span class="interest-title">Humanoid Robots</span>
-                    <span class="interest-description">Embodied AI systems with human-like form to naturally interface with environments built for humans. The challenge lies in achieving dynamic stability and whole-body control for compliant interaction with the physical world. This includes dexterous manipulation for general-purpose tasks and the integration of proprioceptive feedback with visual inputs to navigate cluttered, human-centric spaces effectively.</span>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Humanoid Robots</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">Embodied AI systems with human-like form to naturally interface with environments built for humans. The challenge lies in achieving dynamic stability and whole-body control for compliant interaction with the physical world. This includes dexterous manipulation for general-purpose tasks and the integration of proprioceptive feedback with visual inputs to navigate cluttered, human-centric spaces effectively.</div>
                 </li>
-                <li>
-                    <span class="interest-title">Autonomous Vehicles</span>
-                    <span class="interest-description">Self-driving systems integrating perception, planning, and control for safe navigation. Current focus areas include end-to-end learning approaches that map raw sensor data directly to control inputs to handle the long tail of edge cases. </span>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Autonomous Vehicles</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                </div>
+                    <div class="interest-description">Self-driving systems integrating perception, planning, and control for safe navigation. Current focus areas include end-to-end learning approaches that map raw sensor data directly to control inputs to handle the long tail of edge cases. </div>
                 </li>
-                <li>
-                    <span class="interest-title">Additive Manufacturing</span>
-                    <span class="interest-description">AI-driven 3D printing and fabrication for intelligent design and production optimization. AI is utilized to drive generative design processes, creating complex lattice structures that are impossible to manufacture via traditional subtraction methods. In-situ monitoring systems use closed-loop control to correct thermal distortions and material deposition errors in real-time, guaranteeing part quality at the microstructural level.</span>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Additive Manufacturing</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">AI-driven 3D printing and fabrication for intelligent design and production optimization. AI is utilized to drive generative design processes, creating complex lattice structures that are impossible to manufacture via traditional subtraction methods. In-situ monitoring systems use closed-loop control to correct thermal distortions and material deposition errors in real-time, guaranteeing part quality at the microstructural level.</div>
                 </li>
             </ul>
         </section>
@@ -155,10 +212,7 @@
                 <div class="opportunity-content">
                     <h2>Open to Opportunities</h2>
                     <p>
-                        Ph.D. Candidate (ABD) — <strong>Available for Full-Time Work</strong>. 
-                        Actively seeking <strong>Senior Research Scientist</strong>, <strong>Research Engineer</strong>, 
-                        and <strong>ML Engineer</strong> positions. Particularly interested in roles involving 
-                        generative AI, autonomous agents, recursive self-improvement, or multimodal systems. It's time to build and ship tech people love!
+                        Ph.D. Candidate (ABD) seeking <strong>Senior Research Scientist</strong>, <strong>Research Engineer</strong>, or <strong>ML Engineer</strong> roles. It's time to build and ship tech people love!
                     </p>
                     <a href="mailto:josiasmoukpe@gmail.com" class="cta-button">
                         <i class="fas fa-envelope"></i>

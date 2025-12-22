@@ -379,6 +379,70 @@
     });
 
     // ==========================================================================
+    // Vertical Scroll Section Markers
+    // ==========================================================================
+    const scrollSections = document.querySelectorAll('.scroll-section-marker');
+    const sections = ['bio', 'research', 'timeline', 'papers', 'misc'];
+    
+    // Position markers evenly along the scroll bar
+    function positionScrollMarkers() {
+        const totalSections = scrollSections.length;
+        scrollSections.forEach((marker, index) => {
+            const position = ((index + 1) / (totalSections + 1)) * 100;
+            marker.style.top = `${position}%`;
+        });
+    }
+    
+    // Update active marker based on scroll position
+    function updateActiveMarker() {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        let activeSection = null;
+        
+        sections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                    activeSection = sectionId;
+                }
+            }
+        });
+        
+        scrollSections.forEach(marker => {
+            if (marker.dataset.section === activeSection) {
+                marker.classList.add('active');
+            } else {
+                marker.classList.remove('active');
+            }
+        });
+    }
+    
+    positionScrollMarkers();
+    window.addEventListener('scroll', updateActiveMarker);
+    updateActiveMarker();
+
+    // ==========================================================================
+    // Research Interests Toggle
+    // ==========================================================================
+    const interestItems = document.querySelectorAll('.interest-item');
+    
+    interestItems.forEach(item => {
+        const header = item.querySelector('.interest-header');
+        const toggle = item.querySelector('.interest-toggle');
+        
+        // Make both header and toggle clickable
+        const toggleDescription = () => {
+            item.classList.toggle('expanded');
+        };
+        
+        if (header) {
+            header.addEventListener('click', toggleDescription);
+        }
+    });
+
+    // ==========================================================================
     // Initialize
     // ==========================================================================
     initTheme();
