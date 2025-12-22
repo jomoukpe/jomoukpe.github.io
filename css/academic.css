@@ -397,69 +397,20 @@ ul, ol {
 /* --------------------------------------------------------------------------
    Research Interests
    -------------------------------------------------------------------------- */
-.interests-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.interests-core {
-    padding: 0;
-    background: transparent;
-    border-radius: 0;
-    border: none;
-}
-
-.interests-subtitle {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: var(--text-primary);
-}
-
-.interests-description {
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-}
-
-.interests-description strong {
-    color: var(--accent-primary);
-    font-weight: 600;
-}
-
-.interests-categories {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
-.interests-category {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.interests-category-title {
-    font-family: var(--font-serif);
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-}
-
 .interests-list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
 }
 
 .interests-list li {
-    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     padding-left: 1.5rem;
     position: relative;
-    color: var(--text-secondary);
 }
 
 .interests-list li::before {
@@ -467,12 +418,20 @@ ul, ol {
     position: absolute;
     left: 0;
     color: var(--accent-primary);
+    font-weight: 600;
 }
 
-@media (max-width: 768px) {
-    .interests-categories {
-        grid-template-columns: 1fr;
-    }
+.interest-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-serif);
+}
+
+.interest-description {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
 }
 
 /* --------------------------------------------------------------------------
