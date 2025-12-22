@@ -79,11 +79,13 @@
         const showThreshold = 100;
         
         if (scrollProgress) {
-            scrollProgress.classList.toggle('visible', scrollTop > showThreshold);
+            // Always visible now
+            // scrollProgress.classList.toggle('visible', scrollTop > showThreshold);
         }
         
         if (scrollNav) {
-            scrollNav.classList.toggle('visible', scrollTop > showThreshold);
+            // Always visible now
+            // scrollNav.classList.toggle('visible', scrollTop > showThreshold);
         }
         
         ticking = false;
@@ -395,7 +397,16 @@
     
     // Update active marker based on scroll position
     function updateActiveMarker() {
-        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        // Use a slightly different threshold to sync better with visual progress
+        const scrollPosition = window.scrollY + window.innerHeight * 0.3;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = (window.scrollY / totalHeight) * 100;
+        
+        // Sync progress bar height
+        if (scrollProgressBar) {
+            scrollProgressBar.style.height = `${scrollPercentage}%`;
+        }
+        
         let activeSection = null;
         
         sections.forEach(sectionId => {
@@ -404,14 +415,19 @@
                 const sectionTop = section.offsetTop;
                 const sectionBottom = sectionTop + section.offsetHeight;
                 
-                if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                // Active if we've scrolled past the top of the section (minus some buffer)
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     activeSection = sectionId;
                 }
             }
         });
         
         scrollSections.forEach(marker => {
-            if (marker.dataset.section === activeSection) {
+            const markerSection = marker.dataset.section;
+            const markerTop = parseFloat(marker.style.top);
+            
+            // Mark as active if it's the current section OR if we've scrolled past it on the timeline
+            if (markerSection === activeSection || (markerTop <= scrollPercentage)) {
                 marker.classList.add('active');
             } else {
                 marker.classList.remove('active');

@@ -107,7 +107,7 @@ ul, ol {
     background: var(--border-color);
     border-radius: 2px;
     z-index: 1000;
-    opacity: 0;
+    opacity: 1; /* Always visible */
     transition: opacity 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -208,7 +208,7 @@ ul, ol {
     justify-content: space-between;
     height: 380px; /* 300px line + 40px padding top/bottom */
     z-index: 1001;
-    opacity: 0;
+    opacity: 1; /* Always visible */
     transition: opacity 0.3s ease;
     pointer-events: none; /* Allow clicks to pass through gap */
 }
@@ -379,7 +379,7 @@ ul, ol {
    -------------------------------------------------------------------------- */
 .bio-section {
     padding: 0 0 var(--section-gap) 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: none;
 }
 
 .page-name {
@@ -456,7 +456,7 @@ ul, ol {
    -------------------------------------------------------------------------- */
 .section {
     padding: var(--section-gap) 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: none;
 }
 
 .section:last-child {
@@ -488,11 +488,12 @@ ul, ol {
 }
 
 .interest-item::before {
-    content: "→";
+    content: "◆"; /* Diamond character */
     position: absolute;
     left: 0;
     top: 0.25rem;
     color: var(--accent-primary);
+    font-size: 0.7rem; /* Adjusted size for diamond */
     font-weight: 600;
 }
 
@@ -542,7 +543,7 @@ ul, ol {
     font-size: 0.8rem;
     line-height: 1.6;
     color: var(--text-secondary);
-    margin-top: 0.5rem;
+    margin-top: 0;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -552,7 +553,7 @@ ul, ol {
 .interest-item.expanded .interest-description {
     max-height: 500px;
     opacity: 1;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -567,7 +568,7 @@ ul, ol {
     margin: 0;
     padding: 3rem 0 3rem 0;
     border-radius: 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: none;
 }
 
 .opportunity-card {
@@ -581,6 +582,7 @@ ul, ol {
     box-shadow: none;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
+    font-size: 0.8rem;
 }
 
 .opportunity-card:hover {
@@ -702,7 +704,7 @@ ul, ol {
 }
 
 .timeline-event {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1rem;
@@ -719,7 +721,7 @@ ul, ol {
 }
 
 .timeline-date {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     margin-top: 1rem;
     font-family: var(--font-mono);
@@ -1013,7 +1015,7 @@ ul, ol {
 .map-grid {
     display: grid;
     grid-template-columns: 1fr 300px;
-    gap: 2rem;
+    gap: 3rem;
     align-items: start;
 }
 
@@ -1023,12 +1025,24 @@ ul, ol {
 
 .map-text h2 {
     margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 .map-text p {
     font-family: var(--font-serif);
     font-size: 0.85rem;
     line-height: 1.7;
+    margin-top: 0;
+}
+
+.map-container {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    margin-top: 2.8rem; /* Further adjusted to align perfectly with text */
 }
 
 .map-container {
@@ -1257,6 +1271,7 @@ ul, ol {
 
     .map-container {
         height: 300px;
+        margin-top: 0;
     }
 }
 
