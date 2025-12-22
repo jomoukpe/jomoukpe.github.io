@@ -267,7 +267,7 @@
     }, observerOptions);
 
     // Observe elements for animation
-    document.querySelectorAll('.paper-item, .misc-card, .timeline-item').forEach(el => {
+    document.querySelectorAll('.paper-item, .misc-section, .timeline-item').forEach(el => {
         el.classList.add('animate-target');
         animateOnScroll.observe(el);
     });
