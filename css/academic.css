@@ -34,6 +34,7 @@
     /* Spacing */
     --container-width: 900px;
     --section-gap: 2.5rem;
+    --navbar-height: 60px;
 }
 
 [data-theme="dark"] {
@@ -178,7 +179,8 @@ ul, ol {
 .nav-container {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0.75rem 1.5rem;
+    padding: 0 1.5rem;
+    height: var(--navbar-height);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -287,7 +289,7 @@ ul, ol {
 .main-content {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 1.5rem 2rem;
+    padding: var(--navbar-height) 1.5rem 2rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -306,8 +308,7 @@ ul, ol {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
-    margin-top: -60px;
-    padding-top: calc(2rem + 60px);
+    margin-top: calc(-1 * var(--navbar-height));
 }
 
 .hero::before {
@@ -380,12 +381,16 @@ ul, ol {
 .bio-photo {
     position: sticky;
     top: 100px;
+    width: 173px;
+    height: 173px;
 }
 
 .profile-photo {
     width: 100%;
-    border-radius: 12px;
+    height: 100%;
+    border-radius: 50%;
     box-shadow: var(--shadow-md);
+    object-fit: cover;
 }
 
 /* --------------------------------------------------------------------------
@@ -1097,7 +1102,8 @@ ul, ol {
 
     .bio-photo {
         order: -1;
-        max-width: 200px;
+        width: 200px;
+        height: 200px;
         margin: 0 auto;
         position: static;
     }
@@ -1166,16 +1172,16 @@ ul, ol {
 
 @media (max-width: 480px) {
     .main-content {
-        padding: 0 1rem 2rem;
+        padding: var(--navbar-height) 1rem 2rem;
     }
 
     .hero {
-        padding-top: calc(1.5rem + 60px);
-        padding-bottom: 1.5rem;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
     }
 
     .hero-name {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .section-title {
