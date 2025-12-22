@@ -103,12 +103,15 @@ ul, ol {
     top: 50%;
     transform: translateY(-50%);
     width: 2px;
-    height: 250px;
+    height: 300px;
     background: var(--border-color);
     border-radius: 2px;
     z-index: 1000;
     opacity: 0;
     transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .scroll-progress.visible {
@@ -121,6 +124,9 @@ ul, ol {
     border-radius: 2px;
     height: 0%;
     transition: height 0.1s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .scroll-sections {
@@ -142,31 +148,37 @@ ul, ol {
     gap: 0.5rem;
     text-decoration: none;
     transition: all 0.2s ease;
+    width: 10px;
+    height: 10px;
+    justify-content: center;
 }
 
 .marker-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+    width: 6px;
+    height: 1px;
     background: var(--text-muted);
-    border: 2px solid var(--bg-primary);
     transition: all 0.2s ease;
     position: relative;
     z-index: 2;
 }
 
 .scroll-section-marker:hover .marker-dot {
+    width: 12px;
+    height: 2px;
     background: var(--accent-primary);
-    transform: scale(1.3);
 }
 
 .scroll-section-marker.active .marker-dot {
+    width: 12px;
+    height: 2px;
     background: var(--accent-primary);
-    transform: scale(1.2);
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
 }
 
 .marker-label {
-    font-size: 0.75rem;
+    position: absolute;
+    left: 20px;
+    font-size: 0.7rem;
     color: var(--text-secondary);
     background: var(--bg-primary);
     padding: 0.25rem 0.5rem;
@@ -174,25 +186,31 @@ ul, ol {
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
     border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-mono);
+    transform: translateX(-5px);
 }
 
 .scroll-section-marker:hover .marker-label {
     opacity: 1;
+    transform: translateX(0);
 }
 
 .scroll-nav {
     position: fixed;
-    left: 12px;
+    left: 11px; /* Aligned with the scroll line (20px - 9px center) */
     top: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 270px;
+    justify-content: space-between;
+    height: 380px; /* 300px line + 40px padding top/bottom */
     z-index: 1001;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none; /* Allow clicks to pass through gap */
 }
 
 .scroll-nav.visible {
@@ -200,24 +218,24 @@ ul, ol {
 }
 
 .scroll-btn {
-    width: 34px;
-    height: 34px;
+    width: 20px;
+    height: 20px;
     border: 1px solid var(--border-color);
     background: var(--bg-primary);
-    color: var(--text-secondary);
+    color: var(--text-muted);
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    box-shadow: var(--shadow-sm);
+    font-size: 0.6rem;
+    pointer-events: auto; /* Re-enable clicks on buttons */
 }
 
 .scroll-btn:hover {
-    background: var(--accent-primary);
-    color: white;
     border-color: var(--accent-primary);
+    color: var(--accent-primary);
     transform: scale(1.1);
 }
 
