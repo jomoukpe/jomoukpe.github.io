@@ -22,6 +22,9 @@
     const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
     const mobileMenuClose = document.querySelector('.mobile-menu-close');
     const yearSpan = document.getElementById('year');
+    const navbar = document.querySelector('.navbar');
+    const pageName = document.querySelector('.page-name');
+    const logoText = document.querySelector('.logo-text');
 
     // ==========================================================================
     // Theme Toggle (Light/Dark Mode)
@@ -247,6 +250,78 @@
             }
         });
     });
+
+    // ==========================================================================
+    // Navbar Logo Toggle - Typewriter animation between "JM" and "JOSIAS MOUKPE"
+    // ==========================================================================
+    const fullName = 'JOSIAS MOUKPE';
+    const shortName = 'JM';
+    let isAnimating = false;
+    let currentText = fullName;
+    let animationTimeout = null;
+
+    function typewriterAnimate(fromText, toText, element, callback) {
+        if (isAnimating) {
+            clearTimeout(animationTimeout);
+        }
+        isAnimating = true;
+        
+        const charDelay = 10; // milliseconds per character
+        let currentIndex = fromText.length;
+        
+        // First, delete characters
+        function deleteChar() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                element.textContent = fromText.substring(0, currentIndex);
+                animationTimeout = setTimeout(deleteChar, charDelay);
+            } else {
+                // Then type new characters
+                currentIndex = 0;
+                typeChar();
+            }
+        }
+        
+        function typeChar() {
+            if (currentIndex < toText.length) {
+                currentIndex++;
+                element.textContent = toText.substring(0, currentIndex);
+                animationTimeout = setTimeout(typeChar, charDelay);
+            } else {
+                isAnimating = false;
+                currentText = toText;
+                if (callback) callback();
+            }
+        }
+        
+        deleteChar();
+    }
+
+    if (pageName && navbar && logoText) {
+        const nameObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Name is visible on page, animate to "JM"
+                    navbar.classList.add('name-visible');
+                    if (currentText !== shortName) {
+                        typewriterAnimate(currentText, shortName, logoText);
+                    }
+                } else {
+                    // Name is not visible, animate to full "JOSIAS MOUKPE"
+                    navbar.classList.remove('name-visible');
+                    if (currentText !== fullName) {
+                        typewriterAnimate(currentText, fullName, logoText);
+                    }
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '-60px 0px 0px 0px', // Account for fixed navbar height
+            threshold: 0
+        });
+
+        nameObserver.observe(pageName);
+    }
 
     // ==========================================================================
     // Intersection Observer for Animations

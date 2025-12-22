@@ -193,11 +193,16 @@ ul, ol {
     color: var(--text-primary);
     text-decoration: none;
     text-transform: uppercase;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .nav-logo:hover {
     color: var(--accent-primary);
-    text-decoration: none;
+}
+
+.logo-text {
+    display: inline-block;
 }
 
 .nav-links {
@@ -320,6 +325,30 @@ ul, ol {
     font-family: var(--font-serif);
     font-size: 0.8rem;
     line-height: 1.8;
+}
+
+.bio-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.bio-links a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.bio-links a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.link-separator {
+    color: var(--text-muted);
 }
 
 .bio-text p {
@@ -1071,6 +1100,10 @@ ul, ol {
     .bio-text {
         font-size: 0.9rem;
         order: 2;
+    }
+
+    .bio-links {
+        justify-content: center;
     }
 
     .opportunity-card {
