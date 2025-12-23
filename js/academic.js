@@ -386,20 +386,53 @@
     const scrollSections = document.querySelectorAll('.scroll-section-marker');
     const sections = ['bio', 'research', 'timeline', 'papers', 'misc'];
     
-    // Position markers evenly along the scroll bar
+    // Get navbar height for offset calculations
+    const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 60;
+    
+    // Calculate scroll position for a section
+    function getScrollPositionForSection(section) {
+        return Math.max(0, section.offsetTop - navbarHeight);
+    }
+    
+    // Position markers based on actual section positions
+    // Offset to move ticks up to align with the progress line (in percentage points)
+    const TICK_OFFSET = -2;
+    
     function positionScrollMarkers() {
-        const totalSections = scrollSections.length;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        
+        // Guard against zero height (e.g. before load)
+        if (totalHeight <= 0) return;
+
         scrollSections.forEach((marker, index) => {
-            const position = ((index + 1) / (totalSections + 1)) * 100;
-            marker.style.top = `${position}%`;
+            const sectionId = marker.dataset.section;
+            const section = document.getElementById(sectionId);
+            
+            if (section) {
+                // Calculate the scroll position that brings this section into view
+                const scrollToSection = getScrollPositionForSection(section);
+                let position = (scrollToSection / totalHeight) * 100;
+                
+                // Apply offset to move tick up
+                position = position + TICK_OFFSET;
+                
+                // Clamp between 0 and 100
+                position = Math.max(0, Math.min(100, position));
+                
+                marker.style.top = `${position}%`;
+            }
         });
+        
+        // Force an update of the active state after positioning
+        updateActiveMarker();
     }
     
     // Update active marker based on scroll position
     function updateActiveMarker() {
-        // Use a slightly different threshold to sync better with visual progress
-        const scrollPosition = window.scrollY + window.innerHeight * 0.3;
         const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        // Guard against zero height
+        if (totalHeight <= 0) return;
+
         const scrollPercentage = (window.scrollY / totalHeight) * 100;
         
         // Sync progress bar height
@@ -407,27 +440,11 @@
             scrollProgressBar.style.height = `${scrollPercentage}%`;
         }
         
-        let activeSection = null;
-        
-        sections.forEach(sectionId => {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                
-                // Active if we've scrolled past the top of the section (minus some buffer)
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    activeSection = sectionId;
-                }
-            }
-        });
-        
         scrollSections.forEach(marker => {
-            const markerSection = marker.dataset.section;
-            const markerTop = parseFloat(marker.style.top);
+            const markerTop = parseFloat(marker.style.top) || 0;
             
-            // Mark as active if it's the current section OR if we've scrolled past it on the timeline
-            if (markerSection === activeSection || (markerTop <= scrollPercentage)) {
+            // Mark as active when the line reaches the marker position
+            if (scrollPercentage >= markerTop) {
                 marker.classList.add('active');
             } else {
                 marker.classList.remove('active');
@@ -435,9 +452,53 @@
         });
     }
     
+    // Handle marker clicks - scroll and update progress bar immediately
+    scrollSections.forEach(marker => {
+        marker.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const sectionId = marker.dataset.section;
+            const section = document.getElementById(sectionId);
+            
+            if (section) {
+                const scrollTarget = getScrollPositionForSection(section);
+                
+                // Scroll to section
+                window.scrollTo({
+                    top: scrollTarget,
+                    behavior: 'smooth'
+                });
+                
+                // Immediately update the progress bar to target position
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const targetPercentage = (scrollTarget / totalHeight) * 100;
+                
+                if (scrollProgressBar) {
+                    scrollProgressBar.style.height = `${targetPercentage}%`;
+                }
+                
+                // Update active states
+                scrollSections.forEach(m => {
+                    const mTop = parseFloat(m.style.top) || 0;
+                    if (targetPercentage >= mTop) {
+                        m.classList.add('active');
+                    } else {
+                        m.classList.remove('active');
+                    }
+                });
+            }
+        });
+    });
+    
+    // Initial positioning
     positionScrollMarkers();
-    window.addEventListener('scroll', updateActiveMarker);
-    updateActiveMarker();
+    
+    // Update on scroll
+    window.addEventListener('scroll', updateActiveMarker, { passive: true });
+    
+    // Update positions on resize and load (to account for dynamic content/images)
+    window.addEventListener('resize', positionScrollMarkers);
+    window.addEventListener('load', positionScrollMarkers);
 
     // ==========================================================================
     // Research Interests Toggle
