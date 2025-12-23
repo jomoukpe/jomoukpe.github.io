@@ -118,122 +118,70 @@
     }
 
     // ==========================================================================
-    // Timeline Horizontal Scroll
+    // Timeline Horizontal Scroll (Native Scroll Implementation)
     // ==========================================================================
-    let timelinePosition = 0;
+    const timelineWrapper = document.querySelector('.timeline-wrapper');
     const timelineItemWidth = 200; // Match CSS width
 
-    function updateTimelinePosition() {
-        if (timelineTrack) {
-            timelineTrack.style.transform = `translateX(${-timelinePosition}px)`;
-        }
-        updateTimelineNavButtons();
-    }
-
-    function getTimelineMaxScroll() {
-        if (!timelineTrack) return 0;
-        const items = timelineTrack.querySelectorAll('.timeline-item');
-        const totalWidth = items.length * timelineItemWidth;
-        const wrapper = timelineTrack.parentElement;
-        const visibleWidth = wrapper ? wrapper.offsetWidth : 800;
-        return Math.max(0, totalWidth - visibleWidth);
-    }
-
     function updateTimelineNavButtons() {
-        const maxScroll = getTimelineMaxScroll();
+        if (!timelineWrapper) return;
         
+        const currentScroll = timelineWrapper.scrollLeft;
+        const maxScroll = timelineWrapper.scrollWidth - timelineWrapper.clientWidth;
+        
+        // Use a small epsilon for float comparison safety
         if (timelinePrev) {
-            timelinePrev.disabled = timelinePosition <= 0;
+            timelinePrev.disabled = currentScroll <= 1;
         }
         
         if (timelineNext) {
-            timelineNext.disabled = timelinePosition >= maxScroll;
+            timelineNext.disabled = currentScroll >= maxScroll - 1;
         }
     }
 
     if (timelinePrev) {
         timelinePrev.addEventListener('click', () => {
-            timelinePosition = Math.max(0, timelinePosition - timelineItemWidth * 2);
-            updateTimelinePosition();
+            if (!timelineWrapper) return;
+            const scrollAmount = timelineItemWidth * 2;
+            timelineWrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
     }
 
     if (timelineNext) {
         timelineNext.addEventListener('click', () => {
-            const maxScroll = getTimelineMaxScroll();
-            timelinePosition = Math.min(maxScroll, timelinePosition + timelineItemWidth * 2);
-            updateTimelinePosition();
+            if (!timelineWrapper) return;
+            const scrollAmount = timelineItemWidth * 2;
+            timelineWrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
     }
 
+    // Update buttons on scroll
+    if (timelineWrapper) {
+        timelineWrapper.addEventListener('scroll', () => {
+            // Debounce or just update on animation frame
+            window.requestAnimationFrame(updateTimelineNavButtons);
+        }, { passive: true });
+    }
+
     // Wheel scroll support for timeline
-    if (timelineTrack) {
-        // Add listener to the wrapper to catch wheel events over the whole area
-        const wrapper = timelineTrack.parentElement;
-        
-        if (wrapper) {
-            wrapper.addEventListener('wheel', (e) => {
-                // Prevent vertical scroll if we are scrolling horizontally
-                // Or if we just want to force horizontal scroll when over this element
-                
-                // Only hijack scroll if it's primarily a vertical scroll (standard mouse wheel)
-                // or if it's a horizontal scroll
-                if (e.deltaY !== 0 || e.deltaX !== 0) {
-                    e.preventDefault();
-                    
-                    const maxScroll = getTimelineMaxScroll();
-                    // Use deltaY (vertical wheel) to drive horizontal scroll
-                    // Standardize speed a bit
-                    const scrollAmount = e.deltaY + e.deltaX;
-                    
-                    timelinePosition = Math.max(0, Math.min(maxScroll, timelinePosition + scrollAmount));
-                    updateTimelinePosition();
-                }
-            }, { passive: false }); // passive: false needed to use preventDefault()
-        }
-    }
-
-    // Touch/swipe support for timeline
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    if (timelineTrack) {
-        timelineTrack.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        timelineTrack.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleTimelineSwipe();
-        }, { passive: true });
-    }
-
-    function handleTimelineSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swipe left - go next
-                const maxScroll = getTimelineMaxScroll();
-                timelinePosition = Math.min(maxScroll, timelinePosition + timelineItemWidth);
-            } else {
-                // Swipe right - go prev
-                timelinePosition = Math.max(0, timelinePosition - timelineItemWidth);
+    if (timelineWrapper) {
+        timelineWrapper.addEventListener('wheel', (e) => {
+            // Only hijack scroll if it's primarily a vertical scroll (standard mouse wheel)
+            // transforming it to horizontal scroll
+            if (e.deltaY !== 0 && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                e.preventDefault();
+                timelineWrapper.scrollLeft += e.deltaY;
             }
-            updateTimelinePosition();
-        }
+        }, { passive: false });
     }
+
+    // Touch/swipe support is natively handled by overflow-x: auto
 
     // Reset styles that might have been set by the previous version
     if (timelineTrack) {
         timelineTrack.style.width = '';
         timelineTrack.style.position = '';
-        const items = timelineTrack.querySelectorAll('.timeline-item');
-        items.forEach(item => {
-            item.style.position = '';
-            item.style.left = '';
-        });
+        timelineTrack.style.transform = ''; // Clear any previous transform
     }
 
     // Initial update

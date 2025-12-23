@@ -724,16 +724,24 @@ ul, ol {
 
 .timeline-wrapper {
     flex: 1;
-    overflow: hidden;
+    overflow-x: auto; /* Enable native scrolling */
+    overflow-y: hidden;
     position: relative;
     padding: 0 1rem;
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); /* Additional soft fade */
+    scrollbar-width: none; /* Firefox: hide scrollbar */
+    -ms-overflow-style: none; /* IE/Edge: hide scrollbar */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.timeline-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome/Safari: hide scrollbar */
 }
 
 .timeline-track {
     display: flex;
     gap: 0;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    /* transition: transform 0.5s ... -> Removed, using native scroll */
     padding: 2rem 0;
     align-items: center; /* Center items vertically */
     position: relative;
