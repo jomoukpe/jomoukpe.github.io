@@ -74,18 +74,22 @@
         if (scrollProgressBar) {
             scrollProgressBar.style.height = scrollPercent + '%';
         }
-        
-        // Show/hide scroll elements based on scroll position
-        const showThreshold = 100;
-        
-        if (scrollProgress) {
-            // Always visible now
-            // scrollProgress.classList.toggle('visible', scrollTop > showThreshold);
+
+        // Update scroll buttons state
+        if (scrollTopBtn) {
+            // Disable if at top (allow small buffer)
+            scrollTopBtn.disabled = scrollTop <= 5;
+            // Add visual class for styling if needed
+            scrollTopBtn.style.opacity = scrollTop <= 5 ? '0.3' : '1';
+            scrollTopBtn.style.cursor = scrollTop <= 5 ? 'not-allowed' : 'pointer';
         }
-        
-        if (scrollNav) {
-            // Always visible now
-            // scrollNav.classList.toggle('visible', scrollTop > showThreshold);
+
+        if (scrollBottomBtn) {
+            // Disable if at bottom (allow small buffer)
+            const isAtBottom = Math.abs(scrollHeight - scrollTop) <= 5;
+            scrollBottomBtn.disabled = isAtBottom;
+            scrollBottomBtn.style.opacity = isAtBottom ? '0.3' : '1';
+            scrollBottomBtn.style.cursor = isAtBottom ? 'not-allowed' : 'pointer';
         }
         
         ticking = false;
@@ -160,6 +164,33 @@
             timelinePosition = Math.min(maxScroll, timelinePosition + timelineItemWidth * 2);
             updateTimelinePosition();
         });
+    }
+
+    // Wheel scroll support for timeline
+    if (timelineTrack) {
+        // Add listener to the wrapper to catch wheel events over the whole area
+        const wrapper = timelineTrack.parentElement;
+        
+        if (wrapper) {
+            wrapper.addEventListener('wheel', (e) => {
+                // Prevent vertical scroll if we are scrolling horizontally
+                // Or if we just want to force horizontal scroll when over this element
+                
+                // Only hijack scroll if it's primarily a vertical scroll (standard mouse wheel)
+                // or if it's a horizontal scroll
+                if (e.deltaY !== 0 || e.deltaX !== 0) {
+                    e.preventDefault();
+                    
+                    const maxScroll = getTimelineMaxScroll();
+                    // Use deltaY (vertical wheel) to drive horizontal scroll
+                    // Standardize speed a bit
+                    const scrollAmount = e.deltaY + e.deltaX;
+                    
+                    timelinePosition = Math.max(0, Math.min(maxScroll, timelinePosition + scrollAmount));
+                    updateTimelinePosition();
+                }
+            }, { passive: false }); // passive: false needed to use preventDefault()
+        }
     }
 
     // Touch/swipe support for timeline

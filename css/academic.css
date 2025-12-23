@@ -700,6 +700,21 @@ ul, ol {
     background: var(--bg-primary);
     color: var(--text-secondary);
     border-color: var(--border-color);
+    cursor: not-allowed;
+    opacity: 0.3; /* Keep opacity low */
+}
+
+/* Scroll buttons disabled state */
+.scroll-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none; /* Prevent hover interactions entirely */
+}
+
+.scroll-btn:disabled:hover {
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    border-color: var(--border-color);
 }
 
 .timeline-wrapper {
