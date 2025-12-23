@@ -775,6 +775,13 @@ ul, ol {
     align-items: flex-end; /* Align bottom */
     justify-content: center;
     line-height: 1.2;
+    transition: all 0.3s ease;
+    transform-origin: bottom center;
+}
+
+.timeline-item:hover .timeline-event {
+    color: var(--accent-primary);
+    transform: scale(1.1);
 }
 
 .timeline-tick {
@@ -798,6 +805,13 @@ ul, ol {
     color: var(--text-muted);
     margin-top: 0.75rem; /* Space below tick */
     font-family: var(--font-mono);
+    transition: all 0.3s ease;
+    transform-origin: top center;
+}
+
+.timeline-item:hover .timeline-date {
+    color: var(--text-primary);
+    transform: scale(1.1);
 }
 
 /* Removed old .timeline-line since we use border-bottom now */
