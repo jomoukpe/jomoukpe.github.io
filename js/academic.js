@@ -117,21 +117,34 @@
     // Timeline Horizontal Scroll
     // ==========================================================================
     let timelinePosition = 0;
-    const timelineItemWidth = 180; // Width of each timeline item
-    const timelineVisibleItems = 4; // Number of visible items
+    const timelineItemWidth = 200; // Match CSS width
 
     function updateTimelinePosition() {
         if (timelineTrack) {
             timelineTrack.style.transform = `translateX(${-timelinePosition}px)`;
         }
+        updateTimelineNavButtons();
     }
 
     function getTimelineMaxScroll() {
         if (!timelineTrack) return 0;
         const items = timelineTrack.querySelectorAll('.timeline-item');
         const totalWidth = items.length * timelineItemWidth;
-        const visibleWidth = timelineVisibleItems * timelineItemWidth;
+        const wrapper = timelineTrack.parentElement;
+        const visibleWidth = wrapper ? wrapper.offsetWidth : 800;
         return Math.max(0, totalWidth - visibleWidth);
+    }
+
+    function updateTimelineNavButtons() {
+        const maxScroll = getTimelineMaxScroll();
+        
+        if (timelinePrev) {
+            timelinePrev.disabled = timelinePosition <= 0;
+        }
+        
+        if (timelineNext) {
+            timelineNext.disabled = timelinePosition >= maxScroll;
+        }
     }
 
     if (timelinePrev) {
@@ -180,6 +193,21 @@
             updateTimelinePosition();
         }
     }
+
+    // Reset styles that might have been set by the previous version
+    if (timelineTrack) {
+        timelineTrack.style.width = '';
+        timelineTrack.style.position = '';
+        const items = timelineTrack.querySelectorAll('.timeline-item');
+        items.forEach(item => {
+            item.style.position = '';
+            item.style.left = '';
+        });
+    }
+
+    // Initial update
+    updateTimelineNavButtons();
+    window.addEventListener('resize', updateTimelineNavButtons);
 
     // ==========================================================================
     // Mobile Menu

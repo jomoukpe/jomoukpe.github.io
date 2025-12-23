@@ -643,7 +643,30 @@ ul, ol {
     display: flex;
     align-items: center;
     gap: 1rem;
-    position: relative;
+    position: relative; /* For gradient masks */
+}
+
+/* Add fade gradients to indicate scrolling */
+.timeline-container::before,
+.timeline-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 10;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.timeline-container::before {
+    left: 50px; /* Offset for left button */
+    background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.timeline-container::after {
+    right: 50px; /* Offset for right button */
+    background: linear-gradient(to left, var(--bg-primary), transparent);
 }
 
 .timeline-nav {
@@ -659,7 +682,7 @@ ul, ol {
     justify-content: center;
     transition: all 0.2s ease;
     flex-shrink: 0;
-    z-index: 10;
+    z-index: 11; /* Above mask */
 }
 
 .timeline-nav:hover {
@@ -683,58 +706,84 @@ ul, ol {
     flex: 1;
     overflow: hidden;
     position: relative;
+    padding: 0 1rem;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); /* Additional soft fade */
 }
 
 .timeline-track {
     display: flex;
     gap: 0;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     padding: 2rem 0;
-    align-items: center;
+    align-items: center; /* Center items vertically */
+    position: relative;
+    width: max-content; /* Allow track to grow with content */
+}
+
+/* The central gray line */
+.timeline-track::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+    z-index: 0;
+    transform: translateY(-50%);
 }
 
 .timeline-item {
-    flex: 0 0 180px;
+    width: 200px; /* Fixed width per item */
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
+    padding: 0 1rem;
 }
 
 .timeline-event {
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 1rem;
-    max-width: 150px;
+    margin-bottom: 0.75rem; /* Space above tick */
+    min-height: 2.4em; /* Ensure consistent height */
+    display: flex;
+    align-items: flex-end; /* Align bottom */
+    justify-content: center;
+    line-height: 1.2;
 }
 
 .timeline-tick {
     width: 2px;
-    height: 16px;
-    background: var(--accent-primary);
-    border-radius: 1px;
+    height: 12px;
+    background: var(--text-muted);
     position: relative;
     z-index: 2;
+    transition: all 0.3s ease;
+    /* Removed negative margin since line is centered */
+}
+
+/* Highlight tick on hover */
+.timeline-item:hover .timeline-tick {
+    background: var(--accent-primary);
+    height: 20px;
+    /* No margin adjustment needed if centered */
 }
 
 .timeline-date {
     font-size: 0.75rem;
     color: var(--text-muted);
-    margin-top: 1rem;
+    margin-top: 0.75rem; /* Space below tick */
     font-family: var(--font-mono);
 }
 
+/* Removed old .timeline-line since we use border-bottom now */
 .timeline-line {
-    position: absolute;
-    top: 50%;
-    left: 90px;
-    right: 90px;
-    height: 2px;
-    background: var(--border-color);
-    transform: translateY(-50%);
+    display: none;
 }
 
 /* --------------------------------------------------------------------------
