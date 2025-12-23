@@ -200,15 +200,15 @@ ul, ol {
 
 .scroll-nav {
     position: fixed;
-    left: 9px; /* Center relative to the 2px line at left:20px. 
+    left: 6px; /* Center relative to the 2px line at left:20px. 
                   Line center is at 21px. Button center needs to be at 21px.
-                  Button width 24px. Left = 21px - 12px = 9px. */
+                  Button width 30px. Left = 21px - 15px = 6px. */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 350px; /* 300px line + 24px top button + 24px bottom button + spacing */
+    height: 360px; /* 300px line + 30px top button + 30px bottom button */
     z-index: 1001;
     opacity: 1; /* Always visible */
     transition: opacity 0.3s ease;
@@ -220,8 +220,8 @@ ul, ol {
 }
 
 .scroll-btn {
-    width: 24px; /* Reduced by 40% from 40px */
-    height: 24px; /* Reduced by 40% from 40px */
+    width: 30px; /* Increased by 20% from 24px */
+    height: 30px; /* Increased by 20% from 24px */
     border: 1px solid var(--border-color);
     background: var(--bg-primary);
     color: var(--text-secondary);
@@ -232,7 +232,7 @@ ul, ol {
     justify-content: center;
     transition: all 0.2s ease;
     pointer-events: auto; /* Re-enable clicks */
-    font-size: 0.6rem; /* Scaled down icon size */
+    font-size: 0.75rem; /* Scaled up icon size */
     z-index: 1002;
 }
 
@@ -674,8 +674,8 @@ ul, ol {
 }
 
 .timeline-nav {
-    width: 40px;
-    height: 40px;
+    width: 34px; /* Reduced by 15% from 40px */
+    height: 34px; /* Reduced by 15% from 40px */
     border: 1px solid var(--border-color);
     background: var(--bg-primary);
     color: var(--text-secondary);
@@ -687,6 +687,7 @@ ul, ol {
     transition: all 0.2s ease;
     flex-shrink: 0;
     z-index: 11; /* Above mask */
+    font-size: 0.9rem; /* Slightly reduced font size */
 }
 
 .timeline-nav:hover {
