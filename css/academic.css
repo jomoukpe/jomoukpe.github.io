@@ -790,8 +790,7 @@ ul, ol {
 /* Highlight tick on hover */
 .timeline-item:hover .timeline-tick {
     background: var(--accent-primary);
-    height: 20px;
-    /* No margin adjustment needed if centered */
+    transform: scaleY(1.6); /* Grow height visually without affecting layout flow (12px * 1.6 approx 19.2px) */
 }
 
 .timeline-date {
