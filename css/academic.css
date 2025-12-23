@@ -200,13 +200,15 @@ ul, ol {
 
 .scroll-nav {
     position: fixed;
-    left: 11px; /* Aligned with the scroll line (20px - 9px center) */
+    left: 9px; /* Center relative to the 2px line at left:20px. 
+                  Line center is at 21px. Button center needs to be at 21px.
+                  Button width 24px. Left = 21px - 12px = 9px. */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 380px; /* 300px line + 40px padding top/bottom */
+    height: 350px; /* 300px line + 24px top button + 24px bottom button + spacing */
     z-index: 1001;
     opacity: 1; /* Always visible */
     transition: opacity 0.3s ease;
@@ -218,25 +220,27 @@ ul, ol {
 }
 
 .scroll-btn {
-    width: 20px;
-    height: 20px;
+    width: 24px; /* Reduced by 40% from 40px */
+    height: 24px; /* Reduced by 40% from 40px */
     border: 1px solid var(--border-color);
     background: var(--bg-primary);
-    color: var(--text-muted);
+    color: var(--text-secondary);
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    font-size: 0.6rem;
-    pointer-events: auto; /* Re-enable clicks on buttons */
+    pointer-events: auto; /* Re-enable clicks */
+    font-size: 0.6rem; /* Scaled down icon size */
+    z-index: 1002;
 }
 
 .scroll-btn:hover {
+    background: var(--accent-primary);
+    color: white;
     border-color: var(--accent-primary);
-    color: var(--accent-primary);
-    transform: scale(1.1);
+    transform: none;
 }
 
 /* --------------------------------------------------------------------------
