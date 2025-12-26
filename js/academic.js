@@ -420,11 +420,14 @@
                 const scrollToSection = getScrollPositionForSection(section);
                 let position = (scrollToSection / totalHeight) * 100;
                 
+                // Clamp to 100% first so the offset shifts it inside the line
+                position = Math.min(100, position);
+                
                 // Apply offset to move tick up
                 position = position + TICK_OFFSET;
                 
-                // Clamp between 0 and 100
-                position = Math.max(0, Math.min(100, position));
+                // Clamp lower bound
+                position = Math.max(0, position);
                 
                 marker.style.top = `${position}%`;
             }

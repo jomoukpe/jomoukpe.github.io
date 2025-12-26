@@ -33,7 +33,7 @@
     
     /* Spacing */
     --container-width: 900px;
-    --section-gap: 2.5rem;
+    --section-gap: 1.25rem;
     --navbar-height: 60px;
 }
 
@@ -208,7 +208,7 @@ ul, ol {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 360px; /* 300px line + 30px top button + 30px bottom button */
+    height: 380px; /* Increased to create gap between line and buttons to prevent marker overlap */
     z-index: 1001;
     opacity: 1; /* Always visible */
     transition: opacity 0.3s ease;
@@ -1264,7 +1264,7 @@ ul, ol {
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
     :root {
-        --section-gap: 2rem;
+        --section-gap: 1rem;
     }
 
     .nav-links {
