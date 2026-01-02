@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operating Manual | Josias Moukpe</title>
+    <meta name="description"
+        content="How I operate: My philosophy on defining, designing, building, and launching intelligent systems.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Fira+Code:wght@300;400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.jpeg" type="image/jpeg">
+    <link rel="shortcut icon" href="assets/favicon.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="assets/favicon.jpeg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/academic.css">
+    <style>
+        /* Page-specific overrides */
+        .manual-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .manual-section:last-child {
+            border-bottom: none;
+        }
+
+        .manual-header {
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+
+        .manual-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-serif);
+            font-weight: 700;
+        }
+
+        .manual-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Process Grid */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .process-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .process-number {
+            width: 32px;
+            height: 32px;
+            background: #10b981; /* Green color from screenshot */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            flex-shrink: 0;
+        }
+
+        .process-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
+
+        .process-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* Domains Grid */
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .domain-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            /* text-align: center; */
+        }
+
+        .domain-icon {
+            font-size: 2.5rem;
+            color: #2dd4bf; /* Teal/Cyan color from screenshot */
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Adjust colors based on screenshot */
+        .domain-icon.agents { color: #2dd4bf; }
+        .domain-icon.robotics { color: #2dd4bf; }
+        .domain-icon.algo { color: #2dd4bf; }
+
+        .domain-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .domain-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .domains-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .manual-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Scroll Navigation Buttons -->
+    <div class="scroll-nav">
+        <button class="scroll-btn scroll-top" aria-label="Scroll to top" title="Scroll to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="scroll-btn scroll-bottom" aria-label="Scroll to bottom" title="Scroll to bottom">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">JOSIAS MOUKPE</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="mailto:josiasmoukpe@gmail.com" class="nav-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="assets/resume_cv.pdf" class="nav-link" title="Resume/CV" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=W1DOvzUAAAAJ" class="nav-link" title="Google Scholar"
+                    target="_blank">
+                    <i class="ai ai-google-scholar"></i>
+                </a>
+                <a href="https://github.com/ERUD1T3" class="nav-link" title="GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jmoukpe/" class="nav-link" title="LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/jomoukpe" class="nav-link" title="X (Twitter)" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Section 1: Who I Am & Process -->
+        <section class="manual-section">
+            <div class="breadcrumb">/ WHO I AM</div>
+            <div class="manual-header">
+                <h1 class="manual-title">Technologist From Togo 🌍.</h1>
+                <p class="manual-subtitle">
+                    I am a technology enthusiast. In my spare time, I hack on epic AI projects. Here is how I normally operate:
+                </p>
+            </div>
+            <div class="process-grid">
+                <!-- Step 1 -->
+                <div class="process-card">
+                    <div class="process-header">
+                        <span class="process-number">1</span>
+                        <h3 class="process-title">Define</h3>
+                    </div>
+                    <p class="process-description">
+                        Before every project, I systematically define the objectives of the project. Well-defined project
+                        objectives allow for testable, verifiable, and actionable results.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-card">
+                    <div class="process-header">
+                        <span class="process-number">2</span>
+                        <h3 class="process-title">Design</h3>
+                    </div>
+                    <p class="process-description">
+                        Next, I dive into the design, brainstorming architectures, structures, components of the project.
+                        Through quick analysis, I try eliminate as many potential issues as possible before building.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-card">
+                    <div class="process-header">
+                        <span class="process-number">3</span>
+                        <h3 class="process-title">Build</h3>
+                    </div>
+                    <p class="process-description">
+                        With a good-enough design, I start building, one module at a time. That
+                        usually means I formulate algorithms, architect models, and write code. I iterate
+                        many times building, measuring, and learning, until I obtain the MVP.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-card">
+                    <div class="process-header">
+                        <span class="process-number">4</span>
+                        <h3 class="process-title">Launch</h3>
+                    </div>
+                    <p class="process-description">
+                        I deploy the MVP quickly for the world to see and critique. Based on user feedback,
+                        I iterate further until the product provides the intended value and the users love it. 
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: What I Do -->
+        <section class="manual-section">
+            <div class="breadcrumb">/ WHAT I DO</div>
+            <div class="manual-header">
+                <h1 class="manual-title">Build Intelligent Systems 🤖.</h1>
+                <p class="manual-subtitle">
+                    I enjoy solving problems and building intelligent agents to empower people. Through my work, I
+                    hope to make a positive impact in people's lives by creating technologies that are accessible and
+                    useful. I am constantly learning and exploring new ideas. Enumerated, I do:
+                </p>
+            </div>
+
+            <div class="domains-grid">
+                <!-- Domain 1 -->
+                <div class="domain-card">
+                    <div class="domain-icon agents">
+                        <i class="fas fa-vector-square"></i>
+                    </div>
+                    <h3 class="domain-title">Intelligent Agents</h3>
+                    <p class="domain-description">
+                        I build deep learning models to solve long-horizon generative and cognitive tasks in computer vision, natural
+                        language, speech, and control.
+                    </p>
+                </div>
+
+                <!-- Domain 2 -->
+                <div class="domain-card">
+                    <div class="domain-icon robotics">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="domain-title">Mobile Robots</h3>
+                    <p class="domain-description">
+                        I embed intelligence in robotic systems for perception, planning, and control
+                        across various embodiments such as humanoid robots, drones, and autonomous vehicles.
+                    </p>
+                </div>
+
+                <!-- Domain 3 -->
+                <div class="domain-card">
+                    <div class="domain-icon algo">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="domain-title">Efficient Algorithms</h3>
+                    <p class="domain-description">
+                        I formulate algorithms to solve real-world problems with real-world constraints. I consider
+                        performance, efficiency, and scalability as core design principles.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Josias Moukpe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <button class="mobile-menu-close" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="mobile-nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="mailto:josiasmoukpe@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="assets/resume_cv.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Resume/CV</a>
+                <a href="https://scholar.google.com/citations?user=W1DOvzUAAAAJ" target="_blank"><i
+                        class="ai ai-google-scholar"></i> Google Scholar</a>
+                <a href="https://github.com/ERUD1T3" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/jmoukpe/" target="_blank"><i class="fab fa-linkedin"></i>
+                    LinkedIn</a>
+                <a href="https://twitter.com/jomoukpe" target="_blank"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/academic.js"></script>
+    <script>
+        // Update year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
