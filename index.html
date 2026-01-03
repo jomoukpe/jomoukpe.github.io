@@ -377,12 +377,12 @@
                             <div class="timeline-date">Nov 2025</div>
                         </div>
                         <div class="timeline-item" data-description="Concluded work on Recursive Self-Improvement benchmarking frameworks at ARG.">
-                            <div class="timeline-event">Concluded ARG Grant</div>
+                            <div class="timeline-event">Concluded ARG Contract</div>
                             <div class="timeline-tick"></div>
                             <div class="timeline-date">Nov 2025</div>
                         </div>
                         <div class="timeline-item" data-description="Completed research grant at NASA focused on Solar Event Forecasting using Deep Learning.">
-                            <div class="timeline-event">Concluded NASA Grant</div>
+                            <div class="timeline-event">Concluded NASA Contract</div>
                             <div class="timeline-tick"></div>
                             <div class="timeline-date">Aug 2025</div>
                         </div>
@@ -412,7 +412,7 @@
 
         <!-- Papers/Works Section -->
         <section class="section papers-section" id="papers">
-            <div class="section-header">
+            <div class="section-header" style="margin-bottom: 0.25rem;">
                 <h2 class="section-title">Selected Works</h2>
                 <div class="legend-container">
                     <span class="legend-item">
@@ -429,11 +429,14 @@
                     </span>
                 </div>
             </div>
+            <p style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 1.5rem; margin-top: 0;">
+                (∗ indicates equal contribution)
+            </p>
 
             <!-- Publication 1 -->
             <div class="paper-item" data-type="publication">
                 <div class="paper-thumbnail">
-                    <img src="assets/self_driving.jpg" alt="Highly Imbalanced Regression with Tabular Data">
+                    <img src="assets/images/works/mse_cisir.png" alt="Highly Imbalanced Regression with Tabular Data">
                 </div>
                 <div class="paper-content">
                     <h3 class="paper-title">
@@ -446,14 +449,14 @@
                     <p class="paper-venue">24th IEEE International Conference on Machine Learning and Applications
                         (ICMLA), 2025</p>
                     <div class="paper-links">
-                        <a href="#" class="paper-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#" class="paper-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://arxiv.org/pdf/2509.16339" class="paper-link" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="https://arxiv.org/abs/2509.16339" class="paper-link" target="_blank"><i class="fas fa-file-alt"></i> arXiv</a>
+                        <a href="https://github.com/Machine-Earning/CISIR?tab=readme-ov-file" class="paper-link" target="_blank"><i class="fab fa-github"></i> Code</a>
                     </div>
                     <p class="paper-abstract">
-                        We address the challenge of highly imbalanced regression in tabular data, with applications to
-                        Solar Energetic Particle (SEP) event forecasting. Developed CISIR to overcome extreme data
-                        imbalance (>1000:1)
-                        for mission-critical space weather prediction.
+                        We address the challenges of MSE and highly imbalanced regression in tabular data, with applications to
+                        Solar Energetic Particle (SEP) event forecasting. Developed CISIR to overcome high data
+                        imbalance (>1000:1) for mission-critical space weather prediction.
                     </p>
                 </div>
             </div>
@@ -461,7 +464,7 @@
             <!-- Publication 2 -->
             <div class="paper-item" data-type="publication">
                 <div class="paper-thumbnail">
-                    <img src="assets/Coding-blog.jpg" alt="LEVIOSA: Natural Language-Based UAV Trajectory Generation">
+                    <img src="assets/images/works/leviosa_5drones.png" alt="LEVIOSA: Natural Language-Based UAV Trajectory Generation">
                 </div>
                 <div class="paper-content">
                     <h3 class="paper-title">
@@ -469,18 +472,20 @@
                         LEVIOSA: Natural Language-Based UAV Trajectory Generation
                     </h3>
                     <p class="paper-authors">
-                        G. Aikins, M. P. Dao, <strong>J. Moukpe</strong>, T. C. Eskridge, and K. Nguyen
+                        G. Aikins*, M. P. Dao*, <strong>J. Moukpe</strong>*, T. C. Eskridge, and K. Nguyen
                     </p>
                     <p class="paper-venue">MDPI Electronics, Vol. 13, Issue 22 (Special Issue: Deep Learning for UAVs
                         and Drone Applications), 4508, 2024</p>
                     <div class="paper-links">
-                        <a href="#" class="paper-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#" class="paper-link"><i class="fas fa-external-link-alt"></i> Article</a>
+                        <a href="https://www.mdpi.com/2079-9292/13/22/4508/pdf" class="paper-link" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="https://www.mdpi.com/2079-9292/13/22/4508" class="paper-link" target="_blank"><i class="fas fa-external-link-alt"></i> Article</a>
+                        <a href="https://github.com/sesem738/Leviosa" class="paper-link" target="_blank"><i class="fab fa-github"></i> Code</a>
                     </div>
                     <p class="paper-abstract">
-                        A natural language interface for generating UAV trajectories, enabling intuitive control of
-                        autonomous
-                        drone systems through conversational commands.
+                        LEVIOSA leverages multimodal large language models (LLMs) to convert natural language commands
+                        into executable flight paths for UAV swarms, simplifying complex multi-UAV coordination. Its
+                        novel multi-critic consensus mechanism and hierarchical prompt structuring ensure high-fidelity
+                        execution for tasks.
                     </p>
                 </div>
             </div>
