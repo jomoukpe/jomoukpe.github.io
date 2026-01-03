@@ -1211,18 +1211,19 @@ ul, ol {
 .footer {
     border-top: 1px solid var(--border-color);
     padding: 2rem 1.5rem;
-    text-align: center;
+    text-align: left;
     background: var(--bg-secondary);
 }
 
 .footer-content {
     max-width: var(--container-width);
     margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 .footer p {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     margin-bottom: 0.5rem;
 }
 
