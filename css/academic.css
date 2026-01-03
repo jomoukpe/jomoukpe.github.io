@@ -1461,9 +1461,18 @@ ul, ol {
         flex-wrap: wrap;
     }
 
+    .footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-content {
+        padding: 0;
+    }
+
     .footer p {
         text-align: left;
         font-size: 0.65rem;
         line-height: 1.2;
+        margin-bottom: 0;
     }
 }
