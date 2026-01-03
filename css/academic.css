@@ -748,7 +748,7 @@ ul, ol {
     display: flex;
     gap: 0;
     /* transition: transform 0.5s ... -> Removed, using native scroll */
-    padding: 2rem 0;
+    padding: 0.5rem 0 1.5rem 0; /* Reduced top padding, increased bottom since details are above */
     align-items: center; /* Center items vertically */
     position: relative;
     width: max-content; /* Allow track to grow with content */
@@ -809,10 +809,11 @@ ul, ol {
     /* Removed negative margin since line is centered */
 }
 
-/* Highlight tick on hover */
+/* Highlight tick on hover - Enhanced for visibility */
 .timeline-item:hover .timeline-tick {
     background: var(--accent-primary);
-    transform: scaleY(1.6); /* Grow height visually without affecting layout flow (12px * 1.6 approx 19.2px) */
+    transform: scaleY(2); /* Make it longer */
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5); /* Glow to indicate selection */
 }
 
 .timeline-date {
@@ -829,31 +830,58 @@ ul, ol {
     transform: scale(1.1);
 }
 
-.timeline-description {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    margin-top: 0.5rem;
-    width: 300px; /* Allow it to be much wider */
-    max-width: none;
-    line-height: 1.4;
-    opacity: 0;
-    transition: all 0.3s ease;
-    position: absolute;
-    top: 100%; /* Position below the date */
-    pointer-events: none;
-    text-align: left;
-    left: 1rem; /* Align with padding of container */
-    transform: translateY(-5px);
-}
-
-.timeline-item:hover .timeline-description {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Removed old .timeline-line since we use border-bottom now */
 .timeline-line {
     display: none;
+}
+
+/* Timeline Details Area */
+.timeline-details {
+    margin-top: 0;
+    margin-bottom: 0; /* Space handled by padding/layout */
+    padding: 0.5rem 1rem;
+    background: transparent;
+    text-align: center;
+    min-height: 2.5em;
+    display: flex;
+    align-items: flex-end; /* Align to bottom since it's above the track */
+    justify-content: center;
+    border: none;
+    width: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Add a subtle bottom gradient separator */
+.timeline-details::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: radial-gradient(circle, var(--border-color) 0%, transparent 100%);
+    opacity: 0.5;
+}
+
+#timeline-description-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin: 0;
+    max-width: 800px;
+    font-family: var(--font-mono);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    font-weight: 400;
+}
+
+.timeline-item:hover {
+    cursor: pointer;
+}
+
+.timeline-details.active #timeline-description-text {
+    color: var(--text-secondary);
+    opacity: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -1262,7 +1290,7 @@ ul, ol {
 
 .mobile-nav-links a {
     display: flex;
-    align-items: center;
+        align-items: center;
     gap: 0.75rem;
     padding: 0.75rem;
     color: var(--text-primary);
@@ -1277,7 +1305,7 @@ ul, ol {
 
 .mobile-nav-links a i {
     width: 24px;
-    text-align: center;
+        text-align: center;
     color: var(--accent-primary);
 }
 

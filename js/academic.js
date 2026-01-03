@@ -530,6 +530,35 @@
     });
 
     // ==========================================================================
+    // Timeline description interaction
+    // ==========================================================================
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const descriptionText = document.getElementById('timeline-description-text');
+    const detailsContainer = document.querySelector('.timeline-details');
+    const defaultText = "Hover over an event to see details.";
+
+    timelineItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const description = item.getAttribute('data-description');
+            if (description) {
+                if (descriptionText) {
+                    descriptionText.textContent = description;
+                }
+                if (detailsContainer) {
+                    detailsContainer.classList.add('active');
+                }
+            }
+        });
+
+        item.addEventListener('mouseleave', () => {
+            // Optional: Revert to default or keep last selected
+            // For now, let's keep the last selected as it's less jumpy
+            // if (descriptionText) descriptionText.textContent = defaultText;
+            // if (detailsContainer) detailsContainer.classList.remove('active');
+        });
+    });
+
+    // ==========================================================================
     // Initialize
     // ==========================================================================
     initTheme();
