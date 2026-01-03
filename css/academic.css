@@ -493,7 +493,7 @@ ul, ol {
 }
 
 .interest-item {
-    padding-left: 1.5rem;
+    padding-left: 1.3rem;
     position: relative;
 }
 
@@ -501,7 +501,7 @@ ul, ol {
     content: "◆"; /* Diamond character */
     position: absolute;
     left: 0;
-    top: 0.25rem;
+    top: 0.4rem;
     color: var(--accent-primary);
     font-size: 0.7rem; /* Adjusted size for diamond */
     font-weight: 600;
