@@ -624,6 +624,19 @@ ul, ol {
     margin-bottom: 1.25rem;
 }
 
+.opportunity-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.cta-buttons-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+}
+
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -644,6 +657,17 @@ ul, ol {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
     border-color: var(--accent-primary);
+}
+
+.cta-button-secondary {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--accent-primary);
+}
+
+.cta-button-secondary:hover {
+    background: var(--accent-primary);
+    color: white;
 }
 
 /* --------------------------------------------------------------------------
@@ -1459,6 +1483,13 @@ ul, ol {
     .paper-links {
         gap: 0.5rem;
         flex-wrap: wrap;
+    }
+
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.65rem 1rem;
+        font-size: 0.9rem;
     }
 
     .footer {
