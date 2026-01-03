@@ -1,802 +1,876 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en" data-theme="light">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josias Moukpe | Senior AI/ML Research Scientist</title>
+    <meta name="description"
+        content="Josias Moukpe - Senior AI/ML Research Scientist. Ph.D. Candidate (ABD) at Florida Institute of Technology. Research in generative AI, autonomous agents, recursive self-improvement, and multimodal systems.">
 
-    <script data-ad-client="ca-pub-7594220621105418" async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Josias Moukpe</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Fira+Code:wght@300;400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+        rel="stylesheet">
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/project-list.scss">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.jpeg" type="image/jpeg">
+    <link rel="shortcut icon" href="assets/favicon.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="assets/favicon.jpeg">
 
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="github-widget-master/github-widget.css" rel="stylesheet" type="text/css" />
-    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/academic.css">
 </head>
 
-<body id="top">
-
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <!-- <img src="Assets/favicon-16x16.png" alt="Homepage" height="10px" width="10px"> -->
-                <strong> HOME </strong>
+<body>
+    <!-- Vertical Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+        <div class="scroll-sections">
+            <a href="#bio" class="scroll-section-marker" data-section="bio" title="About">
+                <span class="marker-dot"></span>
+                <span class="marker-label">About</span>
             </a>
-        </div> <!-- end header-logo -->
+            <a href="#research" class="scroll-section-marker" data-section="research" title="Research">
+                <span class="marker-dot"></span>
+                <span class="marker-label">Research</span>
+            </a>
+            <a href="#timeline" class="scroll-section-marker" data-section="timeline" title="Timeline">
+                <span class="marker-dot"></span>
+                <span class="marker-label">Updates</span>
+            </a>
+            <a href="#papers" class="scroll-section-marker" data-section="papers" title="Works">
+                <span class="marker-dot"></span>
+                <span class="marker-label">Works</span>
+            </a>
+            <a href="#misc" class="scroll-section-marker" data-section="misc" title="Misc">
+                <span class="marker-dot"></span>
+                <span class="marker-label">Misc</span>
+            </a>
+        </div>
+    </div>
 
-        <nav class="header-nav">
+    <!-- Scroll Navigation Buttons -->
+    <div class="scroll-nav">
+        <button class="scroll-btn scroll-top" aria-label="Scroll to top" title="Scroll to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="scroll-btn scroll-bottom" aria-label="Scroll to bottom" title="Scroll to bottom">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
 
-            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">JOSIAS MOUKPE</span>
+            </a>
 
-            <div class="header-nav__content">
-                <h3>Josias Moukpe</h3>
-
-                <ul class="header-nav__list">
-                    <li class="current"><a class="smoothscroll" href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll" href="#about" title="about">About</a></li>
-                    <li><a class="smoothscroll" href="#services" title="services">Services</a></li>
-                    <!-- <li><a class="smoothscroll" href="#works" title="works">Works</a></li> -->
-                    <li><a class="smoothscroll" href="#contact" title="contact">Contact</a></li>
-                </ul>
-
-                <p>
-                    Building AI Agents that <br>
-                    Solve Problems and <br>
-                    Empower People. <br>
-                </p>
-
-                <ul class="header-nav__social">
-                    <li>
-                        <a href="https://twitter.com/jomoukpe" target="_blank"><i class="fab fa-twitter"></i></a>
-                    </li>
-                  
-                    <li>
-                        <a href="https://github.com/ERUD1T3" target="_blank"><i class="fab fa-github"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/jmoukpe/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://jomoukpe.github.io/literature" target="_blank"><i class="fa fa-book"></i></a>
-                    </li>
-                    <!-- <li>
-                        <a href="https://medium.com/@The_3rudite" target="_blank"><i class="fab fa-medium"></i></a>
-                    </li> -->
-                      <!-- <li>
-                        <a href="https://www.instagram.com/j.moukpe/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </li> -->
-                    
-                </ul>
-
-            </div> <!-- end header-nav__content -->
-
-        </nav> <!-- end header-nav -->
-
-        <a class="header-menu-toggle" href="#0">
-            <span class="header-menu-icon"></span>
-        </a>
-
-    </header> <!-- end s-header -->
-
-
-    <!-- home
-    ================================================== -->
-    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/hero2-bg.png"
-        data-natural-width=3000 data-natural-height=2000 data-position-y=top>
-
-        <div class="shadow-overlay"></div>
-
-        <div class="home-content">
-
-            <div class="row home-content__main">
-                <h1>
-                    <i>Josias Moukpe</i>, Builder,
-                    AI Researcher.
-                </h1>
-
-                <p>
-                    I research and build state-of-the-art AI Agents.<br>
-                    My background blends Computer Science, Engineering, Mathematics, and Business.
-                    
-                </p>
-            </div> <!-- end home-content__main -->
-
-        </div> <!-- end home-content -->
-
-        <ul class="home-sidelinks">
-            <li><a class="smoothscroll" href="#about">About<span>who I am</span></a></li>
-            <li><a class="smoothscroll" href="#services">Services<span>what I do</span></a></li>
-            <li><a class="smoothscroll" href="#contact">Contact<span>get in touch</span></a></li>
-        </ul> <!-- end home-sidelinks -->
-
-        <ul class="home-social">
-            <li class="home-social-title">Follow Me</li>
-            <li>
-                <a href="https://github.com/ERUD1T3/">
+            <div class="nav-links">
+                <a href="mailto:josiasmoukpe@gmail.com" class="nav-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="assets/resume_cv.pdf" class="nav-link" title="Resume/CV" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=W1DOvzUAAAAJ" class="nav-link" title="Google Scholar"
+                    target="_blank">
+                    <i class="ai ai-google-scholar"></i>
+                </a>
+                <a href="https://github.com/ERUD1T3" class="nav-link" title="GitHub" target="_blank">
                     <i class="fab fa-github"></i>
-                    <span class="home-social-text">GitHub</span>
                 </a>
-            </li>
-            <li>
-                <a href="https://twitter.com/jomoukpe">
-                    <i class="fab fa-twitter"></i>
-                    <span class="home-social-text">Twitter</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/jmoukpe/">
+                <a href="https://www.linkedin.com/in/jmoukpe/" class="nav-link" title="LinkedIn" target="_blank">
                     <i class="fab fa-linkedin"></i>
-                    <span class="home-social-text">LinkedIn</span>
                 </a>
-            </li>
-        </ul> <!-- end home-social -->
-
-        <a href="#about" class="home-scroll smoothscroll">
-            <span class="home-scroll__text">Scroll Down</span>
-            <span class="home-scroll__icon"></span>
-        </a> <!-- end home-scroll -->
-
-    </section> <!-- end s-home -->
-
-
-    <!-- about
-    ================================================== -->
-    <section id='about' class="s-about">
-
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">Who I am</h3>
-                <h1 class="display-1">Technologist From Togo &#127757;.</h1>
+                <a href="https://twitter.com/jomoukpe" class="nav-link" title="X (Twitter)" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
             </div>
-        </div> <!-- end section-header -->
 
-        <div class="row" data-aos="fade-up">
-            <div class="col-full">
-                <p class="lead">
-                    I am a technology enthusiast from Togo, West Africa. 
-                    I am working on my Computer Science Ph.D. at the Florida Institute of Technology (Florida Tech), 
-                    where research deep neural networks and their representations for various predictive tasks. 
-                    In my spare time, I hack on epic AI projects!
-                    <br><br>Here is how I normally operate:
-                </p>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-        </div> <!-- end about-desc -->
+        </div>
+    </nav>
 
-        <div class="row">
-
-            <div class="about-process process block-1-2 block-tab-full">
-
-                <div class="process__vline-left"></div>
-                <div class="process__vline-right"></div>
-
-                <div class="col-block process__col" data-item="1" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Define</h4>
-
-                        <p>
-                            Before every project, I systematically define the objectives of the project.
-                            Well-defined project objectives allow for testable, verifiable, and valuable results.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="2" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Design</h4>
-
-                        <p>
-                            Next, I dive into the design, brainstorming architectures,
-                            structures, components of the project. Through quick analysis, I
-                            try eliminate as many potential issues as possible before building.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="3" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Build</h4>
-
-                        <p>
-                            With a satisfactory tentative design, I start building, one module or component at the time. 
-                            That usually mean I workout the math, formulate algorithms, architect models, and write code. 
-                            I iterate several times on the build, going back and forth between
-                            developing and testing, until I obtain a minimum viable product (MVP).
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="4" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Launch</h4>
-
-                        <p>
-                            I deploy the MVP the quickest way I can for the world to see and critique.
-                            Based on user feedback, I iterate on the MVP until the product provides the intended value.
-                            Then the project enters its enhancement and maintenance phase.
-                        </p>
-                    </div>
-                </div>
-
-            </div> <!-- end process -->
-
-        </div> <!-- end about-stats -->
-
-    </section> <!-- end s-about -->
-
-
-    <!-- services
-    ================================================== -->
-    <section id='services' class="s-services light-gray">
-
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">What I Do</h3>
-                <h1 class="display-1">Build Intelligent Systems &#129302;.</h1>
-            </div>
-        </div> <!-- end section-header -->
-
-        <div class="row" data-aos="fade-up">
-            <div class="col-full">
-                <p class="lead">
-                    I enjoy solving problems and building intelligent agents to empower people. 
-                    Through my work, I hope to make a positive impact in people's lives by creating 
-                    technologies that are accessible and useful. I am constantly learning and exploring
-                    new ideas. Enumerated, I do:
-                </p>
-            </div>
-        </div> <!-- end about-desc -->
-
-        <div class="row services-list block-1-3 block-m-1-2 block-tab-full">
-
-            
-
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon  service-icon--illustration">
-                    <i class="icon-group"></i>
-                </div>
-                <div class="service-text">
-                    <h3 class="h4">AI Agents</h3>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Bio Section -->
+        <section class="bio-section" id="bio">
+            <h1 class="page-name">Josias Moukpe</h1>
+            <div class="bio-content">
+                <!-- <div class="bio-text">
                     <p>
-                        I build deep learning models to solve generative and cognitive tasks in
-                        computer vision, natural language, audio, and control.
+                        Senior AI/ML scientist with a proven record of translating cutting-edge deep learning research
+                        into scalable, production-grade systems. Combines <a href="https://www.nasa.gov/" target="_blank">NASA</a>-honed scientific rigor with the agile
+                        execution of an <a href="https://www.nvidia.com/en-us/startups/" target="_blank">NVIDIA Inception</a> founder to design, build, and deploy robust end-to-end AI solutions.
                     </p>
+                    <p>
+                        Currently a Ph.D. Candidate (ABD) at <a href="https://www.fit.edu/" target="_blank">Florida Institute of Technology</a> available for full-time work, 
+                        my expertise bridges rigorous research with practical product development. I have led initiatives in generative AI and autonomous systems at 
+                        <a href="https://www.nasa.gov/" target="_blank">NASA</a> and the <a href="https://www.algorithmicresearchgroup.com/" target="_blank">Algorithmic Research Group</a>
+                        (supported by an <a href="https://coefficientgiving.org/" target="_blank">Open Philanthropy / Coefficient Giving Grant</a>), 
+                        while previously spearheading R&D for AI-driven manufacturing solutions as Cofounder & CTO of 
+                        <a href="https://make-print.com/" target="_blank">Make-Print</a> (<a href="https://www.nvidia.com/en-us/startups/" target="_blank">NVIDIA Inception</a>).
+                    </p>
+                    <div class="bio-links">
+                        <a href="mailto:josiasmoukpe@gmail.com">josiasmoukpe@gmail.com</a>
+                        <span class="link-separator">/</span>
+                        <a href="assets/resume_cv.pdf" target="_blank">resume</a>
+                        <span class="link-separator">/</span>
+                        <a href="https://scholar.google.com/citations?user=W1DOvzUAAAAJ" target="_blank">scholar</a>
+                    </div>
+                </div> -->
+                <div class="bio-text">
+                    <p>
+                        AI Researcher and Founder building the infrastructure for <b>Recursive Self-Improvement
+                            (RSI)</b>
+                        in autonomous agents.
+                        <br> Ex-<a href="https://www.nasa.gov/" target="_blank">NASA</a> Researcher and
+                        <a href="https://www.nvidia.com/en-us/startups/" target="_blank">NVIDIA Inception</a> Founder.
+                    </p>
+                    <p>
+                        My work focuses on building and benchmarking Frontier Models and Generalist Agents.
+                        Previously, I was a senior research scientist at <a
+                            href="https://www.algorithmicresearchgroup.com/" target="_blank">Algorithmic Research
+                            Group</a>
+                        (backed by <a href="https://www.openphilanthropy.org/" target="_blank">Open Philanthropy, now
+                            Coefficient Giving</a>),
+                        where I developed novel frameworks for evaluating RSI capabilities.
+                        Prior to that, I engineered deep learning systems for solar event forecasting at <a
+                            href="https://www.nasa.gov/" target="_blank">NASA</a>
+                        and served as CTO of <a href="https://make-print.com/" target="_blank">Make-Print</a> (a <a
+                            href="https://www.nvidia.com/en-us/startups/" target="_blank">NVIDIA Inception</a> startup).
+                        In essence, I
+                        synthesize computer science, engineering, mathematics, and business methodologies to drive
+                        high-impact solutions.
+                    </p>
+                    <div class="bio-links">
+                        <div class="link-group">
+                            <a href="mailto:josiasmoukpe@gmail.com">josiasmoukpe@gmail.com</a>
+                            <span class="link-separator desktop-only">/</span>
+                        </div>
+                        <div class="link-group">
+                            <a href="assets/resume_cv.pdf" target="_blank">resume</a>
+                            <span class="link-separator">/</span>
+                            <a href="https://scholar.google.com/citations?user=W1DOvzUAAAAJ" target="_blank">scholar</a>
+                            <span class="link-separator">/</span>
+                            <a href="https://github.com/ERUD1T3" target="_blank">github</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio-photo">
+                    <img src="assets/pp.jpeg" alt="Josias Moukpe" class="profile-photo">
                 </div>
             </div>
+        </section>
 
-            <div class="col-block service-item " data-aos="fade-up">
-                <div class="service-icon service-icon--brand-identity">
-                    <i class="icon-lego-block"></i>
+        <!-- Research Interests -->
+        <!-- <section class="section research-interests" id="research">
+            <h2 class="section-title">Research Interests</h2>
+            <ul class="interests-list">
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">SICC (Superintelligence Cognitive Core)</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">VLAs, Value Functions, World Models, MCTS (search/planning), Long-Term Memory, Self-Play RL. This architecture integrates grounding from Vision-Language-Action models with predictive World Models to simulate and evaluate potential futures. By leveraging Monte Carlo Tree Search guided by dense Value Functions, the core enables strategic reasoning, while Self-Play Reinforcement Learning drives the emergence of complex strategies through competitive internal simulation.</div>
+                </li>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Generalist Agents</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">Autonomous systems capable of perception, reasoning, and action in long-horizon complex environments. </div>
+                </li>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Humanoid Robots</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">Embodied AI systems with human-like form to naturally interface with environments built for humans. The challenge lies in achieving dynamic stability and whole-body control for compliant interaction with the physical world. This includes dexterous manipulation for general-purpose tasks and the integration of proprioceptive feedback with visual inputs to navigate cluttered, human-centric spaces effectively.</div>
+                </li>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Open-Ended Optimization</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">Algorithms that continuously discover and optimize for novel objectives without predefined goals. Drawing inspiration from evolutionary dynamics, this paradigm seeks to create unbounded complexity by searching for novelty and diversity rather than static metrics.</div>
+                </li>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Metatemetatems</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">Systems that autonomously improve their own capabilities through iterative self-modification and learning. The objective is to establish a stable, positive feedback loop of enhancement while maintaining alignment guarantees as the system's capabilities scale.</div>
+                </li>
+                
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Autonomous Vehicles</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                 </div>
-                <div class="service-text">
-                    <h3 class="h4">Mobile Robotics</h3>
-                    <p> I build intelligence in robotic systems for navigation, 
-                        sensing, mapping, actuation, and control across many types of embodiments
-                        such as mobile robots, drones, and autonomous vehicles.
+                    <div class="interest-description">Self-driving systems integrating perception, planning, and control for safe navigation. Current focus areas include end-to-end learning approaches that map raw sensor data directly to control inputs to handle the long tail of edge cases. </div>
+                </li>
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Additive Manufacturing</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">AI-driven 3D printing and fabrication for intelligent design and production optimization. AI is utilized to drive generative design processes, creating complex lattice structures that are impossible to manufacture via traditional subtraction methods. In-situ monitoring systems use closed-loop control to correct thermal distortions and material deposition errors in real-time, guaranteeing part quality at the microstructural level.</div>
+                </li>
+            </ul>
+        </section> -->
+        <section class="section research-interests" id="research">
+            <h2 class="section-title">Research Interests</h2>
+            <ul class="interests-list">
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Recursive Self-Improvement</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">
+                        Architecting <b>autonomous recursive evolution</b>, infrastructure where agents design their own
+                        <b>successor architectures</b>.
+                        Focus on stabilizing post-training feedback loops where models fork, optimize, and merge
+                        weights, creating a
+                        flywheel of capability scaling that remains <b>interpretable and steerable</b>.
+                    </div>
+                </li>
+
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Self-Play, Model-based RL & Generalist Agents</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">
+                        Developing a generalist cognitive core as a foundation for generalist agents. The architecture
+                        integrates
+                        <b>large multimodal reasoning VLAs</b> with <b>predictive world models</b> and <b>long-term
+                            memory</b>
+                        to ground the agent in reality.
+                        By leveraging <b>Monte Carlo Tree Search</b> guided by dense <b>value functions</b>, the system
+                        performs deep lookahead
+                        search.
+                        When embedded in an open-ended <b>self-play RL</b> environment, this creates an autocurriculum
+                        with unlimited experiential data, allowing
+                        the agent to iteratively discover novel strategies and scale its capabilities to superhuman
+                        levels unattainable by static datasets or traditional model-based RL alone.
+                    </div>
+                </li>
+
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Embodied Foundation Models & Whole-Body Control</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">
+                        Extending the generalist cognitive core into physical reality. Focusing on
+                        <b>cross embodiment</b> where agentic architectures are deployed across diverse morphologies,
+                        including humanoids, drones, and autonomous vehicles.
+
+                        By utilizing <b>flow matching</b> and <b>efficient world models</b>,
+                        <b>generalist robot policies</b> are developed to treat control as a joint generative process of
+                        video and action.
+                        This paradigm enables <b>zero-shot generalization</b> in unstructured real-world environments
+                        without
+                        the need for explicit reward engineering or task-specific fine-tuning.
+                    </div>
+                </li>
+
+                <li class="interest-item">
+                    <div class="interest-header">
+                        <span class="interest-title">Open-Ended Optimization</span>
+                        <button class="interest-toggle" aria-label="Toggle description">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="interest-description">
+                        Exploring algorithms that prioritize <b>novelty and diversity</b> to discover complex behaviors
+                        outside
+                        the
+                        training distribution. Moving beyond objective-based gradient descent to use <b>evolutionary
+                            dynamics</b> for automated
+                        <b>architecture search</b> and <b>curriculum generation</b>,
+                        drawing inspiration from natural evolution and its power
+                        to create complex well-adapted organisms from simple building blocks.
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- Open to Work Section -->
+        <section class="section open-to-work" id="contact">
+            <div class="opportunity-card">
+                <div class="opportunity-content">
+                    <h2>Collaborate</h2>
+                    <p>
+                        
+                            I ship production-grade agentic systems and generative
+                            AI models. <b>I am available in 2026 for select technical consulting and high-impact
+                            engineering challenges</b>. Got a project in mind? Let's talk.
+                        
                     </p>
+                    <a href="mailto:josiasmoukpe@gmail.com" class="cta-button">
+                        <i class="fas fa-envelope"></i>
+                        GET IN TOUCH
+                    </a>
                 </div>
             </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="section timeline-section" id="timeline">
+            <h2 class="section-title">Recent Updates</h2>
+            <div class="timeline-details">
+                <p id="timeline-description-text">Hover over an event to see details.</p>
+            </div>
+            <div class="timeline-container">
+                <button class="timeline-nav timeline-prev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="timeline-wrapper">
+                    <div class="timeline-track">
+                        <div class="timeline-item" data-description="Published a paper investigating the limitations of MSE particularly in highly imbalanced tasks.">
+                            <div class="timeline-event">CISIR Paper (ICMLA)</div>
+                            <div class="timeline-tick"></div>
+                            <div class="timeline-date">Dec 2025</div>
+                        </div>
+                        <div class="timeline-item" data-description="Took a leave of absence from Florida Institute of Technology following President Trump's travel ban.">
+                            <div class="timeline-event">PhD LOA</div>
+                            <div class="timeline-tick"></div>
+                            <div class="timeline-date">Nov 2025</div>
+                        </div>
+                        <div class="timeline-item" data-description="Concluded work on Recursive Self-Improvement benchmarking frameworks at ARG.">
+                            <div class="timeline-event">Concluded ARG Contract</div>
+                            <div class="timeline-tick"></div>
+                            <div class="timeline-date">Nov 2025</div>
+                        </div>
+                        <div class="timeline-item" data-description="Completed research grant at NASA focused on Solar Event Forecasting using Deep Learning.">
+                            <div class="timeline-event">Concluded NASA Contract</div>
+                            <div class="timeline-tick"></div>
+                            <div class="timeline-date">Aug 2025</div>
+                        </div>
+                        <div class="timeline-item" data-description="Stepped down from operational role at Make-Print to focus on pure research.">
+                            <div class="timeline-event">Left Make-Print</div>
+                            <div class="timeline-tick"></div>
+                            <div class="timeline-date">Jul 2025</div>
+                        </div>
+                        <div class="timeline-item" data-description="Joined the Algorithmic Research Group (ARG) as a Senior Machine Learning Researcher.">
+                            <div class="timeline-event">Joined ARG</div>
+                            <div class="timeline-tick"></div>
+                            <div class="timeline-date">Jan 2025</div>
+                        </div>
+                        <div class="timeline-item" data-description="Joined NASA as a Machine Learning Researcher working on space weather prediction.">
+                            <div class="timeline-event">Joined NASA</div>
+                            <div class="timeline-tick"></div>
+                            <div class="timeline-date">Aug 2023</div>
+                        </div>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                <button class="timeline-nav timeline-next" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Papers/Works Section -->
+        <section class="section papers-section" id="papers">
+            <div class="section-header" style="margin-bottom: 0.25rem;">
+                <h2 class="section-title">Selected Works</h2>
+                <div class="legend-container">
+                    <span class="legend-item">
+                        <span class="legend-dot publication"></span>
+                        Publication
+                    </span>
+                    <span class="legend-item">
+                        <span class="legend-dot product"></span>
+                        Product
+                    </span>
+                    <span class="legend-item">
+                        <span class="legend-dot project"></span>
+                        Project
+                    </span>
+                </div>
+            </div>
+            <p style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 1.5rem; margin-top: 0;">
+                (* indicates equal contribution)
+            </p>
+
             
-
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon  service-icon--web-design">
-                    <i class="icon-network"></i>
+            <!-- Publication 1 -->
+            <div class="paper-item" data-type="publication">
+                <div class="paper-thumbnail">
+                    <img src="assets/images/works/mse_cisir.png" alt="Highly Imbalanced Regression with Tabular Data">
                 </div>
-                <div class="service-text">
-                    <h3 class="h4">Algorithm Design</h3>
-                    <p> I formulate algorithms to solve real-world problems with real-world constraints. 
-                        I consider performance, efficiency, and scalability in my algorithms. 
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator publication"></span>
+                        Highly Imbalanced Regression with Tabular Data in SEP and Other Applications
+                    </h3>
+                    <p class="paper-authors">
+                        <strong>J. Moukpe</strong>, P. K. Chan, and M. Zhang
+                    </p>
+                    <p class="paper-venue">24th IEEE International Conference on Machine Learning and Applications
+                        (ICMLA), 2025</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/pdf/2509.16339" class="paper-link" target="_blank"><i class="fas fa-file-pdf"></i> pdf</a>
+                        <a href="https://arxiv.org/abs/2509.16339" class="paper-link" target="_blank"><i class="fas fa-file-alt"></i> arxiv</a>
+                        <a href="https://github.com/Machine-Earning/CISIR?tab=readme-ov-file" class="paper-link" target="_blank"><i class="fab fa-github"></i> code</a>
+                    </div>
+                    <p class="paper-abstract">
+                        We address the challenges of MSE and highly imbalanced regression in tabular data, with applications to
+                        Solar Energetic Particle (SEP) event forecasting. Developed CISIR to overcome high data
+                        imbalance (>1000:1) for mission-critical space weather prediction.
                     </p>
                 </div>
             </div>
 
-            <!-- <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon service-icon--product-strategy">
-                    <i class="icon-window"></i>
+            <!-- Product: Make-Print -->
+            <div class="paper-item" data-type="product">
+                <div class="paper-thumbnail">
+                    <img src="assets/images/works/mppreview.png" alt="Make-Print Auto-Quoting Assistant">
                 </div>
-                <div class="service-text">
-                    <h3 class="h4">Research</h3>
-                    <p>I research and formulate state-of-the-art mathematics theory to 
-                        solve complex yet unsolved problems in machine learning. 
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator product"></span>
+                        Make-Print Prototyping Platform
+                    </h3>
+                    <p class="paper-authors">
+                        P. W. Dao (Cofounder & CEO), <strong>J. Moukpe</strong> (Cofounder & CTO), F. Pala (Cofounder & CFO)
+                    </p>
+                    <p class="paper-venue">NVIDIA Inception Startup, Sep 2021 - July 2025</p>
+                    <div class="paper-links">
+                        <a href="https://make-print.com/" class="paper-link" target="_blank"><i class="fas fa-external-link-alt"></i> website</a>
+                        <a href="https://github.com/make-print" class="paper-link" target="_blank"><i class="fab fa-github"></i> github</a>
+                        <a href="https://mynews13.com/fl/orlando/news/2024/05/10/first-space-coast-hackathon-this-weekend" class="paper-link" target="_blank"><i class="fas fa-newspaper"></i> news</a>
+                        <a href="https://blog.swellstartups.com/make-print-takes-home-5k-2nd-place-prize" class="paper-link" target="_blank"><i class="fas fa-trophy"></i> award</a>
+                    </div>
+                    <p class="paper-abstract">
+                        AI-driven tool that automates the prototyping workflow by generating instant, accurate quotes
+                        from 3D models
+                        and shop cost structures. Production-grade platform integrated with inventory and project
+                        management systems.
                     </p>
                 </div>
             </div>
 
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon  service-icon--ui-design">
-                    <i class="icon-cube"></i>
+
+
+            <!-- Publication 2 -->
+            <div class="paper-item" data-type="publication">
+                <div class="paper-thumbnail">
+                    <img src="assets/images/works/leviosa_5drones.png" alt="LEVIOSA: Natural Language-Based UAV Trajectory Generation">
                 </div>
-                <div class="service-text">
-                    <h3 class="h4">SaaS</h3>
-                    <p>I build cloud based software and APIs to meet real-world needs.
-                        I handle techstack, devops, and cloud architecture.
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator publication"></span>
+                        LEVIOSA: Natural Language-Based UAV Trajectory Generation
+                    </h3>
+                    <p class="paper-authors">
+                        G. Aikins*, M. P. Dao*, <strong>J. Moukpe</strong>*, T. C. Eskridge, and K. Nguyen
+                    </p>
+                    <p class="paper-venue">MDPI Electronics, Vol. 13, Issue 22 (Special Issue: Deep Learning for UAVs
+                        and Drone Applications), 4508, 2024</p>
+                    <div class="paper-links">
+                        <a href="https://www.mdpi.com/2079-9292/13/22/4508/pdf" class="paper-link" target="_blank"><i class="fas fa-file-pdf"></i> pdf</a>
+                        <a href="https://www.mdpi.com/2079-9292/13/22/4508" class="paper-link" target="_blank"><i class="fas fa-external-link-alt"></i> article</a>
+                        <a href="https://github.com/sesem738/Leviosa" class="paper-link" target="_blank"><i class="fab fa-github"></i> code</a>
+                    </div>
+                    <p class="paper-abstract">
+                        LEVIOSA leverages multimodal large language models (LLMs) to convert natural language commands
+                        into executable flight paths for UAV swarms, simplifying complex multi-UAV coordination. Its
+                        novel multi-critic consensus mechanism and hierarchical prompt structuring ensure high-fidelity
+                        execution for tasks.
                     </p>
                 </div>
             </div>
 
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon service-icon--mobile-dev">
-                    <i class="icon-mobile"></i>
+            <!-- Publication 3 -->
+            <div class="paper-item" data-type="publication">
+                <div class="paper-thumbnail">
+                    <img src="assets/images/works/hateams.png" alt="Human-AI Teamwork Interface Design">
                 </div>
-                <div class="service-text">
-                    <h3 class="h4">Apps</h3>
-                    <p>I build hybrid mobile apps for Android and iOS, and web apps using Flutter, ReactJS, NextJS.
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator publication"></span>
+                        Human-AI Teamwork Interface Design Using Patterns of Interactions
+                    </h3>
+                    <p class="paper-authors">
+                        K. Momose, R. Mehta, <strong>J. Moukpe</strong>, T. R. Weekes, and T. C. Eskridge
+                    </p>
+                    <p class="paper-venue">International Journal of Human–Computer Interaction (Taylor & Francis), 2024
+                    </p>
+                    <div class="paper-links">
+                        <a href="https://www.tandfonline.com/doi/pdf/10.1080/10447318.2024.2389350" class="paper-link" target="_blank"><i class="fas fa-file-pdf"></i> pdf</a>
+                        <a href="https://www.tandfonline.com/doi/full/10.1080/10447318.2024.2389350" class="paper-link" target="_blank"><i class="fas fa-external-link-alt"></i> article</a>
+                    </div>
+                    <p class="paper-abstract">
+                        Investigating design patterns for effective human-AI collaboration interfaces, focusing on
+                        interaction
+                        paradigms that enhance teamwork and system usability.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Publication 4 -->
+            <div class="paper-item" data-type="publication">
+                <div class="paper-thumbnail">
+                    <img src="assets/images/works/sep.png" alt="Survey on Imbalanced Data">
+                </div>
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator publication"></span>
+                        Survey on Imbalanced Data, Representation Learning and SEP Forecasting
+                    </h3>
+                    <p class="paper-authors">
+                        <strong>J. Moukpe</strong>
+                    </p>
+                    <p class="paper-venue">Florida Institute of Technology, 2023 (listed on arXiv)</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/pdf/2310.07598" class="paper-link" target="_blank"><i class="fas fa-file-pdf"></i> pdf</a>
+                        <a href="https://arxiv.org/abs/2310.07598" class="paper-link" target="_blank"><i class="fas fa-file-alt"></i> arxiv</a>
+                    </div>
+                    <p class="paper-abstract">
+                        A comprehensive survey addressing the challenges of imbalanced data in representation learning,
+                        with a specific focus on solar energetic particle (SEP) forecasting.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Publication 5 -->
+            <!-- <div class="paper-item" data-type="publication">
+                <div class="paper-thumbnail">
+                    <img src="assets/quadro-turing-arch-fb-ig-2048x2048.png" alt="Compositional Human-Agent Teams">
+                </div>
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator publication"></span>
+                        Compositional Human-Agent Teams for Spaceflight
+                    </h3>
+                    <p class="paper-authors">
+                        K. Momose, R. Mehta, <strong>J. Moukpe</strong>, T. Weekes, T. Eskridge, D. Kidwell
+                    </p>
+                    <p class="paper-venue">SpaceCHI 2023 Conference, Massachusetts Institute of Technology (MIT)</p>
+                    <div class="paper-links">
+                        <a href="#" class="paper-link"><i class="fas fa-file-pdf"></i> pdf</a>
+                    </div>
+                    <p class="paper-abstract">
+                        Investigates the role of compositional teams in space missions, emphasizing the integration of
+                        human expertise with AI agents for enhanced decision-making in spaceflight.
                     </p>
                 </div>
             </div> -->
 
-        </div> <!-- end services-list -->
-
-    </section> <!-- end s-services -->
-
-
-    <!-- works
-    ================================================== -->
-    <!-- <section id='works' class="s-works"> -->
-
-        <!-- <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">Featured Works</h3>
-                <h1 class="display-1">Explore my Projects on Github &#x1F468;&#x1F3FF;&#x200D;&#x1F4BB;.</h1>
-            </div>
-        </div> --> <!-- end section-header -->
-
-
-        <!-- display gitub content on the website,
-            TODO: improve the display of the github content
-        -->
-        <!-- <div class="git-preview-container">
-            <div class="github-widget" data-user="ERUD1T3"></div>
-        </div> -->
-
-
-
-
-
-        <!-- <div class="row masonry-wrap">
-            <div class="masonry">
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-lamp.jpg" class="thumb-link" title="Lamp"
-                                data-size="1050x700">
-                                <img src="images/portfolio/lamp.jpg"
-                                    srcset="images/portfolio/lamp.jpg 1x, images/portfolio/lamp@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Lamp
-                            </h3>
-                            <p class="item-folio__cat">
-                                Web Design
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div> 
-                </div> 
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-salad.jpg" class="thumb-link" title="Salad"
-                                data-size="1050x700">
-                                <img src="images/portfolio/salad.jpg"
-                                    srcset="images/portfolio/salad.jpg 1x, images/portfolio/salad@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Salad
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> 
-                </div> 
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-woodcraft.jpg" class="thumb-link" title="Woodcraft"
-                                data-size="1050x700">
-                                <img src="images/portfolio/woodcraft.jpg"
-                                    srcset="images/portfolio/woodcraft.jpg 1x, images/portfolio/woodcraft@2x.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Woodcraft
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> 
-                </div> 
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-liberty.jpg" class="thumb-link" title="Liberty"
-                                data-size="1050x700">
-                                <img src="images/portfolio/liberty.jpg"
-                                    srcset="images/portfolio/liberty.jpg 1x, images/portfolio/liberty@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Liberty
-                            </h3>
-                            <p class="item-folio__cat">
-                                Web Development
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> 
+            <!-- Publication 6 -->
+            <div class="paper-item" data-type="publication">
+                <div class="paper-thumbnail">
+                    <img src="assets/images/works/landerui.jpg" alt="Patterns of Effective Human-Agent Teams">
                 </div>
-
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-fuji.jpg" class="thumb-link" title="Fuji"
-                                data-size="1050x700">
-                                <img src="images/portfolio/fuji.jpg"
-                                    srcset="images/portfolio/fuji.jpg 1x, images/portfolio/fuji@2x.jpg 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Fuji
-                            </h3>
-                            <p class="item-folio__cat">
-                                Web Design
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> 
-                </div> 
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/gallery/g-shutterbug.jpg" class="thumb-link" title="Shutterbug"
-                                data-size="1050x700">
-                                <img src="images/portfolio/shutterbug.jpg"
-                                    srcset="images/portfolio/shutterbug.jpg 1x, images/portfolio/shutterbug@2x.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Lady Shutterbug
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            Project Link
-                        </a>
-
-                        <span class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </span>
-
-                    </div> 
-                </div>
-
-            </div> 
-        </div> -->
-        <!--end masonry-wrap -->
-
-        <!-- <div class="testimonials-wrap" data-aos="fade-up">
-
-            <div class="row">
-                <div class="col-full testimonials-header">
-                    <h2 class="h1">Feedbacks from people I have worked with.</h2>
-                </div>
-            </div>
-
-            <div class="row testimonials">
-
-                <div class="col-full testimonials__slider">
-
-                    <div class="testimonials__slide">
-                        <img src="images/avatars/arnel.jpeg" alt="Author image" class="testimonials__avatar">
-                        <p>Very driven and methodical! Josias always gets it done and done right.</p>
-                        <div class="testimonials__author">
-                            Arnel Alicea
-                            <span>Tech Consultant</span>
-                        </div>
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator publication"></span>
+                        Patterns of Effective Human-Agent Teams
+                    </h3>
+                    <p class="paper-authors">
+                        K. Momose, T. Weekes, R. Mehta, C. Wright, <strong>J. Moukpe</strong>, and T. Eskridge
+                    </p>
+                    <p class="paper-venue">CHI EA '23: Extended Abstracts of the 2023 CHI Conference on Human Factors in
+                        Computing Systems, ACM, 2023</p>
+                    <div class="paper-links">
+                        <a href="https://dl.acm.org/doi/epdf/10.1145/3544549.3585608" class="paper-link" target="_blank"><i class="fas fa-file-pdf"></i> pdf</a>
+                        <a href="https://dl.acm.org/doi/10.1145/3544549.3585608" class="paper-link" target="_blank"><i class="fas fa-external-link-alt"></i> article</a>
                     </div>
-
-                    <div class="testimonials__slide">
-                        <img src="images/avatars/user-05.jpg" alt="Author image" class="testimonials__avatar">
-                        <p>Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas
-                            animi adipisci.
-                            Nisi eaque consequatur. Quasi voluptas eius distinctio. Atque eos maxime. Qui ipsam
-                            temporibus quisquam vel.</p>
-                        <div class="testimonials__author">
-                            Sundar Pichai
-                            <span>CEO, Google</span>
-                        </div>
-                    </div> end testimonials__slide
-
-                    <div class="testimonials__slide">
-                        <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonials__avatar">
-                        <p>I could not recommend him enough. He is a trusted friend and engineer</p>
-                        <div class="testimonials__author">
-                            Satya Nadella
-                            <span>CEO, Microsoft</span>
-                        </div>
-                    </div> end testimonials__slide
-
-                </div> 
-
-            </div> 
-
-        </div>  -->
-
-    </section> --> <!-- end s-works -->
-
-
-    <!-- stats
-    ================================================== -->
-    <!-- <section id="stats" class="s-stats">
-
-        <div class="row stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
-
-            <div class="col-block stats__col ">
-                <div class="stats__count">4</div>
-                <h5>Awards Received</h5>
-            </div>
-            <div class="col-block stats__col">
-                <div class="stats__count">855</div>
-                <h5>Github Contributions</h5>
-            </div>
-            <div class="col-block stats__col">
-                <div class="stats__count">19</div>
-                <h5>Projects Completed</h5>
-            </div>
-            <div class="col-block stats__col">
-                <div class="stats__count">32</div>
-                <h5>Testimonials</h5>
+                    <p class="paper-abstract">
+                        Explores the dynamics of human-agent collaboration, focusing on effective team patterns in
+                        AI-assisted environments.
+                    </p>
+                </div>
             </div>
 
-        </div> 
 
-    </section> end s-stats -->
-
-
-    <!-- contact
-    ================================================== -->
-    <section id="contact" class="s-contact">
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead subhead--light">Invitation</h3>
-                <h3 class="display-1 display-1--light">It's time to build and ship tech people love!</h3>
-            </div>
-        </div> <!-- end section-header -->
-
-        <div class="row">
-            <div class="col-full" data-aos="fade-up">
-                <h3 class="subhead subhead--light">Contact Me</h3>
-                <!-- <h2 class="display-1 display-1--light">Let's get in touch.</h2> -->
-                <p>
-                    <a href="mailto:josiasmoukpe@gmail.com" class="contact-email">josiasmoukpe@gmail.com</a>
-                </p>
-            </div> <!-- end contact-main -->
-
-        </div> <!-- end row -->
-
-        <div class="row">
-
-            <!-- <div class="col-five tab-full contact-secondary" data-aos="fade-up">
-                <h3 class="subhead subhead--light">Where To Find Me</h3>
-
-                <p class="contact-address">
-                    4604 Crosswind Ct, <br>
-                    Apt 06<br>
-                    Melbourne, FL<br>
-                    32901 US
-                </p>
-            </div> end contact-secondary -->
-
-            <div class="col-five tab-full contact-secondary" data-aos="fade-up">
-                <h3 class="subhead subhead--light">Follow Me</h3>
-
-                <ul class="contact-social">
-                    <li>
-                        <a href="https://twitter.com/jomoukpe"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <!-- <li>
-                        <a href="https://www.instagram.com/lejosiasmoukpe/"><i class="fab fa-instagram"></i></a>
-                    </li> -->
-                    <li>
-                        <a href="https://github.com/ERUD1T3"><i class="fab fa-github"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/jmoukpe/"><i class="fab fa-linkedin"></i></a>
-                    </li>
-                    <!-- <li>
-                        <a href="https://medium.com/@The_3rudite"><i class="fab fa-medium"></i></a>
-                    </li> -->
-                </ul> <!-- end contact-social -->
-
-                <!-- <div class="contact-subscribe">
-                    <form id="mc-form" class="group mc-form" novalidate="true">
-                        <input type="email" value="" name="EMAIL" class="email" id="mc-email"
-                            placeholder="Email Address" required="">
-                        <input type="submit" name="subscribe" value="Subscribe">
-                        <label for="mc-email" class="subscribe-message"></label>
-                    </form>
-                </div> end contact-subscribe -->
-            </div> <!-- end contact-secondary -->
-
-        </div> <!-- end row -->
-
-        <div class="row">
-            <div class="col-full cl-copyright">
-                <span>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
-                        document.write(new Date().getFullYear());
-                    </script> All rights reserved | powered by <a href="https://colorlib.com"
-                        target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
-            </div>
-        </div>
-
-        <div class="cl-go-top">
-            <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
-        </div>
-
-    </section> <!-- end s-contact -->
-
-
-    <!-- photoswipe background
-    ================================================== -->
-    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
-
-        <div class="pswp__bg"></div>
-        <div class="pswp__scroll-wrap">
-
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-
-            <div class="pswp__ui pswp__ui--hidden">
-                <div class="pswp__top-bar">
-                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close"
-                        title="Close (Esc)"></button> <button class="pswp__button pswp__button--share"
-                        title="Share"></button> <button class="pswp__button pswp__button--fs"
-                        title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom"
-                        title="Zoom in/out"></button>
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                            <div class="pswp__preloader__cut">
-                                <div class="pswp__preloader__donut"></div>
-                            </div>
-                        </div>
+            <!-- Project 1 -->
+            <div class="paper-item" data-type="project">
+                <div class="paper-thumbnail">
+                    <img src="assets/images/works/ocr.png" alt="Real-Time License Plate Recognition">
+                </div>
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator project"></span>
+                        Real-Time License Plate Recognition with YOLOv8
+                    </h3>
+                    <p class="paper-authors">
+                        <strong>J. Moukpe</strong>
+                    </p>
+                    <p class="paper-venue">Nov 2023</p>
+                    <div class="paper-links">
+                        <a href="https://github.com/ERUD1T3/yolo-g8/tree/main" class="paper-link" target="_blank"><i class="fab fa-github"></i> code</a>
                     </div>
-                </div>
-                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                    <div class="pswp__share-tooltip"></div>
-                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
+                    <p class="paper-abstract">
+                        A high-speed, real-time license plate detection and reading system powered by Ultralytics' YOLOv8. Designed
+                        for practical applications in traffic monitoring and automated access control, it delivers
+                        rapid and accurate recognition in diverse conditions.
+                    </p>
                 </div>
             </div>
 
+            <!-- Project 2 -->
+            <!-- <div class="paper-item" data-type="project">
+                <div class="paper-thumbnail">
+                    <img src="assets/self_driving.jpg" alt="LLMs for Artistic Writing">
+                </div>
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator project"></span>
+                        LLMs for Artistic Writing (without OpenAI API)
+                    </h3>
+                    <p class="paper-authors">
+                        <strong>Josias Moukpe</strong>
+                    </p>
+                    <p class="paper-venue">Dec 2022</p>
+                    <div class="paper-links">
+                        <a href="https://github.com/ERUD1T3" class="paper-link"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                    <p class="paper-abstract">
+                        Trained poetic and lyrical LLMs to generate novel poems and short-form rap lyrics using the
+                        Huggingface Transformers library,
+                        and open-source 17th-century poetry and 21st-century lyrics datasets. Models trained in causal
+                        language modeling
+                        for entertaining generative results.
+                    </p>
+                </div>
+            </div> -->
+
+            <!-- Project 3 -->
+            <div class="paper-item" data-type="project">
+                <div class="paper-thumbnail">
+                    <img src="assets/images/works/apbt.png" alt="Augmented Population-based Training">
+                </div>
+                <div class="paper-content">
+                    <h3 class="paper-title">
+                        <span class="paper-type-indicator project"></span>
+                        Augmented Population-based Training
+                    </h3>
+                    <p class="paper-authors">
+                        <strong>J. Moukpe</strong>
+                    </p>
+                    <p class="paper-venue">Apr 2022</p>
+                    <div class="paper-links">
+                        <a href="https://github.com/Machine-Earning/augmented-population-based-training" class="paper-link" target="_blank"><i class="fab fa-github"></i> code</a>
+                        <a href="https://www.loom.com/share/bc64ab99f04e4d658918027a880e8f22" class="paper-link" target="_blank"><i class="fas fa-play"></i> demo</a>
+                    </div>
+                    <p class="paper-abstract">
+                        Improved Google Deepmind's Population-Based Training algorithm with Neural Architecture Search
+                        capabilities in raw Python.
+                        The improved algorithm trains a population of neural networks in a genetic algorithm fashion and
+                        optimizes jointly for
+                        performance (highest accuracy) and efficiency (smallest model architectures) in the same
+                        training loop.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Miscellanea Section -->
+        <section class="section miscellanea-section" id="misc">
+            <h2 class="section-title">Miscellanea</h2>
+
+            <div class="misc-content">
+                <!-- Awards -->
+                <div class="misc-section">
+                    <h3 class="misc-subtitle"><i class="fas fa-trophy"></i> Awards & Certifications</h3>
+                    <ul class="misc-list">
+                        <li>
+                            <span class="misc-item-title">Open Philanthropy / Coefficient Giving Grant</span>
+                            <span class="misc-item-venue">Algorithmic Research Group, 2025</span>
+                        </li>
+                        <li>
+                            <span class="misc-item-title">NVIDIA Inception Program</span>
+                            <span class="misc-item-venue">Make-Print, 2024</span>
+                        </li>
+                        <li>
+                            <span class="misc-item-title">NASA Space Technology Research Grant</span>
+                            <span class="misc-item-venue">Florida Institute of Technology, 2023-2025</span>
+                        </li>
+                        <li>
+                            <a href="https://research.google/programs-and-events/csrmp/" target="_blank"
+                                class="misc-link">
+                                <span class="misc-item-title">Google CS Research Mentorship Program (CSRMP)
+                                    Alumni</span>
+                            </a>
+                            <span class="misc-item-venue">Google Research, 2022</span>
+                        </li>
+                        <li>
+                            <a href="https://blog.swellstartups.com/make-print-takes-home-5k-2nd-place-prize"
+                                target="_blank" class="misc-link">
+                                <span class="misc-item-title">Launch Your Venture Competition 2nd Place Prize</span>
+                            </a>
+                            <span class="misc-item-venue">Embry-Riddle Aeronautical University, 2021</span>
+                        </li>
+                        <li>
+                            <span class="misc-item-title">SAFe5 Agile Certification</span>
+                            <span class="misc-item-venue">Scaled Agile, 2020</span>
+                        </li>
+                        <li>
+                            <span class="misc-item-title">Summa Cum Laude</span>
+                            <span class="misc-item-venue">B.Sc. Computer Engineering, GPA: 3.93/4.00, 2020</span>
+                        </li>
+                        <li>
+                            <span class="misc-item-title">Dean's List</span>
+                            <span class="misc-item-venue">Florida Institute of Technology, 2016-2020</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Services & Technical Highlights -->
+                <div class="misc-section">
+                    <h3 class="misc-subtitle"><i class="fas fa-code"></i> Technical Highlights</h3>
+                    <ul class="misc-list">
+                        <li>
+                            <span class="misc-item-title">Safety-Critical Aviation Systems</span>
+                            <span class="misc-item-venue">ACAS-X, C919 (DO-178C/DO-254 certified)</span>
+                        </li>
+                        <li>
+                            <span class="misc-item-title">UE4 Simulation Platform Development</span>
+                            <span class="misc-item-venue">UAV/UGV Testing (Tomahawk Robotics acquisition: $120M)</span>
+                        </li>
+                        <li>
+                            <span class="misc-item-title">Deep Learning Frameworks</span>
+                            <span class="misc-item-venue">PyTorch, TensorFlow, HuggingFace Transformers</span>
+                        </li>
+                        <li>
+                            <span class="misc-item-title">Full-Stack Development</span>
+                            <span class="misc-item-venue">ReactJS, NodeJS, Flutter, Cloud Architecture</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Talks & Press -->
+                <div class="misc-section">
+                    <h3 class="misc-subtitle"><i class="fas fa-microphone"></i> Talks & Press</h3>
+                    <ul class="misc-list">
+                        <li>
+                            <a href="https://mynews13.com/fl/orlando/news/2024/05/10/first-space-coast-hackathon-this-weekend"
+                                target="_blank" class="misc-link">
+                                <span class="misc-item-title">Spectrum News 13 Feature: Space Coast Hard Tech
+                                    Hackathon</span>
+                            </a>
+                            <span class="misc-item-venue">Spectrum News 13, May 2024</span>
+                        </li>
+                        <li>
+                            <span class="misc-item-title">Deep Learning Meetups Talks</span>
+                            <span class="misc-item-venue">Florida Institute of Technology, 2022-2024</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Extras -->
+                <div class="misc-section">
+                    <h3 class="misc-subtitle"><i class="fas fa-plus-circle"></i> Extras</h3>
+                    <ul class="misc-list">
+                        <li>
+                            <a href="literature/" class="misc-resource-link" target="_blank" rel="noopener noreferrer">
+                                <span class="misc-item-title">Paper Reading & Summary Lists</span>
+                                <span class="misc-item-venue">Curated summaries on representation learning, imbalanced
+                                    learning, and more</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="operating-manual.html" class="misc-resource-link" target="_blank"
+                                rel="noopener noreferrer">
+                                <span class="misc-item-title">Operating Manual</span>
+                                <span class="misc-item-venue">How I operate and the systems I build</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="section map-section" id="origin">
+            <div class="map-grid">
+                <div class="map-text">
+                    <h2 class="section-title">Global Origins</h2>
+                    <p>
+                        Originally from <strong>Lomé, Togo</strong>. Sharpened in the US aerospace sector.
+                        I operate with a <strong>borderless mindset</strong>, treating geography as an abstraction while
+                        building high-leverage technology that scales globally from Day 1.
+                    </p>
+                </div>
+                <div class="map-container">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=1.1500,6.0800,1.3000,6.1800&layer=mapnik&marker=6.1319,1.2228"
+                        title="Map of Lomé, Togo">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Josias Moukpe. All rights reserved.</p>
         </div>
+    </footer>
 
-    </div> <!-- end photoSwipe background -->
-
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader">
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <button class="mobile-menu-close" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="mobile-nav-links">
+                <a href="mailto:josiasmoukpe@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="assets/resume_cv.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Resume/CV</a>
+                <a href="https://scholar.google.com/citations?user=W1DOvzUAAAAJ" target="_blank"><i
+                        class="ai ai-google-scholar"></i> Google Scholar</a>
+                <a href="https://github.com/ERUD1T3" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/jmoukpe/" target="_blank"><i class="fab fa-linkedin"></i>
+                    LinkedIn</a>
+                <a href="https://twitter.com/jomoukpe" target="_blank"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+            </div>
         </div>
     </div>
 
-
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-    <script src="github-widget-master/github-widget.min.js"></script>
+    <script src="js/academic.js"></script>
 </body>
 
 </html>

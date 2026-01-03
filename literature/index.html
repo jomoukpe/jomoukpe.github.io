@@ -13,24 +13,8 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(45deg, #8B0000, #FF4500);
-            background-size: 200% 200%;
-            animation: Gradient 3s ease infinite;
+            background: #f5f5f5;
             color: #333;
-        }
-
-        @keyframes Gradient {
-            0% {
-                background-position: 0% 50%
-            }
-
-            50% {
-                background-position: 100% 50%
-            }
-
-            100% {
-                background-position: 0% 50%
-            }
         }
 
         .root-container {
@@ -43,44 +27,14 @@
             border-radius: 8px;
         }
 
-        h2 {
+        h1 {
             color: #444;
             margin-bottom: 1em;
         }
 
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1em;
-            justify-content: center;
-        }
-
-        .card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            padding: 1em;
-            width: calc(50% - 1em);
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .card a {
-            color: #007BFF;
-            text-decoration: none;
-            font-style: italic;
-            display: block;
-            margin: 0.5em 0;
-            padding: 0.25em;
-            overflow-wrap: break-word;
-        }
-
-        .card a b {
-            font-size: 24px;
-        }
-
-        .card a:hover {
-            text-decoration: underline;
+        h2 {
+            color: #444;
+            margin-bottom: 1em;
         }
 
         .external-link {
@@ -90,7 +44,44 @@
 
         .external-link a {
             font-size: 16px;
-            color: #8B0000;
+            color: #007BFF;
+            text-decoration: underline;
+        }
+
+        .list-container {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list-container li {
+            margin-bottom: 1em;
+            padding: 0.75em;
+            border-left: 3px solid #007BFF;
+            background-color: #f9f9f9;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .list-container li:hover {
+            border-left-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .list-container li a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+        }
+
+        .list-container li a b {
+            font-size: 18px;
+        }
+
+        .list-container li a:hover {
             text-decoration: underline;
         }
     </style>
@@ -103,26 +94,26 @@
         </div>
         <h1>Literature Summaries Links</h1>
         <br><br>
-        <div class="card-container">
-            <div class="card">
+        <ul class="list-container">
+            <li>
                 <a href="./representation"><b>Representation Learning Papers</b></a>
-            </div>
-            <div class="card">
+            </li>
+            <li>
                 <a href="./pertinentml"><b>Pertinent Machine Learning Papers</b></a>
-            </div>
-            <div class="card">
+            </li>
+            <li>
                 <a href="./mypapers"><b>Published and Arxiv Papers</b></a>
-            </div>
-            <div class="card">
+            </li>
+            <li>
                 <a href="./imbalanced_classification"><b>Imbalanced Classification Papers</b></a>
-            </div>
-            <div class="card">
+            </li>
+            <li>
                 <a href="./imbalanced_regression"><b>Imbalanced Regression Papers</b></a>
-            </div>
-            <div class="card">
+            </li>
+            <li>
                 <a href="./sepforecasting"><b>SEP Forecasting Papers and Theses</b></a>
-            </div>
-        </div>
+            </li>
+        </ul>
         <br><br>
     </div>
 </body>
