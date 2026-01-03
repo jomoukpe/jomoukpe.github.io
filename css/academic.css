@@ -657,6 +657,7 @@ ul, ol {
 }
 
 /* Add fade gradients to indicate scrolling */
+/* Temporarily disabled
 .timeline-container::before,
 .timeline-container::after {
     content: "";
@@ -670,14 +671,15 @@ ul, ol {
 }
 
 .timeline-container::before {
-    left: 50px; /* Offset for left button */
+    left: 50px;
     background: linear-gradient(to right, var(--bg-primary), transparent);
 }
 
 .timeline-container::after {
-    right: 50px; /* Offset for right button */
+    right: 50px;
     background: linear-gradient(to left, var(--bg-primary), transparent);
 }
+*/
 
 .timeline-nav {
     width: 34px; /* Reduced by 15% from 40px */
@@ -1454,7 +1456,14 @@ ul, ol {
         justify-content: flex-start;
     }
 
+    .paper-links {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
     .footer p {
         text-align: left;
+        font-size: 0.65rem;
+        line-height: 1.2;
     }
 }
