@@ -1453,4 +1453,8 @@ ul, ol {
         gap: 1rem;
         justify-content: flex-start;
     }
+
+    .footer p {
+        text-align: left;
+    }
 }
