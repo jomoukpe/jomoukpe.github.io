@@ -828,6 +828,28 @@ ul, ol {
     transform: scale(1.1);
 }
 
+.timeline-description {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    width: 240px; /* Allow it to be wider than the item itself */
+    max-width: none;
+    line-height: 1.4;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 100%; /* Position below the date */
+    pointer-events: none;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.timeline-item:hover .timeline-description {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 /* Removed old .timeline-line since we use border-bottom now */
 .timeline-line {
     display: none;
