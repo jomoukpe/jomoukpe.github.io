@@ -538,6 +538,7 @@
     const defaultText = "Hover over an event to see details.";
 
     timelineItems.forEach(item => {
+        // Hover for desktop
         item.addEventListener('mouseenter', () => {
             const description = item.getAttribute('data-description');
             if (description) {
@@ -555,6 +556,19 @@
             // For now, let's keep the last selected as it's less jumpy
             // if (descriptionText) descriptionText.textContent = defaultText;
             // if (detailsContainer) detailsContainer.classList.remove('active');
+        });
+
+        // Tap for mobile
+        item.addEventListener('click', () => {
+            const description = item.getAttribute('data-description');
+            if (description) {
+                if (descriptionText) {
+                    descriptionText.textContent = description;
+                }
+                if (detailsContainer) {
+                    detailsContainer.classList.add('active');
+                }
+            }
         });
     });
 
