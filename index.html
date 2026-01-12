@@ -278,12 +278,13 @@
                     <div class="interest-description">
                         Developing a generalist cognitive core as a foundation for generalist agents. The architecture
                         integrates
-                        <b>large multimodal reasoning VLAs</b> with <b>predictive world models</b> and <b>long-term
+                        <b>large multimodal VLMs</b> with <b>efficient world dynamics models</b> and <b>long-term
                             memory</b>
-                        to ground the agent in reality.
-                        By leveraging <b>Monte Carlo Tree Search</b> guided by dense <b>value functions</b>, the system
+                        to ground the agent in reality and past experiences.
+                        By leveraging <b>Monte Carlo Tree Search</b> guided by <b>VLM-based value functions</b>, the system
                         performs deep lookahead
                         search.
+                        An <b>inverse dynamics action flow model</b> produces the required action chunks to execute the strategies found.
                         When embedded in an open-ended <b>self-play RL</b> environment, this creates an autocurriculum
                         with unlimited experiential data, allowing
                         the agent to iteratively discover novel strategies and scale its capabilities to superhuman
@@ -300,15 +301,14 @@
                     </div>
                     <div class="interest-description">
                         Extending the generalist cognitive core into physical reality. Focusing on
-                        <b>cross embodiment</b> where agentic architectures are deployed across diverse morphologies,
+                        <b>cross embodiment</b> where generalist architectures are deployed across diverse morphologies,
                         including humanoids, drones, and autonomous vehicles.
 
-                        By utilizing <b>flow matching</b> and <b>efficient world models</b>,
-                        <b>generalist robot policies</b> are developed to treat control as a joint generative process of
-                        video and action.
+                        The full architecture treats control as a joint generative process: the <b>efficient world dynamics model</b>
+                        generates <b>latent video</b> futures, while the morphology-grounded <b>inverse dynamics action flow model</b>
+                        produces the required <b>sequence of actions</b>.
                         This paradigm enables <b>zero-shot generalization</b> in unstructured real-world environments
-                        without
-                        the need for explicit reward engineering or task-specific fine-tuning.
+                        without the need for explicit reward engineering or task-specific fine-tuning.
                     </div>
                 </li>
 
